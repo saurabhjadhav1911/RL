@@ -102,8 +102,8 @@ def main():
             new_state,reward,done,info= env.step(action)
             new_state=new_state.reshape(1,2)
             dqn.remember(cur_state,action,reward,new_state,done)
-            dqn.train_step(cur_state,action,reward,new_state,done)
-            dqn.train_target()
+            #dqn.train_step(cur_state,action,reward,new_state,done)
+            #dqn.train_target()
             cur_state=new_state
             if done:
                 break
