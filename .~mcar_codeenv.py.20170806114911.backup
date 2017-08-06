@@ -96,7 +96,7 @@ def main():
         new_state=cur_state
         score = 0
         for step in range(sim_steps):
-            #env.render()
+            env.render()
             action=env.action_space.sample()
             action=dqn.act(cur_state)
             new_state,reward,done,info= env.step(action)

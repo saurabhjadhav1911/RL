@@ -96,14 +96,14 @@ def main():
         new_state=cur_state
         score = 0
         for step in range(sim_steps):
-            #env.render()
+            env.render()
             action=env.action_space.sample()
             action=dqn.act(cur_state)
             new_state,reward,done,info= env.step(action)
             new_state=new_state.reshape(1,2)
             dqn.remember(cur_state,action,reward,new_state,done)
-            dqn.train_step(cur_state,action,reward,new_state,done)
-            dqn.train_target()
+            #dqn.train_step(cur_state,action,reward,new_state,done)
+            #dqn.train_target()
             cur_state=new_state
             if done:
                 break
