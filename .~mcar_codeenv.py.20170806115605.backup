@@ -107,7 +107,7 @@ def main():
             cur_state=new_state
             if done:
                 break
-        print("trial number {} completed".format(i))
+        print("trial number {} completed",format(i))
     dqn.save()
     #print(dqn.memory)
 
