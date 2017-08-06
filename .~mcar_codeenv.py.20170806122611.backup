@@ -90,7 +90,7 @@ def main():
     except Exception as e:
         print(e)
     num_trials = 20
-    sim_steps = 2000
+    sim_steps = 500
     for i in range(num_trials):
         cur_state = env.reset().reshape(1,2)
         new_state=cur_state
