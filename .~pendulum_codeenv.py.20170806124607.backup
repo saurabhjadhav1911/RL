@@ -56,7 +56,7 @@ class DQN():
         if r<self.epsilon:
             return self.env.action_space.sample()
         else:
-            return np.argmax(self.model.predict(state)[0])
+            return self.env.action_space.sample()
     def save(self):
         self.model.save_weights("pendulum.model")
     def load(self):
@@ -91,22 +91,23 @@ def main():
         print(e)
     num_trials = 10
     sim_steps = 2000
-    for _ in range(num_trials):
+    for i in range(num_trials):
         cur_state = env.reset().reshape(1,dqn.ip)
         new_state=cur_state
         score = 0
         for step in range(sim_steps):
-            env.render()
+            #env.render()
             action=env.action_space.sample()
             action=dqn.act(cur_state)
             new_state,reward,done,info= env.step(action)
             new_state=new_state.reshape(1,dqn.ip)
             dqn.remember(cur_state,action,reward,new_state,done)
-            #dqn.train_step(cur_state,action,reward,new_state,done)
-            #dqn.train_target()
+            dqn.train_step(cur_state,action,reward,new_state,done)
+            dqn.train_target()
             cur_state=new_state
             if done:
                 break
+        print("trial number {} completed".format(i))
     dqn.save()
     #print(dqn.memory)
 

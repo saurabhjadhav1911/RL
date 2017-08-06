@@ -56,7 +56,7 @@ class DQN():
         if r<self.epsilon:
             return self.env.action_space.sample()
         else:
-            return np.argmax(self.model.predict(state)[0])
+            return self.env.action_space.sample()
     def save(self):
         self.model.save_weights("pendulum.model")
     def load(self):

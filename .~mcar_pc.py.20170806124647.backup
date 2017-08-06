@@ -21,10 +21,10 @@ class DQN():
         self.learning_rate=0.01
         self.env=env
         self.gamma=0.9
-        self.ip=self.env.observation_space.shape[0]
-        self.op=2#self.env.action_space.n
-        self.model=self.create_model(self.ip,self.op)
-        self.target_model=self.create_model(self.ip,self.op)
+        ip=self.env.observation_space.shape[0]
+        op=self.env.action_space.n
+        self.model=self.create_model(ip,op)
+        self.target_model=self.create_model(ip,op)
 
     def train_step(self,state,action,reward,new_state,done):
         batch_size=32
@@ -56,12 +56,12 @@ class DQN():
         if r<self.epsilon:
             return self.env.action_space.sample()
         else:
-            return np.argmax(self.model.predict(state)[0])
+            return self.env.action_space.sample()
     def save(self):
-        self.model.save_weights("pendulum.model")
+        self.model.save_weights("model.model")
     def load(self):
-        self.model.load_weights("pendulum.model")
-        self.target_model.load_weights("pendulum.model")
+        self.model.load_weights("model.model")
+        self.target_model.load_weights("model.model")
     def create_model(self,input_size,output_size):
         model=Sequential()
         model.add(Dense(24,input_shape=(input_size,)))
@@ -82,7 +82,7 @@ class DQN():
         self.target_model.set_weights(self.model.get_weights())
 
 def main():
-    env = gym.make("Pendulum-v0")
+    env = gym.make("MountainCar-v0")
     dqn=DQN(env)
     try:
         dqn.load()
@@ -90,9 +90,9 @@ def main():
     except Exception as e:
         print(e)
     num_trials = 10
-    sim_steps = 2000
+    sim_steps = 500
     for _ in range(num_trials):
-        cur_state = env.reset().reshape(1,dqn.ip)
+        cur_state = env.reset().reshape(1,2)
         new_state=cur_state
         score = 0
         for step in range(sim_steps):
@@ -100,7 +100,7 @@ def main():
             action=env.action_space.sample()
             action=dqn.act(cur_state)
             new_state,reward,done,info= env.step(action)
-            new_state=new_state.reshape(1,dqn.ip)
+            new_state=new_state.reshape(1,2)
             dqn.remember(cur_state,action,reward,new_state,done)
             #dqn.train_step(cur_state,action,reward,new_state,done)
             #dqn.train_target()

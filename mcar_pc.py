@@ -56,7 +56,7 @@ class DQN():
         if r<self.epsilon:
             return self.env.action_space.sample()
         else:
-            return self.env.action_space.sample()
+            return np.argmax(self.model.predict(state)[0])
     def save(self):
         self.model.save_weights("model.model")
     def load(self):
