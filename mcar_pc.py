@@ -89,7 +89,7 @@ def main():
         print("weights loaded")
     except Exception as e:
         print(e)
-    num_trials = 1
+    num_trials = 10
     sim_steps = 500
     for _ in range(num_trials):
         cur_state = env.reset().reshape(1,2)
