@@ -1,25 +1,31 @@
 #C:\Users\saurabhj\OneDrive\Documents\Python Scripts\RL
 #https://github.com/saurabhjadhav1911/RL.git
-import json
-def save():
-	config={}
-	config['Serial_config']={
-		'baud':115200,
-		'port':"COM6"
-	}
-	config['Reward_config']={
-		'ip':"192.168.0.103"
-	}
+try:
+	import json
+	import pyserial
 
-	s=json.dumps(config)
-	with open("config.json","w") as f:
-		f.write(s)
+	def save():
+		config={}
+		config['Serial_config']={
+			'baud':115200,
+			'port':"COM6"
+		}
+		config['Reward_config']={
+			'ip':"192.168.0.103"
+		}
 
-def read_config():
-	with open("config.json","r") as f:
-		s=f.read()
-		config=json.loads(s)
-	return config
-if __name__=='__main__':
-	config=read()
-	print(config['Serial_config']['baud'])
+		s=json.dumps(config)
+		with open("config.json","w") as f:
+			f.write(s)
+
+
+except Exception as e:
+	print(e)
+	logname=__file__.replace('.py','')
+	logname+='.log'
+	print(logname)
+	with open(logname,"w") as f:
+			f.write(str(e))
+
+#if __name__=='__main__':
+	

@@ -2,7 +2,7 @@
 
 ## Hardware Environment
 
-	#class Env
+	#class Env in env.py file
 	env=Env() 
 
 **Reset** 
@@ -40,3 +40,8 @@ wifi communication from android
 - formats and sizes of return variables ,functions  of of all modules
 - serial configurations of communications with arduino
 - ip and webpage info of commnicatuions via wifi
+
+
+	#reads the configuarations
+	from misc import *
+	config=read_config()
