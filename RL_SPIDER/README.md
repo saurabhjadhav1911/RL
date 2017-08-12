@@ -1,12 +1,11 @@
 # RL on Robot Spider
 
-The process contains following blocks:
-	
-	Hardware Environment
-	Mathematical Simulator
-	Agent
 
-Hardware Environment:
+**Hardware Environment**
+**Mathematical Simulator**
+**Agent**
+
+Hardware Environment
 	Reset (resets the environment and pull back the robot at starting position)
 	Step
 
