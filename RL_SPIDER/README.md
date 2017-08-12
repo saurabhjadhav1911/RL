@@ -33,4 +33,10 @@ wifi communication from android
 ## Agent
 
 
-	
+### Configuration
+
+*config.json*
+
+- formats and sizes of return variables ,functions  of of all modules
+- serial configurations of communications with arduino
+- ip and webpage info of commnicatuions via wifi
