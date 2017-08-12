@@ -2,10 +2,13 @@
 
 ## Hardware Environment
 
+	#class Env
+	env=Env() 
+
 **Reset** 
 
-	state=env.reset()
-resets the environment and pull back the robot at starting position
+	#resets the environment and pull back the robot at starting position
+	state=env.reset() 
 
 **Step**
 	
