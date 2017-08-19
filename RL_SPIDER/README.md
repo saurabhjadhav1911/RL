@@ -51,7 +51,9 @@ wifi communication from android
 
 
 	#reads the configuarations
+	
 	from misc import *
+	
 	config=read_config()
 	
 ### Multiprocessing
