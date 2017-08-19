@@ -1,5 +1,13 @@
 # RL on Robot Spider
 
+### Dependancies
+
+	numpy
+	pyserial
+	keras
+	theano/tensorflow
+
+
 ## Hardware Environment
 
 	#class Env in env.py file
@@ -47,4 +55,3 @@ wifi communication from android
 	config=read_config()
 	
 ### Multiprocessing
-
