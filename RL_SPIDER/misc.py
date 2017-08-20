@@ -1,4 +1,4 @@
-#C:\Users\saurabhj\OneDrive\Documents\Python Scripts\RL
+#C:\Users\saurabhj\OneDrive\Documents\Python Scripts\RL\RL_SPIDER
 #https://github.com/saurabhjadhav1911/RL.git
 import json
 def read_config():
