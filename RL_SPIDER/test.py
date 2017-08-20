@@ -9,7 +9,7 @@ def save():
 		'timeout':1
 	}
 	config['Reward_config']={
-		'ip':"192.168.0.103"
+		'mac':"ec:88:92:03:aa:2c"
 	}
 	config['Env_config']={
 		'action_space_size':12,
@@ -75,9 +75,23 @@ try:
 	from multiprocessing import Pool,Process
 	import qrcode
 	import cv2
-	img = qrcode.make(dt)
+	import numpy as np
+	import os
+	import sys
+	import subprocess
+	save()
+	#subprocess.call(['qr','"hi"','>','test2.png'])
+
+	'''
+	img = qrcode.make("dt")
+	img=np.array(img)
+	img=255*img
+	img.astype(np.uint8)
 	print(img)
-	
+	cv2.imshow("sdf",img)
+	cv2.waitKey(0)
+	cv2.destroyAllWindows()
+	'''
 except Exception as e:
 	print(e)
 	logname=__file__.replace('.py','')

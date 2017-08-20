@@ -1,9 +1,13 @@
 #C:\Users\saurabhj\OneDrive\Documents\Python Scripts\RL\RL_SPIDER\Reward
 #https://github.com/saurabhjadhav1911/RL.git
 import socket
+import sys
+sys.path.append("..")
+import misc
 
+print(sys.path)
 def Main():
-	host ='192.168.0.102'
+	host =misc.get_ip()
 	port =5000
 
 
@@ -31,4 +35,5 @@ def Main():
 
 if __name__=='__main__':
 	Main()
+
 

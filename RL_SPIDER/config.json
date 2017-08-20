@@ -1,1 +1,1 @@
-{"Env_config": {"default_action": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "action_space_size": 12}, "Serial_config": {"baud": 115200, "port": "COM6", "timeout": 1}, "Reward_config": {"ip": "192.168.0.103"}}
+{"Env_config": {"default_action": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "action_space_size": 12}, "Serial_config": {"baud": 115200, "port": "COM6", "timeout": 1}, "Reward_config": {"mac": "ec:88:92:03:aa:2c"}}
