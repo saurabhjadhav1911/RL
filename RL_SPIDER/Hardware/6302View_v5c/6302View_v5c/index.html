@@ -1,0 +1,456 @@
+<!doctype html>
+<html>
+  <head>
+  <!--
+  Copyright (c) 2015,2016 Joseph D. Steinmeyer (jodalyst)
+
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+-->
+<title>6.302.0x Plotter!</title>
+
+  <link rel="stylesheet" href="/static/jquery-ui.min.css">
+  <link rel="stylesheet" href="/static/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/jquery.mobile-1.4.5.min.css">
+  <link rel="stylesheet" type="text/css" href="static/gui_style.css">
+
+<!-- <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script> -->
+
+<!-- <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script> -->
+  <script src="/static/socket.io.js"></script> 
+  <script src="/static/jquery.js"></script> 
+  <script src="/static/jquery-ui.min.js"></script>
+  <script src="/static/d3.min.js"></script>  
+  <script src="/static/bootstrap.min.js"></script>
+  <script src="/static/jquery.mobile-1.4.5.min.js"></script>
+
+  <link rel="icon" 
+      type="image/gif" 
+      href="/static/favicon.gif">
+  </head>
+    <body>
+      <div class="row row-centered">
+        <div class="col-md-1"> </div>
+        <div class="col-md-11">
+	      <h1>6.302x Plotting and Control Environment</h1>
+          <h3>version 5</h3>
+        </div>
+      </div>
+      <div class="row row-min">
+        <div class="col-md-1"> </div>
+        <div class="col-md-3">
+	      <!--<h4>Follow these steps:</h4>
+	      <ul>
+	        <li>Make sure all state matrices and gain values (Kd, Ld) are correct in your uploaded Teensy code</li>
+	        <li>Start up GUI and set Direct to the direct value you ran your frequency sweeps with</li>
+	      </ul>-->
+	    </div>
+        <div class="col-md-3">
+          <select id="serialport"></select>
+          <select id ="baud">
+            <option value=9600>9600</option>
+            <option value=14400>14400</option>
+            <option value=19200>19200</option>
+            <option value=28800>28800</option>
+            <option value=38400>38400</option>
+            <option value=57600>57600</option>
+            <option value=115200 selected>115200</option>
+          </select>
+          <button id="connect">Connect Serial</button> 
+        </div>
+        <div class="col-md-3">
+	      <h3>Loop Headroom:</h3>
+	      <p id="headroom"> NOT YET CONNECTED</p> 
+	    </div>
+      </div>
+    
+      <div class="row row-centered">
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+	       <h3>Parameters:</h3>
+	    </div>
+      </div>
+      <div class="row row-centered">
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
+	      <label for="csv-maker">Generate CSV?:</label>
+	      <select name="csv-maker" id="csv" data-role="slider">
+	         <option value=0>OFF</option>
+	         <option value=1>ON </option>
+	      </select>
+        </div>
+        <div class="col-md-4">
+          <label for="alternator">Alternate Desired?:</label>
+	      <select name="alternator" id="alternator" data-role="slider">
+	        <option value=0>OFF</option>
+	        <option value=1>ON</option>
+	      </select>
+        </div>
+        <div class="col-md-2">
+        </div>
+      </div>
+    <div id="param_area">
+    </div>
+    <div id="plot_area">
+    </div>
+
+
+<script>
+
+var PLOT_WIDTH = 300;
+var PLOT_HEIGHT = 175;
+var HEADROOM_PRESENT = false;
+
+var ALREADY_BUILT = false;
+var TOGGLE_PARAM = '';
+
+var sliders = new Array();
+function slider_generate(name,min,max,resolution){
+    var newb = document.createElement("div"); 
+    $(newb).addClass('col-md-3');
+    var slider = document.createElement("input");
+    $(newb).append('<label for="'+name+'">'+name+':</label>');
+    $(newb).append('<input type="range" name="'+name+'" id="'+name+'" value="0" min="'+min+'" max="'+max+'" step='+resolution+' class="paramSlider">');
+    sliders.push({'name': name, 'obj':newb});
+}
+
+var plots = new Array();
+
+function plot_generate(name,min,max,datapoints){
+    var newb = document.createElement("div"); //create div
+    $(newb).addClass("sbs"); //make it sbs
+    var newtitle = document.createElement("div"); //make inside div
+    $(newtitle).addClass("plot_title").html(name); //make it title
+    var newplot = document.createElement("div"); //make another div
+    $(newplot).addClass("chart"); //make it a chart
+    $(newplot).prop('id',name); //call it appropriate name
+    $(newtitle).appendTo($(newb)); //add into sbs div
+    $(newplot).appendTo($(newb)); //add into sbs div
+    plots.push({'name':name,'plot':newb,'min':min, 'max':max, 'datapoints':datapoints});  //add entry to array.
+}
+
+function build_sliders(alt,csv){
+    var total_rows = Math.ceil(sliders.length/3);
+    var slider_count = 0;
+    for (var i = 0; i < total_rows; i++){
+      var new_row = document.createElement("div");
+      $(new_row).addClass("row row-centered");
+      var new_buffer1 = document.createElement("div");
+      $(new_buffer1).addClass("col-md-1");
+      $(new_buffer1).appendTo($(new_row));
+      for (var j = 0; j<3; j++){
+        if(slider_count < sliders.length){
+          $(sliders[slider_count]['obj']).appendTo($(new_row));
+          slider_count = slider_count+1;
+        }
+      }
+      var new_buffer2 = document.createElement("div");
+      $(new_buffer2).addClass("col-md-1");
+      $(new_buffer2).appendTo($(new_row));
+      $(new_row).appendTo($("#param_area")).trigger("create");         
+    } 
+};
+var plot_handlers = new Array();
+function build_plots(){
+    var rows,cols;
+    //figure out how many rows and columns of plots
+    switch (true){
+        case plots.length == 4:
+            rows = 2;
+            cols = 2;
+            break;
+        case plots.length == 3:
+            rows = 1;
+            cols = 3;
+            break;
+        case plots.length>4:
+            rows = Math.ceil(plots.length/3);
+            cols = 3;
+    }
+    var plot_count = 0
+    for (var i=0; i<rows;i++){
+        var new_row = document.createElement("div");
+        $(new_row).addClass("row row-centered");
+        var new_col = document.createElement("div");
+        $(new_col).addClass("col-md-12");
+        $(new_col).appendTo($(new_row));
+        for (var j=0; j<cols; j++){
+            if (plot_count < plots.length){
+                $(plots[plot_count]['plot']).appendTo($(new_col));
+                plot_count=plot_count+1;
+            }
+        }
+        $(new_row).appendTo($("#plot_area"));   
+    }
+    //angle =new LWChart("Angle","red",[-100, 100],175,PLOT_HEIGHT,PLOT_WIDTH,datapoints);
+    for (var i=0; i<plot_count;i++){
+        var name = plots[i]['name'];
+        var min = plots[i]['min'];
+        var max = plots[i]['max'];
+        var datapoints = plots[i]['datapoints'];
+        plot_handlers[name] = new LWChart(name,"red",[min,max],PLOT_HEIGHT,PLOT_WIDTH,datapoints);
+    }
+
+};
+    
+    
+
+var datapoints = 100
+var isActive;
+$(document).on('pageinit', function() {
+    isActive = true; //used for turning off plot updates when page not in focus
+    window.onfocus = function () { 
+      console.log("IN FOCUS");
+      isActive = true; 
+      $('.sbs').css('background-color',"#f9f9f9");
+    }; 
+    
+    window.onblur = function () { 
+      console.log("OUT OF FOCUS");
+      isActive = false; 
+      $('.sbs').css('background-color',"red");
+
+    }; 
+
+    //Handle sockets with server:
+ 
+    var socket = io('http://localhost:3000');
+
+    //Server sending socket containing list of valid serial ports:
+    socket.on('serial list display', function(portlist){
+        $("#serialport").children().remove().end();
+        $.each(portlist, function (i, item) {
+            $('#serialport').append($('<option>', { 
+                value: i,
+                text : item.comName 
+            }));
+            $('#serialport option[value='+i+']').prop('selected','selected').change();
+        });
+    });
+    //Connect/Disconnect to Serial Port
+    $('#connect').click(function(){
+        if($(this).text() != 'Connected (Click to Disconnect)'){
+            socket.emit('serial connect request',{state: ALREADY_BUILT});
+            $('#csv').val(0).slider('refresh');
+            $('#alternator').val(0).slider('refresh');
+            isActive = true;
+        }else{
+            socket.emit('serial disconnect request');
+        }
+    });
+    //Update switch to connected or disconnected based on return socket from server
+    socket.on('serial connected', function(){
+        $('#connect').text('Connected (Click to Disconnect)');
+    });
+    socket.on('serial disconnected', function(){
+        console.log("oh yeah disconnecting!");
+        $('#connect').text('Disconnected (Click to Connect)');
+    });
+    socket.on('state toggle', function(val){
+        console.log("toggling");
+        $('#'+TOGGLE_PARAM).val(parseFloat(val)).slider('refresh');
+    });
+
+    $('#csv').change(function(){
+        console.log("csv preference changed!");
+        socket.emit('csv state', $(this).val())
+    });
+    $('#alternator').change(function(){
+        console.log("desiring alternating!");
+        socket.emit('alternate state', $(this).val());
+    });
+
+    //update serial port upon selection: 
+    $('#serialport').change(function(){
+	console.log("serialport selected");
+        socket.emit('serial select', $('#serialport option:selected').text());
+    });
+    //upadte baud rate upon selection: 
+    $('#baud').change(function(){
+        socket.emit('baud select', $('#baud option:selected').text());
+    });
+
+    socket.on('startup',function(msg){
+        var alt = false;
+        var csv = false;
+        //WIPE THE SLATE CLEAN:
+        $("#plot_area").empty(); //do it this way because jquery needs to be cleaned properly
+        $("#param_area").empty();
+        sliders = new Array();
+        plots = new Array();
+        plot_handlers = new Array();
+        //-------
+        msg = msg+''; //convert to string...stupid I know.
+        var sets = msg.split("&");
+        var duration = 100; //default
+        for (var i = 0;  i < sets.length; i++){
+            var test = sets[i].split("~");
+            if (test[0] == "D"){
+                duration = parseFloat(test[1]);
+            }
+        }
+
+        for (var i = 0;  i < sets.length; i++){
+            console.log(sets[i]);
+            var test = sets[i].split("~");
+            console.log(test);
+            switch (test[0][0]){
+                case "A":
+                    alt=true;
+                    TOGGLE_PARAM = test[1];
+                    break;
+                case "C":
+                    csv=true;
+                    break;
+                case "S":
+                    var name = test[1];
+                    var lo = test[3];
+                    var hi = test[4];
+                    var res = test[5];
+                    slider_generate(name,lo,hi,res);
+                    break;
+                case "T":
+                    var name = test[1];
+                    var lo = test[3];
+                    var hi = test[4];
+                    plot_generate(name,parseFloat(lo),parseFloat(hi),duration);
+                    break;
+                case "H":
+                    HEADROOM_PRESENT = true;
+                    break;
+            }
+        }
+        build_sliders(alt,csv);
+        build_plots();
+        $('.paramSlider').change(function(){
+            var message = 'change';
+            console.log(message);
+            socket.emit(message,{id: $(this).attr('id'), val:$(this).val()}); 
+        }); 
+        socket.emit('all set from gui');
+        ALREADY_BUILT = true;
+    });
+
+    socket.on('setup slider', function(thing){
+        $("#"+thing[0]).val(parseFloat(thing[1])).slider("refresh");
+    })
+    
+    socket.on('note', function(msg) {
+        if (isActive){
+            if (HEADROOM_PRESENT){
+                h = msg.pop();
+	            document.getElementById("headroom").innerHTML= "more than " + h.toString() + " microseconds";
+            }
+            for (var i =0; i<msg.length; i++){
+                plot_handlers[plots[i]['name']].step(msg[i]);
+            }
+        }
+    });
+
+    $(document).on("click", ".scaler",function(){
+        var parent = plot_handlers[$(this).parent().parent().attr("id")];
+        //console.log($(this).attr("id"));
+        var parid = $(this).parent().parent().attr("id")
+        switch ($(this).attr("id")){
+            case parid+"VM":
+                var parent_range = parent.y_range[1] - parent.y_range[0];
+                var parent_mid = (parent.y_range[1] - parent.y_range[0])/2 + parent.y_range[0];
+                parent.y_range[1] = (parent.y_range[1] - parent_mid)*2+parent_mid;
+                parent.y_range[0] = parent_mid-(parent_mid - parent.y_range[0])*2;
+                break;
+            case parid+"VP":
+                var parent_range = parent.y_range[1] - parent.y_range[0];
+                var parent_mid = (parent.y_range[1] - parent.y_range[0])/2 + parent.y_range[0];
+                parent.y_range[1] = (parent.y_range[1] - parent_mid)*0.5+parent_mid;
+                parent.y_range[0] = parent_mid-(parent_mid - parent.y_range[0])*0.5;
+                break;
+            case parid+"RS":
+                parent.y_range =parent.y_range_orig.slice(0); 
+                break;
+            case parid+"OD":
+                var diff = parent.y_range[1] - parent.y_range[0];
+                var tp = diff*0.1;
+                parent.y_range[1] = parent.y_range[1]+tp;
+                parent.y_range[0]=parent.y_range[0]+tp;
+                break;
+            case parid+"OI":
+                var diff = parent.y_range[1] - parent.y_range[0];
+                var tp = diff*0.1;
+                parent.y_range[1] = parent.y_range[1]-tp;
+                parent.y_range[0] = parent.y_range[0]-tp;
+                break;
+        }
+        parent.update();
+    });
+}); 
+
+function LWChart(div_id,color,y_range,height,width,vals){
+    this.div_id = div_id;
+    this.color = color;
+    this.y_range_orig = y_range.slice(0); //used for reset mechanisms.
+    this.y_range = y_range;
+    this.vals = vals;
+    this.margin = {top: 20, right: 30, bottom: 30, left: 40};
+    this.data = d3.range(this.vals).map(function() { return 0; });
+    this.height = height - this.margin.top - this.margin.bottom;
+    this.width = width - this.margin.right - this.margin.left; 
+    this.setup = function(){
+        this.chart = d3.select("#"+this.div_id).append("svg")
+        .attr("id","svg_for_"+this.div_id).attr("width",width).attr("height",height).attr('style',"display:inline-block;").attr("class", "gsc");
+        this.y = d3.scale.linear().domain([this.y_range[0],this.y_range[1]]).range([this.height,0]);
+        this.x = d3.scale.linear().domain([0,this.vals-1]).range([0,this.width]);
+        this.x_axis = d3.svg.axis().scale(this.x).orient("bottom").ticks(20);
+        this.y_axis = d3.svg.axis().scale(this.y).orient("left").ticks(11);
+        this.x_grid = d3.svg.axis().scale(this.x).orient("bottom").ticks(20).tickSize(-this.height, 0, 0).tickFormat("");
+        this.y_grid = d3.svg.axis().scale(this.y).orient("left").ticks(11).tickSize(-this.width, 0, 0).tickFormat("");
+        this.chart.append("g").attr("transform","translate("+this.margin.left +","+ this.margin.top + ")");
+        this.chart.append("g").attr("class", "x axis")
+        .attr("transform","translate("+this.margin.left+","+(this.height+this.margin.top)+")").call(this.x_axis);
+        this.chart.append("g").attr("class", "y axis").attr("transform","translate("+this.margin.left+","+this.margin.top+")").call(this.y_axis); 
+        this.chart.append("g").attr("class", "grid")
+        .attr("transform","translate("+this.margin.left+","+(this.height+this.margin.top)+")").call(this.x_grid);
+        this.chart.append("g").attr("class", "grid").attr("transform","translate("+this.margin.left+","+this.margin.top+")").call(this.y_grid);
+        this.line = d3.svg.line().x(function(d, i) { return this.x(i)+this.margin.left; }.bind(this)).
+        y(function(d, i) { return this.y(d)+this.margin.top; }.bind(this));
+        this.clip_id = "clipper_"+this.div_id;
+        this.clipper = this.chart.append("clipPath").attr("id", this.clip_id)
+        .append("rect").attr("x",this.margin.left).attr("y",this.margin.top)
+        .attr("width",this.width).attr("height",this.height);
+        this.trace = this.chart.append("g").append("path").datum(this.data).attr("class","line")
+        .attr("d",this.line).attr("clip-path", "url(#"+this.clip_id+")");
+        }; 
+    this.setup();
+    //console.log(this.div_id);
+    $("#"+this.div_id).prepend("<div class ='button_container' id = \""+this.div_id+"BC2\" >"); 
+    $("#"+this.div_id+"BC2").append("<button class='scaler' id=\""+this.div_id+"VP\">Z+</button><br>");
+    $("#"+this.div_id+"BC2").append("<button class='scaler' id=\""+this.div_id+"RS\">RS</button><br>");
+    $("#"+this.div_id+"BC2").append("<button class='scaler' id=\""+this.div_id+"VM\">Z-</button><br>");
+    $("#"+this.div_id).prepend("<div class ='button_container' id = \""+this.div_id+"BC1\" >"); 
+    $("#"+this.div_id+"BC1").append("<button class='scaler' id=\""+this.div_id+"OI\">O+</button><br>");
+    $("#"+this.div_id+"BC1").append("<button class='scaler' id=\""+this.div_id+"OD\">O-</button><br>");
+    this.step = function(value){
+            this.data.push(value);
+            this.trace.attr("d",this.line).attr("transform",null).transition().duration(2).ease("linear").attr("transform","translate("+this.x(-1)+",0)");
+            this.data.shift();
+    };
+    this.update = function(){
+        d3.select("#svg_for_"+this.div_id).remove();
+        this.setup();
+    };
+};
+
+
+
+  </script>
+  </body>
+</html>

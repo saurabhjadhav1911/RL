@@ -20,7 +20,7 @@ class RLMaze():
         self.goal=goal or [0,3]
         self.nogoal= nogoal or [1,3]
         self.obstacles=obstacles or [[1,1]]
-        self.start=[5,0]
+        self.start=[2,0]
         self.pos=self.start
         self.maze=self.generate_maze()
         self.reward=self.maze
@@ -91,8 +91,10 @@ class RLMaze():
                     d=self.pixelpercell*(j+1)
                     cv2.rectangle(self.img,(b,a),(d,c),color, thickness=-1)
                     #print(a,b,c,d)
-        #cv2.imshow('Environment',self.img)
-        #cv2.waitKey(0)
+
+        cv2.imshow('Environment',self.img)
+        cv2.waitKey(0)
+        cv2.imwrite('Env.jpg',self.img)
         return self.img
 
     def getQ(self,state,action):
@@ -210,7 +212,7 @@ class RLMaze():
         self.reached=np.zeros([self.height,self.width])
         self.exit=1
 
-
-rl=RLMaze(height=6,width=8,goal=[0,7],nogoal=[1,7],start=[5,0],obstacles=[[1,1],[2,3],[4,5]])
+rl=RLMaze()
+#rl=RLMaze(height=6,width=8,goal=[0,7],nogoal=[1,7],start=[5,0],obstacles=[[1,1],[2,3],[4,5]])
 rl.learn()
 #W,W,S|E,E,S|W,S,S|N,E,E|W,W,S|N,W,W|E,E, N|N,N,W|S,S,W|S,E,E|N,W,W|S,E,E|W,N,N|N,N,W|S,E,E|W,N,N|W,N,N|S,S,W|E,N,N|S,S,E| N,N,E|W,W,S|S,S,W|E,E,S|W,N,N|N,N,E|W,S,S|N,N,E|W,S,S

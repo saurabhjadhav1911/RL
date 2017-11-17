@@ -1,0 +1,31 @@
+Traceback (most recent call last):
+  File "C:\Users\vaibhav\Documents\Python\RL\RL_SPIDER\main_ss.py", line 75, in <module>
+    Main()
+  File "C:\Users\vaibhav\Documents\Python\RL\RL_SPIDER\main_ss.py", line 63, in Main
+    env_process.start()
+  File "C:\Users\vaibhav\AppData\Local\Programs\Python\Python36\lib\multiprocessing\process.py", line 105, in start
+    self._popen = self._Popen(self)
+  File "C:\Users\vaibhav\AppData\Local\Programs\Python\Python36\lib\multiprocessing\context.py", line 223, in _Popen
+    return _default_context.get_context().Process._Popen(process_obj)
+  File "C:\Users\vaibhav\AppData\Local\Programs\Python\Python36\lib\multiprocessing\context.py", line 322, in _Popen
+    return Popen(process_obj)
+  File "C:\Users\vaibhav\AppData\Local\Programs\Python\Python36\lib\multiprocessing\popen_spawn_win32.py", line 33, in __init__
+    prep_data = spawn.get_preparation_data(process_obj._name)
+  File "C:\Users\vaibhav\AppData\Local\Programs\Python\Python36\lib\multiprocessing\spawn.py", line 143, in get_preparation_data
+    _check_not_importing_main()
+  File "C:\Users\vaibhav\AppData\Local\Programs\Python\Python36\lib\multiprocessing\spawn.py", line 136, in _check_not_importing_main
+    is not going to be frozen to produce an executable.''')
+RuntimeError: 
+        An attempt has been made to start a new process before the
+        current process has finished its bootstrapping phase.
+
+        This probably means that you are not using fork to start your
+        child processes and you have forgotten to use the proper idiom
+        in the main module:
+
+            if __name__ == '__main__':
+                freeze_support()
+                ...
+
+        The "freeze_support()" line can be omitted if the program
+        is not going to be frozen to produce an executable.

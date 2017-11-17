@@ -24,6 +24,13 @@ def get_ip():
 			line=line.split()
 			return line[0]
 
+def consumer(q):
+    while True:
+        while q.empty() is False:
+            print(q.get())
+        time.sleep(0.017)
+
+
 if __name__=='__main__':
 	print(get_ip())
 
