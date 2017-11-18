@@ -12,21 +12,27 @@ import os
 import traceback
 
 class Sim():
-	"""docstring for Env"""
-	def __init__(self,config):
-		print('Sim created')
-		self.output_mem=deque(maxlen=1000)
+    """docstring for Env"""
+    def __init__(self,config):
+        print('Sim created')
+        self.output_mem=deque(maxlen=1000)
 
-	def render_sim(self,y,yt):
+    def render_sim(self,y,yt):
         img=255*np.ones((self.size),dtype=np.uint8)
         y=(y-125)*0.008159981
         cv2.circle(img,(int(300+200*np.sin(y)),int(300+200*np.cos(y))),20,(0),-1)
         cv2.circle(img,(int(300+200*np.sin(yt)),int(800+200*np.cos(yt))),20,(0),-1)
         cv2.imshow('window',img)
         cv2.waitKey(1)
-
-	def run(self,recieve_que,send_que):
-		previousTime = time.clock()
+    def generate_step(self,recieve_que,send_que):
+        val=0
+        while True:
+            send_que.put(val)
+            print(val)
+            val=180-val
+            time.sleep(2)
+    def run(self,recieve_que,send_que):
+        previousTime = time.clock()
         #plt.ion()
         last_time=time.clock()
         nt=0
@@ -46,10 +52,10 @@ class Sim():
         cv2.destroAllWindows()
 
 def main():
-	config=read_config()
-	sim=Sim(config)
-	
-	
+    config=read_config()
+    sim=Sim(config)
+    
+    
 if __name__ == '__main__':
-	main()
-		
+    main()
+        

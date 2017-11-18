@@ -74,7 +74,7 @@ class Plot():
                 nt+=1
             self.render_gym()
             fps=1.0/(time.clock()-last_time)
-            #print("loop running on {} fps with {} recieve speed".format(fps,(nt-pn)*fps))
+            print("loop running on {} fps with {} recieve speed".format(fps,(nt-pn)*fps))
             pn=nt
             last_time=time.clock()
             previousTime = time.clock()

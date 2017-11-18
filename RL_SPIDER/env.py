@@ -6,6 +6,7 @@ import multiprocessing
 import time
 import traceback
 value=None
+nf=0
 class Env():
     """docstring for Env"""
     def __init__(self,config):
@@ -28,6 +29,7 @@ class Env():
         #self.serial.write(line)
 
     def read_write_state(self,q,r):
+
         flag=False
         while r.empty() is False:
             flag=True
@@ -45,6 +47,7 @@ class Env():
             try:
                 if c is '|':
                     #dta=data
+                    #nf+=1
                     value=int(self.data)
                     #print(dta)
                     q.put(value)

@@ -14,6 +14,7 @@ from collections import deque
 import gym
 import Env
 import Plot
+import Sim
 import sys
 import os
 import traceback
@@ -34,8 +35,9 @@ def reward_process_target(recieve_que,send_que,config):
     print(config['GUI_config']['plot_size'])
 
 def Sim_process_target(recieve_que,send_que,config):
-    sim=Sim(config)
-    sim.run(recieve_que,send_que)
+    sim=Sim.Sim(config)
+    #sim.run(recieve_que,send_que)
+    sim.generate_step(recieve_que,send_que)
 
 def Env_process_target(recieve_que,send_que,config):
     print('Env process start')

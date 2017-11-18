@@ -1,7 +1,7 @@
 Traceback (most recent call last):
-  File "C:\Users\vaibhav\Documents\Python\RL\RL_SPIDER\main_ss.py", line 75, in <module>
+  File "C:\Users\vaibhav\Documents\Python\RL\RL_SPIDER\main_ss.py", line 74, in <module>
     Main()
-  File "C:\Users\vaibhav\Documents\Python\RL\RL_SPIDER\main_ss.py", line 63, in Main
+  File "C:\Users\vaibhav\Documents\Python\RL\RL_SPIDER\main_ss.py", line 62, in Main
     env_process.start()
   File "C:\Users\vaibhav\AppData\Local\Programs\Python\Python36\lib\multiprocessing\process.py", line 105, in start
     self._popen = self._Popen(self)
