@@ -45,4 +45,11 @@ class Sim():
             previousTime = time.clock()
         cv2.destroAllWindows()
 
+def main():
+	config=read_config()
+	sim=Sim(config)
+	
+	
+if __name__ == '__main__':
+	main()
 		
