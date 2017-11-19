@@ -24,6 +24,11 @@ def get_ip():
 			line=line.split()
 			return line[0]
 
+def save_config(config):
+	s=json.dumps(config)
+	with open("config.json","w") as f:
+		f.write(s)
+
 def consumer(q):
     while True:
         while q.empty() is False:

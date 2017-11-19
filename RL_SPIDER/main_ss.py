@@ -14,15 +14,11 @@ from collections import deque
 import gym
 import Env
 import Plot
-import Sim
+import sim
 import sys
 import os
 import traceback
 #sys.path.append(os.path.join(os.path.dirname(__file__),'..'))
-
-
-
-
 
 def plot_process_target(recieve_que,send_que,config):
     print('Plot process start')

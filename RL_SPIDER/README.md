@@ -40,7 +40,6 @@ wifi communication from android
 ## Mathematical Simulator
 ## Agent
 
-
 ### Configuration
 
 *config.json*
