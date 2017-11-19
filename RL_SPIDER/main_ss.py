@@ -76,8 +76,7 @@ try:
 except Exception as e:
     exc_traceback=traceback.format_exc()
     print(exc_traceback)
-    logname=__file__.replace('.py','')
-    logname+='.log'
+    logname=__file__.replace('.py','.log')
     print("error see file {}".format(logname))
     with open(logname,"w") as f:
             f.write(str(exc_traceback))
