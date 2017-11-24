@@ -25,27 +25,28 @@ class UrlTree():
 	def put(self,index,data):
 		if (len(index) > 1):
 			if index[0] in self.childs:
-				self.childs[index[0]].put(index[1:],data[1:])
+				self.childs[index[0]].put(index[1:],data)
 			else:
 				self.childs[index[0]]=UrlTree(index[0])
-				self.childs[index[0]].put(index[1:],data[1:])
+				self.childs[index[0]].put(index[1:],data)
 		else:
 			if index[0] in self.childs:
-				self.childs[index[0]].data=data[0]
+				self.childs[index[0]].data=data
 			else:
 				self.childs[index[0]]=UrlTree(index[0])
-				self.childs[index[0]].data=data[0]
+				self.childs[index[0]].data=data
+
 	def print_tree(self,n=0):
 		g=""
 		for i in range(n):
-			g+="	" 
+			g+="    " 
 		print(g+self.url)
 		for i in self.childs.keys():
-			self.childs[i].print(n+1)
+			self.childs[i].print_tree(n+1)
 
 	def get():
 		pass
-		
+
 	def savedata():
 		pass
 
@@ -55,8 +56,9 @@ class WebScraperClient(QWebPage):
         self.app = QApplication(sys.argv)
         QWebPage.__init__(self)
         self.url = "https://www.quora.com/topic/Graduate-Aptitude-Test-in-Engineering-GATE" if url is None else url
+        self.base_url = "https://www.quora.com"
         #self.url = "https://www.google.co.in" if url is None else url
-        self.urltree=UrlTree(self.url,data)
+        self.urltree=UrlTree(self.base_url)
         try:
             self.page = self.load_saved_page(self.url)
             print('loaded saved page')
@@ -108,15 +110,14 @@ class WebScraperClient(QWebPage):
 
     def get_urls(self, soup=None):
         soup = self.soup if soup is None else soup
-        return [element for element in soup.find_all('a', class_='question_link')]
-
+        return [self.urltree.put([self.base_url,element['href']],None) for element in soup.find_all('a', class_='question_link')]
 
 
 def main():
     # print(dir(WebScraperClient))
     wb = WebScraperClient()
-    for el in wb.get_urls():
-    	print(el['href'])
+    wb.get_urls()
+    wb.urltree.print_tree()
 
 if __name__ == '__main__':
     main()
