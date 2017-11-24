@@ -93,8 +93,6 @@ class RLMaze():
                     #print(a,b,c,d)
 
         cv2.imshow('Environment',self.img)
-        cv2.waitKey(0)
-        cv2.imwrite('Env.jpg',self.img)
         return self.img
 
     def getQ(self,state,action):
@@ -193,7 +191,7 @@ class RLMaze():
             Q=self.getQ([self.prev_pos[0],self.prev_pos[1]],act)
             self.exit,pos,self.move_reward=self.Movec(self.pos,act)
             self.total_reward+=self.move_reward
-            #self.render()
+            self.render()
             q = [self.getQ(pos, a) for a in self.actions]
             maxQ = max(q)
             #print(maxQ)
