@@ -10,7 +10,13 @@ S=2
 W=3
 exit=1
 dir=['N','E','S','W']
+
+
 class RLMaze():
+    """
+
+
+    """
     def __init__(self,height=None,width=None,goal=None,nogoal=None,start=None,obstacles=None):
         
         #initialise cordinates and maze parameters
@@ -42,6 +48,7 @@ class RLMaze():
         self.total_reward=-100
         self.iteration=1
         self.best=[""]
+        self.epoch_num=1
         self.move_reward=0
         self.exit=1
         self.reached=np.zeros([self.height,self.width])
@@ -61,19 +68,20 @@ class RLMaze():
         for ob in self.obstacles:
             maze[ob[0],ob[1]]=-10
         return maze
+
     def generate_background(self):
         self.img[:,:,:]=255
         c=self.img.shape[0]
         
-        for i in xrange(1,self.maze.shape[0]):
-            a=c*i/self.maze.shape[0]
+        for i in range(1,self.maze.shape[0]):
+            a=int(c*i/self.maze.shape[0])
             cv2.line(self.img,(0,a),(self.img.shape[1],a),[0,0,0],2)
         c=self.img.shape[1]
-        for i in xrange(1,self.maze.shape[1]):
-            a=c*i/self.maze.shape[1]
+        for i in range(1,self.maze.shape[1]):
+            a=int(c*i/self.maze.shape[1])
             cv2.line(self.img,(a,0),(a,self.img.shape[0]),[0,0,0],2)
-        for i in xrange(self.maze.shape[0]):
-            for j in xrange(self.maze.shape[1]):
+        for i in range(self.maze.shape[0]):
+            for j in range(self.maze.shape[1]):
                 spl=False
                 if [i,j]==self.goal:
                     color=[0,255,0]
@@ -100,13 +108,14 @@ class RLMaze():
             return self.Q[state[0],state[1],0]
         else:
             return self.Q[state[0],state[1],action]
+
     def putQ(self,state,action,q):
         if state==self.goal or state==self.nogoal:
             self.Q[state[0],state[1],0]=q
         else:
             self.Q[state[0],state[1],action]=q
 
-    def choose_action(self, state):
+    def action(self, state):
         if random.random() < self.epsilon:
             action = random.choice(self.actions)
             #print("randomaction",action)
@@ -131,15 +140,17 @@ class RLMaze():
         b=self.pixelpercell*self.pos[1]
         d=self.pixelpercell*(self.pos[1]+1)
         cv2.rectangle(self.env,(b+20,a+20),(d-20,c-20),[255,255,0], thickness=-1)
-        for i in xrange(self.maze.shape[0]):
-            for j in xrange(self.maze.shape[1]):
+        for i in range(self.maze.shape[0]):
+            for j in range(self.maze.shape[1]):
                 c=self.pixelpercell*(i+0.54)
                 d=self.pixelpercell*(j+0.28)
                 for ac in self.actions:
                     a=c+self.pixelpercell*0.225*self.neighbours[ac][0]
                     b=d+self.pixelpercell*0.225*self.neighbours[ac][1]
                     cv2.putText( self.env,str(int(10000*self.Q[i][j][ac])/100.0)[0:-1],(int(b),int(a)),   cv2.FONT_HERSHEY_PLAIN, 0.8,(0, 0, 0), 1 )
+
         cv2.imshow('Environment',self.env)
+        cv2.imwrite("{}E{},jpg".format(self.epoch_num,self.cycle_num),self.env)
         cv2.waitKey(self.pause)
 
     def MoveDir(self,state,action):
@@ -174,20 +185,22 @@ class RLMaze():
             self.Epoch()
             self.render()
             #print("total reward",self.total_reward)
+            self.epoch_num+=1
             if ((self.total_reward) >= maxr):
                 maxr=self.total_reward
-                print("maxr",maxr)
-                print("success with max rewdrd and policy",self.policy)
+                
+                print("Epoch {} with max rewdrd={} and policy = {}".format(self.epoch_num,maxr,self.policy))
 
     def Epoch(self):
         self.reset()
         self.exit=1
         n=0
         self.policy=""
+        self.cycle_num=0
         while(self.exit==1):
             self.prev_pos=deepcopy(self.pos)
             n+=1
-            act=self.choose_action(self.pos)
+            act=self.action(self.pos)
             Q=self.getQ([self.prev_pos[0],self.prev_pos[1]],act)
             self.exit,pos,self.move_reward=self.Movec(self.pos,act)
             self.total_reward+=self.move_reward
@@ -198,6 +211,7 @@ class RLMaze():
             Q=Q+self.alpha*(self.move_reward+(self.gamma*maxQ)-Q)
             self.putQ([self.prev_pos[0],self.prev_pos[1]],act,Q)
             self.pos=pos
+            self.cycle_num+=1
         #print("total reward",self.total_reward)
         return exit
 
@@ -206,11 +220,15 @@ class RLMaze():
         #print(self.pos)
         self.pos=[self.start[0],self.start[1]]
         #print(self.policy)
+        self.render()
         print("reset")
         self.reached=np.zeros([self.height,self.width])
         self.exit=1
 
+########   Simple Default Maze  ########
 rl=RLMaze()
+
+########   Custom Maze  ########
 #rl=RLMaze(height=6,width=8,goal=[0,7],nogoal=[1,7],start=[5,0],obstacles=[[1,1],[2,3],[4,5]])
+
 rl.learn()
-#W,W,S|E,E,S|W,S,S|N,E,E|W,W,S|N,W,W|E,E, N|N,N,W|S,S,W|S,E,E|N,W,W|S,E,E|W,N,N|N,N,W|S,E,E|W,N,N|W,N,N|S,S,W|E,N,N|S,S,E| N,N,E|W,W,S|S,S,W|E,E,S|W,N,N|N,N,E|W,S,S|N,N,E|W,S,S

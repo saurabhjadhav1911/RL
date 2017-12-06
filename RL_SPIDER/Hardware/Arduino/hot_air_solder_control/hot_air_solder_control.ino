@@ -1,4 +1,6 @@
-
+#define maxtemp 500
+#define mintemp 100
+//#define
 class Seg
 { public:
     Seg(int ia, int ib, int ic, int id, int ie, int iff, int ig, int idp, int ien);
@@ -46,7 +48,6 @@ void Seg::render()
   {
     digitalWrite(pins[i], bitRead(inp, i));
   }
-  disable();
 };
 void Seg::custom(byte inp)
 {
@@ -57,7 +58,7 @@ void Seg::display(int n)
   inp = nums[n];
 };
 
-int a = 1, b = 3, c = 4, d = 5, e = 6, f = 7, g = 8, dp = 9;
+int a = 9, b = 8, c = 7 , d = 6 , e = 5 , f = 4 , g = 3 , dp = A5;
 /*
   Seg seg1(a, b, c, d, e, f, g, dp, 4);
   Seg seg2(a, b, c, d, e, f, g, dp, 5);
@@ -76,31 +77,49 @@ volatile static long count = 0, pc = 0;
 volatile static int seg_num = 0;
 void disp(int val)
 {
+  int pw = 1;
   for (int i = 0; i < 4; i++)
   {
-    segs[i].display((val % (10 ^ i)));
+    segs[i].display((val / (pw) % 10));
+    Serial.print((val / (pw) % 10));
+    Serial.print(' ');
+    pw *= 10;
+  }
+  Serial.println(val);
+}
+void dis()
+{
+  for (int i = 0; i < 4; i++)
+  {
+    segs[i].disable();
   }
 }
 void counter()
 {
-  count++; l;
+  count++;
   seg_num++;
   seg_num = seg_num % 4;
+  dis();
   segs[seg_num].render();
 
 }
-
+//Seg segt = Seg(a, b, c, d, e, f, g, dp, 13);
 void setup() {
   // put your setup code here, to run once:
-  //Serial.begin(115200);
-  pinMode(2, INPUT_PULLUP); 
-  attachInterrupt(0, counter, RISING);
+  Serial.begin(115200);
+  pinMode(2, INPUT_PULLUP);
+  //attachInterrupt(0, counter, RISING);
 }
-int v = 0;
-
+int pot_val = 0, sense_val, fan_val,;
+int temp_pot_pin = 0, fan_pot_pin = 1;
+int display_state = 0;
 void loop() {
   // put your main code here, to run repeatedly:
+  pot_val = analogRead(temp_pot_pin);
+  sense_val
   disp(v);
-  delay(100);
+  delay(1);
+  counter();
+  //v = v % 10;
 }
 
