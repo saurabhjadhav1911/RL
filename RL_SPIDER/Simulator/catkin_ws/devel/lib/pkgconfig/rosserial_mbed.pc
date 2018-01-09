@@ -1,0 +1,8 @@
+prefix=/home/yash/catkin_ws/devel
+
+Name: rosserial_mbed
+Description: Description of rosserial_mbed
+Version: 0.7.5
+Cflags: -I/home/yash/catkin_ws/devel/include
+Libs: -L/home/yash/catkin_ws/devel/lib 
+Requires: message_runtime

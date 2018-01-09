@@ -1,0 +1,8 @@
+prefix=/home/yash/catkin_ws/install
+
+Name: pal_vision_segmentation
+Description: Description of pal_vision_segmentation
+Version: 1.0.0
+Cflags: -I/home/yash/catkin_ws/install/include
+Libs: -L/home/yash/catkin_ws/install/lib -lpal_vision_segmentation
+Requires: geometry_msgs

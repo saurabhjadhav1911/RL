@@ -1,0 +1,8 @@
+prefix=/home/yash/catkin_ws/devel
+
+Name: aruco
+Description: Description of aruco
+Version: 0.2.0
+Cflags: -I/home/yash/catkin_ws/src/aruco_ros/aruco/include
+Libs: -L/home/yash/catkin_ws/devel/lib -laruco
+Requires: 
