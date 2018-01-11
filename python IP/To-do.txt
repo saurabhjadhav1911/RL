@@ -1,0 +1,9 @@
+To do :
+
+1. Shape to be detected 
+2. store starting point 
+3. save images
+4. do scalar product for direction
+
+Renuka Narsingh RAm- -mca 2a
+Shraddha Manjunath Prabhu- Mca 2a
