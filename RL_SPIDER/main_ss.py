@@ -40,6 +40,10 @@ def Env_process_target(recieve_que,send_que,config):
     env=Env.Env(config)
     env.run(recieve_que,send_que)
 
+def Reward_process_target(recieve_que,send_que,config):
+    print('Reward process start')
+    reward=Reward.track_COM(config)
+    reward.run()
 
 
 def Main():

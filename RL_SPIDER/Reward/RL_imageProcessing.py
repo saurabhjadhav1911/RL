@@ -2,16 +2,21 @@ import cv2
 import numpy as np 
 import datetime
 import json
+import sys
+sys.path.append("..")
+from misc import *
+sys.path.remove("..")
+#from misc import *
 
 class track_COM():
 	"""docstring for track_COM"""
-	def __init__(self,Episode_Num,WRITE_FLAG):
+	def __init__(self,Episode_Num,WRITE_FLAG,config):
 		#self.vid = cv2.VideoCapture('testVideo.mp4')
 		#self.length = int(self.vid.get(cv2.CAP_PROP_FRAME_COUNT))
 		#[self.h,self.w] = [int(self.vid.get(cv2.CAP_PROP_FRAME_HEIGHT)),int(self.vid.get(cv2.CAP_PROP_FRAME_WIDTH))]
 		#or
 		self.vid = cv2.VideoCapture(1)
-		
+		self.config=config
 		self.default()
 		self.get_videoName(Episode_Num)
 		self.videoWriter_Setup()
@@ -25,7 +30,9 @@ class track_COM():
 		self.VideoName = "Default"
 		self.lower_red = np.array([0,0,150])
 		self.upper_red = np.array([100,100,250])
-		
+
+		#self.lower_red = np.array(self.config['Reward_config']['lower_red'])
+		#self.upper_red = np.array(self.config['Reward_config']['upper_red'])
 
 
 	def get_videoName(self,num):
@@ -42,7 +49,7 @@ class track_COM():
 	def videoWriter_Setup(self):
 
 		fourcc = cv2.VideoWriter_fourcc(*'XVID')
-		self.videoDirectory = './EpisodeVideos/'
+		self.videoDirectory = '../EpisodeVideos/'
 		name = self.videoDirectory + self.VideoName + '.avi'
 		self.out = cv2.VideoWriter(name,fourcc, 20.0, (640,480))
 
@@ -88,8 +95,8 @@ class track_COM():
 	
 	def circle_detect_frame(self):
 		self.ret, self.frame = self.vid.read()
-		
-
+		#print a if b else 0
+		print('camera not found') if not self.ret else ''
 		redBinary = cv2.inRange(self.frame,self.lower_red,self.upper_red)
 		redMask = cv2.bitwise_and(self.frame,self.frame, mask = redBinary)
 		redMask_gray = cv2.cvtColor(redMask, cv2.COLOR_BGR2GRAY)
@@ -106,8 +113,8 @@ class track_COM():
 	def edit_frame(self):
 			timestamp =  datetime.datetime.now()
 			font = cv2.FONT_HERSHEY_TRIPLEX
-			cv2.putText(self.frame, str(timestamp),(50,460), font, 1,(0,0,0),2,cv2.LINE_AA)
-			cv2.putText(self.frame, self.VideoName,(180,40), font, 1,(0,0,0),2,cv2.LINE_AA)
+			cv2.putText(self.frame, str(timestamp),(50,460), font, 1,(0,255,0),2,cv2.LINE_AA)
+			cv2.putText(self.frame, self.VideoName,(180,40), font, 1,(255,0,0),2,cv2.LINE_AA)
 			self.out.write(self.frame)
 
 
@@ -133,7 +140,7 @@ class track_COM():
 
 	def reset(self):
 		
-		self.config  = {'starting_point':self.starting_point.tolist(), 'current_point':self.current_point.tolist(),
+		self._custom_config  = {'starting_point':self.starting_point.tolist(), 'current_point':self.current_point.tolist(),
 		 			'VideoName':self.VideoName,'upper_red':self.upper_red.tolist(),
 		 			'lower_red':self.lower_red.tolist()}
 		self.save_config()
@@ -141,7 +148,7 @@ class track_COM():
 	
 
 	def save_config(self):
-		s = json.dumps(self.config)
+		s = json.dumps(self.custom_config)
   		#print s
   		tempo = open('config.json','w')
   		json.dump(s,tempo)
@@ -156,7 +163,11 @@ def unit_direction_vector(start, final):
 
 	
 if __name__ == '__main__':
-	obj = track_COM(999,True)
+
+	config=read_config()
+
+	obj = track_COM(999,True,config)
+
 	print 'current' +str(obj.current_point)
 	print 'start'+ str(obj.starting_point)
 	print unit_direction_vector(obj.current_point,obj.starting_point)

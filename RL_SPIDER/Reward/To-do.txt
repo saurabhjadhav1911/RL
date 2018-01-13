@@ -5,5 +5,11 @@ To do :
 3. save images
 4. do scalar product for direction
 
+
+#######################
+5. run function as process target
+6. last episode read from config
+7 .reset update  episode num
+
 Renuka Narsingh RAm- -mca 2a
 Shraddha Manjunath Prabhu- Mca 2a
