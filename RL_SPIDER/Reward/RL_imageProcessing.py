@@ -10,26 +10,36 @@ sys.path.remove("..")
 
 class track_COM():
 	"""docstring for track_COM"""
-	def __init__(self,Episode_Num,WRITE_FLAG,config):
+	def __init__(self,WRITE_FLAG,lconfig):
 		#self.vid = cv2.VideoCapture('testVideo.mp4')
 		#self.length = int(self.vid.get(cv2.CAP_PROP_FRAME_COUNT))
 		#[self.h,self.w] = [int(self.vid.get(cv2.CAP_PROP_FRAME_HEIGHT)),int(self.vid.get(cv2.CAP_PROP_FRAME_WIDTH))]
 		#or
-		self.vid = cv2.VideoCapture(1)
-		self.config=config
-		self.default()
-		self.get_videoName(Episode_Num)
-		self.videoWriter_Setup()
-		self.get_started(WRITE_FLAG)
-
-	def default(self):
-
-		self.starting_point  = np.array([0,0])
-		self.current_point = np.array([0,0])
-		self.starting_flag = True
-		self.VideoName = "Default"
+		self.vid = cv2.VideoCapture(0)
+		self.config = lconfig 
+		self.Episode_Num = 0
 		self.lower_red = np.array([0,0,150])
 		self.upper_red = np.array([100,100,250])
+		#self.VideoName = 'default'
+		self.default()
+		self.videoWriter_Setup()
+		self.run(WRITE_FLAG)
+	def default(self):
+
+		#print type(last_config)
+		#print last_config
+		config_file  = open('config.json','r')
+		self.last_config = json.load(config_file)
+		self.last_config = json.loads(self.last_config)
+		config_file.close()
+
+		self.starting_point  = self.last_config['starting_point']
+		self.current_point = self.last_config['current_point']
+		self.starting_flag = True 
+		self.lower_red = np.array(self.last_config['lower_red'])
+		self.upper_red = np.array(self.last_config['upper_red'])
+		self.Episode_Num = self.Episode_Num + 1
+		self.get_videoName(self.Episode_Num)
 
 		#self.lower_red = np.array(self.config['Reward_config']['lower_red'])
 		#self.upper_red = np.array(self.config['Reward_config']['upper_red'])
@@ -96,7 +106,10 @@ class track_COM():
 	def circle_detect_frame(self):
 		self.ret, self.frame = self.vid.read()
 		#print a if b else 0
-		print('camera not found') if not self.ret else ''
+		if not self.ret:
+			print('camera not found') 
+		else :
+			pass
 		redBinary = cv2.inRange(self.frame,self.lower_red,self.upper_red)
 		redMask = cv2.bitwise_and(self.frame,self.frame, mask = redBinary)
 		redMask_gray = cv2.cvtColor(redMask, cv2.COLOR_BGR2GRAY)
@@ -119,7 +132,7 @@ class track_COM():
 
 
 
-	def get_started(self,flag):
+	def run(self,flag):
 		#change this for web cam
 		#for i in xrange(0,self.length):
 		while True:
@@ -140,18 +153,16 @@ class track_COM():
 
 	def reset(self):
 		
-		self._custom_config  = {'starting_point':self.starting_point.tolist(), 'current_point':self.current_point.tolist(),
-		 			'VideoName':self.VideoName,'upper_red':self.upper_red.tolist(),
-		 			'lower_red':self.lower_red.tolist()}
+		self._custom_config  = {'starting_point':self.starting_point.tolist(), 'starting_flag':self.starting_flag}
 		self.save_config()
-		self.default()
+		self.Episode_Num =  self.default()
 	
 
 	def save_config(self):
-		s = json.dumps(self.custom_config)
+		#s = json.dump(self.custom_config)
   		#print s
   		tempo = open('config.json','w')
-  		json.dump(s,tempo)
+  		json.dump(self._custom_config,tempo)
   		tempo.close()
 
 def unit_direction_vector(start, final):
@@ -159,17 +170,16 @@ def unit_direction_vector(start, final):
 	direction = np.subtract(final, start)
 	unit_vector  = np.true_divide(direction,np.sqrt(np.sum(np.square(direction))))
 	return unit_vector
-
-
+	
 	
 if __name__ == '__main__':
 
 	config=read_config()
 
-	obj = track_COM(999,True,config)
+	obj = track_COM(True,config)
 
-	print 'current' +str(obj.current_point)
-	print 'start'+ str(obj.starting_point)
+	print 'current:' +str(obj.current_point)
+	print 'start:'+ str(obj.starting_point)
 	print unit_direction_vector(obj.current_point,obj.starting_point)
 
 	#obj.reset()

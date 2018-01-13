@@ -7,6 +7,7 @@ Panels:
         - /Global Options1
         - /Status1
         - /RobotModel1
+        - /RobotModel1/Links1
       Splitter Ratio: 0.5
     Tree Height: 503
   - Class: rviz/Selection
@@ -50,34 +51,168 @@ Visualization Manager:
       Reference Frame: <Fixed Frame>
       Value: true
     - Class: rviz/TF
-      Enabled: false
+      Enabled: true
       Frame Timeout: 15
       Frames:
         All Enabled: true
+        a+'_1':
+          Value: true
+        a+'_2':
+          Value: true
+        a+'_3':
+          Value: true
+        a+'_4':
+          Value: true
+        b+'_1':
+          Value: true
+        b+'_2':
+          Value: true
+        b+'_3':
+          Value: true
+        b+'_4':
+          Value: true
+        base_link:
+          Value: true
+        c+'_1':
+          Value: true
+        c+'_2':
+          Value: true
+        c+'_3':
+          Value: true
+        c+'_4':
+          Value: true
+        d+'_1':
+          Value: true
+        d+'_2':
+          Value: true
+        d+'_3':
+          Value: true
+        d+'_4':
+          Value: true
       Marker Scale: 1
       Name: TF
       Show Arrows: true
       Show Axes: true
       Show Names: true
       Tree:
-        {}
+        base_link:
+          a+'_1':
+            a+'_2':
+              a+'_3':
+                a+'_4':
+                  {}
+          b+'_1':
+            b+'_2':
+              b+'_3':
+                b+'_4':
+                  {}
+          c+'_1':
+            c+'_2':
+              c+'_3':
+                c+'_4':
+                  {}
+          d+'_1':
+            d+'_2':
+              d+'_3':
+                d+'_4':
+                  {}
       Update Interval: 0
-      Value: false
+      Value: true
     - Alpha: 1
       Class: rviz/RobotModel
       Collision Enabled: false
       Enabled: true
       Links:
-        0:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         All Links Enabled: true
         Expand Joint Details: false
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
+        a+'_1':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        a+'_2':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        a+'_3':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        a+'_4':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        b+'_1':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        b+'_2':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        b+'_3':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        b+'_4':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        c+'_1':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        c+'_2':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        c+'_3':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        c+'_4':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        d+'_1':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        d+'_2':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        d+'_3':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        d+'_4':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
       Name: RobotModel
       Robot Description: robot_description
       TF Prefix: ""
@@ -87,7 +222,7 @@ Visualization Manager:
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: b_1
+    Fixed Frame: base_link
     Frame Rate: 30
   Name: root
   Tools:
@@ -108,7 +243,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 1.13816
+      Distance: 7.47069
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.06
         Stereo Focal Distance: 1
@@ -120,10 +255,10 @@ Visualization Manager:
         Z: 0
       Name: Current View
       Near Clip Distance: 0.01
-      Pitch: 0.885398
+      Pitch: 0.630398
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 1.9254
+      Yaw: 1.3554
     Saved: ~
 Window Geometry:
   Displays:

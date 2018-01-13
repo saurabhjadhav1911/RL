@@ -1,8 +1,8 @@
-import numpy as np 
+import json
 
-t = np.array([1,2])
-c = np.array([5,6])
-print np.subtract(t,c)
-print np.square(t)
-print np.sum(t)
+_custom_config  = {'starting_point':0, 'current_point':1,
+		 			'VideoName':2,'upper_red':3,
+		 			'lower_red':4}
+
+print _custom_config['current_point']
 
