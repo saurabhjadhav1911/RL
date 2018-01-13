@@ -11,6 +11,8 @@ To do :
 6. last episode read from config
 7 .reset update  episode num
 
+8.arduino multiple servo /hardware/arduino/testIntrrups
+
 ##########################
 
 Renuka Narsingh RAm- -mca 2a
