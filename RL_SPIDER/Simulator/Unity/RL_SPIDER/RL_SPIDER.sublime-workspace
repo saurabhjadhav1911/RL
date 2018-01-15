@@ -1,0 +1,307 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"co",
+				"connect"
+			],
+			[
+				"mi",
+				"millis\tArduino millis()"
+			],
+			[
+				"D",
+				"disable_scanning"
+			],
+			[
+				"re",
+				"request\tmodule"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "RL_SPIDER.sublime-project",
+			"settings":
+			{
+				"buffer_size": 122,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Anaconda Python Builder",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 306.0,
+		"last_filter": "i",
+		"selected_items":
+		[
+			[
+				"i",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Install Package Control"
+			]
+		],
+		"width": 464.0
+	},
+	"console":
+	{
+		"height": 218.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/saurabhj/OneDrive/Documents/Python Scripts/RL/RL_SPIDER/Simulator/Unity/RL_SPIDER/Assets/Scripts"
+	],
+	"file_history":
+	[
+		"/C/Users/saurabhj/OneDrive/Documents/Python Scripts/RL/RL_SPIDER/Simulator/Unity/RL_SPIDER/Assets/basic.cs",
+		"/C/Users/saurabhj/OneDrive/Documents/Python Scripts/RL/RL_SPIDER/Simulator/catkin_ws/rl_spider/urdf/spider.urdf",
+		"/C/Users/saurabhj/Documents/Arduino/Internet_firmware_update/Internet_firmware_update.ino",
+		"/C/Users/saurabhj/OneDrive/Documents/arduino/esp_mac_change/esp_mac_change.ino",
+		"/C/Users/saurabhj/OneDrive/Documents/tape/OTA_test/OTA_test.ino",
+		"/C/Users/saurabhj/AppData/Local/Arduino15/packages/esp8266/hardware/esp8266/2.4.0/libraries/ESP8266WiFi/examples/WiFiClient/WiFiClient.ino",
+		"/C/Users/saurabhj/AppData/Local/Arduino15/packages/esp8266/hardware/esp8266/2.4.0/libraries/ESP8266HTTPUpdateServer/examples/WebUpdater/WebUpdater.ino",
+		"/C/Users/saurabhj/AppData/Local/Arduino15/packages/esp8266/hardware/esp8266/2.4.0/platform.txt",
+		"/C/Users/saurabhj/AppData/Local/Arduino15/packages/esp8266/hardware/esp8266/2.4.0/libraries/ESP8266HTTPUpdateServer/src/ESP8266HTTPUpdateServer.h",
+		"/C/Users/saurabhj/AppData/Local/Arduino15/packages/esp8266/hardware/esp8266/2.4.0/libraries/ESP8266mDNS/ESP8266mDNS.cpp",
+		"/C/Users/saurabhj/AppData/Local/Arduino15/packages/esp8266/hardware/esp8266/2.4.0/libraries/ESP8266mDNS/ESP8266mDNS.h",
+		"/C/Users/saurabhj/AppData/Local/Arduino15/packages/esp8266/hardware/esp8266/2.4.0/variants/nodemcu/pins_arduino.h",
+		"/C/Users/saurabhj/AppData/Local/Arduino15/packages/esp8266/hardware/esp8266/2.4.0/cores/esp8266/Print.h",
+		"/C/Users/saurabhj/AppData/Local/Arduino15/packages/esp8266/hardware/esp8266/2.4.0/cores/esp8266/Stream.h",
+		"/C/Users/saurabhj/AppData/Local/Arduino15/packages/esp8266/hardware/esp8266/2.4.0/libraries/ESP8266WiFi/src/ESP8266WiFiSTA.h",
+		"/C/Users/saurabhj/AppData/Local/Arduino15/packages/esp8266/hardware/esp8266/2.4.0/libraries/ESP8266WiFi/src/ESP8266WiFi.h",
+		"/C/Users/saurabhj/AppData/Local/Arduino15/packages/esp8266/hardware/esp8266/2.4.0/libraries/ArduinoOTA/examples/BasicOTA/BasicOTA.ino",
+		"/C/Users/saurabhj/AppData/Local/Arduino15/packages/esp8266/hardware/esp8266/2.4.0/libraries/ESP8266WiFi/examples/WiFiAccessPoint/WiFiAccessPoint.ino",
+		"/C/Users/saurabhj/AppData/Roaming/Sublime Text 3/Packages/Stino-Stino-Dev/libs/serial/__init__.py",
+		"/C/Users/saurabhj/OneDrive/Documents/AMS2/Arduino/Sniffing6/Sniffing6.ino",
+		"/C/Users/saurabhj/AppData/Roaming/Sublime Text 3/Packages/Stino-Stino-Dev/libs/stino_runtime/st_menu.py",
+		"/C/Users/saurabhj/AppData/Roaming/Sublime Text 3/Packages/Stino-Stino-Dev/libs/serial/README.rst",
+		"/C/Users/saurabhj/AppData/Roaming/Sublime Text 3/Packages/Stino-Stino-Dev/libs/zeroconf.py",
+		"/C/Users/saurabhj/AppData/Local/Arduino15/package_index.json",
+		"/C/Users/saurabhj/AppData/Roaming/Sublime Text 3/Packages/User/Stino/app_dir.stino-settings",
+		"/C/Users/saurabhj/OneDrive/Documents/Python Scripts/RL/RL_SPIDER/Sim.py",
+		"/C/Users/saurabhj/OneDrive/Documents/arduino/audio+player+arduino/audio player arduino/audio_pgm.ino/audio_pgm.ino.ino",
+		"/C/Users/saurabhj/OneDrive/Documents/arduino/libraries/TMRpcm-master/library.json",
+		"/C/Users/saurabhj/OneDrive/Documents/arduino/libraries/TMRpcm-master/examples/basic/basic.ino",
+		"/C/Users/saurabhj/AppData/Local/Arduino15/packages/espressif/hardware/esp32/tools/get.py",
+		"/C/Users/saurabhj/AppData/Local/Arduino15/packages/espressif/hardware/esp32/package/package_esp32_index.template.json",
+		"/C/Users/saurabhj/AppData/Roaming/Sublime Text 3/Packages/User/Stino/Default (Windows).sublime-keymap",
+		"/C/Users/saurabhj/AppData/Local/Arduino15/packages/espressif/hardware/esp32/tools/get.exe",
+		"/C/Users/saurabhj/OneDrive/Documents/Python Scripts/RL/RL_SPIDER/main_ss.py",
+		"/C/Users/saurabhj/AppData/Local/Arduino15/packages.stino-settings",
+		"/C/Users/saurabhj/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/saurabhj/AppData/Roaming/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
+		"/C/Users/saurabhj/AppData/Roaming/Sublime Text 3/Packages/Anaconda/Default (Windows).sublime-keymap",
+		"/C/Users/saurabhj/AppData/Roaming/Sublime Text 3/Packages/Package Control/Package Control.sublime-settings",
+		"/C/Users/saurabhj/AppData/Roaming/Sublime Text 3/Packages/Anaconda/Anaconda.sublime-settings",
+		"/C/Users/saurabhj/Desktop/requirements.txt"
+	],
+	"find":
+	{
+		"height": 30.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "RL_SPIDER.sublime-project",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 122,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								122,
+								122
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Unity3D/UnityC#.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 70.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 162.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.stino_build_panel":
+	{
+		"height": 162.0
+	},
+	"output.stino_panel":
+	{
+		"height": 162.0
+	},
+	"pinned_build_system": "",
+	"project": "RL_SPIDER.sublime-project",
+	"replace":
+	{
+		"height": 56.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 193.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
