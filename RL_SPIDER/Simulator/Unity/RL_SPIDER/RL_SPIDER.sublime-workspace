@@ -97,7 +97,7 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/saurabhj/OneDrive/Documents/Python Scripts/RL/RL_SPIDER/Simulator/Unity/RL_SPIDER/Assets/Scripts"
+		"/C/Users/Public/RL/RL/RL_SPIDER/Simulator/Unity/RL_SPIDER/Assets/Scripts"
 	],
 	"file_history":
 	[
@@ -198,7 +198,8 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Unity3D/UnityC#.tmLanguage"
+							"syntax": "Packages/Unity3D/UnityC#.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
