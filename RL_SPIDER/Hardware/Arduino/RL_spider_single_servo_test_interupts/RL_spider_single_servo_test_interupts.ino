@@ -1,6 +1,5 @@
 #include <Servo.h>
 
-
 Servo myservo;  // create servo object to control a servo
 
 String data;
@@ -19,6 +18,7 @@ ISR(TIMER2_COMPA_vect)
     if (flag)
     {
       myservo.write(val);
+      Serial.println();
       flag = false;
     }
     if (sendflag) {
@@ -33,22 +33,29 @@ ISR(TIMER2_COMPA_vect)
     filterflag = !filterflag;
   }
 }
+
+void setupTimer2() {
+  noInterrupts();
+  // Clear registers
+  TCCR2A = 0;
+  TCCR2B = 0;
+  TCNT2 = 0;
+
+  // 200.32051282051282 Hz (16000000/((77+1)*1024))
+  OCR2A = 77;
+  // CTC
+  TCCR2A |= (1 << WGM21);
+  // Prescaler 1024
+  TCCR2B |= (1 << CS22) | (1 << CS21) | (1 << CS20);
+  // Output Compare Match A Interrupt Enable
+  TIMSK2 |= (1 << OCIE2A);
+  interrupts();
+}
+volatile boolean value;
 void setup() {
   Serial.begin(115200);
-  cli(); // stop interrupts
-  TCCR2A = 0; // set entire TCCR2A register to 0
-  TCCR2B = 0; // same for TCCR2B
-  TCNT2  = 0; // initialize counter value to 0
-  // set compare match register for 2000 Hz increments
-  OCR2A = 249; // = 16000000 / (32 * 2000) - 1 (must be <256)
-  // turn on CTC mode
-  TCCR2B |= (1 << WGM21);
-  // Set CS22, CS21 and CS20 bits for 32 prescaler
-  TCCR2B |= (0 << CS22) | (1 << CS21) | (1 << CS20);
-  // enable timer compare interrupt
-  TIMSK2 |= (1 << OCIE2A);
-  sei(); // allow interrupts
-  myservo.attach(9);
+  setupTimer2();
+  myservo.attach(10);
   pinMode(sense_pin, OUTPUT);
 
 }
@@ -70,21 +77,5 @@ void loop() {
       data += c;
     }
   }
-  /*
-    if (Serial.available())
-    {
-      c = Serial.read();
-      if (c == '|')
-      {
-        val = data.toInt();
-        val = constrain(val, 0, 180);
-        data = "";
-      }
-      else
-      {
-        data += c;
-      }
-    }
-  */
 }
 

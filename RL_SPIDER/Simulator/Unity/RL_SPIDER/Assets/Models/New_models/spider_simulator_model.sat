@@ -1,0 +1,1351 @@
+700 0 37 0           
+30 Autodesk Translation Framework 21 ASM 223.23.0.65535 NT 24 Tue Jan 16 15:46:56 2018 
+1 9.999999999999999547e-07 1.000000000000000036e-10 
+body $37 -1 $-1 $38 $-1 $39 #
+body $40 -1 $-1 $41 $-1 $42 #
+body $43 -1 $-1 $44 $-1 $45 #
+body $46 -1 $-1 $47 $-1 $48 #
+body $49 -1 $-1 $50 $-1 $51 #
+body $52 -1 $-1 $53 $-1 $54 #
+body $55 -1 $-1 $56 $-1 $57 #
+body $58 -1 $-1 $59 $-1 $60 #
+body $61 -1 $-1 $62 $-1 $63 #
+body $64 -1 $-1 $65 $-1 $66 #
+body $67 -1 $-1 $68 $-1 $69 #
+body $70 -1 $-1 $71 $-1 $72 #
+body $73 -1 $-1 $74 $-1 $75 #
+body $76 -1 $-1 $77 $-1 $78 #
+body $79 -1 $-1 $80 $-1 $81 #
+body $82 -1 $-1 $83 $-1 $84 #
+body $85 -1 $-1 $86 $-1 $87 #
+body $88 -1 $-1 $89 $-1 $90 #
+body $91 -1 $-1 $92 $-1 $93 #
+body $94 -1 $-1 $95 $-1 $96 #
+body $97 -1 $-1 $98 $-1 $99 #
+body $100 -1 $-1 $101 $-1 $102 #
+body $103 -1 $-1 $104 $-1 $105 #
+body $106 -1 $-1 $107 $-1 $108 #
+body $109 -1 $-1 $110 $-1 $111 #
+body $112 -1 $-1 $113 $-1 $114 #
+body $115 -1 $-1 $116 $-1 $117 #
+body $118 -1 $-1 $119 $-1 $120 #
+body $121 -1 $-1 $122 $-1 $123 #
+body $124 -1 $-1 $125 $-1 $126 #
+body $127 -1 $-1 $128 $-1 $129 #
+body $130 -1 $-1 $131 $-1 $132 #
+body $133 -1 $-1 $134 $-1 $135 #
+body $136 -1 $-1 $137 $-1 $138 #
+body $139 -1 $-1 $140 $-1 $141 #
+body $142 -1 $-1 $143 $-1 $144 #
+body $145 -1 $-1 $146 $-1 $147 #
+rgb_color-st-attrib $-1 -1 $148 $-1 $0 0.266666666666666663 0.5882352941176470784 0.2823529411764705843 #
+lump $-1 -1 $-1 $-1 $149 $0 #
+transform $-1 -1 1 0 0 0 1 0 0 0 1 0 0 0 1 no_rotate no_reflect no_shear #
+rgb_color-st-attrib $-1 -1 $150 $-1 $1 0.266666666666666663 0.5882352941176470784 0.2823529411764705843 #
+lump $-1 -1 $-1 $-1 $151 $1 #
+transform $-1 -1 1 0 0 0 1 0 0 0 1 0 0 0 1 no_rotate no_reflect no_shear #
+rgb_color-st-attrib $-1 -1 $152 $-1 $2 0.266666666666666663 0.5882352941176470784 0.2823529411764705843 #
+lump $-1 -1 $-1 $-1 $153 $2 #
+transform $-1 -1 1 0 0 0 1 0 0 0 1 0 0 0 1 no_rotate no_reflect no_shear #
+rgb_color-st-attrib $-1 -1 $154 $-1 $3 0.9098039215686274384 0.6784313725490196401 0.1372549019607843257 #
+lump $-1 -1 $-1 $-1 $155 $3 #
+transform $-1 -1 1 0 0 0 1 0 0 0 1 0 0 0 1 no_rotate no_reflect no_shear #
+rgb_color-st-attrib $-1 -1 $156 $-1 $4 0.9098039215686274384 0.6784313725490196401 0.1372549019607843257 #
+lump $-1 -1 $-1 $-1 $157 $4 #
+transform $-1 -1 1 0 0 0 1 0 0 0 1 0 0 0 1 no_rotate no_reflect no_shear #
+rgb_color-st-attrib $-1 -1 $158 $-1 $5 0.9098039215686274384 0.6784313725490196401 0.1372549019607843257 #
+lump $-1 -1 $-1 $-1 $159 $5 #
+transform $-1 -1 1 0 0 0 1 0 0 0 1 0 0 0 1 no_rotate no_reflect no_shear #
+rgb_color-st-attrib $-1 -1 $160 $-1 $6 0.7686274509803922017 0.2078431372549019718 0.152941176470588247 #
+lump $-1 -1 $-1 $-1 $161 $6 #
+transform $-1 -1 1 0 0 0 1 0 0 0 1 0 0 0 1 no_rotate no_reflect no_shear #
+rgb_color-st-attrib $-1 -1 $162 $-1 $7 0.7686274509803922017 0.2078431372549019718 0.152941176470588247 #
+lump $-1 -1 $-1 $-1 $163 $7 #
+transform $-1 -1 1 0 0 0 1 0 0 0 1 0 0 0 1 no_rotate no_reflect no_shear #
+rgb_color-st-attrib $-1 -1 $164 $-1 $8 0.7686274509803922017 0.2078431372549019718 0.152941176470588247 #
+lump $-1 -1 $-1 $-1 $165 $8 #
+transform $-1 -1 1 0 0 0 1 0 0 0 1 0 0 0 1 no_rotate no_reflect no_shear #
+rgb_color-st-attrib $-1 -1 $166 $-1 $9 0.1882352941176470562 0.2313725490196078538 0.5882352941176470784 #
+lump $-1 -1 $-1 $-1 $167 $9 #
+transform $-1 -1 1 0 0 0 1 0 0 0 1 0 0 0 1 no_rotate no_reflect no_shear #
+rgb_color-st-attrib $-1 -1 $168 $-1 $10 0.266666666666666663 0.5882352941176470784 0.2823529411764705843 #
+lump $-1 -1 $-1 $-1 $169 $10 #
+transform $-1 -1 1 0 0 0 1 0 0 0 1 0 0 0 1 no_rotate no_reflect no_shear #
+rgb_color-st-attrib $-1 -1 $170 $-1 $11 0.266666666666666663 0.5882352941176470784 0.2823529411764705843 #
+lump $-1 -1 $-1 $-1 $171 $11 #
+transform $-1 -1 1 0 0 0 1 0 0 0 1 0 0 0 1 no_rotate no_reflect no_shear #
+rgb_color-st-attrib $-1 -1 $172 $-1 $12 0.266666666666666663 0.5882352941176470784 0.2823529411764705843 #
+lump $-1 -1 $-1 $-1 $173 $12 #
+transform $-1 -1 1 0 0 0 1 0 0 0 1 0 0 0 1 no_rotate no_reflect no_shear #
+rgb_color-st-attrib $-1 -1 $174 $-1 $13 0.266666666666666663 0.5882352941176470784 0.2823529411764705843 #
+lump $-1 -1 $-1 $-1 $175 $13 #
+transform $-1 -1 1 0 0 0 1 0 0 0 1 0 0 0 1 no_rotate no_reflect no_shear #
+rgb_color-st-attrib $-1 -1 $176 $-1 $14 0.266666666666666663 0.5882352941176470784 0.2823529411764705843 #
+lump $-1 -1 $-1 $-1 $177 $14 #
+transform $-1 -1 1 0 0 0 1 0 0 0 1 0 0 0 1 no_rotate no_reflect no_shear #
+rgb_color-st-attrib $-1 -1 $178 $-1 $15 0.266666666666666663 0.5882352941176470784 0.2823529411764705843 #
+lump $-1 -1 $-1 $-1 $179 $15 #
+transform $-1 -1 1 0 0 0 1 0 0 0 1 0 0 0 1 no_rotate no_reflect no_shear #
+rgb_color-st-attrib $-1 -1 $180 $-1 $16 0.266666666666666663 0.5882352941176470784 0.2823529411764705843 #
+lump $-1 -1 $-1 $-1 $181 $16 #
+transform $-1 -1 1 0 0 0 1 0 0 0 1 0 0 0 1 no_rotate no_reflect no_shear #
+rgb_color-st-attrib $-1 -1 $182 $-1 $17 0.266666666666666663 0.5882352941176470784 0.2823529411764705843 #
+lump $-1 -1 $-1 $-1 $183 $17 #
+transform $-1 -1 1 0 0 0 1 0 0 0 1 0 0 0 1 no_rotate no_reflect no_shear #
+rgb_color-st-attrib $-1 -1 $184 $-1 $18 0.266666666666666663 0.5882352941176470784 0.2823529411764705843 #
+lump $-1 -1 $-1 $-1 $185 $18 #
+transform $-1 -1 1 0 0 0 1 0 0 0 1 0 0 0 1 no_rotate no_reflect no_shear #
+rgb_color-st-attrib $-1 -1 $186 $-1 $19 0.9098039215686274384 0.6784313725490196401 0.1372549019607843257 #
+lump $-1 -1 $-1 $-1 $187 $19 #
+transform $-1 -1 1 0 0 0 1 0 0 0 1 0 0 0 1 no_rotate no_reflect no_shear #
+rgb_color-st-attrib $-1 -1 $188 $-1 $20 0.9098039215686274384 0.6784313725490196401 0.1372549019607843257 #
+lump $-1 -1 $-1 $-1 $189 $20 #
+transform $-1 -1 1 0 0 0 1 0 0 0 1 0 0 0 1 no_rotate no_reflect no_shear #
+rgb_color-st-attrib $-1 -1 $190 $-1 $21 0.9098039215686274384 0.6784313725490196401 0.1372549019607843257 #
+lump $-1 -1 $-1 $-1 $191 $21 #
+transform $-1 -1 1 0 0 0 1 0 0 0 1 0 0 0 1 no_rotate no_reflect no_shear #
+rgb_color-st-attrib $-1 -1 $192 $-1 $22 0.9098039215686274384 0.6784313725490196401 0.1372549019607843257 #
+lump $-1 -1 $-1 $-1 $193 $22 #
+transform $-1 -1 1 0 0 0 1 0 0 0 1 0 0 0 1 no_rotate no_reflect no_shear #
+rgb_color-st-attrib $-1 -1 $194 $-1 $23 0.9098039215686274384 0.6784313725490196401 0.1372549019607843257 #
+lump $-1 -1 $-1 $-1 $195 $23 #
+transform $-1 -1 1 0 0 0 1 0 0 0 1 0 0 0 1 no_rotate no_reflect no_shear #
+rgb_color-st-attrib $-1 -1 $196 $-1 $24 0.9098039215686274384 0.6784313725490196401 0.1372549019607843257 #
+lump $-1 -1 $-1 $-1 $197 $24 #
+transform $-1 -1 1 0 0 0 1 0 0 0 1 0 0 0 1 no_rotate no_reflect no_shear #
+rgb_color-st-attrib $-1 -1 $198 $-1 $25 0.9098039215686274384 0.6784313725490196401 0.1372549019607843257 #
+lump $-1 -1 $-1 $-1 $199 $25 #
+transform $-1 -1 1 0 0 0 1 0 0 0 1 0 0 0 1 no_rotate no_reflect no_shear #
+rgb_color-st-attrib $-1 -1 $200 $-1 $26 0.9098039215686274384 0.6784313725490196401 0.1372549019607843257 #
+lump $-1 -1 $-1 $-1 $201 $26 #
+transform $-1 -1 1 0 0 0 1 0 0 0 1 0 0 0 1 no_rotate no_reflect no_shear #
+rgb_color-st-attrib $-1 -1 $202 $-1 $27 0.9098039215686274384 0.6784313725490196401 0.1372549019607843257 #
+lump $-1 -1 $-1 $-1 $203 $27 #
+transform $-1 -1 1 0 0 0 1 0 0 0 1 0 0 0 1 no_rotate no_reflect no_shear #
+rgb_color-st-attrib $-1 -1 $204 $-1 $28 0.7686274509803922017 0.2078431372549019718 0.152941176470588247 #
+lump $-1 -1 $-1 $-1 $205 $28 #
+transform $-1 -1 1 0 0 0 1 0 0 0 1 0 0 0 1 no_rotate no_reflect no_shear #
+rgb_color-st-attrib $-1 -1 $206 $-1 $29 0.7686274509803922017 0.2078431372549019718 0.152941176470588247 #
+lump $-1 -1 $-1 $-1 $207 $29 #
+transform $-1 -1 1 0 0 0 1 0 0 0 1 0 0 0 1 no_rotate no_reflect no_shear #
+rgb_color-st-attrib $-1 -1 $208 $-1 $30 0.7686274509803922017 0.2078431372549019718 0.152941176470588247 #
+lump $-1 -1 $-1 $-1 $209 $30 #
+transform $-1 -1 1 0 0 0 1 0 0 0 1 0 0 0 1 no_rotate no_reflect no_shear #
+rgb_color-st-attrib $-1 -1 $210 $-1 $31 0.7686274509803922017 0.2078431372549019718 0.152941176470588247 #
+lump $-1 -1 $-1 $-1 $211 $31 #
+transform $-1 -1 1 0 0 0 1 0 0 0 1 0 0 0 1 no_rotate no_reflect no_shear #
+rgb_color-st-attrib $-1 -1 $212 $-1 $32 0.7686274509803922017 0.2078431372549019718 0.152941176470588247 #
+lump $-1 -1 $-1 $-1 $213 $32 #
+transform $-1 -1 1 0 0 0 1 0 0 0 1 0 0 0 1 no_rotate no_reflect no_shear #
+rgb_color-st-attrib $-1 -1 $214 $-1 $33 0.7686274509803922017 0.2078431372549019718 0.152941176470588247 #
+lump $-1 -1 $-1 $-1 $215 $33 #
+transform $-1 -1 1 0 0 0 1 0 0 0 1 0 0 0 1 no_rotate no_reflect no_shear #
+rgb_color-st-attrib $-1 -1 $216 $-1 $34 0.7686274509803922017 0.2078431372549019718 0.152941176470588247 #
+lump $-1 -1 $-1 $-1 $217 $34 #
+transform $-1 -1 1 0 0 0 1 0 0 0 1 0 0 0 1 no_rotate no_reflect no_shear #
+rgb_color-st-attrib $-1 -1 $218 $-1 $35 0.7686274509803922017 0.2078431372549019718 0.152941176470588247 #
+lump $-1 -1 $-1 $-1 $219 $35 #
+transform $-1 -1 1 0 0 0 1 0 0 0 1 0 0 0 1 no_rotate no_reflect no_shear #
+rgb_color-st-attrib $-1 -1 $220 $-1 $36 0.7686274509803922017 0.2078431372549019718 0.152941176470588247 #
+lump $-1 -1 $-1 $-1 $221 $36 #
+transform $-1 -1 1 0 0 0 1 0 0 0 1 0 0 0 1 no_rotate no_reflect no_shear #
+ATTRIB_CUSTOM-attrib $-1 -1 $-1 $37 $0 @20 Timestamp_attrib_def 1 1516080749628131 #
+shell $222 -1 $-1 $-1 $-1 $223 $-1 $38 #
+ATTRIB_CUSTOM-attrib $-1 -1 $-1 $40 $1 @20 Timestamp_attrib_def 1 1516081292102947 #
+shell $224 -1 $-1 $-1 $-1 $225 $-1 $41 #
+ATTRIB_CUSTOM-attrib $-1 -1 $226 $43 $2 @22 FPM_tracked_attrib_def 1 3048 #
+shell $227 -1 $-1 $-1 $-1 $228 $-1 $44 #
+ATTRIB_CUSTOM-attrib $-1 -1 $-1 $46 $3 @20 Timestamp_attrib_def 1 1516081596156959 #
+shell $229 -1 $-1 $-1 $-1 $230 $-1 $47 #
+ATTRIB_CUSTOM-attrib $-1 -1 $-1 $49 $4 @20 Timestamp_attrib_def 1 1516081643388891 #
+shell $231 -1 $-1 $-1 $-1 $232 $-1 $50 #
+ATTRIB_CUSTOM-attrib $-1 -1 $233 $52 $5 @22 FPM_tracked_attrib_def 1 3924 #
+shell $234 -1 $-1 $-1 $-1 $235 $-1 $53 #
+ATTRIB_CUSTOM-attrib $-1 -1 $-1 $55 $6 @20 Timestamp_attrib_def 1 1516082163801228 #
+shell $236 -1 $-1 $-1 $-1 $237 $-1 $56 #
+ATTRIB_CUSTOM-attrib $-1 -1 $-1 $58 $7 @20 Timestamp_attrib_def 1 1516082015565973 #
+shell $238 -1 $-1 $-1 $-1 $239 $-1 $59 #
+ATTRIB_CUSTOM-attrib $-1 -1 $240 $61 $8 @22 FPM_tracked_attrib_def 1 4907 #
+shell $241 -1 $-1 $-1 $-1 $242 $-1 $62 #
+ATTRIB_CUSTOM-attrib $-1 -1 $-1 $64 $9 @20 Timestamp_attrib_def 1 1516091495502956 #
+shell $243 -1 $-1 $-1 $-1 $244 $-1 $65 #
+DXID-attrib $-1 -1 $-1 $67 $10 @10 ASM ENTITY @241 {"label":"Body1","asset":"40c05f28-913e-463b-a9f2-fead07b8f102","segment":"0","entity":"2408","revision":"967804a9-8c64-44ab-9157-e0065a51044a","meta":"D3937028-C20C-4E65-B010-94AD418A5C20","metaName":"BodyMetaType","extra":""}:FlattenCopy:1 #
+shell $245 -1 $-1 $-1 $-1 $246 $-1 $68 #
+DXID-attrib $-1 -1 $-1 $70 $11 @10 ASM ENTITY @241 {"label":"Body1","asset":"40c05f28-913e-463b-a9f2-fead07b8f102","segment":"0","entity":"2937","revision":"967804a9-8c64-44ab-9157-e0065a51044a","meta":"D3937028-C20C-4E65-B010-94AD418A5C20","metaName":"BodyMetaType","extra":""}:FlattenCopy:1 #
+shell $247 -1 $-1 $-1 $-1 $248 $-1 $71 #
+ATTRIB_CUSTOM-attrib $-1 -1 $249 $73 $12 @22 FPM_tracked_attrib_def 1 3048 #
+shell $250 -1 $-1 $-1 $-1 $251 $-1 $74 #
+DXID-attrib $-1 -1 $-1 $76 $13 @10 ASM ENTITY @241 {"label":"Body1","asset":"40c05f28-913e-463b-a9f2-fead07b8f102","segment":"0","entity":"2408","revision":"967804a9-8c64-44ab-9157-e0065a51044a","meta":"D3937028-C20C-4E65-B010-94AD418A5C20","metaName":"BodyMetaType","extra":""}:FlattenCopy:2 #
+shell $252 -1 $-1 $-1 $-1 $253 $-1 $77 #
+DXID-attrib $-1 -1 $-1 $79 $14 @10 ASM ENTITY @241 {"label":"Body1","asset":"40c05f28-913e-463b-a9f2-fead07b8f102","segment":"0","entity":"2937","revision":"967804a9-8c64-44ab-9157-e0065a51044a","meta":"D3937028-C20C-4E65-B010-94AD418A5C20","metaName":"BodyMetaType","extra":""}:FlattenCopy:2 #
+shell $254 -1 $-1 $-1 $-1 $255 $-1 $80 #
+ATTRIB_CUSTOM-attrib $-1 -1 $256 $82 $15 @22 FPM_tracked_attrib_def 1 3048 #
+shell $257 -1 $-1 $-1 $-1 $258 $-1 $83 #
+DXID-attrib $-1 -1 $-1 $85 $16 @10 ASM ENTITY @241 {"label":"Body1","asset":"40c05f28-913e-463b-a9f2-fead07b8f102","segment":"0","entity":"2408","revision":"967804a9-8c64-44ab-9157-e0065a51044a","meta":"D3937028-C20C-4E65-B010-94AD418A5C20","metaName":"BodyMetaType","extra":""}:FlattenCopy:3 #
+shell $259 -1 $-1 $-1 $-1 $260 $-1 $86 #
+DXID-attrib $-1 -1 $-1 $88 $17 @10 ASM ENTITY @241 {"label":"Body1","asset":"40c05f28-913e-463b-a9f2-fead07b8f102","segment":"0","entity":"2937","revision":"967804a9-8c64-44ab-9157-e0065a51044a","meta":"D3937028-C20C-4E65-B010-94AD418A5C20","metaName":"BodyMetaType","extra":""}:FlattenCopy:3 #
+shell $261 -1 $-1 $-1 $-1 $262 $-1 $89 #
+ATTRIB_CUSTOM-attrib $-1 -1 $263 $91 $18 @22 FPM_tracked_attrib_def 1 3048 #
+shell $264 -1 $-1 $-1 $-1 $265 $-1 $92 #
+DXID-attrib $-1 -1 $-1 $94 $19 @10 ASM ENTITY @241 {"label":"Body1","asset":"40c05f28-913e-463b-a9f2-fead07b8f102","segment":"0","entity":"3499","revision":"967804a9-8c64-44ab-9157-e0065a51044a","meta":"D3937028-C20C-4E65-B010-94AD418A5C20","metaName":"BodyMetaType","extra":""}:FlattenCopy:1 #
+shell $266 -1 $-1 $-1 $-1 $267 $-1 $95 #
+DXID-attrib $-1 -1 $-1 $97 $20 @10 ASM ENTITY @241 {"label":"Body1","asset":"40c05f28-913e-463b-a9f2-fead07b8f102","segment":"0","entity":"3807","revision":"967804a9-8c64-44ab-9157-e0065a51044a","meta":"D3937028-C20C-4E65-B010-94AD418A5C20","metaName":"BodyMetaType","extra":""}:FlattenCopy:1 #
+shell $268 -1 $-1 $-1 $-1 $269 $-1 $98 #
+ATTRIB_CUSTOM-attrib $-1 -1 $270 $100 $21 @22 FPM_tracked_attrib_def 1 3924 #
+shell $271 -1 $-1 $-1 $-1 $272 $-1 $101 #
+DXID-attrib $-1 -1 $-1 $103 $22 @10 ASM ENTITY @241 {"label":"Body1","asset":"40c05f28-913e-463b-a9f2-fead07b8f102","segment":"0","entity":"3499","revision":"967804a9-8c64-44ab-9157-e0065a51044a","meta":"D3937028-C20C-4E65-B010-94AD418A5C20","metaName":"BodyMetaType","extra":""}:FlattenCopy:2 #
+shell $273 -1 $-1 $-1 $-1 $274 $-1 $104 #
+DXID-attrib $-1 -1 $-1 $106 $23 @10 ASM ENTITY @241 {"label":"Body1","asset":"40c05f28-913e-463b-a9f2-fead07b8f102","segment":"0","entity":"3807","revision":"967804a9-8c64-44ab-9157-e0065a51044a","meta":"D3937028-C20C-4E65-B010-94AD418A5C20","metaName":"BodyMetaType","extra":""}:FlattenCopy:2 #
+shell $275 -1 $-1 $-1 $-1 $276 $-1 $107 #
+ATTRIB_CUSTOM-attrib $-1 -1 $277 $109 $24 @22 FPM_tracked_attrib_def 1 3924 #
+shell $278 -1 $-1 $-1 $-1 $279 $-1 $110 #
+DXID-attrib $-1 -1 $-1 $112 $25 @10 ASM ENTITY @241 {"label":"Body1","asset":"40c05f28-913e-463b-a9f2-fead07b8f102","segment":"0","entity":"3499","revision":"967804a9-8c64-44ab-9157-e0065a51044a","meta":"D3937028-C20C-4E65-B010-94AD418A5C20","metaName":"BodyMetaType","extra":""}:FlattenCopy:3 #
+shell $280 -1 $-1 $-1 $-1 $281 $-1 $113 #
+DXID-attrib $-1 -1 $-1 $115 $26 @10 ASM ENTITY @241 {"label":"Body1","asset":"40c05f28-913e-463b-a9f2-fead07b8f102","segment":"0","entity":"3807","revision":"967804a9-8c64-44ab-9157-e0065a51044a","meta":"D3937028-C20C-4E65-B010-94AD418A5C20","metaName":"BodyMetaType","extra":""}:FlattenCopy:3 #
+shell $282 -1 $-1 $-1 $-1 $283 $-1 $116 #
+ATTRIB_CUSTOM-attrib $-1 -1 $284 $118 $27 @22 FPM_tracked_attrib_def 1 3924 #
+shell $285 -1 $-1 $-1 $-1 $286 $-1 $119 #
+DXID-attrib $-1 -1 $-1 $121 $28 @10 ASM ENTITY @241 {"label":"Body1","asset":"40c05f28-913e-463b-a9f2-fead07b8f102","segment":"0","entity":"4787","revision":"967804a9-8c64-44ab-9157-e0065a51044a","meta":"D3937028-C20C-4E65-B010-94AD418A5C20","metaName":"BodyMetaType","extra":""}:FlattenCopy:1 #
+shell $287 -1 $-1 $-1 $-1 $288 $-1 $122 #
+DXID-attrib $-1 -1 $-1 $124 $29 @10 ASM ENTITY @241 {"label":"Body1","asset":"40c05f28-913e-463b-a9f2-fead07b8f102","segment":"0","entity":"4274","revision":"967804a9-8c64-44ab-9157-e0065a51044a","meta":"D3937028-C20C-4E65-B010-94AD418A5C20","metaName":"BodyMetaType","extra":""}:FlattenCopy:1 #
+shell $289 -1 $-1 $-1 $-1 $290 $-1 $125 #
+ATTRIB_CUSTOM-attrib $-1 -1 $291 $127 $30 @22 FPM_tracked_attrib_def 1 4907 #
+shell $292 -1 $-1 $-1 $-1 $293 $-1 $128 #
+DXID-attrib $-1 -1 $-1 $130 $31 @10 ASM ENTITY @241 {"label":"Body1","asset":"40c05f28-913e-463b-a9f2-fead07b8f102","segment":"0","entity":"4787","revision":"967804a9-8c64-44ab-9157-e0065a51044a","meta":"D3937028-C20C-4E65-B010-94AD418A5C20","metaName":"BodyMetaType","extra":""}:FlattenCopy:2 #
+shell $294 -1 $-1 $-1 $-1 $295 $-1 $131 #
+DXID-attrib $-1 -1 $-1 $133 $32 @10 ASM ENTITY @241 {"label":"Body1","asset":"40c05f28-913e-463b-a9f2-fead07b8f102","segment":"0","entity":"4274","revision":"967804a9-8c64-44ab-9157-e0065a51044a","meta":"D3937028-C20C-4E65-B010-94AD418A5C20","metaName":"BodyMetaType","extra":""}:FlattenCopy:2 #
+shell $296 -1 $-1 $-1 $-1 $297 $-1 $134 #
+ATTRIB_CUSTOM-attrib $-1 -1 $298 $136 $33 @22 FPM_tracked_attrib_def 1 4907 #
+shell $299 -1 $-1 $-1 $-1 $300 $-1 $137 #
+DXID-attrib $-1 -1 $-1 $139 $34 @10 ASM ENTITY @241 {"label":"Body1","asset":"40c05f28-913e-463b-a9f2-fead07b8f102","segment":"0","entity":"4787","revision":"967804a9-8c64-44ab-9157-e0065a51044a","meta":"D3937028-C20C-4E65-B010-94AD418A5C20","metaName":"BodyMetaType","extra":""}:FlattenCopy:3 #
+shell $301 -1 $-1 $-1 $-1 $302 $-1 $140 #
+DXID-attrib $-1 -1 $-1 $142 $35 @10 ASM ENTITY @241 {"label":"Body1","asset":"40c05f28-913e-463b-a9f2-fead07b8f102","segment":"0","entity":"4274","revision":"967804a9-8c64-44ab-9157-e0065a51044a","meta":"D3937028-C20C-4E65-B010-94AD418A5C20","metaName":"BodyMetaType","extra":""}:FlattenCopy:3 #
+shell $303 -1 $-1 $-1 $-1 $304 $-1 $143 #
+ATTRIB_CUSTOM-attrib $-1 -1 $305 $145 $36 @22 FPM_tracked_attrib_def 1 4907 #
+shell $306 -1 $-1 $-1 $-1 $307 $-1 $146 #
+string_attrib-name_attrib-gen-attrib $-1 -1 $-1 $-1 $149 keep keep_kept ignore copy @17 ATF_ExternalShell @4 true #
+face $308 -1 $-1 $309 $310 $149 $-1 $311 forward single #
+string_attrib-name_attrib-gen-attrib $-1 -1 $-1 $-1 $151 keep keep_kept ignore copy @17 ATF_ExternalShell @4 true #
+face $312 -1 $-1 $313 $314 $151 $-1 $315 forward single #
+ATTRIB_CUSTOM-attrib $-1 -1 $316 $152 $2 @22 FPM_tracked_attrib_def 1 2687 #
+string_attrib-name_attrib-gen-attrib $-1 -1 $-1 $-1 $153 keep keep_kept ignore copy @17 ATF_ExternalShell @4 true #
+face $317 -1 $-1 $318 $319 $153 $-1 $320 forward single #
+string_attrib-name_attrib-gen-attrib $-1 -1 $-1 $-1 $155 keep keep_kept ignore copy @17 ATF_ExternalShell @4 true #
+face $321 -1 $-1 $322 $323 $155 $-1 $324 forward single #
+string_attrib-name_attrib-gen-attrib $-1 -1 $-1 $-1 $157 keep keep_kept ignore copy @17 ATF_ExternalShell @4 true #
+face $325 -1 $-1 $326 $327 $157 $-1 $328 forward single #
+ATTRIB_CUSTOM-attrib $-1 -1 $329 $158 $5 @22 FPM_tracked_attrib_def 1 3595 #
+string_attrib-name_attrib-gen-attrib $-1 -1 $-1 $-1 $159 keep keep_kept ignore copy @17 ATF_ExternalShell @4 true #
+face $330 -1 $-1 $331 $332 $159 $-1 $333 forward single #
+string_attrib-name_attrib-gen-attrib $-1 -1 $-1 $-1 $161 keep keep_kept ignore copy @17 ATF_ExternalShell @4 true #
+face $334 -1 $-1 $335 $336 $161 $-1 $337 forward single #
+string_attrib-name_attrib-gen-attrib $-1 -1 $-1 $-1 $163 keep keep_kept ignore copy @17 ATF_ExternalShell @4 true #
+face $338 -1 $-1 $339 $340 $163 $-1 $341 forward single #
+ATTRIB_CUSTOM-attrib $-1 -1 $-1 $164 $8 @20 Timestamp_attrib_def 1 1516085642935307 #
+string_attrib-name_attrib-gen-attrib $-1 -1 $-1 $-1 $165 keep keep_kept ignore copy @17 ATF_ExternalShell @4 true #
+face $342 -1 $-1 $343 $344 $165 $-1 $345 forward single #
+string_attrib-name_attrib-gen-attrib $-1 -1 $-1 $-1 $167 keep keep_kept ignore copy @17 ATF_ExternalShell @4 true #
+face $346 -1 $-1 $347 $348 $167 $-1 $349 forward single #
+string_attrib-name_attrib-gen-attrib $-1 -1 $-1 $-1 $169 keep keep_kept ignore copy @17 ATF_ExternalShell @4 true #
+face $350 -1 $-1 $351 $352 $169 $-1 $353 forward single #
+string_attrib-name_attrib-gen-attrib $-1 -1 $-1 $-1 $171 keep keep_kept ignore copy @17 ATF_ExternalShell @4 true #
+face $354 -1 $-1 $355 $356 $171 $-1 $357 forward single #
+ATTRIB_CUSTOM-attrib $-1 -1 $358 $172 $12 @22 FPM_tracked_attrib_def 1 2687 #
+string_attrib-name_attrib-gen-attrib $-1 -1 $-1 $-1 $173 keep keep_kept ignore copy @17 ATF_ExternalShell @4 true #
+face $359 -1 $-1 $360 $361 $173 $-1 $362 forward single #
+string_attrib-name_attrib-gen-attrib $-1 -1 $-1 $-1 $175 keep keep_kept ignore copy @17 ATF_ExternalShell @4 true #
+face $363 -1 $-1 $364 $365 $175 $-1 $366 forward single #
+string_attrib-name_attrib-gen-attrib $-1 -1 $-1 $-1 $177 keep keep_kept ignore copy @17 ATF_ExternalShell @4 true #
+face $367 -1 $-1 $368 $369 $177 $-1 $370 forward single #
+ATTRIB_CUSTOM-attrib $-1 -1 $371 $178 $15 @22 FPM_tracked_attrib_def 1 2687 #
+string_attrib-name_attrib-gen-attrib $-1 -1 $-1 $-1 $179 keep keep_kept ignore copy @17 ATF_ExternalShell @4 true #
+face $372 -1 $-1 $373 $374 $179 $-1 $375 forward single #
+string_attrib-name_attrib-gen-attrib $-1 -1 $-1 $-1 $181 keep keep_kept ignore copy @17 ATF_ExternalShell @4 true #
+face $376 -1 $-1 $377 $378 $181 $-1 $379 forward single #
+string_attrib-name_attrib-gen-attrib $-1 -1 $-1 $-1 $183 keep keep_kept ignore copy @17 ATF_ExternalShell @4 true #
+face $380 -1 $-1 $381 $382 $183 $-1 $383 forward single #
+ATTRIB_CUSTOM-attrib $-1 -1 $384 $184 $18 @22 FPM_tracked_attrib_def 1 2687 #
+string_attrib-name_attrib-gen-attrib $-1 -1 $-1 $-1 $185 keep keep_kept ignore copy @17 ATF_ExternalShell @4 true #
+face $385 -1 $-1 $386 $387 $185 $-1 $388 forward single #
+string_attrib-name_attrib-gen-attrib $-1 -1 $-1 $-1 $187 keep keep_kept ignore copy @17 ATF_ExternalShell @4 true #
+face $389 -1 $-1 $390 $391 $187 $-1 $392 forward single #
+string_attrib-name_attrib-gen-attrib $-1 -1 $-1 $-1 $189 keep keep_kept ignore copy @17 ATF_ExternalShell @4 true #
+face $393 -1 $-1 $394 $395 $189 $-1 $396 forward single #
+ATTRIB_CUSTOM-attrib $-1 -1 $397 $190 $21 @22 FPM_tracked_attrib_def 1 3595 #
+string_attrib-name_attrib-gen-attrib $-1 -1 $-1 $-1 $191 keep keep_kept ignore copy @17 ATF_ExternalShell @4 true #
+face $398 -1 $-1 $399 $400 $191 $-1 $401 forward single #
+string_attrib-name_attrib-gen-attrib $-1 -1 $-1 $-1 $193 keep keep_kept ignore copy @17 ATF_ExternalShell @4 true #
+face $402 -1 $-1 $403 $404 $193 $-1 $405 forward single #
+string_attrib-name_attrib-gen-attrib $-1 -1 $-1 $-1 $195 keep keep_kept ignore copy @17 ATF_ExternalShell @4 true #
+face $406 -1 $-1 $407 $408 $195 $-1 $409 forward single #
+ATTRIB_CUSTOM-attrib $-1 -1 $410 $196 $24 @22 FPM_tracked_attrib_def 1 3595 #
+string_attrib-name_attrib-gen-attrib $-1 -1 $-1 $-1 $197 keep keep_kept ignore copy @17 ATF_ExternalShell @4 true #
+face $411 -1 $-1 $412 $413 $197 $-1 $414 forward single #
+string_attrib-name_attrib-gen-attrib $-1 -1 $-1 $-1 $199 keep keep_kept ignore copy @17 ATF_ExternalShell @4 true #
+face $415 -1 $-1 $416 $417 $199 $-1 $418 forward single #
+string_attrib-name_attrib-gen-attrib $-1 -1 $-1 $-1 $201 keep keep_kept ignore copy @17 ATF_ExternalShell @4 true #
+face $419 -1 $-1 $420 $421 $201 $-1 $422 forward single #
+ATTRIB_CUSTOM-attrib $-1 -1 $423 $202 $27 @22 FPM_tracked_attrib_def 1 3595 #
+string_attrib-name_attrib-gen-attrib $-1 -1 $-1 $-1 $203 keep keep_kept ignore copy @17 ATF_ExternalShell @4 true #
+face $424 -1 $-1 $425 $426 $203 $-1 $427 forward single #
+string_attrib-name_attrib-gen-attrib $-1 -1 $-1 $-1 $205 keep keep_kept ignore copy @17 ATF_ExternalShell @4 true #
+face $428 -1 $-1 $429 $430 $205 $-1 $431 forward single #
+string_attrib-name_attrib-gen-attrib $-1 -1 $-1 $-1 $207 keep keep_kept ignore copy @17 ATF_ExternalShell @4 true #
+face $432 -1 $-1 $433 $434 $207 $-1 $435 forward single #
+ATTRIB_CUSTOM-attrib $-1 -1 $-1 $208 $30 @20 Timestamp_attrib_def 1 1516085642935307 #
+string_attrib-name_attrib-gen-attrib $-1 -1 $-1 $-1 $209 keep keep_kept ignore copy @17 ATF_ExternalShell @4 true #
+face $436 -1 $-1 $437 $438 $209 $-1 $439 forward single #
+string_attrib-name_attrib-gen-attrib $-1 -1 $-1 $-1 $211 keep keep_kept ignore copy @17 ATF_ExternalShell @4 true #
+face $440 -1 $-1 $441 $442 $211 $-1 $443 forward single #
+string_attrib-name_attrib-gen-attrib $-1 -1 $-1 $-1 $213 keep keep_kept ignore copy @17 ATF_ExternalShell @4 true #
+face $444 -1 $-1 $445 $446 $213 $-1 $447 forward single #
+ATTRIB_CUSTOM-attrib $-1 -1 $-1 $214 $33 @20 Timestamp_attrib_def 1 1516085642935307 #
+string_attrib-name_attrib-gen-attrib $-1 -1 $-1 $-1 $215 keep keep_kept ignore copy @17 ATF_ExternalShell @4 true #
+face $448 -1 $-1 $449 $450 $215 $-1 $451 forward single #
+string_attrib-name_attrib-gen-attrib $-1 -1 $-1 $-1 $217 keep keep_kept ignore copy @17 ATF_ExternalShell @4 true #
+face $452 -1 $-1 $453 $454 $217 $-1 $455 forward single #
+string_attrib-name_attrib-gen-attrib $-1 -1 $-1 $-1 $219 keep keep_kept ignore copy @17 ATF_ExternalShell @4 true #
+face $456 -1 $-1 $457 $458 $219 $-1 $459 forward single #
+ATTRIB_CUSTOM-attrib $-1 -1 $-1 $220 $36 @20 Timestamp_attrib_def 1 1516085642935307 #
+string_attrib-name_attrib-gen-attrib $-1 -1 $-1 $-1 $221 keep keep_kept ignore copy @17 ATF_ExternalShell @4 true #
+face $460 -1 $-1 $461 $462 $221 $-1 $463 forward single #
+DXID-attrib $-1 -1 $-1 $-1 $223 @10 ASM ENTITY @1 0 #
+face $464 -1 $-1 $465 $466 $149 $-1 $467 forward single #
+loop $-1 -1 $-1 $-1 $468 $223 #
+plane-surface $-1 -1 $-1 -69.92579562751532762 2.353440835942862684e-13 -71.03350362195344303 -0.719593897010118777 -2.078093513786014822e-15 -0.6943951493103841521 -4.833579395271874653e-15 9.999999999999969802 -2.49176868840345717e-14 forward_v I I I I #
+DXID-attrib $-1 -1 $-1 $-1 $225 @10 ASM ENTITY @1 0 #
+face $469 -1 $-1 $470 $471 $151 $-1 $472 forward single #
+loop $-1 -1 $-1 $-1 $473 $225 #
+plane-surface $-1 -1 $-1 -45.02784679096546938 -1.721774170525395335e-14 -47.00743145581415661 0.719593897010118333 2.065779730073971352e-15 0.6943951493103845962 1.75725063277926121e-14 -9.999999999999962697 1.153914885500850547e-14 forward_v I I I I #
+ATTRIB_CUSTOM-attrib $-1 -1 $-1 $226 $2 @20 Timestamp_attrib_def 1 1516080218612794 #
+DXID-attrib $-1 -1 $-1 $-1 $228 @10 ASM ENTITY @1 0 #
+face $474 -1 $-1 $475 $476 $153 $-1 $477 forward single #
+loop $-1 -1 $-1 $478 $479 $228 #
+cone-surface $-1 -1 $-1 -58.4489744182750286 -2.794569502939544221e-13 -58.01303608306972137 -0.7195938970101182219 -2.378642741645238278e-15 -0.6943951493103848183 3.471975746551964281 -1.450355032180198502e-14 -3.597969485050632521 1 I I 0 1 5.00000000000005862 forward I I I I #
+DXID-attrib $-1 -1 $-1 $-1 $230 @10 ASM ENTITY @1 0 #
+face $480 -1 $-1 $481 $482 $155 $-1 $483 forward single #
+loop $-1 -1 $-1 $-1 $484 $230 #
+plane-surface $-1 -1 $-1 -88.33409342430412892 36.53418117529001563 -88.79717942613049786 -0.4127421030670221924 0.8191520442889915765 -0.3982886951609068138 5.894568117937153851 5.735764363510392982 5.688152061019515315 forward_v I I I I #
+DXID-attrib $-1 -1 $-1 $-1 $232 @10 ASM ENTITY @1 0 #
+face $485 -1 $-1 $486 $487 $157 $-1 $488 forward single #
+loop $-1 -1 $-1 $-1 $489 $232 #
+plane-surface $-1 -1 $-1 -69.92579562751535605 1.572075802869221661e-13 -71.03350362195348566 0.4127421030670254121 -0.8191520442889906883 0.398288695160905204 -5.894568117937160956 -5.735764363510427621 -5.688152061019539296 forward_v I I I I #
+ATTRIB_CUSTOM-attrib $-1 -1 $-1 $233 $5 @20 Timestamp_attrib_def 1 1516081551154619 #
+DXID-attrib $-1 -1 $-1 $-1 $235 @10 ASM ENTITY @1 0 #
+face $490 -1 $-1 $491 $492 $159 $-1 $493 forward single #
+loop $-1 -1 $-1 $494 $495 $235 #
+cone-surface $-1 -1 $-1 -80.10209773494437968 18.26709058764543414 -78.90791006822790621 0.4127421030670239688 -0.819152044288988801 0.3982886951609106996 3.471975746551911879 -2.969846590872293746e-14 -3.597969485050559246 1 I I 0 1 4.999999999999969802 forward I I I I #
+DXID-attrib $-1 -1 $-1 $-1 $237 @10 ASM ENTITY @1 0 #
+face $496 -1 $-1 $497 $498 $161 $-1 $499 forward single #
+loop $-1 -1 $-1 $-1 $500 $237 #
+plane-surface $-1 -1 $-1 -88.39320366002863238 35.9425156088530855 -86.90867794677578217 0.3041135219136282819 0.906307787036651491 0.2934640709627275301 -6.943951493103774908 -1.887379141862744662e-14 7.195938970101093624 forward_v I I I I #
+DXID-attrib $-1 -1 $-1 $-1 $239 @10 ASM ENTITY @1 0 #
+face $501 -1 $-1 $502 $503 $163 $-1 $504 forward single #
+loop $-1 -1 $-1 $-1 $505 $239 #
+plane-surface $-1 -1 $-1 -106.5183695660809065 -18.07342849853011302 -104.3991365761542198 -0.3041135219136296697 -0.9063077870366512689 -0.2934640709627270305 6.943951493103749151 2.720046410331605441e-14 -7.195938970101137144 forward_v I I I I #
+DXID-attrib $-1 -1 $-1 $-1 $242 @10 ASM ENTITY @1 0 #
+face $506 -1 $-1 $507 $508 $165 $-1 $509 forward single #
+loop $-1 -1 $-1 $510 $511 $242 #
+cone-surface $-1 -1 $-1 -98.36882958636492447 9.526209121598039786 -96.53497728500558139 0.3041135219136326673 0.9063077870366498257 0.2934640709627281407 3.260867761821596655 -2.113091308703485716 3.146678655502351152 1 I I 0 1 4.999999999999968914 forward I I I I #
+DXID-attrib $-1 -1 $-1 $-1 $244 @10 ASM ENTITY @1 0 #
+face $512 -1 $-1 $513 $514 $167 $-1 $515 forward single #
+loop $-1 -1 $-1 $-1 $516 $244 #
+plane-surface $-1 -1 $-1 -46 0 -46 -0.7071067811865475727 0 -0.7071067811865475727 -7.071067811865475505 0 7.071067811865475505 forward_v I I I I #
+DXID-attrib $-1 -1 $-1 $-1 $246 @10 ASM ENTITY @1 0 #
+face $517 -1 $-1 $518 $519 $169 $-1 $520 forward single #
+loop $-1 -1 $-1 $-1 $521 $246 #
+plane-surface $-1 -1 $-1 -45.99999999999997868 1.399999999999998135 45.99999999999998579 0.7071067811865475727 1.865808500425163107e-17 -0.7071067811865475727 -7.071067811865477282 -4.257425495311562253e-16 -7.071067811865477282 forward_v I I I I #
+DXID-attrib $-1 -1 $-1 $-1 $248 @10 ASM ENTITY @1 0 #
+face $522 -1 $-1 $523 $524 $171 $-1 $525 forward single #
+loop $-1 -1 $-1 $-1 $526 $248 #
+plane-surface $-1 -1 $-1 -70.46589462905430423 1.399999999999830491 70.46589462905458845 -0.7071067811865475727 -9.571091841810726818e-16 0.7071067811865475727 7.071067811865462183 1.899164659391336372e-14 7.071067811865462183 forward_v I I I I #
+ATTRIB_CUSTOM-attrib $-1 -1 $-1 $249 $12 @20 Timestamp_attrib_def 1 1516080218612794 #
+DXID-attrib $-1 -1 $-1 $-1 $251 @10 ASM ENTITY @1 0 #
+face $527 -1 $-1 $528 $529 $173 $-1 $530 forward single #
+loop $-1 -1 $-1 $531 $532 $251 #
+cone-surface $-1 -1 $-1 -58.23294731452695316 -7.587266938107177015e-14 58.23294731452753581 0.7071067811865485719 1.035613807115250827e-15 -0.7071067811865465735 -5.102449407765861528e-15 5.000000000000047073 2.220446049250313475e-15 1 I I 0 1 5.000000000000047073 forward I I I I #
+DXID-attrib $-1 -1 $-1 $-1 $253 @10 ASM ENTITY @1 0 #
+face $533 -1 $-1 $534 $535 $175 $-1 $536 forward single #
+loop $-1 -1 $-1 $-1 $537 $253 #
+plane-surface $-1 -1 $-1 46 1.399999999999998357 45.99999999999999289 -0.7071067811865475727 -1.021528168873749192e-15 -0.7071067811865475727 -7.071067811865457742 -1.082760508831114833e-14 7.071067811865457742 forward_v I I I I #
+DXID-attrib $-1 -1 $-1 $-1 $255 @10 ASM ENTITY @1 0 #
+face $538 -1 $-1 $539 $540 $177 $-1 $541 forward single #
+loop $-1 -1 $-1 $-1 $542 $255 #
+plane-surface $-1 -1 $-1 70.46589462905463108 1.399999999999841815 70.46589462905414791 0.7071067811865475727 8.307706969693019964e-17 0.7071067811865475727 7.071067811865447972 2.939350913269330287e-14 -7.071067811865447972 forward_v I I I I #
+ATTRIB_CUSTOM-attrib $-1 -1 $-1 $256 $15 @20 Timestamp_attrib_def 1 1516080218612794 #
+DXID-attrib $-1 -1 $-1 $-1 $258 @10 ASM ENTITY @1 0 #
+face $543 -1 $-1 $544 $545 $179 $-1 $546 forward single #
+loop $-1 -1 $-1 $547 $548 $258 #
+cone-surface $-1 -1 $-1 58.2329473145275216 7.82698032278414491e-15 58.23294731452664763 -0.7071067811865481278 2.708870579426802791e-16 -0.7071067811865470176 -3.191891195797354636e-15 5.000000000000022204 5.10735195186679604e-15 1 I I 0 1 5.000000000000022204 forward I I I I #
+DXID-attrib $-1 -1 $-1 $-1 $260 @10 ASM ENTITY @1 0 #
+face $549 -1 $-1 $550 $551 $181 $-1 $552 forward single #
+loop $-1 -1 $-1 $-1 $553 $260 #
+plane-surface $-1 -1 $-1 45.99999999999997868 1.400000000000009015 -46.00000000000003553 -0.7071067811865480168 8.994812202571502664e-16 0.7071067811865471286 7.071067811865482611 9.607135602145192998e-15 7.071067811865491493 forward_v I I I I #
+DXID-attrib $-1 -1 $-1 $-1 $262 @10 ASM ENTITY @1 0 #
+face $554 -1 $-1 $555 $556 $183 $-1 $557 forward single #
+loop $-1 -1 $-1 $-1 $558 $262 #
+plane-surface $-1 -1 $-1 70.4658946290543895 1.399999999999888445 -70.46589462905461687 0.7071067811865480168 -1.837932319433968877e-15 -0.7071067811865471286 -7.071067811865467512 8.958768442237040428e-15 -7.071067811865476394 forward_v I I I I #
+ATTRIB_CUSTOM-attrib $-1 -1 $-1 $263 $18 @20 Timestamp_attrib_def 1 1516080218612794 #
+DXID-attrib $-1 -1 $-1 $-1 $265 @10 ASM ENTITY @1 0 #
+face $559 -1 $-1 $560 $561 $185 $-1 $562 forward single #
+loop $-1 -1 $-1 $563 $564 $265 #
+cone-surface $-1 -1 $-1 58.2329473145268679 -1.629658093592302192e-13 -58.23294731452762107 -0.707106781186548794 1.884132702223670324e-15 0.7071067811865463515 4.718601663131995809e-15 5.000000000000040856 -8.604228440845032608e-15 1 I I 0 1 5.000000000000040856 forward I I I I #
+DXID-attrib $-1 -1 $-1 $-1 $267 @10 ASM ENTITY @1 0 #
+face $565 -1 $-1 $566 $567 $187 $-1 $568 forward single #
+loop $-1 -1 $-1 $-1 $569 $267 #
+plane-surface $-1 -1 $-1 -87.74383400777853126 37.33718818618076085 87.74383400777909969 -0.4055797876726410789 0.8191520442889899112 0.4055797876726407458 7.071067811865480834 1.304512053934557831e-14 7.071067811865459518 forward_v I I I I #
+DXID-attrib $-1 -1 $-1 $-1 $269 @10 ASM ENTITY @1 0 #
+face $570 -1 $-1 $571 $572 $189 $-1 $573 forward single #
+loop $-1 -1 $-1 $-1 $574 $269 #
+plane-surface $-1 -1 $-1 -69.65497547757884433 0.803007010891278572 69.65497547757912855 0.4055797876726430773 -0.819152044288988912 -0.4055797876726405238 -7.071067811865465735 -2.109423746787794902e-14 -7.0710678118654684 forward_v I I I I #
+ATTRIB_CUSTOM-attrib $-1 -1 $-1 $270 $21 @20 Timestamp_attrib_def 1 1516081551154619 #
+DXID-attrib $-1 -1 $-1 $-1 $272 @10 ASM ENTITY @1 0 #
+face $575 -1 $-1 $576 $577 $191 $-1 $578 forward single #
+loop $-1 -1 $-1 $579 $580 $272 #
+cone-surface $-1 -1 $-1 -79.51032389415371426 18.26709058764457794 79.51032389415475166 0.4055797876726421336 -0.819152044288988801 -0.405579787672641856 2.896139826697825104 2.867882181755252002 -2.896139826697844644 1 I I 0 1 4.999999999999999112 forward I I I I #
+DXID-attrib $-1 -1 $-1 $-1 $274 @10 ASM ENTITY @1 0 #
+face $581 -1 $-1 $582 $583 $193 $-1 $584 forward single #
+loop $-1 -1 $-1 $-1 $585 $274 #
+plane-surface $-1 -1 $-1 87.7438340077792418 37.33718818618078927 87.7438340077784602 0.4055797876726399687 0.8191520442889900222 0.405579787672641634 7.071067811865450636 2.41473507855970948e-14 -7.071067811865470176 forward_v I I I I #
+DXID-attrib $-1 -1 $-1 $-1 $276 @10 ASM ENTITY @1 0 #
+face $586 -1 $-1 $587 $588 $195 $-1 $589 forward single #
+loop $-1 -1 $-1 $-1 $590 $276 #
+plane-surface $-1 -1 $-1 69.65497547757919961 0.803007010891258588 69.65497547757875907 -0.4055797876726396356 -0.8191520442889894671 -0.4055797876726429663 -7.071067811865451525 -2.831068712794139712e-14 7.071067811865450636 forward_v I I I I #
+ATTRIB_CUSTOM-attrib $-1 -1 $-1 $277 $24 @20 Timestamp_attrib_def 1 1516081551154619 #
+DXID-attrib $-1 -1 $-1 $-1 $279 @10 ASM ENTITY @1 0 #
+face $591 -1 $-1 $592 $593 $197 $-1 $594 forward single #
+loop $-1 -1 $-1 $595 $596 $279 #
+cone-surface $-1 -1 $-1 79.5103238941549364 18.26709058764463833 79.51032389415374269 -0.4055797876726401352 -0.8191520442889896891 -0.4055797876726419116 -2.896139826697840203 2.867882181755238236 -2.896139826697821551 1 I I 0 1 4.999999999999986677 forward I I I I #
+DXID-attrib $-1 -1 $-1 $-1 $281 @10 ASM ENTITY @1 0 #
+face $597 -1 $-1 $598 $599 $199 $-1 $600 forward single #
+loop $-1 -1 $-1 $-1 $601 $281 #
+plane-surface $-1 -1 $-1 87.74383400777877284 37.33718818618113033 -87.74383400777927022 0.4055797876726410234 0.819152044288989134 -0.4055797876726420226 -7.071067811865490604 1.387778780781446859e-15 -7.071067811865471064 forward_v I I I I #
+DXID-attrib $-1 -1 $-1 $-1 $283 @10 ASM ENTITY @1 0 #
+face $602 -1 $-1 $603 $604 $201 $-1 $605 forward single #
+loop $-1 -1 $-1 $-1 $606 $283 #
+plane-surface $-1 -1 $-1 69.65497547757887276 0.8030070108912905624 -69.65497547757910013 -0.4055797876726438544 -0.8191520442889881348 0.4055797876726414675 7.071067811865440866 -1.110223024625152596e-14 7.071067811865460406 forward_v I I I I #
+ATTRIB_CUSTOM-attrib $-1 -1 $-1 $284 $27 @20 Timestamp_attrib_def 1 1516081551154619 #
+DXID-attrib $-1 -1 $-1 $-1 $286 @10 ASM ENTITY @1 0 #
+face $607 -1 $-1 $608 $609 $203 $-1 $610 forward single #
+loop $-1 -1 $-1 $611 $612 $286 #
+cone-surface $-1 -1 $-1 79.51032389415391322 18.26709058764501847 -79.51032389415473745 -0.4055797876726432993 -0.8191520442889873577 0.4055797876726435769 -2.896139826697827324 2.867882181755263105 2.896139826697833541 1 I I 0 1 5 forward I I I I #
+DXID-attrib $-1 -1 $-1 $-1 $288 @10 ASM ENTITY @1 0 #
+face $613 -1 $-1 $614 $615 $205 $-1 $616 forward single #
+loop $-1 -1 $-1 $-1 $617 $288 #
+plane-surface $-1 -1 $-1 87.65755422437649713 35.94251560885240337 87.6575542243756729 -0.2988362387301150558 0.9063077870366530453 -0.2988362387301154999 7.07106781186545863 2.3592239273284384e-14 -7.071067811865376029 forward_v I I I I #
+DXID-attrib $-1 -1 $-1 $-1 $290 @10 ASM ENTITY @1 0 #
+face $618 -1 $-1 $619 $620 $207 $-1 $621 forward single #
+loop $-1 -1 $-1 $-1 $622 $290 #
+plane-surface $-1 -1 $-1 105.4681940526916151 -18.073428498531662 105.4681940526903361 0.2988362387301171652 -0.9063077870366528233 0.2988362387301140566 -7.071067811865470176 -1.998401444325282088e-14 7.071067811865483499 forward_v I I I I #
+DXID-attrib $-1 -1 $-1 $-1 $293 @10 ASM ENTITY @1 0 #
+face $623 -1 $-1 $624 $625 $209 $-1 $626 forward single #
+loop $-1 -1 $-1 $627 $628 $293 #
+cone-surface $-1 -1 $-1 97.46007307341250225 9.526209121597288387 97.46007307341096748 -0.2988362387301177203 0.9063077870366530453 -0.2988362387301129464 -3.204281910278951706 -2.113091308703463955 -3.204281910278950818 1 I I 0 1 4.999999999999996447 forward I I I I #
+DXID-attrib $-1 -1 $-1 $-1 $295 @10 ASM ENTITY @1 0 #
+face $629 -1 $-1 $630 $631 $211 $-1 $632 forward single #
+loop $-1 -1 $-1 $-1 $633 $295 #
+plane-surface $-1 -1 $-1 87.65755422437604238 35.9425156088528226 -87.6575542243765824 -0.2988362387301132239 0.9063077870366545996 0.2988362387301126133 -7.07106781186541955 9.992007221626361532e-15 -7.071067811865463959 forward_v I I I I #
+DXID-attrib $-1 -1 $-1 $-1 $297 @10 ASM ENTITY @1 0 #
+face $634 -1 $-1 $635 $636 $213 $-1 $637 forward single #
+loop $-1 -1 $-1 $-1 $638 $297 #
+plane-surface $-1 -1 $-1 105.4681940526907482 -18.07342849853140621 -105.468194052691473 0.298836238730113779 -0.9063077870366540445 -0.2988362387301138345 7.071067811865479946 4.71844785465691293e-15 7.071067811865463959 forward_v I I I I #
+DXID-attrib $-1 -1 $-1 $-1 $300 @10 ASM ENTITY @1 0 #
+face $639 -1 $-1 $640 $641 $215 $-1 $642 forward single #
+loop $-1 -1 $-1 $643 $644 $300 #
+cone-surface $-1 -1 $-1 97.46007307341142223 9.526209121597570828 -97.46007307341193382 -0.2988362387301147782 0.9063077870366538225 0.298836238730113446 -3.204281910278961032 -2.113091308703459514 3.204281910278959256 1 I I 0 1 5.000000000000006217 forward I I I I #
+DXID-attrib $-1 -1 $-1 $-1 $302 @10 ASM ENTITY @1 0 #
+face $645 -1 $-1 $646 $647 $217 $-1 $648 forward single #
+loop $-1 -1 $-1 $-1 $649 $302 #
+plane-surface $-1 -1 $-1 -87.65755422437584343 35.94251560885233232 87.65755422437644029 0.2988362387301146117 0.9063077870366533784 -0.2988362387301146117 7.071067811865423991 1.276756478318924342e-14 7.071067811865462183 forward_v I I I I #
+DXID-attrib $-1 -1 $-1 $-1 $304 @10 ASM ENTITY @1 0 #
+face $650 -1 $-1 $651 $652 $219 $-1 $653 forward single #
+loop $-1 -1 $-1 $-1 $654 $304 #
+plane-surface $-1 -1 $-1 -105.4681940526908903 -18.0734284985319924 105.4681940526914019 -0.2988362387301149448 -0.9063077870366534894 0.2988362387301137235 -7.071067811865494157 1.748601263784623444e-14 -7.071067811865471064 forward_v I I I I #
+DXID-attrib $-1 -1 $-1 $-1 $307 @10 ASM ENTITY @1 0 #
+face $655 -1 $-1 $656 $657 $221 $-1 $658 forward single #
+loop $-1 -1 $-1 $659 $660 $307 #
+cone-surface $-1 -1 $-1 -97.46007307341136539 9.526209121597059237 97.46007307341228909 0.2988362387301149448 0.9063077870366528233 -0.2988362387301164436 3.204281910278947709 -2.113091308703467508 -3.204281910278958367 1 I I 0 1 5.000000000000000888 forward I I I I #
+DXID-attrib $-1 -1 $-1 $-1 $309 @10 ASM ENTITY @1 1 #
+face $661 -1 $-1 $-1 $662 $149 $-1 $663 forward single #
+loop $-1 -1 $-1 $664 $665 $309 #
+sphere-surface $-1 -1 $-1 -67.44389813090130303 2.473593206457458753e-13 -66.69297544944944889 4.999999999999984901 4.833579395271889247e-16 -1 2.491768688403464743e-15 -0.719593897010118777 -2.078093513786014822e-15 -0.6943951493103841521 forward_v I I I I #
+coedge $-1 -1 $-1 $468 $468 $665 $666 reversed $310 $-1 #
+DXID-attrib $-1 -1 $-1 $-1 $313 @10 ASM ENTITY @1 1 #
+face $667 -1 $-1 $-1 $668 $151 $-1 $669 forward single #
+loop $-1 -1 $-1 $670 $671 $313 #
+sphere-surface $-1 -1 $-1 -49.45405070564855521 -2.76793110983575501e-14 -49.33309671668983043 4.99999999999998046 -1.757250632779268191e-15 1.000000000000000222 -1.153914885500855043e-15 0.719593897010118333 2.065779730073971352e-15 0.6943951493103845962 forward_v I I I I #
+coedge $-1 -1 $-1 $473 $473 $671 $672 reversed $314 $-1 #
+DXID-attrib $-1 -1 $-1 $-1 $318 @10 ASM ENTITY @1 1 #
+face $673 -1 $-1 $-1 $674 $153 $-1 $675 forward single #
+loop $-1 -1 $-1 $-1 $676 $318 #
+plane-surface $-1 -1 $-1 -49.45405070564844863 -2.497239160233885994e-13 -49.33309671668980911 0.7195938970101182219 2.378642741645238278e-15 0.6943951493103848183 -6.943951493103928563 2.900710064360397004e-14 7.195938970101265042 forward_v I I I I #
+loop $-1 -1 $-1 $-1 $677 $228 #
+coedge $-1 -1 $-1 $479 $479 $676 $678 reversed $319 $-1 #
+DXID-attrib $-1 -1 $-1 $-1 $322 @10 ASM ENTITY @1 1 #
+face $679 -1 $-1 $-1 $680 $155 $-1 $681 forward single #
+loop $-1 -1 $-1 $682 $683 $322 #
+sphere-surface $-1 -1 $-1 -87.32508453861697717 32.60225136270291557 -85.87796223354401093 4.999999999999936939 -0.5894568117937227791 -0.5735764363510464925 -0.5688152061019586814 -0.4127421030670221924 0.8191520442889915765 -0.3982886951609068138 forward_v I I I I #
+coedge $-1 -1 $-1 $484 $484 $683 $684 reversed $323 $-1 #
+DXID-attrib $-1 -1 $-1 $-1 $326 @10 ASM ENTITY @1 1 #
+face $685 -1 $-1 $-1 $686 $157 $-1 $687 forward single #
+loop $-1 -1 $-1 $688 $689 $326 #
+sphere-surface $-1 -1 $-1 -72.87911093127158324 3.93192981258728036 -71.93785790291165938 4.999999999999955591 0.5894568117937213358 0.5735764363510478248 0.5688152061019590144 0.4127421030670254121 -0.8191520442889906883 0.398288695160905204 forward_v I I I I #
+coedge $-1 -1 $-1 $489 $489 $689 $690 reversed $327 $-1 #
+DXID-attrib $-1 -1 $-1 $-1 $331 @10 ASM ENTITY @1 1 #
+face $691 -1 $-1 $-1 $692 $159 $-1 $693 forward single #
+loop $-1 -1 $-1 $-1 $694 $331 #
+plane-surface $-1 -1 $-1 -87.32508453861726139 32.60225136270265267 -85.87796223354379777 -0.4127421030670239688 0.819152044288988801 -0.3982886951609106996 -6.943951493103823758 5.939693181744587491e-14 7.195938970101118493 forward_v I I I I #
+loop $-1 -1 $-1 $-1 $695 $235 #
+coedge $-1 -1 $-1 $495 $495 $694 $696 reversed $332 $-1 #
+DXID-attrib $-1 -1 $-1 $-1 $335 @10 ASM ENTITY @1 1 #
+face $697 -1 $-1 $-1 $698 $161 $-1 $699 forward single #
+loop $-1 -1 $-1 $700 $701 $335 #
+sphere-surface $-1 -1 $-1 -90.76599153852406232 32.1839037975141764 -89.19837551093752381 4.999999999999943157 0.6943951493103853734 1.887379141862766119e-15 -0.7195938970101175558 0.3041135219136282819 0.906307787036651491 0.2934640709627275301 forward_v I I I I #
+coedge $-1 -1 $-1 $500 $500 $701 $702 reversed $336 $-1 #
+DXID-attrib $-1 -1 $-1 $-1 $339 @10 ASM ENTITY @1 1 #
+face $703 -1 $-1 $-1 $704 $163 $-1 $705 forward single #
+loop $-1 -1 $-1 $706 $707 $339 #
+sphere-surface $-1 -1 $-1 -105.971667634205545 -13.13148555431726194 -103.8715790590737953 4.999999999999948486 -0.6943951493103820427 -2.720046410331633524e-15 0.7195938970101211085 -0.3041135219136296697 -0.9063077870366512689 -0.2934640709627270305 forward_v I I I I #
+coedge $-1 -1 $-1 $505 $505 $707 $708 reversed $340 $-1 #
+DXID-attrib $-1 -1 $-1 $-1 $343 @10 ASM ENTITY @1 1 #
+face $709 -1 $-1 $-1 $710 $165 $-1 $711 forward single #
+loop $-1 -1 $-1 $-1 $712 $343 #
+plane-surface $-1 -1 $-1 -105.9716676342056871 -13.13148555431806486 -103.8715790590737384 -0.3041135219136326673 -0.9063077870366498257 -0.2934640709627281407 -6.521735523643193311 4.226182617406971431 -6.293357311004702304 forward_v I I I I #
+loop $-1 -1 $-1 $-1 $713 $242 #
+coedge $-1 -1 $-1 $511 $511 $712 $714 reversed $344 $-1 #
+DXID-attrib $-1 -1 $-1 $-1 $347 @10 ASM ENTITY @1 1 #
+face $715 -1 $-1 $716 $717 $167 $-1 $718 forward single #
+loop $-1 -1 $-1 $-1 $719 $347 #
+plane-surface $-1 -1 $-1 -50 0 -50 -1 0 0 0 0 10 forward_v I I I I #
+coedge $-1 -1 $-1 $720 $721 $722 $723 forward $348 $-1 #
+DXID-attrib $-1 -1 $-1 $-1 $351 @10 ASM ENTITY @1 1 #
+face $724 -1 $-1 $-1 $725 $169 $-1 $726 forward single #
+loop $-1 -1 $-1 $727 $728 $351 #
+sphere-surface $-1 -1 $-1 -49.39411254969540721 -6.310887241768094443e-29 49.39411254969541432 5.000000000000000888 0.7071067811865475727 4.257425495311561637e-17 0.7071067811865475727 0.7071067811865475727 1.865808500425163107e-17 -0.7071067811865475727 forward_v I I I I #
+coedge $-1 -1 $-1 $521 $521 $728 $729 reversed $352 $-1 #
+DXID-attrib $-1 -1 $-1 $-1 $355 @10 ASM ENTITY @1 1 #
+face $730 -1 $-1 $-1 $731 $171 $-1 $732 forward single #
+loop $-1 -1 $-1 $733 $734 $355 #
+sphere-surface $-1 -1 $-1 -67.07178207935888281 -1.598721155460225418e-13 67.07178207935916703 4.99999999999999023 -0.7071067811865475727 -1.899164659391340001e-15 -0.7071067811865475727 -0.7071067811865475727 -9.571091841810726818e-16 0.7071067811865475727 forward_v I I I I #
+coedge $-1 -1 $-1 $526 $526 $734 $735 reversed $356 $-1 #
+DXID-attrib $-1 -1 $-1 $-1 $360 @10 ASM ENTITY @1 1 #
+face $736 -1 $-1 $-1 $737 $173 $-1 $738 forward single #
+loop $-1 -1 $-1 $-1 $739 $360 #
+plane-surface $-1 -1 $-1 -67.07178207935889702 -8.881784197001252323e-14 67.07178207935945125 -0.7071067811865485719 -1.035613807115250827e-15 0.7071067811865465735 1.020489881553172306e-14 -10.00000000000009415 -4.440892098500626951e-15 forward_v I I I I #
+loop $-1 -1 $-1 $-1 $740 $251 #
+coedge $-1 -1 $-1 $532 $532 $739 $741 reversed $361 $-1 #
+DXID-attrib $-1 -1 $-1 $-1 $364 @10 ASM ENTITY @1 1 #
+face $742 -1 $-1 $-1 $743 $175 $-1 $744 forward single #
+loop $-1 -1 $-1 $745 $746 $364 #
+sphere-surface $-1 -1 $-1 49.39411254969542142 8.881784197001378541e-15 49.39411254969541432 4.999999999999987566 0.7071067811865475727 1.082760508831117555e-15 -0.7071067811865475727 -0.7071067811865475727 -1.021528168873749192e-15 -0.7071067811865475727 forward_v I I I I #
+coedge $-1 -1 $-1 $537 $537 $746 $747 reversed $365 $-1 #
+DXID-attrib $-1 -1 $-1 $-1 $368 @10 ASM ENTITY @1 1 #
+face $748 -1 $-1 $-1 $749 $177 $-1 $750 forward single #
+loop $-1 -1 $-1 $751 $752 $368 #
+sphere-surface $-1 -1 $-1 67.07178207935922387 -1.509903313490211885e-13 67.07178207935872649 4.99999999999998046 -0.7071067811865475727 -2.939350913269341489e-15 0.7071067811865475727 0.7071067811865475727 8.307706969693019964e-17 0.7071067811865475727 forward_v I I I I #
+coedge $-1 -1 $-1 $542 $542 $752 $753 reversed $369 $-1 #
+DXID-attrib $-1 -1 $-1 $-1 $373 @10 ASM ENTITY @1 1 #
+face $754 -1 $-1 $-1 $755 $179 $-1 $756 forward single #
+loop $-1 -1 $-1 $-1 $757 $373 #
+plane-surface $-1 -1 $-1 67.07178207935940861 4.440892098500626162e-15 67.07178207935852754 0.7071067811865481278 -2.708870579426802791e-16 0.7071067811865470176 6.383782391594709272e-15 -10.00000000000004441 -1.021470390373359208e-14 forward_v I I I I #
+loop $-1 -1 $-1 $-1 $758 $258 #
+coedge $-1 -1 $-1 $548 $548 $757 $759 reversed $374 $-1 #
+DXID-attrib $-1 -1 $-1 $-1 $377 @10 ASM ENTITY @1 1 #
+face $760 -1 $-1 $-1 $761 $181 $-1 $762 forward single #
+loop $-1 -1 $-1 $763 $764 $377 #
+sphere-surface $-1 -1 $-1 49.39411254969541432 4.440892098500499944e-15 -49.39411254969546405 5.000000000000007994 -0.7071067811865471286 -9.607135602145178404e-16 -0.7071067811865480168 -0.7071067811865480168 8.994812202571502664e-16 0.7071067811865471286 forward_v I I I I #
+coedge $-1 -1 $-1 $553 $553 $764 $765 reversed $378 $-1 #
+DXID-attrib $-1 -1 $-1 $-1 $381 @10 ASM ENTITY @1 1 #
+face $766 -1 $-1 $-1 $767 $183 $-1 $768 forward single #
+loop $-1 -1 $-1 $769 $770 $381 #
+sphere-surface $-1 -1 $-1 67.07178207935895387 -9.992007221626418961e-14 -67.07178207935919545 4.999999999999997335 0.7071067811865471286 -8.958768442237045161e-16 0.7071067811865480168 0.7071067811865480168 -1.837932319433968877e-15 -0.7071067811865471286 forward_v I I I I #
+coedge $-1 -1 $-1 $558 $558 $770 $771 reversed $382 $-1 #
+DXID-attrib $-1 -1 $-1 $-1 $386 @10 ASM ENTITY @1 1 #
+face $772 -1 $-1 $-1 $773 $185 $-1 $774 forward single #
+loop $-1 -1 $-1 $-1 $775 $386 #
+plane-surface $-1 -1 $-1 67.07178207935879755 -1.865174681370262988e-13 -67.0717820793595223 0.707106781186548794 -1.884132702223670324e-15 -0.7071067811865463515 -9.437203326263991618e-15 -10.00000000000008171 1.720845688169006522e-14 forward_v I I I I #
+loop $-1 -1 $-1 $-1 $776 $265 #
+coedge $-1 -1 $-1 $564 $564 $775 $777 reversed $387 $-1 #
+DXID-attrib $-1 -1 $-1 $-1 $390 @10 ASM ENTITY @1 1 #
+face $778 -1 $-1 $-1 $779 $187 $-1 $780 forward single #
+loop $-1 -1 $-1 $781 $782 $390 #
+sphere-surface $-1 -1 $-1 -86.60797017842524781 32.60225136270214819 86.60797017842581624 4.999999999999995559 -0.707106781186548683 -1.304512053934558935e-15 -0.7071067811865465735 -0.4055797876726410789 0.8191520442889899112 0.4055797876726407458 forward_v I I I I #
+coedge $-1 -1 $-1 $569 $569 $782 $783 reversed $391 $-1 #
+DXID-attrib $-1 -1 $-1 $-1 $394 @10 ASM ENTITY @1 1 #
+face $784 -1 $-1 $-1 $785 $189 $-1 $786 forward single #
+loop $-1 -1 $-1 $787 $788 $394 #
+sphere-surface $-1 -1 $-1 -72.41267760988291968 3.931929812586951734 72.41267760988318969 4.999999999999993783 0.7071067811865474617 2.109423746787797427e-15 0.7071067811865476838 0.4055797876726430773 -0.819152044288988912 -0.4055797876726405238 forward_v I I I I #
+coedge $-1 -1 $-1 $574 $574 $788 $789 reversed $395 $-1 #
+DXID-attrib $-1 -1 $-1 $-1 $399 @10 ASM ENTITY @1 1 #
+face $790 -1 $-1 $-1 $791 $191 $-1 $792 forward single #
+loop $-1 -1 $-1 $-1 $793 $399 #
+plane-surface $-1 -1 $-1 -86.60797017842494938 32.60225136270187818 86.60797017842598677 -0.4055797876726421336 0.819152044288988801 0.405579787672641856 -5.792279653395650207 -5.735764363510504005 5.792279653395689287 forward_v I I I I #
+loop $-1 -1 $-1 $-1 $794 $272 #
+coedge $-1 -1 $-1 $580 $580 $793 $795 reversed $400 $-1 #
+DXID-attrib $-1 -1 $-1 $-1 $403 @10 ASM ENTITY @1 1 #
+face $796 -1 $-1 $-1 $797 $193 $-1 $798 forward single #
+loop $-1 -1 $-1 $799 $800 $403 #
+sphere-surface $-1 -1 $-1 86.60797017842597256 32.60225136270218371 86.60797017842517675 4.999999999999987566 -0.7071067811865467956 -2.414735078559715475e-15 0.707106781186548794 0.4055797876726399687 0.8191520442889900222 0.405579787672641634 forward_v I I I I #
+coedge $-1 -1 $-1 $585 $585 $800 $801 reversed $404 $-1 #
+DXID-attrib $-1 -1 $-1 $-1 $407 @10 ASM ENTITY @1 1 #
+face $802 -1 $-1 $-1 $803 $195 $-1 $804 forward single #
+loop $-1 -1 $-1 $805 $806 $407 #
+sphere-surface $-1 -1 $-1 72.41267760988326074 3.931929812586929529 72.41267760988283442 4.999999999999983125 0.7071067811865475727 2.831068712794149178e-15 -0.7071067811865474617 -0.4055797876726396356 -0.8191520442889894671 -0.4055797876726429663 forward_v I I I I #
+coedge $-1 -1 $-1 $590 $590 $806 $807 reversed $408 $-1 #
+DXID-attrib $-1 -1 $-1 $-1 $412 @10 ASM ENTITY @1 1 #
+face $808 -1 $-1 $-1 $809 $197 $-1 $810 forward single #
+loop $-1 -1 $-1 $-1 $811 $412 #
+plane-surface $-1 -1 $-1 86.60797017842611467 32.60225136270192081 86.60797017842496359 0.4055797876726401352 0.8191520442889896891 0.4055797876726419116 5.792279653395680405 -5.735764363510476471 5.792279653395643102 forward_v I I I I #
+loop $-1 -1 $-1 $-1 $812 $279 #
+coedge $-1 -1 $-1 $596 $596 $811 $813 reversed $413 $-1 #
+DXID-attrib $-1 -1 $-1 $-1 $416 @10 ASM ENTITY @1 1 #
+face $814 -1 $-1 $-1 $815 $199 $-1 $816 forward single #
+loop $-1 -1 $-1 $817 $818 $416 #
+sphere-surface $-1 -1 $-1 86.60797017842548939 32.60225136270251056 -86.60797017842598677 5.000000000000004441 0.7071067811865484609 -1.387778780781445676e-16 0.7071067811865464625 0.4055797876726410234 0.819152044288989134 -0.4055797876726420226 forward_v I I I I #
+coedge $-1 -1 $-1 $601 $601 $818 $819 reversed $417 $-1 #
+DXID-attrib $-1 -1 $-1 $-1 $420 @10 ASM ENTITY @1 1 #
+face $820 -1 $-1 $-1 $821 $201 $-1 $822 forward single #
+loop $-1 -1 $-1 $823 $824 $420 #
+sphere-surface $-1 -1 $-1 72.4126776098829481 3.931929812586951734 -72.41267760988316127 4.999999999999982236 -0.7071067811865465735 1.11022302462515654e-15 -0.7071067811865485719 -0.4055797876726438544 -0.8191520442889881348 0.4055797876726414675 forward_v I I I I #
+coedge $-1 -1 $-1 $606 $606 $824 $825 reversed $421 $-1 #
+DXID-attrib $-1 -1 $-1 $-1 $425 @10 ASM ENTITY @1 1 #
+face $826 -1 $-1 $-1 $827 $203 $-1 $828 forward single #
+loop $-1 -1 $-1 $-1 $829 $425 #
+plane-surface $-1 -1 $-1 86.60797017842517675 32.6022513627022974 -86.60797017842600098 0.4055797876726432993 0.8191520442889873577 -0.4055797876726435769 5.792279653395654648 -5.735764363510526209 -5.792279653395667083 forward_v I I I I #
+loop $-1 -1 $-1 $-1 $830 $286 #
+coedge $-1 -1 $-1 $612 $612 $829 $831 reversed $426 $-1 #
+DXID-attrib $-1 -1 $-1 $-1 $429 @10 ASM ENTITY @1 1 #
+face $832 -1 $-1 $-1 $833 $205 $-1 $834 forward single #
+loop $-1 -1 $-1 $835 $836 $429 #
+sphere-surface $-1 -1 $-1 89.98916710515912598 32.18390379751346586 89.98916710515831596 4.999999999999959144 -0.7071067811865516806 -2.359223927328457648e-15 0.7071067811865433539 -0.2988362387301150558 0.9063077870366530453 -0.2988362387301154999 forward_v I I I I #
+coedge $-1 -1 $-1 $617 $617 $836 $837 reversed $430 $-1 #
+DXID-attrib $-1 -1 $-1 $-1 $433 @10 ASM ENTITY @1 1 #
+face $838 -1 $-1 $-1 $839 $207 $-1 $840 forward single #
+loop $-1 -1 $-1 $841 $842 $433 #
+sphere-surface $-1 -1 $-1 104.9309790416651538 -13.13148555431875586 104.930979041663889 5.000000000000000888 0.7071067811865469066 1.998401444325281773e-15 -0.7071067811865482389 0.2988362387301171652 -0.9063077870366528233 0.2988362387301140566 forward_v I I I I #
+coedge $-1 -1 $-1 $622 $622 $842 $843 reversed $434 $-1 #
+DXID-attrib $-1 -1 $-1 $-1 $437 @10 ASM ENTITY @1 1 #
+face $844 -1 $-1 $-1 $845 $209 $-1 $846 forward single #
+loop $-1 -1 $-1 $-1 $847 $437 #
+plane-surface $-1 -1 $-1 104.930979041665438 -13.13148555431902231 104.9309790416637895 0.2988362387301177203 -0.9063077870366530453 0.2988362387301129464 6.408563820557903412 4.226182617406927911 6.408563820557901636 forward_v I I I I #
+loop $-1 -1 $-1 $-1 $848 $293 #
+coedge $-1 -1 $-1 $628 $628 $847 $849 reversed $438 $-1 #
+DXID-attrib $-1 -1 $-1 $-1 $441 @10 ASM ENTITY @1 1 #
+face $850 -1 $-1 $-1 $851 $211 $-1 $852 forward single #
+loop $-1 -1 $-1 $853 $854 $441 #
+sphere-surface $-1 -1 $-1 89.98916710515868544 32.18390379751386376 -89.98916710515921125 4.999999999999976019 0.7071067811865453523 -9.992007221626408864e-16 0.7071067811865497932 -0.2988362387301132239 0.9063077870366545996 0.2988362387301126133 forward_v I I I I #
+coedge $-1 -1 $-1 $633 $633 $854 $855 reversed $442 $-1 #
+DXID-attrib $-1 -1 $-1 $-1 $445 @10 ASM ENTITY @1 1 #
+face $856 -1 $-1 $-1 $857 $213 $-1 $858 forward single #
+loop $-1 -1 $-1 $859 $860 $445 #
+sphere-surface $-1 -1 $-1 104.9309790416643011 -13.13148555431850184 -104.9309790416650401 4.999999999999997335 -0.7071067811865483499 -4.718447854656915297e-16 -0.7071067811865467956 0.298836238730113779 -0.9063077870366540445 -0.2988362387301138345 forward_v I I I I #
+coedge $-1 -1 $-1 $638 $638 $860 $861 reversed $446 $-1 #
+DXID-attrib $-1 -1 $-1 $-1 $449 @10 ASM ENTITY @1 1 #
+face $862 -1 $-1 $-1 $863 $215 $-1 $864 forward single #
+loop $-1 -1 $-1 $-1 $865 $449 #
+plane-surface $-1 -1 $-1 104.9309790416643011 -13.13148555431880027 -104.9309790416647843 0.2988362387301147782 -0.9063077870366538225 -0.298836238730113446 6.408563820557922064 4.226182617406919029 -6.408563820557918511 forward_v I I I I #
+loop $-1 -1 $-1 $-1 $866 $300 #
+coedge $-1 -1 $-1 $644 $644 $865 $867 reversed $450 $-1 #
+DXID-attrib $-1 -1 $-1 $-1 $453 @10 ASM ENTITY @1 1 #
+face $868 -1 $-1 $-1 $869 $217 $-1 $870 forward single #
+loop $-1 -1 $-1 $871 $872 $453 #
+sphere-surface $-1 -1 $-1 -89.98916710515848649 32.1839037975133806 89.98916710515908335 4.999999999999977796 -0.7071067811865455743 -1.276756478318930021e-15 -0.7071067811865493491 0.2988362387301146117 0.9063077870366533784 -0.2988362387301146117 forward_v I I I I #
+coedge $-1 -1 $-1 $649 $649 $872 $873 reversed $454 $-1 #
+DXID-attrib $-1 -1 $-1 $-1 $457 @10 ASM ENTITY @1 1 #
+face $874 -1 $-1 $-1 $875 $219 $-1 $876 forward single #
+loop $-1 -1 $-1 $877 $878 $457 #
+sphere-surface $-1 -1 $-1 -104.9309790416644432 -13.13148555431908271 104.930979041664969 5.000000000000005329 0.707106781186548683 -1.748601263784621551e-15 0.7071067811865463515 -0.2988362387301149448 -0.9063077870366534894 0.2988362387301137235 forward_v I I I I #
+coedge $-1 -1 $-1 $654 $654 $878 $879 reversed $458 $-1 #
+DXID-attrib $-1 -1 $-1 $-1 $461 @10 ASM ENTITY @1 1 #
+face $880 -1 $-1 $-1 $881 $221 $-1 $882 forward single #
+loop $-1 -1 $-1 $-1 $883 $461 #
+plane-surface $-1 -1 $-1 -104.9309790416642443 -13.13148555431926567 104.9309790416651964 -0.2988362387301149448 -0.9063077870366528233 0.2988362387301164436 -6.408563820557895419 4.226182617406935016 6.408563820557916735 forward_v I I I I #
+loop $-1 -1 $-1 $-1 $884 $307 #
+coedge $-1 -1 $-1 $660 $660 $883 $885 reversed $462 $-1 #
+DXID-attrib $-1 -1 $-1 $-1 $465 @10 ASM ENTITY @1 2 #
+loop $-1 -1 $-1 $-1 $886 $465 #
+plane-surface $-1 -1 $-1 -67.44389813090130303 2.473593206457458753e-13 -66.69297544944944889 0.719593897010118777 2.078093513786014822e-15 0.6943951493103841521 4.833579395271874653e-15 -9.999999999999969802 2.49176868840345717e-14 forward_v I I I I #
+loop $-1 -1 $-1 $-1 $887 $309 #
+coedge $-1 -1 $-1 $665 $665 $468 $666 forward $466 $-1 #
+edge $-1 -1 $-1 $888 0 $888 6.283185307179586232 $665 $889 forward @7 unknown #
+DXID-attrib $-1 -1 $-1 $-1 $470 @10 ASM ENTITY @1 2 #
+loop $-1 -1 $-1 $-1 $890 $470 #
+plane-surface $-1 -1 $-1 -49.45405070564855521 -2.76793110983575501e-14 -49.33309671668983043 -0.719593897010118333 -2.065779730073971352e-15 -0.6943951493103845962 -1.75725063277926121e-14 9.999999999999962697 -1.153914885500850547e-14 forward_v I I I I #
+loop $-1 -1 $-1 $-1 $891 $313 #
+coedge $-1 -1 $-1 $671 $671 $473 $672 forward $471 $-1 #
+edge $-1 -1 $-1 $892 0 $892 6.283185307179586232 $671 $893 forward @7 unknown #
+DXID-attrib $-1 -1 $-1 $-1 $475 @10 ASM ENTITY @1 2 #
+loop $-1 -1 $-1 $-1 $894 $475 #
+plane-surface $-1 -1 $-1 -67.44389813090161567 -3.091899845645202447e-13 -66.69297544944963363 -0.7195938970101182219 -2.378642741645238278e-15 -0.6943951493103848183 6.943951493103928563 -2.900710064360397004e-14 -7.195938970101265042 forward_v I I I I #
+coedge $-1 -1 $-1 $676 $676 $479 $678 forward $476 $-1 #
+coedge $-1 -1 $-1 $677 $677 $894 $895 reversed $478 $-1 #
+edge $-1 -1 $-1 $896 0 $896 6.283185307179586232 $676 $897 forward @7 unknown #
+DXID-attrib $-1 -1 $-1 $-1 $481 @10 ASM ENTITY @1 2 #
+loop $-1 -1 $-1 $-1 $898 $481 #
+plane-surface $-1 -1 $-1 -87.32508453861697717 32.60225136270291557 -85.87796223354401093 0.4127421030670221924 -0.8191520442889915765 0.3982886951609068138 -5.894568117937153851 -5.735764363510392982 -5.688152061019515315 forward_v I I I I #
+loop $-1 -1 $-1 $-1 $899 $322 #
+coedge $-1 -1 $-1 $683 $683 $484 $684 forward $482 $-1 #
+edge $-1 -1 $-1 $900 0 $900 6.283185307179586232 $683 $901 forward @7 unknown #
+DXID-attrib $-1 -1 $-1 $-1 $486 @10 ASM ENTITY @1 2 #
+loop $-1 -1 $-1 $-1 $902 $486 #
+plane-surface $-1 -1 $-1 -72.87911093127158324 3.93192981258728036 -71.93785790291165938 -0.4127421030670254121 0.8191520442889906883 -0.398288695160905204 5.894568117937160956 5.735764363510427621 5.688152061019539296 forward_v I I I I #
+loop $-1 -1 $-1 $-1 $903 $326 #
+coedge $-1 -1 $-1 $689 $689 $489 $690 forward $487 $-1 #
+edge $-1 -1 $-1 $904 0 $904 6.283185307179586232 $689 $905 forward @7 unknown #
+DXID-attrib $-1 -1 $-1 $-1 $491 @10 ASM ENTITY @1 2 #
+loop $-1 -1 $-1 $-1 $906 $491 #
+plane-surface $-1 -1 $-1 -72.87911093127151219 3.931929812588219164 -71.93785790291201465 0.4127421030670239688 -0.819152044288988801 0.3982886951609106996 6.943951493103823758 -5.939693181744587491e-14 -7.195938970101118493 forward_v I I I I #
+coedge $-1 -1 $-1 $694 $694 $495 $696 forward $492 $-1 #
+coedge $-1 -1 $-1 $695 $695 $906 $907 reversed $494 $-1 #
+edge $-1 -1 $-1 $908 0 $908 6.283185307179586232 $694 $909 forward @7 unknown #
+DXID-attrib $-1 -1 $-1 $-1 $497 @10 ASM ENTITY @1 2 #
+loop $-1 -1 $-1 $-1 $910 $497 #
+plane-surface $-1 -1 $-1 -90.76599153852406232 32.1839037975141764 -89.19837551093752381 -0.3041135219136282819 -0.906307787036651491 -0.2934640709627275301 6.943951493103774908 1.887379141862744662e-14 -7.195938970101093624 forward_v I I I I #
+loop $-1 -1 $-1 $-1 $911 $335 #
+coedge $-1 -1 $-1 $701 $701 $500 $702 forward $498 $-1 #
+edge $-1 -1 $-1 $912 0 $912 6.283185307179586232 $701 $913 forward @7 unknown #
+DXID-attrib $-1 -1 $-1 $-1 $502 @10 ASM ENTITY @1 2 #
+loop $-1 -1 $-1 $-1 $914 $502 #
+plane-surface $-1 -1 $-1 -105.971667634205545 -13.13148555431726194 -103.8715790590737953 0.3041135219136296697 0.9063077870366512689 0.2934640709627270305 -6.943951493103749151 -2.720046410331605441e-14 7.195938970101137144 forward_v I I I I #
+loop $-1 -1 $-1 $-1 $915 $339 #
+coedge $-1 -1 $-1 $707 $707 $505 $708 forward $503 $-1 #
+edge $-1 -1 $-1 $916 0 $916 6.283185307179586232 $707 $917 forward @7 unknown #
+DXID-attrib $-1 -1 $-1 $-1 $507 @10 ASM ENTITY @1 2 #
+loop $-1 -1 $-1 $-1 $918 $507 #
+plane-surface $-1 -1 $-1 -90.76599153852414759 32.18390379751414798 -89.19837551093742434 0.3041135219136326673 0.9063077870366498257 0.2934640709627281407 6.521735523643193311 -4.226182617406971431 6.293357311004702304 forward_v I I I I #
+coedge $-1 -1 $-1 $712 $712 $511 $714 forward $508 $-1 #
+coedge $-1 -1 $-1 $713 $713 $918 $919 reversed $510 $-1 #
+edge $-1 -1 $-1 $920 0 $920 6.283185307179586232 $712 $921 forward @7 unknown #
+DXID-attrib $-1 -1 $-1 $-1 $513 @10 ASM ENTITY @1 2 #
+face $922 -1 $-1 $923 $924 $167 $-1 $925 forward single #
+loop $-1 -1 $-1 $-1 $926 $513 #
+plane-surface $-1 -1 $-1 0 -8 0 0 -1 0 0 0 -10 forward_v I I I I #
+coedge $-1 -1 $-1 $927 $928 $721 $929 reversed $514 $-1 #
+coedge $-1 -1 $-1 $930 $516 $931 $932 forward $348 $-1 #
+coedge $-1 -1 $-1 $516 $930 $719 $929 forward $348 $-1 #
+coedge $-1 -1 $-1 $933 $934 $516 $723 reversed $935 $-1 #
+edge $-1 -1 $-1 $936 -0.5656854249492385689 $937 0.5656854249492385689 $722 $938 forward @7 unknown #
+DXID-attrib $-1 -1 $-1 $-1 $518 @10 ASM ENTITY @1 2 #
+loop $-1 -1 $-1 $-1 $939 $518 #
+plane-surface $-1 -1 $-1 -49.39411254969540721 -6.310887241768094443e-29 49.39411254969541432 -0.7071067811865475727 -1.865808500425163107e-17 0.7071067811865475727 7.071067811865477282 4.257425495311562253e-16 7.071067811865477282 forward_v I I I I #
+loop $-1 -1 $-1 $-1 $940 $351 #
+coedge $-1 -1 $-1 $728 $728 $521 $729 forward $519 $-1 #
+edge $-1 -1 $-1 $941 0 $941 6.283185307179586232 $728 $942 forward @7 unknown #
+DXID-attrib $-1 -1 $-1 $-1 $523 @10 ASM ENTITY @1 2 #
+loop $-1 -1 $-1 $-1 $943 $523 #
+plane-surface $-1 -1 $-1 -67.07178207935888281 -1.598721155460225418e-13 67.07178207935916703 0.7071067811865475727 9.571091841810726818e-16 -0.7071067811865475727 -7.071067811865462183 -1.899164659391336372e-14 -7.071067811865462183 forward_v I I I I #
+loop $-1 -1 $-1 $-1 $944 $355 #
+coedge $-1 -1 $-1 $734 $734 $526 $735 forward $524 $-1 #
+edge $-1 -1 $-1 $945 0 $945 6.283185307179586232 $734 $946 forward @7 unknown #
+DXID-attrib $-1 -1 $-1 $-1 $528 @10 ASM ENTITY @1 2 #
+loop $-1 -1 $-1 $-1 $947 $528 #
+plane-surface $-1 -1 $-1 -49.39411254969501641 -6.292749679213100445e-14 49.39411254969562037 0.7071067811865485719 1.035613807115250827e-15 -0.7071067811865465735 -1.020489881553172306e-14 10.00000000000009415 4.440892098500626951e-15 forward_v I I I I #
+coedge $-1 -1 $-1 $739 $739 $532 $741 forward $529 $-1 #
+coedge $-1 -1 $-1 $740 $740 $947 $948 reversed $531 $-1 #
+edge $-1 -1 $-1 $949 0 $949 6.283185307179586232 $739 $950 forward @7 unknown #
+DXID-attrib $-1 -1 $-1 $-1 $534 @10 ASM ENTITY @1 2 #
+loop $-1 -1 $-1 $-1 $951 $534 #
+plane-surface $-1 -1 $-1 49.39411254969542142 8.881784197001378541e-15 49.39411254969541432 0.7071067811865475727 1.021528168873749192e-15 0.7071067811865475727 7.071067811865457742 1.082760508831114833e-14 -7.071067811865457742 forward_v I I I I #
+loop $-1 -1 $-1 $-1 $952 $364 #
+coedge $-1 -1 $-1 $746 $746 $537 $747 forward $535 $-1 #
+edge $-1 -1 $-1 $953 0 $953 6.283185307179586232 $746 $954 forward @7 unknown #
+DXID-attrib $-1 -1 $-1 $-1 $539 @10 ASM ENTITY @1 2 #
+loop $-1 -1 $-1 $-1 $955 $539 #
+plane-surface $-1 -1 $-1 67.07178207935922387 -1.509903313490211885e-13 67.07178207935872649 -0.7071067811865475727 -8.307706969693019964e-17 -0.7071067811865475727 -7.071067811865447972 -2.939350913269330287e-14 7.071067811865447972 forward_v I I I I #
+loop $-1 -1 $-1 $-1 $956 $368 #
+coedge $-1 -1 $-1 $752 $752 $542 $753 forward $540 $-1 #
+edge $-1 -1 $-1 $957 0 $957 6.283185307179586232 $752 $958 forward @7 unknown #
+DXID-attrib $-1 -1 $-1 $-1 $544 @10 ASM ENTITY @1 2 #
+loop $-1 -1 $-1 $-1 $959 $544 #
+plane-surface $-1 -1 $-1 49.39411254969562748 1.121306854706766366e-14 49.39411254969476772 -0.7071067811865481278 2.708870579426802791e-16 -0.7071067811865470176 -6.383782391594709272e-15 10.00000000000004441 1.021470390373359208e-14 forward_v I I I I #
+coedge $-1 -1 $-1 $757 $757 $548 $759 forward $545 $-1 #
+coedge $-1 -1 $-1 $758 $758 $959 $960 reversed $547 $-1 #
+edge $-1 -1 $-1 $961 0 $961 6.283185307179586232 $757 $962 forward @7 unknown #
+DXID-attrib $-1 -1 $-1 $-1 $550 @10 ASM ENTITY @1 2 #
+loop $-1 -1 $-1 $-1 $963 $550 #
+plane-surface $-1 -1 $-1 49.39411254969541432 4.440892098500499944e-15 -49.39411254969546405 0.7071067811865480168 -8.994812202571502664e-16 -0.7071067811865471286 -7.071067811865482611 -9.607135602145192998e-15 -7.071067811865491493 forward_v I I I I #
+loop $-1 -1 $-1 $-1 $964 $377 #
+coedge $-1 -1 $-1 $764 $764 $553 $765 forward $551 $-1 #
+edge $-1 -1 $-1 $965 0 $965 6.283185307179586232 $764 $966 forward @7 unknown #
+DXID-attrib $-1 -1 $-1 $-1 $555 @10 ASM ENTITY @1 2 #
+loop $-1 -1 $-1 $-1 $967 $555 #
+plane-surface $-1 -1 $-1 67.07178207935895387 -9.992007221626418961e-14 -67.07178207935919545 -0.7071067811865480168 1.837932319433968877e-15 0.7071067811865471286 7.071067811865467512 -8.958768442237040428e-15 7.071067811865476394 forward_v I I I I #
+loop $-1 -1 $-1 $-1 $968 $381 #
+coedge $-1 -1 $-1 $770 $770 $558 $771 forward $556 $-1 #
+edge $-1 -1 $-1 $969 0 $969 6.283185307179586232 $770 $970 forward @7 unknown #
+DXID-attrib $-1 -1 $-1 $-1 $560 @10 ASM ENTITY @1 2 #
+loop $-1 -1 $-1 $-1 $971 $560 #
+plane-surface $-1 -1 $-1 49.39411254969493115 -1.394141505814341395e-13 -49.39411254969571985 -0.707106781186548794 1.884132702223670324e-15 0.7071067811865463515 9.437203326263991618e-15 10.00000000000008171 -1.720845688169006522e-14 forward_v I I I I #
+coedge $-1 -1 $-1 $775 $775 $564 $777 forward $561 $-1 #
+coedge $-1 -1 $-1 $776 $776 $971 $972 reversed $563 $-1 #
+edge $-1 -1 $-1 $973 0 $973 6.283185307179586232 $775 $974 forward @7 unknown #
+DXID-attrib $-1 -1 $-1 $-1 $566 @10 ASM ENTITY @1 2 #
+loop $-1 -1 $-1 $-1 $975 $566 #
+plane-surface $-1 -1 $-1 -86.60797017842524781 32.60225136270214819 86.60797017842581624 0.4055797876726410789 -0.8191520442889899112 -0.4055797876726407458 -7.071067811865480834 -1.304512053934557831e-14 -7.071067811865459518 forward_v I I I I #
+loop $-1 -1 $-1 $-1 $976 $390 #
+coedge $-1 -1 $-1 $782 $782 $569 $783 forward $567 $-1 #
+edge $-1 -1 $-1 $977 0 $977 6.283185307179586232 $782 $978 forward @7 unknown #
+DXID-attrib $-1 -1 $-1 $-1 $571 @10 ASM ENTITY @1 2 #
+loop $-1 -1 $-1 $-1 $979 $571 #
+plane-surface $-1 -1 $-1 -72.41267760988291968 3.931929812586951734 72.41267760988318969 -0.4055797876726430773 0.819152044288988912 0.4055797876726405238 7.071067811865465735 2.109423746787794902e-14 7.0710678118654684 forward_v I I I I #
+loop $-1 -1 $-1 $-1 $980 $394 #
+coedge $-1 -1 $-1 $788 $788 $574 $789 forward $572 $-1 #
+edge $-1 -1 $-1 $981 0 $981 6.283185307179586232 $788 $982 forward @7 unknown #
+DXID-attrib $-1 -1 $-1 $-1 $576 @10 ASM ENTITY @1 2 #
+loop $-1 -1 $-1 $-1 $983 $576 #
+plane-surface $-1 -1 $-1 -72.41267760988247915 3.931929812587277695 72.41267760988353075 0.4055797876726421336 -0.819152044288988801 -0.405579787672641856 5.792279653395650207 5.735764363510504005 -5.792279653395689287 forward_v I I I I #
+coedge $-1 -1 $-1 $793 $793 $580 $795 forward $577 $-1 #
+coedge $-1 -1 $-1 $794 $794 $983 $984 reversed $579 $-1 #
+edge $-1 -1 $-1 $985 0 $985 6.283185307179586232 $793 $986 forward @7 unknown #
+DXID-attrib $-1 -1 $-1 $-1 $582 @10 ASM ENTITY @1 2 #
+loop $-1 -1 $-1 $-1 $987 $582 #
+plane-surface $-1 -1 $-1 86.60797017842597256 32.60225136270218371 86.60797017842517675 -0.4055797876726399687 -0.8191520442889900222 -0.405579787672641634 -7.071067811865450636 -2.41473507855970948e-14 7.071067811865470176 forward_v I I I I #
+loop $-1 -1 $-1 $-1 $988 $403 #
+coedge $-1 -1 $-1 $800 $800 $585 $801 forward $583 $-1 #
+edge $-1 -1 $-1 $989 0 $989 6.283185307179586232 $800 $990 forward @7 unknown #
+DXID-attrib $-1 -1 $-1 $-1 $587 @10 ASM ENTITY @1 2 #
+loop $-1 -1 $-1 $-1 $991 $587 #
+plane-surface $-1 -1 $-1 72.41267760988326074 3.931929812586929529 72.41267760988283442 0.4055797876726396356 0.8191520442889894671 0.4055797876726429663 7.071067811865451525 2.831068712794139712e-14 -7.071067811865450636 forward_v I I I I #
+loop $-1 -1 $-1 $-1 $992 $407 #
+coedge $-1 -1 $-1 $806 $806 $590 $807 forward $588 $-1 #
+edge $-1 -1 $-1 $993 0 $993 6.283185307179586232 $806 $994 forward @7 unknown #
+DXID-attrib $-1 -1 $-1 $-1 $592 @10 ASM ENTITY @1 2 #
+loop $-1 -1 $-1 $-1 $995 $592 #
+plane-surface $-1 -1 $-1 72.41267760988374391 3.931929812587355855 72.41267760988253599 -0.4055797876726401352 -0.8191520442889896891 -0.4055797876726419116 -5.792279653395680405 5.735764363510476471 -5.792279653395643102 forward_v I I I I #
+coedge $-1 -1 $-1 $811 $811 $596 $813 forward $593 $-1 #
+coedge $-1 -1 $-1 $812 $812 $995 $996 reversed $595 $-1 #
+edge $-1 -1 $-1 $997 0 $997 6.283185307179586232 $811 $998 forward @7 unknown #
+DXID-attrib $-1 -1 $-1 $-1 $598 @10 ASM ENTITY @1 2 #
+loop $-1 -1 $-1 $-1 $999 $598 #
+plane-surface $-1 -1 $-1 86.60797017842548939 32.60225136270251056 -86.60797017842598677 -0.4055797876726410234 -0.819152044288989134 0.4055797876726420226 7.071067811865490604 -1.387778780781446859e-15 7.071067811865471064 forward_v I I I I #
+loop $-1 -1 $-1 $-1 $1000 $416 #
+coedge $-1 -1 $-1 $818 $818 $601 $819 forward $599 $-1 #
+edge $-1 -1 $-1 $1001 0 $1001 6.283185307179586232 $818 $1002 forward @7 unknown #
+DXID-attrib $-1 -1 $-1 $-1 $603 @10 ASM ENTITY @1 2 #
+loop $-1 -1 $-1 $-1 $1003 $603 #
+plane-surface $-1 -1 $-1 72.4126776098829481 3.931929812586951734 -72.41267760988316127 0.4055797876726438544 0.8191520442889881348 -0.4055797876726414675 -7.071067811865440866 1.110223024625152596e-14 -7.071067811865460406 forward_v I I I I #
+loop $-1 -1 $-1 $-1 $1004 $420 #
+coedge $-1 -1 $-1 $824 $824 $606 $825 forward $604 $-1 #
+edge $-1 -1 $-1 $1005 0 $1005 6.283185307179586232 $824 $1006 forward @7 unknown #
+DXID-attrib $-1 -1 $-1 $-1 $608 @10 ASM ENTITY @1 2 #
+loop $-1 -1 $-1 $-1 $1007 $608 #
+plane-surface $-1 -1 $-1 72.41267760988266389 3.931929812587739548 -72.41267760988347391 -0.4055797876726432993 -0.8191520442889873577 0.4055797876726435769 -5.792279653395654648 5.735764363510526209 5.792279653395667083 forward_v I I I I #
+coedge $-1 -1 $-1 $829 $829 $612 $831 forward $609 $-1 #
+coedge $-1 -1 $-1 $830 $830 $1007 $1008 reversed $611 $-1 #
+edge $-1 -1 $-1 $1009 0 $1009 6.283185307179586232 $829 $1010 forward @7 unknown #
+DXID-attrib $-1 -1 $-1 $-1 $614 @10 ASM ENTITY @1 2 #
+loop $-1 -1 $-1 $-1 $1011 $614 #
+plane-surface $-1 -1 $-1 89.98916710515912598 32.18390379751346586 89.98916710515831596 0.2988362387301150558 -0.9063077870366530453 0.2988362387301154999 -7.07106781186545863 -2.3592239273284384e-14 7.071067811865376029 forward_v I I I I #
+loop $-1 -1 $-1 $-1 $1012 $429 #
+coedge $-1 -1 $-1 $836 $836 $617 $837 forward $615 $-1 #
+edge $-1 -1 $-1 $1013 0 $1013 6.283185307179586232 $836 $1014 forward @7 unknown #
+DXID-attrib $-1 -1 $-1 $-1 $619 @10 ASM ENTITY @1 2 #
+loop $-1 -1 $-1 $-1 $1015 $619 #
+plane-surface $-1 -1 $-1 104.9309790416651538 -13.13148555431875586 104.930979041663889 -0.2988362387301171652 0.9063077870366528233 -0.2988362387301140566 7.071067811865470176 1.998401444325282088e-14 -7.071067811865483499 forward_v I I I I #
+loop $-1 -1 $-1 $-1 $1016 $433 #
+coedge $-1 -1 $-1 $842 $842 $622 $843 forward $620 $-1 #
+edge $-1 -1 $-1 $1017 0 $1017 6.283185307179586232 $842 $1018 forward @7 unknown #
+DXID-attrib $-1 -1 $-1 $-1 $624 @10 ASM ENTITY @1 2 #
+loop $-1 -1 $-1 $-1 $1019 $624 #
+plane-surface $-1 -1 $-1 89.98916710515956652 32.18390379751360086 89.98916710515814543 -0.2988362387301177203 0.9063077870366530453 -0.2988362387301129464 -6.408563820557903412 -4.226182617406927911 -6.408563820557901636 forward_v I I I I #
+coedge $-1 -1 $-1 $847 $847 $628 $849 forward $625 $-1 #
+coedge $-1 -1 $-1 $848 $848 $1019 $1020 reversed $627 $-1 #
+edge $-1 -1 $-1 $1021 0 $1021 6.283185307179586232 $847 $1022 forward @7 unknown #
+DXID-attrib $-1 -1 $-1 $-1 $630 @10 ASM ENTITY @1 2 #
+loop $-1 -1 $-1 $-1 $1023 $630 #
+plane-surface $-1 -1 $-1 89.98916710515868544 32.18390379751386376 -89.98916710515921125 0.2988362387301132239 -0.9063077870366545996 -0.2988362387301126133 7.07106781186541955 -9.992007221626361532e-15 7.071067811865463959 forward_v I I I I #
+loop $-1 -1 $-1 $-1 $1024 $441 #
+coedge $-1 -1 $-1 $854 $854 $633 $855 forward $631 $-1 #
+edge $-1 -1 $-1 $1025 0 $1025 6.283185307179586232 $854 $1026 forward @7 unknown #
+DXID-attrib $-1 -1 $-1 $-1 $635 @10 ASM ENTITY @1 2 #
+loop $-1 -1 $-1 $-1 $1027 $635 #
+plane-surface $-1 -1 $-1 104.9309790416643011 -13.13148555431850184 -104.9309790416650401 -0.298836238730113779 0.9063077870366540445 0.2988362387301138345 -7.071067811865479946 -4.71844785465691293e-15 -7.071067811865463959 forward_v I I I I #
+loop $-1 -1 $-1 $-1 $1028 $445 #
+coedge $-1 -1 $-1 $860 $860 $638 $861 forward $636 $-1 #
+edge $-1 -1 $-1 $1029 0 $1029 6.283185307179586232 $860 $1030 forward @7 unknown #
+DXID-attrib $-1 -1 $-1 $-1 $640 @10 ASM ENTITY @1 2 #
+loop $-1 -1 $-1 $-1 $1031 $640 #
+plane-surface $-1 -1 $-1 89.98916710515854334 32.18390379751394192 -89.98916710515909756 -0.2988362387301147782 0.9063077870366538225 0.298836238730113446 -6.408563820557922064 -4.226182617406919029 6.408563820557918511 forward_v I I I I #
+coedge $-1 -1 $-1 $865 $865 $644 $867 forward $641 $-1 #
+coedge $-1 -1 $-1 $866 $866 $1031 $1032 reversed $643 $-1 #
+edge $-1 -1 $-1 $1033 0 $1033 6.283185307179586232 $865 $1034 forward @7 unknown #
+DXID-attrib $-1 -1 $-1 $-1 $646 @10 ASM ENTITY @1 2 #
+loop $-1 -1 $-1 $-1 $1035 $646 #
+plane-surface $-1 -1 $-1 -89.98916710515848649 32.1839037975133806 89.98916710515908335 -0.2988362387301146117 -0.9063077870366533784 0.2988362387301146117 -7.071067811865423991 -1.276756478318924342e-14 -7.071067811865462183 forward_v I I I I #
+loop $-1 -1 $-1 $-1 $1036 $453 #
+coedge $-1 -1 $-1 $872 $872 $649 $873 forward $647 $-1 #
+edge $-1 -1 $-1 $1037 0 $1037 6.283185307179586232 $872 $1038 forward @7 unknown #
+DXID-attrib $-1 -1 $-1 $-1 $651 @10 ASM ENTITY @1 2 #
+loop $-1 -1 $-1 $-1 $1039 $651 #
+plane-surface $-1 -1 $-1 -104.9309790416644432 -13.13148555431908271 104.930979041664969 0.2988362387301149448 0.9063077870366534894 -0.2988362387301137235 7.071067811865494157 -1.748601263784623444e-14 7.071067811865471064 forward_v I I I I #
+loop $-1 -1 $-1 $-1 $1040 $457 #
+coedge $-1 -1 $-1 $878 $878 $654 $879 forward $652 $-1 #
+edge $-1 -1 $-1 $1041 0 $1041 6.283185307179586232 $878 $1042 forward @7 unknown #
+DXID-attrib $-1 -1 $-1 $-1 $656 @10 ASM ENTITY @1 2 #
+loop $-1 -1 $-1 $-1 $1043 $656 #
+plane-surface $-1 -1 $-1 -89.9891671051585007 32.1839037975133806 89.98916710515936757 0.2988362387301149448 0.9063077870366528233 -0.2988362387301164436 6.408563820557895419 -4.226182617406935016 -6.408563820557916735 forward_v I I I I #
+coedge $-1 -1 $-1 $883 $883 $660 $885 forward $657 $-1 #
+coedge $-1 -1 $-1 $884 $884 $1043 $1044 reversed $659 $-1 #
+edge $-1 -1 $-1 $1045 0 $1045 6.283185307179586232 $883 $1046 forward @7 unknown #
+coedge $-1 -1 $-1 $886 $886 $887 $1047 forward $662 $-1 #
+coedge $-1 -1 $-1 $887 $887 $886 $1047 reversed $664 $-1 #
+vertex $-1 -1 $-1 $666 $1048 #
+ellipse-curve $-1 -1 $-1 -70.89794883654985824 2.373844717795730244e-13 -70.02607216613928642 0.719593897010118777 2.078093513786014822e-15 0.6943951493103841521 0.9721532090345335053 -2.040388185286769813e-15 -1.007431455814161714 1 I I #
+coedge $-1 -1 $-1 $890 $890 $891 $1049 forward $668 $-1 #
+coedge $-1 -1 $-1 $891 $891 $890 $1049 reversed $670 $-1 #
+vertex $-1 -1 $-1 $672 $1050 #
+ellipse-curve $-1 -1 $-1 -46 -1.776356839400252358e-14 -46 -0.719593897010118333 -2.065779730073971352e-15 -0.6943951493103845962 0.9721532090345331723 5.458266887485730899e-16 -1.007431455814160381 1 I I #
+coedge $-1 -1 $-1 $894 $894 $677 $895 forward $674 $-1 #
+edge $-1 -1 $-1 $1051 0 $1051 6.283185307179586232 $894 $1052 forward @7 unknown #
+vertex $-1 -1 $-1 $678 $1053 #
+ellipse-curve $-1 -1 $-1 -49.45405070564844863 -2.497239160233885994e-13 -49.33309671668980911 0.7195938970101182219 2.378642741645238278e-15 0.6943951493103848183 3.471975746551964281 -1.450355032180198502e-14 -3.597969485050632521 1 I I #
+coedge $-1 -1 $-1 $898 $898 $899 $1054 forward $680 $-1 #
+coedge $-1 -1 $-1 $899 $899 $898 $1054 reversed $682 $-1 #
+vertex $-1 -1 $-1 $684 $1055 #
+ellipse-curve $-1 -1 $-1 -89.30624663333865954 36.53418117529002274 -87.78974797031634125 0.4127421030670221924 -0.8191520442889915765 0.3982886951609068138 0.9721532090345247346 -8.360674780850655692e-15 -1.007431455814151278 1 I I #
+coedge $-1 -1 $-1 $902 $902 $903 $1056 forward $686 $-1 #
+coedge $-1 -1 $-1 $903 $903 $902 $1056 reversed $688 $-1 #
+vertex $-1 -1 $-1 $690 $1057 #
+ellipse-curve $-1 -1 $-1 -70.89794883654987245 1.598721155460225418e-13 -70.02607216613932906 -0.4127421030670254121 0.8191520442889906883 -0.398288695160905204 0.9721532090345276211 -3.471200400936890268e-15 -1.007431455814155941 1 I I #
+coedge $-1 -1 $-1 $906 $906 $695 $907 forward $692 $-1 #
+edge $-1 -1 $-1 $1058 0 $1058 6.283185307179586232 $906 $1059 forward @7 unknown #
+vertex $-1 -1 $-1 $696 $1060 #
+ellipse-curve $-1 -1 $-1 -87.32508453861726139 32.60225136270265267 -85.87796223354379777 -0.4127421030670239688 0.819152044288988801 -0.3982886951609106996 3.471975746551911879 -2.969846590872293746e-14 -3.597969485050559246 1 I I #
+coedge $-1 -1 $-1 $910 $910 $911 $1061 forward $698 $-1 #
+coedge $-1 -1 $-1 $911 $911 $910 $1061 reversed $700 $-1 #
+vertex $-1 -1 $-1 $702 $1062 #
+ellipse-curve $-1 -1 $-1 -89.30624663333865954 36.53418117529005826 -87.78974797031644073 -0.3041135219136282819 -0.906307787036651491 -0.2934640709627275301 0.9130429733100366985 -0.5916655664369672163 0.8810700235406605518 1 I I #
+coedge $-1 -1 $-1 $914 $914 $915 $1063 forward $704 $-1 #
+coedge $-1 -1 $-1 $915 $915 $914 $1063 reversed $706 $-1 #
+vertex $-1 -1 $-1 $708 $1064 #
+ellipse-curve $-1 -1 $-1 -107.4314125393909478 -17.4817629320931438 -105.2802065996948642 0.3041135219136296697 0.9063077870366512689 0.2934640709627270305 0.9130429733100419165 -0.5916655664369686596 0.881070023540656444 1 I I #
+coedge $-1 -1 $-1 $918 $918 $713 $919 forward $710 $-1 #
+edge $-1 -1 $-1 $1065 0 $1065 6.283185307179586232 $918 $1066 forward @7 unknown #
+vertex $-1 -1 $-1 $714 $1067 #
+ellipse-curve $-1 -1 $-1 -105.9716676342056871 -13.13148555431806486 -103.8715790590737384 -0.3041135219136326673 -0.9063077870366498257 -0.2934640709627281407 3.260867761821596655 -2.113091308703485716 3.146678655502351152 1 I I #
+DXID-attrib $-1 -1 $-1 $-1 $716 @10 ASM ENTITY @1 3 #
+face $1068 -1 $-1 $1069 $1070 $167 $-1 $1071 forward single #
+loop $-1 -1 $-1 $-1 $1072 $716 #
+plane-surface $-1 -1 $-1 -46 0 46 -0.7071067811865475727 0 0.7071067811865475727 7.071067811865475505 0 7.071067811865475505 forward_v I I I I #
+coedge $-1 -1 $-1 $1073 $1074 $930 $1075 reversed $717 $-1 #
+coedge $-1 -1 $-1 $1076 $719 $1074 $1077 reversed $514 $-1 #
+coedge $-1 -1 $-1 $719 $1076 $933 $1078 reversed $514 $-1 #
+edge $-1 -1 $-1 $1079 -0.8000000000000000444 $936 0.8000000000000000444 $719 $1080 forward @7 unknown #
+coedge $-1 -1 $-1 $721 $720 $926 $1075 forward $348 $-1 #
+coedge $-1 -1 $-1 $1081 $1082 $720 $932 reversed $1083 $-1 #
+edge $-1 -1 $-1 $937 -0.8000000000000000444 $1084 0.8000000000000000444 $931 $1085 forward @7 unknown #
+coedge $-1 -1 $-1 $1086 $722 $928 $1078 forward $935 $-1 #
+coedge $-1 -1 $-1 $722 $1087 $1081 $1088 forward $935 $-1 #
+loop $-1 -1 $-1 $-1 $722 $1089 #
+vertex $-1 -1 $-1 $723 $1090 #
+vertex $-1 -1 $-1 $723 $1091 #
+straight-curve $-1 -1 $-1 -46 8 -46 7.071067811865475505 0 -7.071067811865475505 I I #
+coedge $-1 -1 $-1 $939 $939 $940 $1092 forward $725 $-1 #
+coedge $-1 -1 $-1 $940 $940 $939 $1092 reversed $727 $-1 #
+vertex $-1 -1 $-1 $729 $1093 #
+ellipse-curve $-1 -1 $-1 -45.99999999999997868 8.955880802034474491e-17 45.99999999999998579 -0.7071067811865475727 -1.865808500425163107e-17 0.7071067811865475727 -6.06169239364840419e-17 1.399999999999998135 -2.36758003311922671e-17 1 I I #
+coedge $-1 -1 $-1 $943 $943 $944 $1094 forward $731 $-1 #
+coedge $-1 -1 $-1 $944 $944 $943 $1094 reversed $733 $-1 #
+vertex $-1 -1 $-1 $735 $1095 #
+ellipse-curve $-1 -1 $-1 -70.46589462905430423 -1.644662396300916866e-13 70.46589462905458845 0.7071067811865475727 9.571091841810726818e-16 -0.7071067811865475727 -2.827566845202133862e-15 1.399999999999995248 -9.325873406851305473e-16 1 I I #
+coedge $-1 -1 $-1 $947 $947 $740 $948 forward $737 $-1 #
+edge $-1 -1 $-1 $1096 0 $1096 6.283185307179586232 $947 $1097 forward @7 unknown #
+vertex $-1 -1 $-1 $741 $1098 #
+ellipse-curve $-1 -1 $-1 -67.07178207935889702 -8.881784197001252323e-14 67.07178207935945125 -0.7071067811865485719 -1.035613807115250827e-15 0.7071067811865465735 -5.102449407765861528e-15 5.000000000000047073 2.220446049250313475e-15 1 I I #
+coedge $-1 -1 $-1 $951 $951 $952 $1099 forward $743 $-1 #
+coedge $-1 -1 $-1 $952 $952 $951 $1099 reversed $745 $-1 #
+vertex $-1 -1 $-1 $747 $1100 #
+ellipse-curve $-1 -1 $-1 46 3.978448986407394095e-15 45.99999999999999289 0.7071067811865475727 1.021528168873749192e-15 0.7071067811865475727 -2.083139511010850163e-15 1.39999999999999436 6.061692393648490472e-17 1 I I #
+coedge $-1 -1 $-1 $955 $955 $956 $1101 forward $749 $-1 #
+coedge $-1 -1 $-1 $956 $956 $955 $1101 reversed $751 $-1 #
+vertex $-1 -1 $-1 $753 $1102 #
+ellipse-curve $-1 -1 $-1 70.46589462905464529 -1.505915614144759337e-13 70.46589462905414791 -0.7071067811865475727 -8.307706969693019964e-17 -0.7071067811865475727 -2.992051051364784965e-15 1.399999999999992362 2.827566845202126762e-15 1 I I #
+coedge $-1 -1 $-1 $959 $959 $758 $960 forward $755 $-1 #
+edge $-1 -1 $-1 $1103 0 $1103 6.283185307179586232 $959 $1104 forward @7 unknown #
+vertex $-1 -1 $-1 $759 $1105 #
+ellipse-curve $-1 -1 $-1 67.07178207935940861 4.440892098500626162e-15 67.07178207935852754 0.7071067811865481278 -2.708870579426802791e-16 0.7071067811865470176 -3.191891195797354636e-15 5.000000000000022204 5.10735195186679604e-15 1 I I #
+coedge $-1 -1 $-1 $963 $963 $964 $1106 forward $761 $-1 #
+coedge $-1 -1 $-1 $964 $964 $963 $1106 reversed $763 $-1 #
+vertex $-1 -1 $-1 $765 $1107 #
+ellipse-curve $-1 -1 $-1 45.99999999999997868 8.758401955734828796e-15 -46.00000000000002842 0.7071067811865480168 -8.994812202571502664e-16 -0.7071067811865471286 -6.061692393648319141e-17 1.400000000000000133 -1.841498881039072843e-15 1 I I #
+coedge $-1 -1 $-1 $967 $967 $968 $1108 forward $767 $-1 #
+coedge $-1 -1 $-1 $968 $968 $967 $1108 reversed $769 $-1 #
+vertex $-1 -1 $-1 $771 $1109 #
+ellipse-curve $-1 -1 $-1 70.4658946290543895 -1.087421473495472434e-13 -70.46589462905461687 -0.7071067811865480168 1.837932319433968877e-15 0.7071067811865471286 2.706332997329165655e-15 1.399999999999997247 -9.325873406851273919e-16 1 I I #
+coedge $-1 -1 $-1 $971 $971 $776 $972 forward $773 $-1 #
+edge $-1 -1 $-1 $1110 0 $1110 6.283185307179586232 $971 $1111 forward @7 unknown #
+vertex $-1 -1 $-1 $777 $1112 #
+ellipse-curve $-1 -1 $-1 67.07178207935879755 -1.865174681370262988e-13 -67.0717820793595223 0.707106781186548794 -1.884132702223670324e-15 -0.7071067811865463515 4.718601663131995809e-15 5.000000000000040856 -8.604228440845032608e-15 1 I I #
+coedge $-1 -1 $-1 $975 $975 $976 $1113 forward $779 $-1 #
+coedge $-1 -1 $-1 $976 $976 $975 $1113 reversed $781 $-1 #
+vertex $-1 -1 $-1 $783 $1114 #
+ellipse-curve $-1 -1 $-1 -88.5547531592539201 36.53418117528929798 88.55475315925448854 0.4055797876726410789 -0.8191520442889899112 -0.4055797876726407458 0.8109191514753910646 0.8030070108914666438 -0.8109191514753949503 1 I I #
+coedge $-1 -1 $-1 $979 $979 $980 $1115 forward $785 $-1 #
+coedge $-1 -1 $-1 $980 $980 $979 $1115 reversed $787 $-1 #
+vertex $-1 -1 $-1 $789 $1116 #
+ellipse-curve $-1 -1 $-1 -70.46589462905423318 -1.905142710256768623e-13 70.4658946290545174 -0.4055797876726430773 0.819152044288988912 0.4055797876726405238 0.8109191514753906205 0.8030070108914681981 -0.8109191514753928409 1 I I #
+coedge $-1 -1 $-1 $983 $983 $794 $984 forward $791 $-1 #
+edge $-1 -1 $-1 $1117 0 $1117 6.283185307179586232 $983 $1118 forward @7 unknown #
+vertex $-1 -1 $-1 $795 $1119 #
+ellipse-curve $-1 -1 $-1 -86.60797017842494938 32.60225136270187818 86.60797017842598677 -0.4055797876726421336 0.819152044288988801 0.405579787672641856 2.896139826697825104 2.867882181755252002 -2.896139826697844644 1 I I #
+coedge $-1 -1 $-1 $987 $987 $988 $1120 forward $797 $-1 #
+coedge $-1 -1 $-1 $988 $988 $987 $1120 reversed $799 $-1 #
+vertex $-1 -1 $-1 $801 $1121 #
+ellipse-curve $-1 -1 $-1 88.55475315925464486 36.5341811752893264 88.55475315925384905 -0.4055797876726399687 -0.8191520442889900222 -0.405579787672641634 -0.8109191514753945063 0.8030070108914653115 -0.8109191514753895103 1 I I #
+coedge $-1 -1 $-1 $991 $991 $992 $1122 forward $803 $-1 #
+coedge $-1 -1 $-1 $992 $992 $991 $1122 reversed $805 $-1 #
+vertex $-1 -1 $-1 $807 $1123 #
+ellipse-curve $-1 -1 $-1 70.46589462905460266 -2.069455717901291791e-13 70.46589462905414791 0.4055797876726396356 0.8191520442889894671 0.4055797876726429663 -0.8109191514753920638 0.8030070108914653115 -0.8109191514753888441 1 I I #
+coedge $-1 -1 $-1 $995 $995 $812 $996 forward $809 $-1 #
+edge $-1 -1 $-1 $1124 0 $1124 6.283185307179586232 $995 $1125 forward @7 unknown #
+vertex $-1 -1 $-1 $813 $1126 #
+ellipse-curve $-1 -1 $-1 86.60797017842611467 32.60225136270192081 86.60797017842496359 0.4055797876726401352 0.8191520442889896891 0.4055797876726419116 -2.896139826697840203 2.867882181755238236 -2.896139826697821551 1 I I #
+coedge $-1 -1 $-1 $999 $999 $1000 $1127 forward $815 $-1 #
+coedge $-1 -1 $-1 $1000 $1000 $999 $1127 reversed $817 $-1 #
+vertex $-1 -1 $-1 $819 $1128 #
+ellipse-curve $-1 -1 $-1 88.55475315925416169 36.53418117528966036 -88.55475315925467328 -0.4055797876726410234 -0.819152044288989134 0.4055797876726420226 -0.8109191514753925079 0.8030070108914693083 0.8109191514753949503 1 I I #
+coedge $-1 -1 $-1 $1003 $1003 $1004 $1129 forward $821 $-1 #
+coedge $-1 -1 $-1 $1004 $1004 $1003 $1129 reversed $823 $-1 #
+vertex $-1 -1 $-1 $825 $1130 #
+ellipse-curve $-1 -1 $-1 70.4658946290542616 -1.776356839400250465e-13 -70.46589462905448897 0.4055797876726438544 0.8191520442889881348 -0.4055797876726414675 -0.8109191514753896213 0.803007010891467865 0.8109191514753886221 1 I I #
+coedge $-1 -1 $-1 $1007 $1007 $830 $1008 forward $827 $-1 #
+edge $-1 -1 $-1 $1131 0 $1131 6.283185307179586232 $1007 $1132 forward @7 unknown #
+vertex $-1 -1 $-1 $831 $1133 #
+ellipse-curve $-1 -1 $-1 86.60797017842517675 32.6022513627022974 -86.60797017842600098 0.4055797876726432993 0.8191520442889873577 -0.4055797876726435769 -2.896139826697827324 2.867882181755263105 2.896139826697833541 1 I I #
+coedge $-1 -1 $-1 $1011 $1011 $1012 $1134 forward $833 $-1 #
+coedge $-1 -1 $-1 $1012 $1012 $1011 $1134 reversed $835 $-1 #
+vertex $-1 -1 $-1 $837 $1135 #
+ellipse-curve $-1 -1 $-1 88.55475315925458801 36.53418117528936193 88.55475315925377799 0.2988362387301150558 -0.9063077870366530453 0.2988362387301154999 -0.8971989348780921025 -0.5916655664369644407 -0.897198934878104426 1 I I #
+coedge $-1 -1 $-1 $1015 $1015 $1016 $1136 forward $839 $-1 #
+coedge $-1 -1 $-1 $1016 $1016 $1015 $1136 reversed $841 $-1 #
+vertex $-1 -1 $-1 $843 $1137 #
+ellipse-curve $-1 -1 $-1 106.3653929875697202 -17.48176293209468923 106.3653929875684412 -0.2988362387301171652 0.9063077870366528233 -0.2988362387301140566 -0.8971989348781055362 -0.5916655664369699918 -0.8971989348781055362 1 I I #
+coedge $-1 -1 $-1 $1019 $1019 $848 $1020 forward $845 $-1 #
+edge $-1 -1 $-1 $1138 0 $1138 6.283185307179586232 $1019 $1139 forward @7 unknown #
+vertex $-1 -1 $-1 $849 $1140 #
+ellipse-curve $-1 -1 $-1 104.930979041665438 -13.13148555431902231 104.9309790416637895 0.2988362387301177203 -0.9063077870366530453 0.2988362387301129464 -3.204281910278951706 -2.113091308703463955 -3.204281910278950818 1 I I #
+coedge $-1 -1 $-1 $1023 $1023 $1024 $1141 forward $851 $-1 #
+coedge $-1 -1 $-1 $1024 $1024 $1023 $1141 reversed $853 $-1 #
+vertex $-1 -1 $-1 $855 $1142 #
+ellipse-curve $-1 -1 $-1 88.55475315925414748 36.53418117528978826 -88.55475315925467328 0.2988362387301132239 -0.9063077870366545996 -0.2988362387301126133 -0.8971989348781060913 -0.5916655664369616652 0.897198934878099541 1 I I #
+coedge $-1 -1 $-1 $1027 $1027 $1028 $1143 forward $857 $-1 #
+coedge $-1 -1 $-1 $1028 $1028 $1027 $1143 reversed $859 $-1 #
+vertex $-1 -1 $-1 $861 $1144 #
+ellipse-curve $-1 -1 $-1 106.3653929875688533 -17.48176293209444054 -106.3653929875695923 -0.298836238730113779 0.9063077870366540445 0.2988362387301138345 -0.8971989348781048701 -0.591665566436965884 0.8971989348781072016 1 I I #
+coedge $-1 -1 $-1 $1031 $1031 $866 $1032 forward $863 $-1 #
+edge $-1 -1 $-1 $1145 0 $1145 6.283185307179586232 $1031 $1146 forward @7 unknown #
+vertex $-1 -1 $-1 $867 $1147 #
+ellipse-curve $-1 -1 $-1 104.9309790416643011 -13.13148555431880027 -104.9309790416647843 0.2988362387301147782 -0.9063077870366538225 -0.298836238730113446 -3.204281910278961032 -2.113091308703459514 3.204281910278959256 1 I I #
+coedge $-1 -1 $-1 $1035 $1035 $1036 $1148 forward $869 $-1 #
+coedge $-1 -1 $-1 $1036 $1036 $1035 $1148 reversed $871 $-1 #
+vertex $-1 -1 $-1 $873 $1149 #
+ellipse-curve $-1 -1 $-1 -88.55475315925394852 36.53418117528929798 88.55475315925454538 -0.2988362387301146117 -0.9063077870366533784 0.2988362387301146117 0.8971989348781049811 -0.5916655664369654399 -0.897198934878099208 1 I I #
+coedge $-1 -1 $-1 $1039 $1039 $1040 $1150 forward $875 $-1 #
+coedge $-1 -1 $-1 $1040 $1040 $1039 $1150 reversed $877 $-1 #
+vertex $-1 -1 $-1 $879 $1151 #
+ellipse-curve $-1 -1 $-1 -106.3653929875689954 -17.48176293209502319 106.3653929875695212 0.2988362387301149448 0.9063077870366534894 -0.2988362387301137235 0.8971989348781049811 -0.5916655664369681045 -0.897198934878109533 1 I I #
+coedge $-1 -1 $-1 $1043 $1043 $884 $1044 forward $881 $-1 #
+edge $-1 -1 $-1 $1152 0 $1152 6.283185307179586232 $1043 $1153 forward @7 unknown #
+vertex $-1 -1 $-1 $885 $1154 #
+ellipse-curve $-1 -1 $-1 -104.9309790416642443 -13.13148555431926567 104.9309790416651964 -0.2988362387301149448 -0.9063077870366528233 0.2988362387301164436 3.204281910278947709 -2.113091308703467508 -3.204281910278958367 1 I I #
+edge $-1 -1 $-1 $1155 0 $1155 6.283185307179586232 $886 $1156 forward @7 unknown #
+point $-1 -1 $-1 -69.92579562751532762 2.353440835942862684e-13 -71.03350362195344303 #
+edge $-1 -1 $-1 $1157 0 $1157 6.283185307179586232 $890 $1158 forward @7 unknown #
+point $-1 -1 $-1 -45.02784679096546938 -1.721774170525395335e-14 -47.00743145581415661 #
+vertex $-1 -1 $-1 $895 $1159 #
+ellipse-curve $-1 -1 $-1 -67.44389813090161567 -3.091899845645202447e-13 -66.69297544944963363 -0.7195938970101182219 -2.378642741645238278e-15 -0.6943951493103848183 3.471975746551964281 -1.450355032180198502e-14 -3.597969485050632521 1 I I #
+point $-1 -1 $-1 -45.98207495909648657 -2.642274663451906034e-13 -52.93106620174044252 #
+edge $-1 -1 $-1 $1160 0 $1160 6.283185307179586232 $898 $1161 forward @7 unknown #
+point $-1 -1 $-1 -88.33409342430412892 36.53418117529001563 -88.79717942613049786 #
+edge $-1 -1 $-1 $1162 0 $1162 6.283185307179586232 $902 $1163 forward @7 unknown #
+point $-1 -1 $-1 -69.92579562751535605 1.563194018672220409e-13 -71.03350362195348566 #
+vertex $-1 -1 $-1 $907 $1164 #
+ellipse-curve $-1 -1 $-1 -72.87911093127151219 3.931929812588219164 -71.93785790291201465 0.4127421030670239688 -0.819152044288988801 0.3982886951609106996 3.471975746551911879 -2.969846590872293746e-14 -3.597969485050559246 1 I I #
+point $-1 -1 $-1 -83.85310879206535617 32.60225136270262425 -89.47593171859435301 #
+edge $-1 -1 $-1 $1165 0 $1165 6.283185307179586232 $910 $1166 forward @7 unknown #
+point $-1 -1 $-1 -88.39320366002863238 35.9425156088530855 -86.90867794677578217 #
+edge $-1 -1 $-1 $1167 0 $1167 6.283185307179586232 $914 $1168 forward @7 unknown #
+point $-1 -1 $-1 -106.5183695660809065 -18.07342849853011302 -104.3991365761542198 #
+vertex $-1 -1 $-1 $919 $1169 #
+ellipse-curve $-1 -1 $-1 -90.76599153852414759 32.18390379751414798 -89.19837551093742434 0.3041135219136326673 0.9063077870366498257 0.2934640709627281407 3.260867761821596655 -2.113091308703485716 3.146678655502351152 1 I I #
+point $-1 -1 $-1 -102.7107998723840865 -15.24457686302154968 -100.7249004035713824 #
+DXID-attrib $-1 -1 $-1 $-1 $923 @10 ASM ENTITY @1 4 #
+face $1170 -1 $-1 $1171 $1172 $167 $-1 $1173 forward single #
+loop $-1 -1 $-1 $-1 $1174 $923 #
+plane-surface $-1 -1 $-1 -50 0 50 0 0 1 10 0 0 forward_v I I I I #
+coedge $-1 -1 $-1 $1175 $1176 $1086 $1177 forward $924 $-1 #
+coedge $-1 -1 $-1 $1178 $926 $1082 $1179 forward $717 $-1 #
+coedge $-1 -1 $-1 $926 $1180 $927 $1077 forward $717 $-1 #
+edge $-1 -1 $-1 $1084 -0.5656854249492385689 $1079 0.5656854249492385689 $926 $1181 forward @7 unknown #
+coedge $-1 -1 $-1 $928 $927 $1175 $1182 reversed $514 $-1 #
+edge $-1 -1 $-1 $1183 0.8000000000000007105 $1079 9.199999999999999289 $927 $1184 forward @7 unknown #
+edge $-1 -1 $-1 $936 -9.199999999999999289 $1185 -0.8000000000000007105 $928 $1186 forward @7 unknown #
+vertex $-1 -1 $-1 $1075 $1187 #
+straight-curve $-1 -1 $-1 -50 0 -41.99999999999999289 0 10 0 F -3.2800009999999995 F 3.2800009999999995 #
+coedge $-1 -1 $-1 $1188 $931 $934 $1088 reversed $1083 $-1 #
+coedge $-1 -1 $-1 $931 $1188 $1073 $1179 reversed $1083 $-1 #
+loop $-1 -1 $-1 $-1 $931 $1189 #
+vertex $-1 -1 $-1 $932 $1190 #
+straight-curve $-1 -1 $-1 -41.99999999999999289 0 -50 -0 -10 -0 F -3.2800009999999995 F 3.2800009999999995 #
+coedge $-1 -1 $-1 $1191 $933 $1072 $1177 reversed $935 $-1 #
+coedge $-1 -1 $-1 $934 $1192 $1193 $1194 reversed $935 $-1 #
+edge $-1 -1 $-1 $1195 -9.199999999999999289 $937 -0.8000000000000007105 $1081 $1196 forward @7 unknown #
+face $1197 -1 $-1 $-1 $935 $167 $-1 $1198 forward single #
+point $-1 -1 $-1 -50 8 -41.99999999999999289 #
+point $-1 -1 $-1 -41.99999999999999289 8 -50 #
+edge $-1 -1 $-1 $1199 0 $1199 6.283185307179586232 $939 $1200 forward @7 unknown #
+point $-1 -1 $-1 -45.99999999999997868 1.399999999999998135 45.99999999999998579 #
+edge $-1 -1 $-1 $1201 0 $1201 6.283185307179586232 $943 $1202 forward @7 unknown #
+point $-1 -1 $-1 -70.46589462905430423 1.399999999999830491 70.46589462905458845 #
+vertex $-1 -1 $-1 $948 $1203 #
+ellipse-curve $-1 -1 $-1 -49.39411254969501641 -6.292749679213100445e-14 49.39411254969562037 0.7071067811865485719 1.035613807115250827e-15 -0.7071067811865465735 -5.102449407765861528e-15 5.000000000000047073 2.220446049250313475e-15 1 I I #
+point $-1 -1 $-1 -67.07178207935889702 4.999999999999958256 67.07178207935945125 #
+edge $-1 -1 $-1 $1204 0 $1204 6.283185307179586232 $951 $1205 forward @7 unknown #
+point $-1 -1 $-1 46 1.399999999999998357 45.99999999999999289 #
+edge $-1 -1 $-1 $1206 0 $1206 6.283185307179586232 $955 $1207 forward @7 unknown #
+point $-1 -1 $-1 70.46589462905463108 1.399999999999841815 70.46589462905414791 #
+vertex $-1 -1 $-1 $960 $1208 #
+ellipse-curve $-1 -1 $-1 49.39411254969562748 1.121306854706766366e-14 49.39411254969476772 -0.7071067811865481278 2.708870579426802791e-16 -0.7071067811865470176 -3.191891195797354636e-15 5.000000000000022204 5.10735195186679604e-15 1 I I #
+point $-1 -1 $-1 67.07178207935940861 5.000000000000026645 67.07178207935852754 #
+edge $-1 -1 $-1 $1209 0 $1209 6.283185307179586232 $963 $1210 forward @7 unknown #
+point $-1 -1 $-1 45.99999999999997868 1.400000000000009015 -46.00000000000003553 #
+edge $-1 -1 $-1 $1211 0 $1211 6.283185307179586232 $967 $1212 forward @7 unknown #
+point $-1 -1 $-1 70.4658946290543895 1.399999999999888445 -70.46589462905461687 #
+vertex $-1 -1 $-1 $972 $1213 #
+ellipse-curve $-1 -1 $-1 49.39411254969493115 -1.394141505814341395e-13 -49.39411254969571985 -0.707106781186548794 1.884132702223670324e-15 0.7071067811865463515 4.718601663131995809e-15 5.000000000000040856 -8.604228440845032608e-15 1 I I #
+point $-1 -1 $-1 67.07178207935879755 4.999999999999854339 -67.07178207935953651 #
+edge $-1 -1 $-1 $1214 0 $1214 6.283185307179586232 $975 $1215 forward @7 unknown #
+point $-1 -1 $-1 -87.74383400777853126 37.33718818618076085 87.74383400777909969 #
+edge $-1 -1 $-1 $1216 0 $1216 6.283185307179586232 $979 $1217 forward @7 unknown #
+point $-1 -1 $-1 -69.65497547757884433 0.8030070108912772398 69.65497547757912855 #
+vertex $-1 -1 $-1 $984 $1218 #
+ellipse-curve $-1 -1 $-1 -72.41267760988247915 3.931929812587277695 72.41267760988353075 0.4055797876726421336 -0.819152044288988801 -0.405579787672641856 2.896139826697825104 2.867882181755252002 -2.896139826697844644 1 I I #
+point $-1 -1 $-1 -83.71183035172713005 35.47013354445712707 83.71183035172813902 #
+edge $-1 -1 $-1 $1219 0 $1219 6.283185307179586232 $987 $1220 forward @7 unknown #
+point $-1 -1 $-1 87.7438340077792418 37.33718818618078927 87.7438340077784602 #
+edge $-1 -1 $-1 $1221 0 $1221 6.283185307179586232 $991 $1222 forward @7 unknown #
+point $-1 -1 $-1 69.65497547757919961 0.803007010891258588 69.65497547757875907 #
+vertex $-1 -1 $-1 $996 $1223 #
+ellipse-curve $-1 -1 $-1 72.41267760988374391 3.931929812587355855 72.41267760988253599 -0.4055797876726401352 -0.8191520442889896891 -0.4055797876726419116 -2.896139826697840203 2.867882181755238236 -2.896139826697821551 1 I I #
+point $-1 -1 $-1 83.71183035172828113 35.47013354445715549 83.71183035172714426 #
+edge $-1 -1 $-1 $1224 0 $1224 6.283185307179586232 $999 $1225 forward @7 unknown #
+point $-1 -1 $-1 87.74383400777877284 37.33718818618113033 -87.74383400777927022 #
+edge $-1 -1 $-1 $1226 0 $1226 6.283185307179586232 $1003 $1227 forward @7 unknown #
+point $-1 -1 $-1 69.65497547757887276 0.8030070108912901183 -69.65497547757910013 #
+vertex $-1 -1 $-1 $1008 $1228 #
+ellipse-curve $-1 -1 $-1 72.41267760988266389 3.931929812587739548 -72.41267760988347391 -0.4055797876726432993 -0.8191520442889873577 0.4055797876726435769 -2.896139826697827324 2.867882181755263105 2.896139826697833541 1 I I #
+point $-1 -1 $-1 83.71183035172734321 35.4701335444575605 -83.71183035172816744 #
+edge $-1 -1 $-1 $1229 0 $1229 6.283185307179586232 $1011 $1230 forward @7 unknown #
+point $-1 -1 $-1 87.65755422437649713 35.94251560885240337 87.6575542243756729 #
+edge $-1 -1 $-1 $1231 0 $1231 6.283185307179586232 $1015 $1232 forward @7 unknown #
+point $-1 -1 $-1 105.4681940526916151 -18.073428498531662 105.4681940526903361 #
+vertex $-1 -1 $-1 $1020 $1233 #
+ellipse-curve $-1 -1 $-1 89.98916710515956652 32.18390379751360086 89.98916710515814543 -0.2988362387301177203 0.9063077870366530453 -0.2988362387301129464 -3.204281910278951706 -2.113091308703463955 -3.204281910278950818 1 I I #
+point $-1 -1 $-1 101.7266971313864872 -15.24457686302248582 101.7266971313848387 #
+edge $-1 -1 $-1 $1234 0 $1234 6.283185307179586232 $1023 $1235 forward @7 unknown #
+point $-1 -1 $-1 87.65755422437604238 35.9425156088528226 -87.6575542243765824 #
+edge $-1 -1 $-1 $1236 0 $1236 6.283185307179586232 $1027 $1237 forward @7 unknown #
+point $-1 -1 $-1 105.4681940526907482 -18.07342849853140621 -105.468194052691473 #
+vertex $-1 -1 $-1 $1032 $1238 #
+ellipse-curve $-1 -1 $-1 89.98916710515854334 32.18390379751394192 -89.98916710515909756 -0.2988362387301147782 0.9063077870366538225 0.298836238730113446 -3.204281910278961032 -2.113091308703459514 3.204281910278959256 1 I I #
+point $-1 -1 $-1 101.7266971313853361 -15.24457686302226023 -101.7266971313858193 #
+edge $-1 -1 $-1 $1239 0 $1239 6.283185307179586232 $1035 $1240 forward @7 unknown #
+point $-1 -1 $-1 -87.65755422437584343 35.94251560885233232 87.65755422437644029 #
+edge $-1 -1 $-1 $1241 0 $1241 6.283185307179586232 $1039 $1242 forward @7 unknown #
+point $-1 -1 $-1 -105.4681940526908903 -18.0734284985319924 105.4681940526914019 #
+vertex $-1 -1 $-1 $1044 $1243 #
+ellipse-curve $-1 -1 $-1 -89.9891671051585007 32.1839037975133806 89.98916710515936757 0.2988362387301149448 0.9063077870366528233 -0.2988362387301164436 3.204281910278947709 -2.113091308703467508 -3.204281910278958367 1 I I #
+point $-1 -1 $-1 -101.7266971313852935 -15.24457686302273274 101.7266971313862314 #
+vertex $-1 -1 $-1 $1047 $1244 #
+ellipse-curve $-1 -1 $-1 -67.44389813090130303 2.473593206457458753e-13 -66.69297544944944889 0.719593897010118777 2.078093513786014822e-15 0.6943951493103841521 3.471975746551910103 -7.287100661738473817e-15 -3.597969485050583227 1 I I #
+vertex $-1 -1 $-1 $1049 $1245 #
+ellipse-curve $-1 -1 $-1 -49.45405070564855521 -2.76793110983575501e-14 -49.33309671668983043 -0.719593897010118333 -2.065779730073971352e-15 -0.6943951493103845962 3.471975746551909214 1.94938103124490647e-15 -3.597969485050577454 1 I I #
+point $-1 -1 $-1 -63.97192238434965361 -3.236935348863222486e-13 -70.29094493450025993 #
+vertex $-1 -1 $-1 $1054 $1246 #
+ellipse-curve $-1 -1 $-1 -87.32508453861697717 32.60225136270291557 -85.87796223354401093 0.4127421030670221924 -0.8191520442889915765 0.3982886951609068138 3.471975746551879016 -2.985955278875238661e-14 -3.597969485050545924 1 I I #
+vertex $-1 -1 $-1 $1056 $1247 #
+ellipse-curve $-1 -1 $-1 -72.87911093127158324 3.93192981258728036 -71.93785790291165938 -0.4127421030670254121 0.8191520442889906883 -0.398288695160905204 3.47197574655188923 -1.239714428906034137e-14 -3.597969485050562355 1 I I #
+point $-1 -1 $-1 -69.40713518471960697 3.93192981258818719 -75.5358273879625699 #
+vertex $-1 -1 $-1 $1061 $1248 #
+ellipse-curve $-1 -1 $-1 -90.76599153852406232 32.1839037975141764 -89.19837551093752381 -0.3041135219136282819 -0.906307787036651491 -0.2934640709627275301 3.260867761821564237 -2.113091308703457294 3.146678655502363586 1 I I #
+vertex $-1 -1 $-1 $1063 $1249 #
+ellipse-curve $-1 -1 $-1 -105.971667634205545 -13.13148555431726194 -103.8715790590737953 0.3041135219136296697 0.9063077870366512689 0.2934640709627270305 3.260867761821583333 -2.113091308703462623 3.146678655502349375 1 I I #
+point $-1 -1 $-1 -87.50512377670256114 30.07081248881065605 -86.0516968554350683 #
+DXID-attrib $-1 -1 $-1 $-1 $1069 @10 ASM ENTITY @1 5 #
+face $1250 -1 $-1 $1251 $1252 $167 $-1 $1253 forward single #
+loop $-1 -1 $-1 $-1 $1254 $1069 #
+plane-surface $-1 -1 $-1 46 0 -46 0.7071067811865480168 0 -0.7071067811865472397 -7.071067811865471953 0 -7.071067811865479946 forward_v I I I I #
+coedge $-1 -1 $-1 $1255 $1256 $1176 $1257 reversed $1070 $-1 #
+coedge $-1 -1 $-1 $1258 $1072 $1076 $1182 forward $924 $-1 #
+coedge $-1 -1 $-1 $1072 $1258 $1174 $1257 forward $924 $-1 #
+edge $-1 -1 $-1 $1259 -0.5656854249492385689 $1185 0.5656854249492385689 $1086 $1260 forward @7 unknown #
+coedge $-1 -1 $-1 $1261 $1073 $1254 $1262 reversed $717 $-1 #
+edge $-1 -1 $-1 $1084 0.8000000000000007105 $1263 9.199999999999999289 $1082 $1264 forward @7 unknown #
+coedge $-1 -1 $-1 $1074 $1265 $1258 $1266 reversed $717 $-1 #
+straight-curve $-1 -1 $-1 -46 -8 -46 -7.071067811865475505 0 7.071067811865475505 I I #
+edge $-1 -1 $-1 $1185 -0.8000000000000000444 $1183 0.8000000000000000444 $1076 $1267 forward @7 unknown #
+vertex $-1 -1 $-1 $1077 $1268 #
+straight-curve $-1 -1 $-1 -50 -8 50 0 0 -10 I I #
+vertex $-1 -1 $-1 $1182 $1269 #
+straight-curve $-1 -1 $-1 -50 8 50 0 0 10 I I #
+point $-1 -1 $-1 -50 -8 -41.99999999999999289 #
+coedge $-1 -1 $-1 $1082 $1081 $1270 $1271 reversed $1083 $-1 #
+face $1272 -1 $-1 $1089 $1083 $167 $-1 $1273 forward single #
+point $-1 -1 $-1 -41.99999999999999289 -8 -50 #
+coedge $-1 -1 $-1 $1274 $1086 $1256 $1275 forward $935 $-1 #
+coedge $-1 -1 $-1 $1087 $1274 $1276 $1277 forward $935 $-1 #
+coedge $-1 -1 $-1 $1278 $1270 $1087 $1194 forward $1172 $-1 #
+edge $-1 -1 $-1 $1195 -0.5656854249492397901 $1279 0.5656854249492373476 $1087 $1280 forward @7 unknown #
+vertex $-1 -1 $-1 $1271 $1281 #
+straight-curve $-1 -1 $-1 -50 8 -50 -10 -0 -0 I I #
+DXID-attrib $-1 -1 $-1 $-1 $1089 @10 ASM ENTITY @1 9 #
+plane-surface $-1 -1 $-1 0 8 0 0 1 0 0 0 10 forward_v I I I I #
+vertex $-1 -1 $-1 $1092 $1282 #
+ellipse-curve $-1 -1 $-1 -49.39411254969540721 -6.31127242775697189e-29 49.39411254969541432 -0.7071067811865475727 -1.865808500425163107e-17 0.7071067811865475727 -2.16489014058871904e-16 5.000000000000000888 -8.455642975425823105e-17 1 I I #
+vertex $-1 -1 $-1 $1094 $1283 #
+ellipse-curve $-1 -1 $-1 -67.07178207935888281 -1.598721155460225418e-13 67.07178207935916703 0.7071067811865475727 9.571091841810726818e-16 -0.7071067811865475727 -1.009845301857906596e-14 4.99999999999999023 -3.330669073875471593e-15 1 I I #
+point $-1 -1 $-1 -49.39411254969502352 4.999999999999984013 49.39411254969562037 #
+vertex $-1 -1 $-1 $1099 $1284 #
+ellipse-curve $-1 -1 $-1 49.39411254969542142 8.881784197001378541e-15 49.39411254969541432 0.7071067811865475727 1.021528168873749192e-15 0.7071067811865475727 -7.439783967895904879e-15 4.999999999999987566 2.164890140588750101e-16 1 I I #
+vertex $-1 -1 $-1 $1101 $1285 #
+ellipse-curve $-1 -1 $-1 67.07178207935922387 -1.509903313490211885e-13 67.07178207935872649 -0.7071067811865475727 -8.307706969693019964e-17 -0.7071067811865475727 -1.068589661201710646e-14 4.99999999999998046 1.009845301857903914e-14 1 I I #
+point $-1 -1 $-1 49.39411254969562748 5.000000000000033751 49.39411254969477483 #
+vertex $-1 -1 $-1 $1106 $1286 #
+ellipse-curve $-1 -1 $-1 49.39411254969541432 4.440892098500499944e-15 -49.39411254969546405 0.7071067811865480168 -8.994812202571502664e-16 -0.7071067811865471286 -2.164890140588688718e-16 5.000000000000007994 -6.57678171799669881e-15 1 I I #
+vertex $-1 -1 $-1 $1108 $1287 #
+ellipse-curve $-1 -1 $-1 67.07178207935895387 -9.992007221626418961e-14 -67.07178207935919545 -0.7071067811865480168 1.837932319433968877e-15 0.7071067811865471286 9.665474990461321462e-15 4.999999999999997335 -3.330669073875460155e-15 1 I I #
+point $-1 -1 $-1 49.39411254969493825 4.999999999999901412 -49.39411254969573406 #
+vertex $-1 -1 $-1 $1113 $1288 #
+ellipse-curve $-1 -1 $-1 -86.60797017842524781 32.60225136270214819 86.60797017842581624 0.4055797876726410789 -0.8191520442889899112 -0.4055797876726407458 2.896139826697829545 2.867882181755242232 -2.896139826697843311 1 I I #
+vertex $-1 -1 $-1 $1115 $1289 #
+ellipse-curve $-1 -1 $-1 -72.41267760988291968 3.931929812586951734 72.41267760988318969 -0.4055797876726430773 0.819152044288988912 0.4055797876726405238 2.896139826697828212 2.867882181755247561 -2.896139826697835762 1 I I #
+point $-1 -1 $-1 -69.5165377831846456 6.799811994342530141 69.516537783185683 #
+vertex $-1 -1 $-1 $1120 $1290 #
+ellipse-curve $-1 -1 $-1 86.60797017842597256 32.60225136270218371 86.60797017842517675 -0.4055797876726399687 -0.8191520442889900222 -0.405579787672641634 -2.896139826697841535 2.867882181755237347 -2.896139826697823771 1 I I #
+vertex $-1 -1 $-1 $1122 $1291 #
+ellipse-curve $-1 -1 $-1 72.41267760988326074 3.931929812586929529 72.41267760988283442 0.4055797876726396356 0.8191520442889894671 0.4055797876726429663 -2.896139826697833097 2.867882181755237792 -2.896139826697821995 1 I I #
+point $-1 -1 $-1 69.51653778318591037 6.799811994342590538 69.51653778318471666 #
+vertex $-1 -1 $-1 $1127 $1292 #
+ellipse-curve $-1 -1 $-1 86.60797017842548939 32.60225136270251056 -86.60797017842598677 -0.4055797876726410234 -0.819152044288989134 0.4055797876726420226 -2.896139826697834874 2.867882181755251558 2.896139826697843755 1 I I #
+vertex $-1 -1 $-1 $1129 $1293 #
+ellipse-curve $-1 -1 $-1 72.4126776098829481 3.931929812586951734 -72.41267760988316127 0.4055797876726438544 0.8191520442889881348 -0.4055797876726414675 -2.896139826697824216 2.867882181755246673 2.896139826697820663 1 I I #
+point $-1 -1 $-1 69.51653778318483035 6.799811994343002652 -69.51653778318564036 #
+vertex $-1 -1 $-1 $1134 $1294 #
+ellipse-curve $-1 -1 $-1 89.98916710515912598 32.18390379751346586 89.98916710515831596 0.2988362387301150558 -0.9063077870366530453 0.2988362387301154999 -3.204281910278905077 -2.113091308703447524 -3.204281910278949486 1 I I #
+vertex $-1 -1 $-1 $1136 $1295 #
+ellipse-curve $-1 -1 $-1 104.9309790416651538 -13.13148555431875586 104.930979041663889 -0.2988362387301171652 0.9063077870366528233 -0.2988362387301140566 -3.204281910278953482 -2.113091308703467508 -3.204281910278953482 1 I I #
+point $-1 -1 $-1 86.7848851948806157 30.0708124888101338 86.78488519487919461 #
+vertex $-1 -1 $-1 $1141 $1296 #
+ellipse-curve $-1 -1 $-1 89.98916710515868544 32.18390379751386376 -89.98916710515921125 0.2988362387301132239 -0.9063077870366545996 -0.2988362387301126133 -3.204281910278955259 -2.113091308703437754 3.204281910278931722 1 I I #
+vertex $-1 -1 $-1 $1143 $1297 #
+ellipse-curve $-1 -1 $-1 104.9309790416643011 -13.13148555431850184 -104.9309790416650401 -0.298836238730113779 0.9063077870366540445 0.2988362387301138345 -3.204281910278950818 -2.113091308703452853 3.204281910278959256 1 I I #
+point $-1 -1 $-1 86.78488519487959252 30.07081248881048907 -86.78488519488013253 #
+vertex $-1 -1 $-1 $1148 $1298 #
+ellipse-curve $-1 -1 $-1 -89.98916710515848649 32.1839037975133806 89.98916710515908335 -0.2988362387301146117 -0.9063077870366533784 0.2988362387301146117 3.204281910278951262 -2.113091308703451077 -3.204281910278929946 1 I I #
+vertex $-1 -1 $-1 $1150 $1299 #
+ellipse-curve $-1 -1 $-1 -104.9309790416644432 -13.13148555431908271 104.930979041664969 0.2988362387301149448 0.9063077870366534894 -0.2988362387301137235 3.204281910278951262 -2.113091308703460847 -3.204281910278967249 1 I I #
+point $-1 -1 $-1 -86.78488519487954989 30.07081248880992419 86.78488519488041675 #
+point $-1 -1 $-1 -63.97192238434939071 2.400722199840073889e-13 -70.29094493450003256 #
+point $-1 -1 $-1 -45.98207495909664289 -2.572993006711264244e-14 -52.931066201740407 #
+point $-1 -1 $-1 -83.85310879206510037 32.60225136270288715 -89.47593171859455197 #
+point $-1 -1 $-1 -69.40713518471969223 3.931929812587267925 -75.53582738796222884 #
+point $-1 -1 $-1 -87.5051237767025043 30.07081248881072 -86.05169685543515357 #
+point $-1 -1 $-1 -102.7107998723839586 -15.24457686302072545 -100.7249004035714393 #
+DXID-attrib $-1 -1 $-1 $-1 $1171 @10 ASM ENTITY @1 6 #
+face $1300 -1 $-1 $1189 $1301 $167 $-1 $1302 forward single #
+loop $-1 -1 $-1 $-1 $1303 $1171 #
+plane-surface $-1 -1 $-1 50 0 50 1 0 0 -0 -0 -10 forward_v I I I I #
+coedge $-1 -1 $-1 $1270 $1278 $1178 $1262 forward $1172 $-1 #
+coedge $-1 -1 $-1 $1304 $1174 $1265 $1305 reversed $1070 $-1 #
+coedge $-1 -1 $-1 $1174 $1304 $1191 $1275 reversed $1070 $-1 #
+edge $-1 -1 $-1 $1306 -0.8000000000000000444 $1259 0.8000000000000000444 $1174 $1307 forward @7 unknown #
+coedge $-1 -1 $-1 $1176 $1175 $1180 $1266 forward $924 $-1 #
+vertex $-1 -1 $-1 $1177 $1308 #
+straight-curve $-1 -1 $-1 -46 8 46 -7.071067811865475505 0 -7.071067811865475505 I I #
+coedge $-1 -1 $-1 $1309 $1178 $1310 $1311 forward $717 $-1 #
+edge $-1 -1 $-1 $1312 -0.5656854249492373476 $1263 0.5656854249492397901 $1178 $1313 forward @7 unknown #
+vertex $-1 -1 $-1 $1179 $1314 #
+straight-curve $-1 -1 $-1 -50 -8 -50 10 0 0 I I #
+coedge $-1 -1 $-1 $1180 $1309 $1255 $1305 forward $717 $-1 #
+edge $-1 -1 $-1 $1183 -0.5656854249492385689 $1306 0.5656854249492385689 $1180 $1315 forward @7 unknown #
+straight-curve $-1 -1 $-1 -50 0 41.99999999999999289 -0 -10 -0 F -3.2800009999999995 F 3.2800009999999995 #
+point $-1 -1 $-1 -50 -8 41.99999999999999289 #
+point $-1 -1 $-1 -50 8 41.99999999999999289 #
+coedge $-1 -1 $-1 $1193 $1254 $1188 $1271 forward $1172 $-1 #
+edge $-1 -1 $-1 $1263 -0.8000000000000000444 $1195 0.8000000000000000444 $1188 $1316 forward @7 unknown #
+DXID-attrib $-1 -1 $-1 $-1 $1189 @10 ASM ENTITY @1 8 #
+plane-surface $-1 -1 $-1 50 0 -50 0 0 -1 -10 -0 -0 forward_v I I I I #
+coedge $-1 -1 $-1 $1192 $1191 $1317 $1318 reversed $935 $-1 #
+edge $-1 -1 $-1 $1259 -9.199999999999999289 $1319 -0.8000000000000007105 $1256 $1320 forward @7 unknown #
+coedge $-1 -1 $-1 $1321 $1303 $1192 $1277 reversed $1252 $-1 #
+edge $-1 -1 $-1 $1322 -9.199999999999999289 $1279 -0.8000000000000007105 $1276 $1323 forward @7 unknown #
+coedge $-1 -1 $-1 $1254 $1193 $1303 $1324 forward $1172 $-1 #
+vertex $-1 -1 $-1 $1194 $1325 #
+straight-curve $-1 -1 $-1 46.00000000000001421 8 -46 7.071067811865471953 0 7.071067811865479946 I I #
+point $-1 -1 $-1 41.99999999999999289 8 -50 #
+point $-1 -1 $-1 -49.39411254969540721 5.000000000000000888 49.39411254969541432 #
+point $-1 -1 $-1 -67.07178207935889702 4.999999999999830358 67.07178207935916703 #
+point $-1 -1 $-1 49.39411254969541432 4.999999999999996447 49.39411254969541432 #
+point $-1 -1 $-1 67.07178207935920966 4.99999999999982947 67.0717820793587407 #
+point $-1 -1 $-1 49.39411254969541432 5.000000000000012434 -49.39411254969547116 #
+point $-1 -1 $-1 67.07178207935896808 4.999999999999896971 -67.07178207935919545 #
+point $-1 -1 $-1 -83.71183035172741427 35.47013354445738997 83.71183035172796849 #
+point $-1 -1 $-1 -69.51653778318508614 6.799811994342199739 69.51653778318535615 #
+point $-1 -1 $-1 83.71183035172812481 35.4701335444574184 83.71183035172735742 #
+point $-1 -1 $-1 69.5165377831854272 6.799811994342167765 69.51653778318501509 #
+point $-1 -1 $-1 83.71183035172765585 35.47013354445775946 -83.71183035172813902 #
+point $-1 -1 $-1 69.51653778318512877 6.799811994342197963 -69.51653778318534194 #
+point $-1 -1 $-1 86.7848851948802178 30.07081248881002011 86.78488519487936514 #
+point $-1 -1 $-1 101.726697131386203 -15.24457686302222292 101.7266971313849382 #
+point $-1 -1 $-1 86.78488519487973463 30.07081248881042512 -86.78488519488027464 #
+point $-1 -1 $-1 101.7266971313853503 -15.24457686302195469 -101.7266971313860751 #
+point $-1 -1 $-1 -86.78488519487953567 30.07081248880992774 86.78488519488014674 #
+point $-1 -1 $-1 -101.7266971313854924 -15.24457686302254444 101.726697131386004 #
+DXID-attrib $-1 -1 $-1 $-1 $1251 @10 ASM ENTITY @1 7 #
+loop $-1 -1 $-1 $-1 $1317 $1251 #
+plane-surface $-1 -1 $-1 46 0 46 0.7071067811865475727 0 0.7071067811865475727 7.071067811865475505 0 -7.071067811865475505 forward_v I I I I #
+coedge $-1 -1 $-1 $1276 $1310 $1278 $1324 reversed $1252 $-1 #
+coedge $-1 -1 $-1 $1256 $1255 $1326 $1327 reversed $1070 $-1 #
+edge $-1 -1 $-1 $1328 0.8000000000000007105 $1306 9.199999999999999289 $1255 $1329 forward @7 unknown #
+vertex $-1 -1 $-1 $1305 $1330 #
+straight-curve $-1 -1 $-1 -41.99999999999999289 0 50 0 10 0 F -3.2800009999999995 F 3.2800009999999995 #
+point $-1 -1 $-1 -41.99999999999999289 8 50 #
+coedge $-1 -1 $-1 $1265 $1261 $1331 $1332 reversed $717 $-1 #
+coedge $-1 -1 $-1 $1303 $1321 $1261 $1311 reversed $1252 $-1 #
+edge $-1 -1 $-1 $1312 0.8000000000000007105 $1333 9.199999999999999289 $1310 $1334 forward @7 unknown #
+vertex $-1 -1 $-1 $1262 $1335 #
+straight-curve $-1 -1 $-1 46.00000000000001421 -8 -46 -7.071067811865471953 -0 -7.071067811865479946 I I #
+point $-1 -1 $-1 41.99999999999999289 -8 -50 #
+straight-curve $-1 -1 $-1 -46 -8 46 7.071067811865475505 0 7.071067811865475505 I I #
+straight-curve $-1 -1 $-1 42 0 -50 0 10 0 F -3.2800009999999995 F 3.2800009999999995 #
+coedge $-1 -1 $-1 $1326 $1336 $1274 $1318 forward $1301 $-1 #
+edge $-1 -1 $-1 $1322 -0.5656854249492385689 $1319 0.5656854249492385689 $1274 $1337 forward @7 unknown #
+vertex $-1 -1 $-1 $1327 $1338 #
+straight-curve $-1 -1 $-1 50 8 50 10 0 0 I I #
+coedge $-1 -1 $-1 $1310 $1276 $1336 $1339 reversed $1252 $-1 #
+vertex $-1 -1 $-1 $1277 $1340 #
+straight-curve $-1 -1 $-1 50 8 -50 -0 -0 -10 I I #
+edge $-1 -1 $-1 $1279 -0.8000000000000000444 $1312 0.8000000000000000444 $1303 $1341 forward @7 unknown #
+point $-1 -1 $-1 50 8 -41.99999999999999289 #
+coedge $-1 -1 $-1 $1331 $1317 $1304 $1327 forward $1301 $-1 #
+edge $-1 -1 $-1 $1319 -0.8000000000000000444 $1328 0.8000000000000000444 $1304 $1342 forward @7 unknown #
+vertex $-1 -1 $-1 $1332 $1343 #
+straight-curve $-1 -1 $-1 50 -8 50 -10 0 0 I I #
+point $-1 -1 $-1 -41.99999999999999289 -8 50 #
+coedge $-1 -1 $-1 $1336 $1326 $1309 $1332 forward $1301 $-1 #
+edge $-1 -1 $-1 $1328 -0.5656854249492385689 $1333 0.5656854249492385689 $1309 $1344 forward @7 unknown #
+vertex $-1 -1 $-1 $1311 $1345 #
+straight-curve $-1 -1 $-1 50 -8 -50 0 0 10 I I #
+point $-1 -1 $-1 50 -8 -41.99999999999999289 #
+coedge $-1 -1 $-1 $1317 $1331 $1321 $1339 forward $1301 $-1 #
+straight-curve $-1 -1 $-1 46 8 46 -7.071067811865475505 0 7.071067811865475505 I I #
+point $-1 -1 $-1 41.99999999999999289 8 50 #
+edge $-1 -1 $-1 $1333 -0.8000000000000000444 $1322 0.8000000000000000444 $1321 $1346 forward @7 unknown #
+point $-1 -1 $-1 50 8 41.99999999999999289 #
+straight-curve $-1 -1 $-1 50 0 -41.99999999999999289 0 -10 0 F -3.2800009999999995 F 3.2800009999999995 #
+straight-curve $-1 -1 $-1 41.99999999999999289 0 50 0 -10 0 F -3.2800009999999995 F 3.2800009999999995 #
+point $-1 -1 $-1 41.99999999999999289 -8 50 #
+straight-curve $-1 -1 $-1 46 -8 46 7.071067811865475505 0 -7.071067811865475505 I I #
+point $-1 -1 $-1 50 -8 41.99999999999999289 #
+straight-curve $-1 -1 $-1 50 0 41.99999999999999289 0 10 0 F -3.2800009999999995 F 3.2800009999999995 #
+End-of-ACIS-data 

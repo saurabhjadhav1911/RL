@@ -1,0 +1,2095 @@
+fileFormatVersion: 2
+guid: cd2525da62996e04e88244f45905c3e0
+timeCreated: 1516017305
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: ' 1'
+    100002: ' 10'
+    100004: ' 100'
+    100006: ' 101'
+    100008: ' 102'
+    100010: ' 103'
+    100012: ' 104'
+    100014: ' 105'
+    100016: ' 106'
+    100018: ' 107'
+    100020: ' 108'
+    100022: ' 109'
+    100024: ' 11'
+    100026: ' 110'
+    100028: ' 111'
+    100030: ' 112'
+    100032: ' 113'
+    100034: ' 114'
+    100036: ' 115'
+    100038: ' 116'
+    100040: ' 117'
+    100042: ' 118'
+    100044: ' 119'
+    100046: ' 12'
+    100048: ' 120'
+    100050: ' 121'
+    100052: ' 122'
+    100054: ' 123'
+    100056: ' 124'
+    100058: ' 125'
+    100060: ' 126'
+    100062: ' 127'
+    100064: ' 128'
+    100066: ' 129'
+    100068: ' 13'
+    100070: ' 130'
+    100072: ' 131'
+    100074: ' 132'
+    100076: ' 133'
+    100078: ' 134'
+    100080: ' 135'
+    100082: ' 136'
+    100084: ' 137'
+    100086: ' 138'
+    100088: ' 139'
+    100090: ' 14'
+    100092: ' 140'
+    100094: ' 141'
+    100096: ' 142'
+    100098: ' 143'
+    100100: ' 144'
+    100102: ' 145'
+    100104: ' 146'
+    100106: ' 147'
+    100108: ' 148'
+    100110: ' 149'
+    100112: ' 15'
+    100114: ' 150'
+    100116: ' 151'
+    100118: ' 152'
+    100120: ' 153'
+    100122: ' 154'
+    100124: ' 155'
+    100126: ' 156'
+    100128: ' 157'
+    100130: ' 158'
+    100132: ' 159'
+    100134: ' 16'
+    100136: ' 160'
+    100138: ' 161'
+    100140: ' 162'
+    100142: ' 163'
+    100144: ' 164'
+    100146: ' 165'
+    100148: ' 166'
+    100150: ' 167'
+    100152: ' 168'
+    100154: ' 169'
+    100156: ' 17'
+    100158: ' 170'
+    100160: ' 171'
+    100162: ' 172'
+    100164: ' 173'
+    100166: ' 174'
+    100168: ' 175'
+    100170: ' 176'
+    100172: ' 177'
+    100174: ' 178'
+    100176: ' 179'
+    100178: ' 18'
+    100180: ' 180'
+    100182: ' 181'
+    100184: ' 182'
+    100186: ' 183'
+    100188: ' 184'
+    100190: ' 185'
+    100192: ' 186'
+    100194: ' 187'
+    100196: ' 188'
+    100198: ' 189'
+    100200: ' 19'
+    100202: ' 190'
+    100204: ' 191'
+    100206: ' 192'
+    100208: ' 193'
+    100210: ' 194'
+    100212: ' 195'
+    100214: ' 196'
+    100216: ' 197'
+    100218: ' 198'
+    100220: ' 199'
+    100222: ' 2'
+    100224: ' 20'
+    100226: ' 200'
+    100228: ' 201'
+    100230: ' 202'
+    100232: ' 203'
+    100234: ' 204'
+    100236: ' 205'
+    100238: ' 206'
+    100240: ' 207'
+    100242: ' 208'
+    100244: ' 209'
+    100246: ' 21'
+    100248: ' 210'
+    100250: ' 211'
+    100252: ' 212'
+    100254: ' 213'
+    100256: ' 214'
+    100258: ' 215'
+    100260: ' 216'
+    100262: ' 217'
+    100264: ' 218'
+    100266: ' 219'
+    100268: ' 22'
+    100270: ' 220'
+    100272: ' 221'
+    100274: ' 222'
+    100276: ' 223'
+    100278: ' 224'
+    100280: ' 225'
+    100282: ' 226'
+    100284: ' 227'
+    100286: ' 228'
+    100288: ' 229'
+    100290: ' 23'
+    100292: ' 230'
+    100294: ' 231'
+    100296: ' 232'
+    100298: ' 233'
+    100300: ' 234'
+    100302: ' 235'
+    100304: ' 236'
+    100306: ' 237'
+    100308: ' 238'
+    100310: ' 239'
+    100312: ' 24'
+    100314: ' 240'
+    100316: ' 241'
+    100318: ' 242'
+    100320: ' 243'
+    100322: ' 244'
+    100324: ' 245'
+    100326: ' 246'
+    100328: ' 247'
+    100330: ' 248'
+    100332: ' 249'
+    100334: ' 25'
+    100336: ' 250'
+    100338: ' 251'
+    100340: ' 252'
+    100342: ' 253'
+    100344: ' 254'
+    100346: ' 255'
+    100348: ' 256'
+    100350: ' 257'
+    100352: ' 258'
+    100354: ' 259'
+    100356: ' 26'
+    100358: ' 260'
+    100360: ' 261'
+    100362: ' 262'
+    100364: ' 263'
+    100366: ' 264'
+    100368: ' 265'
+    100370: ' 266'
+    100372: ' 267'
+    100374: ' 268'
+    100376: ' 269'
+    100378: ' 27'
+    100380: ' 270'
+    100382: ' 271'
+    100384: ' 272'
+    100386: ' 273'
+    100388: ' 274'
+    100390: ' 275'
+    100392: ' 276'
+    100394: ' 277'
+    100396: ' 278'
+    100398: ' 279'
+    100400: ' 28'
+    100402: ' 280'
+    100404: ' 281'
+    100406: ' 282'
+    100408: ' 283'
+    100410: ' 284'
+    100412: ' 285'
+    100414: ' 286'
+    100416: ' 287'
+    100418: ' 288'
+    100420: ' 289'
+    100422: ' 29'
+    100424: ' 290'
+    100426: ' 291'
+    100428: ' 292'
+    100430: ' 293'
+    100432: ' 294'
+    100434: ' 295'
+    100436: ' 296'
+    100438: ' 297'
+    100440: ' 298'
+    100442: ' 299'
+    100444: ' 3'
+    100446: ' 30'
+    100448: ' 31'
+    100450: ' 32'
+    100452: ' 33'
+    100454: ' 34'
+    100456: ' 35'
+    100458: ' 36'
+    100460: ' 37'
+    100462: ' 38'
+    100464: ' 39'
+    100466: ' 4'
+    100468: ' 40'
+    100470: ' 41'
+    100472: ' 42'
+    100474: ' 43'
+    100476: ' 44'
+    100478: ' 45'
+    100480: ' 46'
+    100482: ' 47'
+    100484: ' 48'
+    100486: ' 49'
+    100488: ' 5'
+    100490: ' 50'
+    100492: ' 51'
+    100494: ' 52'
+    100496: ' 53'
+    100498: ' 54'
+    100500: ' 55'
+    100502: ' 56'
+    100504: ' 57'
+    100506: ' 58'
+    100508: ' 59'
+    100510: ' 6'
+    100512: ' 60'
+    100514: ' 61'
+    100516: ' 62'
+    100518: ' 63'
+    100520: ' 64'
+    100522: ' 65'
+    100524: ' 66'
+    100526: ' 67'
+    100528: ' 68'
+    100530: ' 69'
+    100532: ' 7'
+    100534: ' 70'
+    100536: ' 71'
+    100538: ' 72'
+    100540: ' 73'
+    100542: ' 74'
+    100544: ' 75'
+    100546: ' 76'
+    100548: ' 77'
+    100550: ' 78'
+    100552: ' 79'
+    100554: ' 8'
+    100556: ' 80'
+    100558: ' 81'
+    100560: ' 82'
+    100562: ' 83'
+    100564: ' 84'
+    100566: ' 85'
+    100568: ' 86'
+    100570: ' 87'
+    100572: ' 88'
+    100574: ' 89'
+    100576: ' 9'
+    100578: ' 90'
+    100580: ' 91'
+    100582: ' 92'
+    100584: ' 93'
+    100586: ' 94'
+    100588: ' 95'
+    100590: ' 96'
+    100592: ' 97'
+    100594: ' 98'
+    100596: ' 99'
+    100598: Base v13
+    100600: Base v13 1
+    100602: Base v13-2
+    100604: Base v13-2 1
+    100606: Base v13-2 10
+    100608: Base v13-2 11
+    100610: Base v13-2 12
+    100612: Base v13-2 13
+    100614: Base v13-2 14
+    100616: Base v13-2 15
+    100618: Base v13-2 16
+    100620: Base v13-2 17
+    100622: Base v13-2 18
+    100624: Base v13-2 19
+    100626: Base v13-2 2
+    100628: Base v13-2 20
+    100630: Base v13-2 3
+    100632: Base v13-2 4
+    100634: Base v13-2 5
+    100636: Base v13-2 6
+    100638: Base v13-2 7
+    100640: Base v13-2 8
+    100642: Base v13-2 9
+    100644: Blue Body
+    100646: Blue Body 1
+    100648: Blue Body 10
+    100650: Blue Body 11
+    100652: Blue Body 12
+    100654: Blue Body 13
+    100656: Blue Body 14
+    100658: Blue Body 15
+    100660: Blue Body 16
+    100662: Blue Body 17
+    100664: Blue Body 18
+    100666: Blue Body 19
+    100668: Blue Body 2
+    100670: Blue Body 20
+    100672: Blue Body 3
+    100674: Blue Body 4
+    100676: Blue Body 5
+    100678: Blue Body 6
+    100680: Blue Body 7
+    100682: Blue Body 8
+    100684: Blue Body 9
+    100686: Blue Body <1>
+    100688: Blue Body-1
+    100690: Blue Body-1 1
+    100692: Blue Body-1 10
+    100694: Blue Body-1 11
+    100696: Blue Body-1 12
+    100698: Blue Body-1 13
+    100700: Blue Body-1 14
+    100702: Blue Body-1 15
+    100704: Blue Body-1 16
+    100706: Blue Body-1 17
+    100708: Blue Body-1 18
+    100710: Blue Body-1 19
+    100712: Blue Body-1 2
+    100714: Blue Body-1 20
+    100716: Blue Body-1 3
+    100718: Blue Body-1 4
+    100720: Blue Body-1 5
+    100722: Blue Body-1 6
+    100724: Blue Body-1 7
+    100726: Blue Body-1 8
+    100728: Blue Body-1 9
+    100730: Blue Body-2
+    100732: Blue Body-2 1
+    100734: Blue Body-2 10
+    100736: Blue Body-2 11
+    100738: Blue Body-2 12
+    100740: Blue Body-2 13
+    100742: Blue Body-2 14
+    100744: Blue Body-2 15
+    100746: Blue Body-2 16
+    100748: Blue Body-2 17
+    100750: Blue Body-2 18
+    100752: Blue Body-2 19
+    100754: Blue Body-2 2
+    100756: Blue Body-2 20
+    100758: Blue Body-2 3
+    100760: Blue Body-2 4
+    100762: Blue Body-2 5
+    100764: Blue Body-2 6
+    100766: Blue Body-2 7
+    100768: Blue Body-2 8
+    100770: Blue Body-2 9
+    100772: Component11
+    100774: Component11(Mirror)
+    100776: Component11(Mirror) (1)
+    100778: Component11(Mirror)(Mirror)
+    100780: Component14
+    100782: Component14 1
+    100784: Component14 10
+    100786: Component14 11
+    100788: Component14 12
+    100790: Component14 13
+    100792: Component14 14
+    100794: Component14 15
+    100796: Component14 16
+    100798: Component14 17
+    100800: Component14 18
+    100802: Component14 19
+    100804: Component14 2
+    100806: Component14 20
+    100808: Component14 3
+    100810: Component14 4
+    100812: Component14 5
+    100814: Component14 6
+    100816: Component14 7
+    100818: Component14 8
+    100820: Component14 9
+    100822: Component15
+    100824: Component15 1
+    100826: Component15(Mirror)
+    100828: Component15(Mirror) (1)
+    100830: Component15(Mirror) (1) 1
+    100832: Component15(Mirror) 1
+    100834: Component15(Mirror)(Mirror)
+    100836: Component15(Mirror)(Mirror) 1
+    100838: Component16
+    100840: Component16 1
+    100842: Component16 10
+    100844: Component16 11
+    100846: Component16 12
+    100848: Component16 13
+    100850: Component16 14
+    100852: Component16 15
+    100854: Component16 16
+    100856: Component16 17
+    100858: Component16 18
+    100860: Component16 19
+    100862: Component16 2
+    100864: Component16 20
+    100866: Component16 21
+    100868: Component16 22
+    100870: Component16 23
+    100872: Component16 24
+    100874: Component16 25
+    100876: Component16 26
+    100878: Component16 27
+    100880: Component16 28
+    100882: Component16 29
+    100884: Component16 3
+    100886: Component16 30
+    100888: Component16 31
+    100890: Component16 32
+    100892: Component16 33
+    100894: Component16 34
+    100896: Component16 35
+    100898: Component16 36
+    100900: Component16 37
+    100902: Component16 38
+    100904: Component16 39
+    100906: Component16 4
+    100908: Component16 40
+    100910: Component16 41
+    100912: Component16 5
+    100914: Component16 6
+    100916: Component16 7
+    100918: Component16 8
+    100920: Component16 9
+    100922: Component16(Mirror)
+    100924: Component16(Mirror) (1)
+    100926: Component16(Mirror) (1) 1
+    100928: Component16(Mirror) (1) 10
+    100930: Component16(Mirror) (1) 11
+    100932: Component16(Mirror) (1) 12
+    100934: Component16(Mirror) (1) 13
+    100936: Component16(Mirror) (1) 14
+    100938: Component16(Mirror) (1) 15
+    100940: Component16(Mirror) (1) 16
+    100942: Component16(Mirror) (1) 17
+    100944: Component16(Mirror) (1) 18
+    100946: Component16(Mirror) (1) 19
+    100948: Component16(Mirror) (1) 2
+    100950: Component16(Mirror) (1) 20
+    100952: Component16(Mirror) (1) 21
+    100954: Component16(Mirror) (1) 22
+    100956: Component16(Mirror) (1) 23
+    100958: Component16(Mirror) (1) 24
+    100960: Component16(Mirror) (1) 25
+    100962: Component16(Mirror) (1) 26
+    100964: Component16(Mirror) (1) 27
+    100966: Component16(Mirror) (1) 28
+    100968: Component16(Mirror) (1) 29
+    100970: Component16(Mirror) (1) 3
+    100972: Component16(Mirror) (1) 30
+    100974: Component16(Mirror) (1) 31
+    100976: Component16(Mirror) (1) 32
+    100978: Component16(Mirror) (1) 33
+    100980: Component16(Mirror) (1) 34
+    100982: Component16(Mirror) (1) 35
+    100984: Component16(Mirror) (1) 36
+    100986: Component16(Mirror) (1) 37
+    100988: Component16(Mirror) (1) 38
+    100990: Component16(Mirror) (1) 39
+    100992: Component16(Mirror) (1) 4
+    100994: Component16(Mirror) (1) 40
+    100996: Component16(Mirror) (1) 41
+    100998: Component16(Mirror) (1) 5
+    101000: Component16(Mirror) (1) 6
+    101002: Component16(Mirror) (1) 7
+    101004: Component16(Mirror) (1) 8
+    101006: Component16(Mirror) (1) 9
+    101008: Component16(Mirror) 1
+    101010: Component16(Mirror) 10
+    101012: Component16(Mirror) 11
+    101014: Component16(Mirror) 12
+    101016: Component16(Mirror) 13
+    101018: Component16(Mirror) 14
+    101020: Component16(Mirror) 15
+    101022: Component16(Mirror) 16
+    101024: Component16(Mirror) 17
+    101026: Component16(Mirror) 18
+    101028: Component16(Mirror) 19
+    101030: Component16(Mirror) 2
+    101032: Component16(Mirror) 20
+    101034: Component16(Mirror) 21
+    101036: Component16(Mirror) 22
+    101038: Component16(Mirror) 23
+    101040: Component16(Mirror) 24
+    101042: Component16(Mirror) 25
+    101044: Component16(Mirror) 26
+    101046: Component16(Mirror) 27
+    101048: Component16(Mirror) 28
+    101050: Component16(Mirror) 29
+    101052: Component16(Mirror) 3
+    101054: Component16(Mirror) 30
+    101056: Component16(Mirror) 31
+    101058: Component16(Mirror) 32
+    101060: Component16(Mirror) 33
+    101062: Component16(Mirror) 34
+    101064: Component16(Mirror) 35
+    101066: Component16(Mirror) 36
+    101068: Component16(Mirror) 37
+    101070: Component16(Mirror) 38
+    101072: Component16(Mirror) 39
+    101074: Component16(Mirror) 4
+    101076: Component16(Mirror) 40
+    101078: Component16(Mirror) 41
+    101080: Component16(Mirror) 5
+    101082: Component16(Mirror) 6
+    101084: Component16(Mirror) 7
+    101086: Component16(Mirror) 8
+    101088: Component16(Mirror) 9
+    101090: Component16(Mirror)(Mirror)
+    101092: Component16(Mirror)(Mirror) 1
+    101094: Component16(Mirror)(Mirror) 10
+    101096: Component16(Mirror)(Mirror) 11
+    101098: Component16(Mirror)(Mirror) 12
+    101100: Component16(Mirror)(Mirror) 13
+    101102: Component16(Mirror)(Mirror) 14
+    101104: Component16(Mirror)(Mirror) 15
+    101106: Component16(Mirror)(Mirror) 16
+    101108: Component16(Mirror)(Mirror) 17
+    101110: Component16(Mirror)(Mirror) 18
+    101112: Component16(Mirror)(Mirror) 19
+    101114: Component16(Mirror)(Mirror) 2
+    101116: Component16(Mirror)(Mirror) 20
+    101118: Component16(Mirror)(Mirror) 21
+    101120: Component16(Mirror)(Mirror) 22
+    101122: Component16(Mirror)(Mirror) 23
+    101124: Component16(Mirror)(Mirror) 24
+    101126: Component16(Mirror)(Mirror) 25
+    101128: Component16(Mirror)(Mirror) 26
+    101130: Component16(Mirror)(Mirror) 27
+    101132: Component16(Mirror)(Mirror) 28
+    101134: Component16(Mirror)(Mirror) 29
+    101136: Component16(Mirror)(Mirror) 3
+    101138: Component16(Mirror)(Mirror) 30
+    101140: Component16(Mirror)(Mirror) 31
+    101142: Component16(Mirror)(Mirror) 32
+    101144: Component16(Mirror)(Mirror) 33
+    101146: Component16(Mirror)(Mirror) 34
+    101148: Component16(Mirror)(Mirror) 35
+    101150: Component16(Mirror)(Mirror) 36
+    101152: Component16(Mirror)(Mirror) 37
+    101154: Component16(Mirror)(Mirror) 38
+    101156: Component16(Mirror)(Mirror) 39
+    101158: Component16(Mirror)(Mirror) 4
+    101160: Component16(Mirror)(Mirror) 40
+    101162: Component16(Mirror)(Mirror) 41
+    101164: Component16(Mirror)(Mirror) 5
+    101166: Component16(Mirror)(Mirror) 6
+    101168: Component16(Mirror)(Mirror) 7
+    101170: Component16(Mirror)(Mirror) 8
+    101172: Component16(Mirror)(Mirror) 9
+    101174: Gears
+    101176: Gears 1
+    101178: Gears 2
+    101180: Leg part 2
+    101182: Leg part 2(Mirror)
+    101184: Leg part 2(Mirror) (1)
+    101186: Leg part 2(Mirror)(Mirror)
+    101188: leg tip - 1
+    101190: leg tip - 1(Mirror)
+    101192: leg tip - 1(Mirror) (1)
+    101194: leg tip - 1(Mirror)(Mirror)
+    101196: //RootNode
+    400000: ' 1'
+    400002: ' 10'
+    400004: ' 100'
+    400006: ' 101'
+    400008: ' 102'
+    400010: ' 103'
+    400012: ' 104'
+    400014: ' 105'
+    400016: ' 106'
+    400018: ' 107'
+    400020: ' 108'
+    400022: ' 109'
+    400024: ' 11'
+    400026: ' 110'
+    400028: ' 111'
+    400030: ' 112'
+    400032: ' 113'
+    400034: ' 114'
+    400036: ' 115'
+    400038: ' 116'
+    400040: ' 117'
+    400042: ' 118'
+    400044: ' 119'
+    400046: ' 12'
+    400048: ' 120'
+    400050: ' 121'
+    400052: ' 122'
+    400054: ' 123'
+    400056: ' 124'
+    400058: ' 125'
+    400060: ' 126'
+    400062: ' 127'
+    400064: ' 128'
+    400066: ' 129'
+    400068: ' 13'
+    400070: ' 130'
+    400072: ' 131'
+    400074: ' 132'
+    400076: ' 133'
+    400078: ' 134'
+    400080: ' 135'
+    400082: ' 136'
+    400084: ' 137'
+    400086: ' 138'
+    400088: ' 139'
+    400090: ' 14'
+    400092: ' 140'
+    400094: ' 141'
+    400096: ' 142'
+    400098: ' 143'
+    400100: ' 144'
+    400102: ' 145'
+    400104: ' 146'
+    400106: ' 147'
+    400108: ' 148'
+    400110: ' 149'
+    400112: ' 15'
+    400114: ' 150'
+    400116: ' 151'
+    400118: ' 152'
+    400120: ' 153'
+    400122: ' 154'
+    400124: ' 155'
+    400126: ' 156'
+    400128: ' 157'
+    400130: ' 158'
+    400132: ' 159'
+    400134: ' 16'
+    400136: ' 160'
+    400138: ' 161'
+    400140: ' 162'
+    400142: ' 163'
+    400144: ' 164'
+    400146: ' 165'
+    400148: ' 166'
+    400150: ' 167'
+    400152: ' 168'
+    400154: ' 169'
+    400156: ' 17'
+    400158: ' 170'
+    400160: ' 171'
+    400162: ' 172'
+    400164: ' 173'
+    400166: ' 174'
+    400168: ' 175'
+    400170: ' 176'
+    400172: ' 177'
+    400174: ' 178'
+    400176: ' 179'
+    400178: ' 18'
+    400180: ' 180'
+    400182: ' 181'
+    400184: ' 182'
+    400186: ' 183'
+    400188: ' 184'
+    400190: ' 185'
+    400192: ' 186'
+    400194: ' 187'
+    400196: ' 188'
+    400198: ' 189'
+    400200: ' 19'
+    400202: ' 190'
+    400204: ' 191'
+    400206: ' 192'
+    400208: ' 193'
+    400210: ' 194'
+    400212: ' 195'
+    400214: ' 196'
+    400216: ' 197'
+    400218: ' 198'
+    400220: ' 199'
+    400222: ' 2'
+    400224: ' 20'
+    400226: ' 200'
+    400228: ' 201'
+    400230: ' 202'
+    400232: ' 203'
+    400234: ' 204'
+    400236: ' 205'
+    400238: ' 206'
+    400240: ' 207'
+    400242: ' 208'
+    400244: ' 209'
+    400246: ' 21'
+    400248: ' 210'
+    400250: ' 211'
+    400252: ' 212'
+    400254: ' 213'
+    400256: ' 214'
+    400258: ' 215'
+    400260: ' 216'
+    400262: ' 217'
+    400264: ' 218'
+    400266: ' 219'
+    400268: ' 22'
+    400270: ' 220'
+    400272: ' 221'
+    400274: ' 222'
+    400276: ' 223'
+    400278: ' 224'
+    400280: ' 225'
+    400282: ' 226'
+    400284: ' 227'
+    400286: ' 228'
+    400288: ' 229'
+    400290: ' 23'
+    400292: ' 230'
+    400294: ' 231'
+    400296: ' 232'
+    400298: ' 233'
+    400300: ' 234'
+    400302: ' 235'
+    400304: ' 236'
+    400306: ' 237'
+    400308: ' 238'
+    400310: ' 239'
+    400312: ' 24'
+    400314: ' 240'
+    400316: ' 241'
+    400318: ' 242'
+    400320: ' 243'
+    400322: ' 244'
+    400324: ' 245'
+    400326: ' 246'
+    400328: ' 247'
+    400330: ' 248'
+    400332: ' 249'
+    400334: ' 25'
+    400336: ' 250'
+    400338: ' 251'
+    400340: ' 252'
+    400342: ' 253'
+    400344: ' 254'
+    400346: ' 255'
+    400348: ' 256'
+    400350: ' 257'
+    400352: ' 258'
+    400354: ' 259'
+    400356: ' 26'
+    400358: ' 260'
+    400360: ' 261'
+    400362: ' 262'
+    400364: ' 263'
+    400366: ' 264'
+    400368: ' 265'
+    400370: ' 266'
+    400372: ' 267'
+    400374: ' 268'
+    400376: ' 269'
+    400378: ' 27'
+    400380: ' 270'
+    400382: ' 271'
+    400384: ' 272'
+    400386: ' 273'
+    400388: ' 274'
+    400390: ' 275'
+    400392: ' 276'
+    400394: ' 277'
+    400396: ' 278'
+    400398: ' 279'
+    400400: ' 28'
+    400402: ' 280'
+    400404: ' 281'
+    400406: ' 282'
+    400408: ' 283'
+    400410: ' 284'
+    400412: ' 285'
+    400414: ' 286'
+    400416: ' 287'
+    400418: ' 288'
+    400420: ' 289'
+    400422: ' 29'
+    400424: ' 290'
+    400426: ' 291'
+    400428: ' 292'
+    400430: ' 293'
+    400432: ' 294'
+    400434: ' 295'
+    400436: ' 296'
+    400438: ' 297'
+    400440: ' 298'
+    400442: ' 299'
+    400444: ' 3'
+    400446: ' 30'
+    400448: ' 31'
+    400450: ' 32'
+    400452: ' 33'
+    400454: ' 34'
+    400456: ' 35'
+    400458: ' 36'
+    400460: ' 37'
+    400462: ' 38'
+    400464: ' 39'
+    400466: ' 4'
+    400468: ' 40'
+    400470: ' 41'
+    400472: ' 42'
+    400474: ' 43'
+    400476: ' 44'
+    400478: ' 45'
+    400480: ' 46'
+    400482: ' 47'
+    400484: ' 48'
+    400486: ' 49'
+    400488: ' 5'
+    400490: ' 50'
+    400492: ' 51'
+    400494: ' 52'
+    400496: ' 53'
+    400498: ' 54'
+    400500: ' 55'
+    400502: ' 56'
+    400504: ' 57'
+    400506: ' 58'
+    400508: ' 59'
+    400510: ' 6'
+    400512: ' 60'
+    400514: ' 61'
+    400516: ' 62'
+    400518: ' 63'
+    400520: ' 64'
+    400522: ' 65'
+    400524: ' 66'
+    400526: ' 67'
+    400528: ' 68'
+    400530: ' 69'
+    400532: ' 7'
+    400534: ' 70'
+    400536: ' 71'
+    400538: ' 72'
+    400540: ' 73'
+    400542: ' 74'
+    400544: ' 75'
+    400546: ' 76'
+    400548: ' 77'
+    400550: ' 78'
+    400552: ' 79'
+    400554: ' 8'
+    400556: ' 80'
+    400558: ' 81'
+    400560: ' 82'
+    400562: ' 83'
+    400564: ' 84'
+    400566: ' 85'
+    400568: ' 86'
+    400570: ' 87'
+    400572: ' 88'
+    400574: ' 89'
+    400576: ' 9'
+    400578: ' 90'
+    400580: ' 91'
+    400582: ' 92'
+    400584: ' 93'
+    400586: ' 94'
+    400588: ' 95'
+    400590: ' 96'
+    400592: ' 97'
+    400594: ' 98'
+    400596: ' 99'
+    400598: Base v13
+    400600: Base v13 1
+    400602: Base v13-2
+    400604: Base v13-2 1
+    400606: Base v13-2 10
+    400608: Base v13-2 11
+    400610: Base v13-2 12
+    400612: Base v13-2 13
+    400614: Base v13-2 14
+    400616: Base v13-2 15
+    400618: Base v13-2 16
+    400620: Base v13-2 17
+    400622: Base v13-2 18
+    400624: Base v13-2 19
+    400626: Base v13-2 2
+    400628: Base v13-2 20
+    400630: Base v13-2 3
+    400632: Base v13-2 4
+    400634: Base v13-2 5
+    400636: Base v13-2 6
+    400638: Base v13-2 7
+    400640: Base v13-2 8
+    400642: Base v13-2 9
+    400644: Blue Body
+    400646: Blue Body 1
+    400648: Blue Body 10
+    400650: Blue Body 11
+    400652: Blue Body 12
+    400654: Blue Body 13
+    400656: Blue Body 14
+    400658: Blue Body 15
+    400660: Blue Body 16
+    400662: Blue Body 17
+    400664: Blue Body 18
+    400666: Blue Body 19
+    400668: Blue Body 2
+    400670: Blue Body 20
+    400672: Blue Body 3
+    400674: Blue Body 4
+    400676: Blue Body 5
+    400678: Blue Body 6
+    400680: Blue Body 7
+    400682: Blue Body 8
+    400684: Blue Body 9
+    400686: Blue Body <1>
+    400688: Blue Body-1
+    400690: Blue Body-1 1
+    400692: Blue Body-1 10
+    400694: Blue Body-1 11
+    400696: Blue Body-1 12
+    400698: Blue Body-1 13
+    400700: Blue Body-1 14
+    400702: Blue Body-1 15
+    400704: Blue Body-1 16
+    400706: Blue Body-1 17
+    400708: Blue Body-1 18
+    400710: Blue Body-1 19
+    400712: Blue Body-1 2
+    400714: Blue Body-1 20
+    400716: Blue Body-1 3
+    400718: Blue Body-1 4
+    400720: Blue Body-1 5
+    400722: Blue Body-1 6
+    400724: Blue Body-1 7
+    400726: Blue Body-1 8
+    400728: Blue Body-1 9
+    400730: Blue Body-2
+    400732: Blue Body-2 1
+    400734: Blue Body-2 10
+    400736: Blue Body-2 11
+    400738: Blue Body-2 12
+    400740: Blue Body-2 13
+    400742: Blue Body-2 14
+    400744: Blue Body-2 15
+    400746: Blue Body-2 16
+    400748: Blue Body-2 17
+    400750: Blue Body-2 18
+    400752: Blue Body-2 19
+    400754: Blue Body-2 2
+    400756: Blue Body-2 20
+    400758: Blue Body-2 3
+    400760: Blue Body-2 4
+    400762: Blue Body-2 5
+    400764: Blue Body-2 6
+    400766: Blue Body-2 7
+    400768: Blue Body-2 8
+    400770: Blue Body-2 9
+    400772: Component11
+    400774: Component11(Mirror)
+    400776: Component11(Mirror) (1)
+    400778: Component11(Mirror)(Mirror)
+    400780: Component14
+    400782: Component14 1
+    400784: Component14 10
+    400786: Component14 11
+    400788: Component14 12
+    400790: Component14 13
+    400792: Component14 14
+    400794: Component14 15
+    400796: Component14 16
+    400798: Component14 17
+    400800: Component14 18
+    400802: Component14 19
+    400804: Component14 2
+    400806: Component14 20
+    400808: Component14 3
+    400810: Component14 4
+    400812: Component14 5
+    400814: Component14 6
+    400816: Component14 7
+    400818: Component14 8
+    400820: Component14 9
+    400822: Component15
+    400824: Component15 1
+    400826: Component15(Mirror)
+    400828: Component15(Mirror) (1)
+    400830: Component15(Mirror) (1) 1
+    400832: Component15(Mirror) 1
+    400834: Component15(Mirror)(Mirror)
+    400836: Component15(Mirror)(Mirror) 1
+    400838: Component16
+    400840: Component16 1
+    400842: Component16 10
+    400844: Component16 11
+    400846: Component16 12
+    400848: Component16 13
+    400850: Component16 14
+    400852: Component16 15
+    400854: Component16 16
+    400856: Component16 17
+    400858: Component16 18
+    400860: Component16 19
+    400862: Component16 2
+    400864: Component16 20
+    400866: Component16 21
+    400868: Component16 22
+    400870: Component16 23
+    400872: Component16 24
+    400874: Component16 25
+    400876: Component16 26
+    400878: Component16 27
+    400880: Component16 28
+    400882: Component16 29
+    400884: Component16 3
+    400886: Component16 30
+    400888: Component16 31
+    400890: Component16 32
+    400892: Component16 33
+    400894: Component16 34
+    400896: Component16 35
+    400898: Component16 36
+    400900: Component16 37
+    400902: Component16 38
+    400904: Component16 39
+    400906: Component16 4
+    400908: Component16 40
+    400910: Component16 41
+    400912: Component16 5
+    400914: Component16 6
+    400916: Component16 7
+    400918: Component16 8
+    400920: Component16 9
+    400922: Component16(Mirror)
+    400924: Component16(Mirror) (1)
+    400926: Component16(Mirror) (1) 1
+    400928: Component16(Mirror) (1) 10
+    400930: Component16(Mirror) (1) 11
+    400932: Component16(Mirror) (1) 12
+    400934: Component16(Mirror) (1) 13
+    400936: Component16(Mirror) (1) 14
+    400938: Component16(Mirror) (1) 15
+    400940: Component16(Mirror) (1) 16
+    400942: Component16(Mirror) (1) 17
+    400944: Component16(Mirror) (1) 18
+    400946: Component16(Mirror) (1) 19
+    400948: Component16(Mirror) (1) 2
+    400950: Component16(Mirror) (1) 20
+    400952: Component16(Mirror) (1) 21
+    400954: Component16(Mirror) (1) 22
+    400956: Component16(Mirror) (1) 23
+    400958: Component16(Mirror) (1) 24
+    400960: Component16(Mirror) (1) 25
+    400962: Component16(Mirror) (1) 26
+    400964: Component16(Mirror) (1) 27
+    400966: Component16(Mirror) (1) 28
+    400968: Component16(Mirror) (1) 29
+    400970: Component16(Mirror) (1) 3
+    400972: Component16(Mirror) (1) 30
+    400974: Component16(Mirror) (1) 31
+    400976: Component16(Mirror) (1) 32
+    400978: Component16(Mirror) (1) 33
+    400980: Component16(Mirror) (1) 34
+    400982: Component16(Mirror) (1) 35
+    400984: Component16(Mirror) (1) 36
+    400986: Component16(Mirror) (1) 37
+    400988: Component16(Mirror) (1) 38
+    400990: Component16(Mirror) (1) 39
+    400992: Component16(Mirror) (1) 4
+    400994: Component16(Mirror) (1) 40
+    400996: Component16(Mirror) (1) 41
+    400998: Component16(Mirror) (1) 5
+    401000: Component16(Mirror) (1) 6
+    401002: Component16(Mirror) (1) 7
+    401004: Component16(Mirror) (1) 8
+    401006: Component16(Mirror) (1) 9
+    401008: Component16(Mirror) 1
+    401010: Component16(Mirror) 10
+    401012: Component16(Mirror) 11
+    401014: Component16(Mirror) 12
+    401016: Component16(Mirror) 13
+    401018: Component16(Mirror) 14
+    401020: Component16(Mirror) 15
+    401022: Component16(Mirror) 16
+    401024: Component16(Mirror) 17
+    401026: Component16(Mirror) 18
+    401028: Component16(Mirror) 19
+    401030: Component16(Mirror) 2
+    401032: Component16(Mirror) 20
+    401034: Component16(Mirror) 21
+    401036: Component16(Mirror) 22
+    401038: Component16(Mirror) 23
+    401040: Component16(Mirror) 24
+    401042: Component16(Mirror) 25
+    401044: Component16(Mirror) 26
+    401046: Component16(Mirror) 27
+    401048: Component16(Mirror) 28
+    401050: Component16(Mirror) 29
+    401052: Component16(Mirror) 3
+    401054: Component16(Mirror) 30
+    401056: Component16(Mirror) 31
+    401058: Component16(Mirror) 32
+    401060: Component16(Mirror) 33
+    401062: Component16(Mirror) 34
+    401064: Component16(Mirror) 35
+    401066: Component16(Mirror) 36
+    401068: Component16(Mirror) 37
+    401070: Component16(Mirror) 38
+    401072: Component16(Mirror) 39
+    401074: Component16(Mirror) 4
+    401076: Component16(Mirror) 40
+    401078: Component16(Mirror) 41
+    401080: Component16(Mirror) 5
+    401082: Component16(Mirror) 6
+    401084: Component16(Mirror) 7
+    401086: Component16(Mirror) 8
+    401088: Component16(Mirror) 9
+    401090: Component16(Mirror)(Mirror)
+    401092: Component16(Mirror)(Mirror) 1
+    401094: Component16(Mirror)(Mirror) 10
+    401096: Component16(Mirror)(Mirror) 11
+    401098: Component16(Mirror)(Mirror) 12
+    401100: Component16(Mirror)(Mirror) 13
+    401102: Component16(Mirror)(Mirror) 14
+    401104: Component16(Mirror)(Mirror) 15
+    401106: Component16(Mirror)(Mirror) 16
+    401108: Component16(Mirror)(Mirror) 17
+    401110: Component16(Mirror)(Mirror) 18
+    401112: Component16(Mirror)(Mirror) 19
+    401114: Component16(Mirror)(Mirror) 2
+    401116: Component16(Mirror)(Mirror) 20
+    401118: Component16(Mirror)(Mirror) 21
+    401120: Component16(Mirror)(Mirror) 22
+    401122: Component16(Mirror)(Mirror) 23
+    401124: Component16(Mirror)(Mirror) 24
+    401126: Component16(Mirror)(Mirror) 25
+    401128: Component16(Mirror)(Mirror) 26
+    401130: Component16(Mirror)(Mirror) 27
+    401132: Component16(Mirror)(Mirror) 28
+    401134: Component16(Mirror)(Mirror) 29
+    401136: Component16(Mirror)(Mirror) 3
+    401138: Component16(Mirror)(Mirror) 30
+    401140: Component16(Mirror)(Mirror) 31
+    401142: Component16(Mirror)(Mirror) 32
+    401144: Component16(Mirror)(Mirror) 33
+    401146: Component16(Mirror)(Mirror) 34
+    401148: Component16(Mirror)(Mirror) 35
+    401150: Component16(Mirror)(Mirror) 36
+    401152: Component16(Mirror)(Mirror) 37
+    401154: Component16(Mirror)(Mirror) 38
+    401156: Component16(Mirror)(Mirror) 39
+    401158: Component16(Mirror)(Mirror) 4
+    401160: Component16(Mirror)(Mirror) 40
+    401162: Component16(Mirror)(Mirror) 41
+    401164: Component16(Mirror)(Mirror) 5
+    401166: Component16(Mirror)(Mirror) 6
+    401168: Component16(Mirror)(Mirror) 7
+    401170: Component16(Mirror)(Mirror) 8
+    401172: Component16(Mirror)(Mirror) 9
+    401174: Gears
+    401176: Gears 1
+    401178: Gears 2
+    401180: Leg part 2
+    401182: Leg part 2(Mirror)
+    401184: Leg part 2(Mirror) (1)
+    401186: Leg part 2(Mirror)(Mirror)
+    401188: leg tip - 1
+    401190: leg tip - 1(Mirror)
+    401192: leg tip - 1(Mirror) (1)
+    401194: leg tip - 1(Mirror)(Mirror)
+    401196: //RootNode
+    2100000: ID11
+    2100002: ID160
+    2100004: ID876
+    2300000: Base v13
+    2300002: Base v13 1
+    2300004: Base v13-2
+    2300006: Base v13-2 1
+    2300008: Base v13-2 10
+    2300010: Base v13-2 11
+    2300012: Base v13-2 12
+    2300014: Base v13-2 13
+    2300016: Base v13-2 14
+    2300018: Base v13-2 15
+    2300020: Base v13-2 16
+    2300022: Base v13-2 17
+    2300024: Base v13-2 18
+    2300026: Base v13-2 19
+    2300028: Base v13-2 2
+    2300030: Base v13-2 20
+    2300032: Base v13-2 3
+    2300034: Base v13-2 4
+    2300036: Base v13-2 5
+    2300038: Base v13-2 6
+    2300040: Base v13-2 7
+    2300042: Base v13-2 8
+    2300044: Base v13-2 9
+    2300046: Blue Body
+    2300048: Blue Body 1
+    2300050: Blue Body 10
+    2300052: Blue Body 11
+    2300054: Blue Body 12
+    2300056: Blue Body 13
+    2300058: Blue Body 14
+    2300060: Blue Body 15
+    2300062: Blue Body 16
+    2300064: Blue Body 17
+    2300066: Blue Body 18
+    2300068: Blue Body 19
+    2300070: Blue Body 2
+    2300072: Blue Body 20
+    2300074: Blue Body 3
+    2300076: Blue Body 4
+    2300078: Blue Body 5
+    2300080: Blue Body 6
+    2300082: Blue Body 7
+    2300084: Blue Body 8
+    2300086: Blue Body 9
+    2300088: Blue Body-1
+    2300090: Blue Body-1 1
+    2300092: Blue Body-1 10
+    2300094: Blue Body-1 11
+    2300096: Blue Body-1 12
+    2300098: Blue Body-1 13
+    2300100: Blue Body-1 14
+    2300102: Blue Body-1 15
+    2300104: Blue Body-1 16
+    2300106: Blue Body-1 17
+    2300108: Blue Body-1 18
+    2300110: Blue Body-1 19
+    2300112: Blue Body-1 2
+    2300114: Blue Body-1 20
+    2300116: Blue Body-1 3
+    2300118: Blue Body-1 4
+    2300120: Blue Body-1 5
+    2300122: Blue Body-1 6
+    2300124: Blue Body-1 7
+    2300126: Blue Body-1 8
+    2300128: Blue Body-1 9
+    2300130: Blue Body-2
+    2300132: Blue Body-2 1
+    2300134: Blue Body-2 10
+    2300136: Blue Body-2 11
+    2300138: Blue Body-2 12
+    2300140: Blue Body-2 13
+    2300142: Blue Body-2 14
+    2300144: Blue Body-2 15
+    2300146: Blue Body-2 16
+    2300148: Blue Body-2 17
+    2300150: Blue Body-2 18
+    2300152: Blue Body-2 19
+    2300154: Blue Body-2 2
+    2300156: Blue Body-2 20
+    2300158: Blue Body-2 3
+    2300160: Blue Body-2 4
+    2300162: Blue Body-2 5
+    2300164: Blue Body-2 6
+    2300166: Blue Body-2 7
+    2300168: Blue Body-2 8
+    2300170: Blue Body-2 9
+    2300172: Component11
+    2300174: Component11(Mirror)
+    2300176: Component11(Mirror) (1)
+    2300178: Component11(Mirror)(Mirror)
+    2300180: Component14
+    2300182: Component14 1
+    2300184: Component14 10
+    2300186: Component14 11
+    2300188: Component14 12
+    2300190: Component14 13
+    2300192: Component14 14
+    2300194: Component14 15
+    2300196: Component14 16
+    2300198: Component14 17
+    2300200: Component14 18
+    2300202: Component14 19
+    2300204: Component14 2
+    2300206: Component14 20
+    2300208: Component14 3
+    2300210: Component14 4
+    2300212: Component14 5
+    2300214: Component14 6
+    2300216: Component14 7
+    2300218: Component14 8
+    2300220: Component14 9
+    2300222: Component15
+    2300224: Component15 1
+    2300226: Component15(Mirror)
+    2300228: Component15(Mirror) (1)
+    2300230: Component15(Mirror) (1) 1
+    2300232: Component15(Mirror) 1
+    2300234: Component15(Mirror)(Mirror)
+    2300236: Component15(Mirror)(Mirror) 1
+    2300238: Component16
+    2300240: Component16 1
+    2300242: Component16 10
+    2300244: Component16 11
+    2300246: Component16 12
+    2300248: Component16 13
+    2300250: Component16 14
+    2300252: Component16 15
+    2300254: Component16 16
+    2300256: Component16 17
+    2300258: Component16 18
+    2300260: Component16 19
+    2300262: Component16 2
+    2300264: Component16 20
+    2300266: Component16 21
+    2300268: Component16 22
+    2300270: Component16 23
+    2300272: Component16 24
+    2300274: Component16 25
+    2300276: Component16 26
+    2300278: Component16 27
+    2300280: Component16 28
+    2300282: Component16 29
+    2300284: Component16 3
+    2300286: Component16 30
+    2300288: Component16 31
+    2300290: Component16 32
+    2300292: Component16 33
+    2300294: Component16 34
+    2300296: Component16 35
+    2300298: Component16 36
+    2300300: Component16 37
+    2300302: Component16 38
+    2300304: Component16 39
+    2300306: Component16 4
+    2300308: Component16 40
+    2300310: Component16 41
+    2300312: Component16 5
+    2300314: Component16 6
+    2300316: Component16 7
+    2300318: Component16 8
+    2300320: Component16 9
+    2300322: Component16(Mirror)
+    2300324: Component16(Mirror) (1)
+    2300326: Component16(Mirror) (1) 1
+    2300328: Component16(Mirror) (1) 10
+    2300330: Component16(Mirror) (1) 11
+    2300332: Component16(Mirror) (1) 12
+    2300334: Component16(Mirror) (1) 13
+    2300336: Component16(Mirror) (1) 14
+    2300338: Component16(Mirror) (1) 15
+    2300340: Component16(Mirror) (1) 16
+    2300342: Component16(Mirror) (1) 17
+    2300344: Component16(Mirror) (1) 18
+    2300346: Component16(Mirror) (1) 19
+    2300348: Component16(Mirror) (1) 2
+    2300350: Component16(Mirror) (1) 20
+    2300352: Component16(Mirror) (1) 21
+    2300354: Component16(Mirror) (1) 22
+    2300356: Component16(Mirror) (1) 23
+    2300358: Component16(Mirror) (1) 24
+    2300360: Component16(Mirror) (1) 25
+    2300362: Component16(Mirror) (1) 26
+    2300364: Component16(Mirror) (1) 27
+    2300366: Component16(Mirror) (1) 28
+    2300368: Component16(Mirror) (1) 29
+    2300370: Component16(Mirror) (1) 3
+    2300372: Component16(Mirror) (1) 30
+    2300374: Component16(Mirror) (1) 31
+    2300376: Component16(Mirror) (1) 32
+    2300378: Component16(Mirror) (1) 33
+    2300380: Component16(Mirror) (1) 34
+    2300382: Component16(Mirror) (1) 35
+    2300384: Component16(Mirror) (1) 36
+    2300386: Component16(Mirror) (1) 37
+    2300388: Component16(Mirror) (1) 38
+    2300390: Component16(Mirror) (1) 39
+    2300392: Component16(Mirror) (1) 4
+    2300394: Component16(Mirror) (1) 40
+    2300396: Component16(Mirror) (1) 41
+    2300398: Component16(Mirror) (1) 5
+    2300400: Component16(Mirror) (1) 6
+    2300402: Component16(Mirror) (1) 7
+    2300404: Component16(Mirror) (1) 8
+    2300406: Component16(Mirror) (1) 9
+    2300408: Component16(Mirror) 1
+    2300410: Component16(Mirror) 10
+    2300412: Component16(Mirror) 11
+    2300414: Component16(Mirror) 12
+    2300416: Component16(Mirror) 13
+    2300418: Component16(Mirror) 14
+    2300420: Component16(Mirror) 15
+    2300422: Component16(Mirror) 16
+    2300424: Component16(Mirror) 17
+    2300426: Component16(Mirror) 18
+    2300428: Component16(Mirror) 19
+    2300430: Component16(Mirror) 2
+    2300432: Component16(Mirror) 20
+    2300434: Component16(Mirror) 21
+    2300436: Component16(Mirror) 22
+    2300438: Component16(Mirror) 23
+    2300440: Component16(Mirror) 24
+    2300442: Component16(Mirror) 25
+    2300444: Component16(Mirror) 26
+    2300446: Component16(Mirror) 27
+    2300448: Component16(Mirror) 28
+    2300450: Component16(Mirror) 29
+    2300452: Component16(Mirror) 3
+    2300454: Component16(Mirror) 30
+    2300456: Component16(Mirror) 31
+    2300458: Component16(Mirror) 32
+    2300460: Component16(Mirror) 33
+    2300462: Component16(Mirror) 34
+    2300464: Component16(Mirror) 35
+    2300466: Component16(Mirror) 36
+    2300468: Component16(Mirror) 37
+    2300470: Component16(Mirror) 38
+    2300472: Component16(Mirror) 39
+    2300474: Component16(Mirror) 4
+    2300476: Component16(Mirror) 40
+    2300478: Component16(Mirror) 41
+    2300480: Component16(Mirror) 5
+    2300482: Component16(Mirror) 6
+    2300484: Component16(Mirror) 7
+    2300486: Component16(Mirror) 8
+    2300488: Component16(Mirror) 9
+    2300490: Component16(Mirror)(Mirror)
+    2300492: Component16(Mirror)(Mirror) 1
+    2300494: Component16(Mirror)(Mirror) 10
+    2300496: Component16(Mirror)(Mirror) 11
+    2300498: Component16(Mirror)(Mirror) 12
+    2300500: Component16(Mirror)(Mirror) 13
+    2300502: Component16(Mirror)(Mirror) 14
+    2300504: Component16(Mirror)(Mirror) 15
+    2300506: Component16(Mirror)(Mirror) 16
+    2300508: Component16(Mirror)(Mirror) 17
+    2300510: Component16(Mirror)(Mirror) 18
+    2300512: Component16(Mirror)(Mirror) 19
+    2300514: Component16(Mirror)(Mirror) 2
+    2300516: Component16(Mirror)(Mirror) 20
+    2300518: Component16(Mirror)(Mirror) 21
+    2300520: Component16(Mirror)(Mirror) 22
+    2300522: Component16(Mirror)(Mirror) 23
+    2300524: Component16(Mirror)(Mirror) 24
+    2300526: Component16(Mirror)(Mirror) 25
+    2300528: Component16(Mirror)(Mirror) 26
+    2300530: Component16(Mirror)(Mirror) 27
+    2300532: Component16(Mirror)(Mirror) 28
+    2300534: Component16(Mirror)(Mirror) 29
+    2300536: Component16(Mirror)(Mirror) 3
+    2300538: Component16(Mirror)(Mirror) 30
+    2300540: Component16(Mirror)(Mirror) 31
+    2300542: Component16(Mirror)(Mirror) 32
+    2300544: Component16(Mirror)(Mirror) 33
+    2300546: Component16(Mirror)(Mirror) 34
+    2300548: Component16(Mirror)(Mirror) 35
+    2300550: Component16(Mirror)(Mirror) 36
+    2300552: Component16(Mirror)(Mirror) 37
+    2300554: Component16(Mirror)(Mirror) 38
+    2300556: Component16(Mirror)(Mirror) 39
+    2300558: Component16(Mirror)(Mirror) 4
+    2300560: Component16(Mirror)(Mirror) 40
+    2300562: Component16(Mirror)(Mirror) 41
+    2300564: Component16(Mirror)(Mirror) 5
+    2300566: Component16(Mirror)(Mirror) 6
+    2300568: Component16(Mirror)(Mirror) 7
+    2300570: Component16(Mirror)(Mirror) 8
+    2300572: Component16(Mirror)(Mirror) 9
+    2300574: Gears
+    2300576: Gears 1
+    2300578: Gears 2
+    2300580: Leg part 2
+    2300582: Leg part 2(Mirror)
+    2300584: Leg part 2(Mirror) (1)
+    2300586: Leg part 2(Mirror)(Mirror)
+    2300588: leg tip - 1
+    2300590: leg tip - 1(Mirror)
+    2300592: leg tip - 1(Mirror) (1)
+    2300594: leg tip - 1(Mirror)(Mirror)
+    3300000: Base v13
+    3300002: Base v13 1
+    3300004: Base v13-2
+    3300006: Base v13-2 1
+    3300008: Base v13-2 10
+    3300010: Base v13-2 11
+    3300012: Base v13-2 12
+    3300014: Base v13-2 13
+    3300016: Base v13-2 14
+    3300018: Base v13-2 15
+    3300020: Base v13-2 16
+    3300022: Base v13-2 17
+    3300024: Base v13-2 18
+    3300026: Base v13-2 19
+    3300028: Base v13-2 2
+    3300030: Base v13-2 20
+    3300032: Base v13-2 3
+    3300034: Base v13-2 4
+    3300036: Base v13-2 5
+    3300038: Base v13-2 6
+    3300040: Base v13-2 7
+    3300042: Base v13-2 8
+    3300044: Base v13-2 9
+    3300046: Blue Body
+    3300048: Blue Body 1
+    3300050: Blue Body 10
+    3300052: Blue Body 11
+    3300054: Blue Body 12
+    3300056: Blue Body 13
+    3300058: Blue Body 14
+    3300060: Blue Body 15
+    3300062: Blue Body 16
+    3300064: Blue Body 17
+    3300066: Blue Body 18
+    3300068: Blue Body 19
+    3300070: Blue Body 2
+    3300072: Blue Body 20
+    3300074: Blue Body 3
+    3300076: Blue Body 4
+    3300078: Blue Body 5
+    3300080: Blue Body 6
+    3300082: Blue Body 7
+    3300084: Blue Body 8
+    3300086: Blue Body 9
+    3300088: Blue Body-1
+    3300090: Blue Body-1 1
+    3300092: Blue Body-1 10
+    3300094: Blue Body-1 11
+    3300096: Blue Body-1 12
+    3300098: Blue Body-1 13
+    3300100: Blue Body-1 14
+    3300102: Blue Body-1 15
+    3300104: Blue Body-1 16
+    3300106: Blue Body-1 17
+    3300108: Blue Body-1 18
+    3300110: Blue Body-1 19
+    3300112: Blue Body-1 2
+    3300114: Blue Body-1 20
+    3300116: Blue Body-1 3
+    3300118: Blue Body-1 4
+    3300120: Blue Body-1 5
+    3300122: Blue Body-1 6
+    3300124: Blue Body-1 7
+    3300126: Blue Body-1 8
+    3300128: Blue Body-1 9
+    3300130: Blue Body-2
+    3300132: Blue Body-2 1
+    3300134: Blue Body-2 10
+    3300136: Blue Body-2 11
+    3300138: Blue Body-2 12
+    3300140: Blue Body-2 13
+    3300142: Blue Body-2 14
+    3300144: Blue Body-2 15
+    3300146: Blue Body-2 16
+    3300148: Blue Body-2 17
+    3300150: Blue Body-2 18
+    3300152: Blue Body-2 19
+    3300154: Blue Body-2 2
+    3300156: Blue Body-2 20
+    3300158: Blue Body-2 3
+    3300160: Blue Body-2 4
+    3300162: Blue Body-2 5
+    3300164: Blue Body-2 6
+    3300166: Blue Body-2 7
+    3300168: Blue Body-2 8
+    3300170: Blue Body-2 9
+    3300172: Component11
+    3300174: Component11(Mirror)
+    3300176: Component11(Mirror) (1)
+    3300178: Component11(Mirror)(Mirror)
+    3300180: Component14
+    3300182: Component14 1
+    3300184: Component14 10
+    3300186: Component14 11
+    3300188: Component14 12
+    3300190: Component14 13
+    3300192: Component14 14
+    3300194: Component14 15
+    3300196: Component14 16
+    3300198: Component14 17
+    3300200: Component14 18
+    3300202: Component14 19
+    3300204: Component14 2
+    3300206: Component14 20
+    3300208: Component14 3
+    3300210: Component14 4
+    3300212: Component14 5
+    3300214: Component14 6
+    3300216: Component14 7
+    3300218: Component14 8
+    3300220: Component14 9
+    3300222: Component15
+    3300224: Component15 1
+    3300226: Component15(Mirror)
+    3300228: Component15(Mirror) (1)
+    3300230: Component15(Mirror) (1) 1
+    3300232: Component15(Mirror) 1
+    3300234: Component15(Mirror)(Mirror)
+    3300236: Component15(Mirror)(Mirror) 1
+    3300238: Component16
+    3300240: Component16 1
+    3300242: Component16 10
+    3300244: Component16 11
+    3300246: Component16 12
+    3300248: Component16 13
+    3300250: Component16 14
+    3300252: Component16 15
+    3300254: Component16 16
+    3300256: Component16 17
+    3300258: Component16 18
+    3300260: Component16 19
+    3300262: Component16 2
+    3300264: Component16 20
+    3300266: Component16 21
+    3300268: Component16 22
+    3300270: Component16 23
+    3300272: Component16 24
+    3300274: Component16 25
+    3300276: Component16 26
+    3300278: Component16 27
+    3300280: Component16 28
+    3300282: Component16 29
+    3300284: Component16 3
+    3300286: Component16 30
+    3300288: Component16 31
+    3300290: Component16 32
+    3300292: Component16 33
+    3300294: Component16 34
+    3300296: Component16 35
+    3300298: Component16 36
+    3300300: Component16 37
+    3300302: Component16 38
+    3300304: Component16 39
+    3300306: Component16 4
+    3300308: Component16 40
+    3300310: Component16 41
+    3300312: Component16 5
+    3300314: Component16 6
+    3300316: Component16 7
+    3300318: Component16 8
+    3300320: Component16 9
+    3300322: Component16(Mirror)
+    3300324: Component16(Mirror) (1)
+    3300326: Component16(Mirror) (1) 1
+    3300328: Component16(Mirror) (1) 10
+    3300330: Component16(Mirror) (1) 11
+    3300332: Component16(Mirror) (1) 12
+    3300334: Component16(Mirror) (1) 13
+    3300336: Component16(Mirror) (1) 14
+    3300338: Component16(Mirror) (1) 15
+    3300340: Component16(Mirror) (1) 16
+    3300342: Component16(Mirror) (1) 17
+    3300344: Component16(Mirror) (1) 18
+    3300346: Component16(Mirror) (1) 19
+    3300348: Component16(Mirror) (1) 2
+    3300350: Component16(Mirror) (1) 20
+    3300352: Component16(Mirror) (1) 21
+    3300354: Component16(Mirror) (1) 22
+    3300356: Component16(Mirror) (1) 23
+    3300358: Component16(Mirror) (1) 24
+    3300360: Component16(Mirror) (1) 25
+    3300362: Component16(Mirror) (1) 26
+    3300364: Component16(Mirror) (1) 27
+    3300366: Component16(Mirror) (1) 28
+    3300368: Component16(Mirror) (1) 29
+    3300370: Component16(Mirror) (1) 3
+    3300372: Component16(Mirror) (1) 30
+    3300374: Component16(Mirror) (1) 31
+    3300376: Component16(Mirror) (1) 32
+    3300378: Component16(Mirror) (1) 33
+    3300380: Component16(Mirror) (1) 34
+    3300382: Component16(Mirror) (1) 35
+    3300384: Component16(Mirror) (1) 36
+    3300386: Component16(Mirror) (1) 37
+    3300388: Component16(Mirror) (1) 38
+    3300390: Component16(Mirror) (1) 39
+    3300392: Component16(Mirror) (1) 4
+    3300394: Component16(Mirror) (1) 40
+    3300396: Component16(Mirror) (1) 41
+    3300398: Component16(Mirror) (1) 5
+    3300400: Component16(Mirror) (1) 6
+    3300402: Component16(Mirror) (1) 7
+    3300404: Component16(Mirror) (1) 8
+    3300406: Component16(Mirror) (1) 9
+    3300408: Component16(Mirror) 1
+    3300410: Component16(Mirror) 10
+    3300412: Component16(Mirror) 11
+    3300414: Component16(Mirror) 12
+    3300416: Component16(Mirror) 13
+    3300418: Component16(Mirror) 14
+    3300420: Component16(Mirror) 15
+    3300422: Component16(Mirror) 16
+    3300424: Component16(Mirror) 17
+    3300426: Component16(Mirror) 18
+    3300428: Component16(Mirror) 19
+    3300430: Component16(Mirror) 2
+    3300432: Component16(Mirror) 20
+    3300434: Component16(Mirror) 21
+    3300436: Component16(Mirror) 22
+    3300438: Component16(Mirror) 23
+    3300440: Component16(Mirror) 24
+    3300442: Component16(Mirror) 25
+    3300444: Component16(Mirror) 26
+    3300446: Component16(Mirror) 27
+    3300448: Component16(Mirror) 28
+    3300450: Component16(Mirror) 29
+    3300452: Component16(Mirror) 3
+    3300454: Component16(Mirror) 30
+    3300456: Component16(Mirror) 31
+    3300458: Component16(Mirror) 32
+    3300460: Component16(Mirror) 33
+    3300462: Component16(Mirror) 34
+    3300464: Component16(Mirror) 35
+    3300466: Component16(Mirror) 36
+    3300468: Component16(Mirror) 37
+    3300470: Component16(Mirror) 38
+    3300472: Component16(Mirror) 39
+    3300474: Component16(Mirror) 4
+    3300476: Component16(Mirror) 40
+    3300478: Component16(Mirror) 41
+    3300480: Component16(Mirror) 5
+    3300482: Component16(Mirror) 6
+    3300484: Component16(Mirror) 7
+    3300486: Component16(Mirror) 8
+    3300488: Component16(Mirror) 9
+    3300490: Component16(Mirror)(Mirror)
+    3300492: Component16(Mirror)(Mirror) 1
+    3300494: Component16(Mirror)(Mirror) 10
+    3300496: Component16(Mirror)(Mirror) 11
+    3300498: Component16(Mirror)(Mirror) 12
+    3300500: Component16(Mirror)(Mirror) 13
+    3300502: Component16(Mirror)(Mirror) 14
+    3300504: Component16(Mirror)(Mirror) 15
+    3300506: Component16(Mirror)(Mirror) 16
+    3300508: Component16(Mirror)(Mirror) 17
+    3300510: Component16(Mirror)(Mirror) 18
+    3300512: Component16(Mirror)(Mirror) 19
+    3300514: Component16(Mirror)(Mirror) 2
+    3300516: Component16(Mirror)(Mirror) 20
+    3300518: Component16(Mirror)(Mirror) 21
+    3300520: Component16(Mirror)(Mirror) 22
+    3300522: Component16(Mirror)(Mirror) 23
+    3300524: Component16(Mirror)(Mirror) 24
+    3300526: Component16(Mirror)(Mirror) 25
+    3300528: Component16(Mirror)(Mirror) 26
+    3300530: Component16(Mirror)(Mirror) 27
+    3300532: Component16(Mirror)(Mirror) 28
+    3300534: Component16(Mirror)(Mirror) 29
+    3300536: Component16(Mirror)(Mirror) 3
+    3300538: Component16(Mirror)(Mirror) 30
+    3300540: Component16(Mirror)(Mirror) 31
+    3300542: Component16(Mirror)(Mirror) 32
+    3300544: Component16(Mirror)(Mirror) 33
+    3300546: Component16(Mirror)(Mirror) 34
+    3300548: Component16(Mirror)(Mirror) 35
+    3300550: Component16(Mirror)(Mirror) 36
+    3300552: Component16(Mirror)(Mirror) 37
+    3300554: Component16(Mirror)(Mirror) 38
+    3300556: Component16(Mirror)(Mirror) 39
+    3300558: Component16(Mirror)(Mirror) 4
+    3300560: Component16(Mirror)(Mirror) 40
+    3300562: Component16(Mirror)(Mirror) 41
+    3300564: Component16(Mirror)(Mirror) 5
+    3300566: Component16(Mirror)(Mirror) 6
+    3300568: Component16(Mirror)(Mirror) 7
+    3300570: Component16(Mirror)(Mirror) 8
+    3300572: Component16(Mirror)(Mirror) 9
+    3300574: Gears
+    3300576: Gears 1
+    3300578: Gears 2
+    3300580: Leg part 2
+    3300582: Leg part 2(Mirror)
+    3300584: Leg part 2(Mirror) (1)
+    3300586: Leg part 2(Mirror)(Mirror)
+    3300588: leg tip - 1
+    3300590: leg tip - 1(Mirror)
+    3300592: leg tip - 1(Mirror) (1)
+    3300594: leg tip - 1(Mirror)(Mirror)
+    4300000: Base v13-2
+    4300002: Base v13-2
+    4300004: Base v13-2
+    4300006: Base v13-2
+    4300008: Base v13-2
+    4300010: Base v13-2
+    4300012: Base v13-2
+    4300014: Base v13-2
+    4300016: Base v13-2
+    4300018: Base v13-2
+    4300020: Base v13-2
+    4300022: Base v13-2
+    4300024: Base v13-2
+    4300026: Base v13-2
+    4300028: Base v13-2
+    4300030: Base v13-2
+    4300032: Base v13-2
+    4300034: Base v13-2
+    4300036: Base v13-2
+    4300038: Base v13-2
+    4300040: Base v13-2
+    4300042: Base v13
+    4300044: Base v13
+    4300046: Component11(Mirror)(Mirror)
+    4300048: Leg part 2(Mirror)(Mirror)
+    4300050: Component16(Mirror)(Mirror)
+    4300052: Component16(Mirror)(Mirror)
+    4300054: Component16(Mirror)(Mirror)
+    4300056: Component16(Mirror)(Mirror)
+    4300058: Component16(Mirror)(Mirror)
+    4300060: Component16(Mirror)(Mirror)
+    4300062: Component16(Mirror)(Mirror)
+    4300064: Component16(Mirror)(Mirror)
+    4300066: Component16(Mirror)(Mirror)
+    4300068: Component16(Mirror)(Mirror)
+    4300070: Component16(Mirror)(Mirror)
+    4300072: Component16(Mirror)(Mirror)
+    4300074: Component16(Mirror)(Mirror)
+    4300076: Component16(Mirror)(Mirror)
+    4300078: Component16(Mirror)(Mirror)
+    4300080: Component16(Mirror)(Mirror)
+    4300082: Component16(Mirror)(Mirror)
+    4300084: Component16(Mirror)(Mirror)
+    4300086: Component16(Mirror)(Mirror)
+    4300088: Component16(Mirror)(Mirror)
+    4300090: Component16(Mirror)(Mirror)
+    4300092: leg tip - 1(Mirror)(Mirror)
+    4300094: Component15(Mirror)(Mirror)
+    4300096: Component11(Mirror) (1)
+    4300098: Leg part 2(Mirror) (1)
+    4300100: leg tip - 1(Mirror) (1)
+    4300102: Component15(Mirror) (1)
+    4300104: Component16(Mirror) (1)
+    4300106: Component16(Mirror) (1)
+    4300108: Component16(Mirror) (1)
+    4300110: Component16(Mirror) (1)
+    4300112: Component16(Mirror) (1)
+    4300114: Component16(Mirror) (1)
+    4300116: Component16(Mirror) (1)
+    4300118: Component16(Mirror) (1)
+    4300120: Component16(Mirror) (1)
+    4300122: Component16(Mirror) (1)
+    4300124: Component16(Mirror) (1)
+    4300126: Component16(Mirror) (1)
+    4300128: Component16(Mirror) (1)
+    4300130: Component16(Mirror) (1)
+    4300132: Component16(Mirror) (1)
+    4300134: Component16(Mirror) (1)
+    4300136: Component16(Mirror) (1)
+    4300138: Component16(Mirror) (1)
+    4300140: Component16(Mirror) (1)
+    4300142: Component16(Mirror) (1)
+    4300144: Component16(Mirror) (1)
+    4300146: Component11(Mirror)
+    4300148: Leg part 2(Mirror)
+    4300150: Component16(Mirror)
+    4300152: Component16(Mirror)
+    4300154: Component16(Mirror)
+    4300156: Component16(Mirror)
+    4300158: Component16(Mirror)
+    4300160: Component16(Mirror)
+    4300162: Component16(Mirror)
+    4300164: Component16(Mirror)
+    4300166: Component16(Mirror)
+    4300168: Component16(Mirror)
+    4300170: Component16(Mirror)
+    4300172: Component16(Mirror)
+    4300174: Component16(Mirror)
+    4300176: Component16(Mirror)
+    4300178: Component16(Mirror)
+    4300180: Component16(Mirror)
+    4300182: Component16(Mirror)
+    4300184: Component16(Mirror)
+    4300186: Component16(Mirror)
+    4300188: Component16(Mirror)
+    4300190: Component16(Mirror)
+    4300192: Component15(Mirror)
+    4300194: leg tip - 1(Mirror)
+    4300196: Component16
+    4300198: Component16
+    4300200: Component16
+    4300202: Component16
+    4300204: Component16
+    4300206: Component16
+    4300208: Component16
+    4300210: Component16
+    4300212: Component16
+    4300214: Component16
+    4300216: Component16
+    4300218: Component16
+    4300220: Component16
+    4300222: Component16
+    4300224: Component16
+    4300226: Component16
+    4300228: Component16
+    4300230: Component16
+    4300232: Component16
+    4300234: Component16
+    4300236: Component16
+    4300238: Component15
+    4300240: leg tip - 1
+    4300242: Leg part 2
+    4300244: Component11
+    4300246: Gears
+    4300248: Gears
+    4300250: Gears
+    4300252: Blue Body-2
+    4300254: Blue Body-2
+    4300256: Blue Body-2
+    4300258: Blue Body-2
+    4300260: Blue Body-2
+    4300262: Blue Body-2
+    4300264: Blue Body-2
+    4300266: Blue Body-2
+    4300268: Blue Body-2
+    4300270: Blue Body-2
+    4300272: Blue Body-2
+    4300274: Blue Body-2
+    4300276: Blue Body-2
+    4300278: Blue Body-2
+    4300280: Blue Body-2
+    4300282: Blue Body-2
+    4300284: Blue Body-2
+    4300286: Blue Body-2
+    4300288: Blue Body-2
+    4300290: Blue Body-2
+    4300292: Blue Body-2
+    4300294: Blue Body-1
+    4300296: Blue Body-1
+    4300298: Blue Body-1
+    4300300: Blue Body-1
+    4300302: Blue Body-1
+    4300304: Blue Body-1
+    4300306: Blue Body-1
+    4300308: Blue Body-1
+    4300310: Blue Body-1
+    4300312: Blue Body-1
+    4300314: Blue Body-1
+    4300316: Blue Body-1
+    4300318: Blue Body-1
+    4300320: Blue Body-1
+    4300322: Blue Body-1
+    4300324: Blue Body-1
+    4300326: Blue Body-1
+    4300328: Blue Body-1
+    4300330: Blue Body-1
+    4300332: Blue Body-1
+    4300334: Blue Body-1
+    4300336: Blue Body
+    4300338: Blue Body
+    4300340: Blue Body
+    4300342: Blue Body
+    4300344: Blue Body
+    4300346: Blue Body
+    4300348: Blue Body
+    4300350: Blue Body
+    4300352: Blue Body
+    4300354: Blue Body
+    4300356: Blue Body
+    4300358: Blue Body
+    4300360: Blue Body
+    4300362: Blue Body
+    4300364: Blue Body
+    4300366: Blue Body
+    4300368: Blue Body
+    4300370: Blue Body
+    4300372: Blue Body
+    4300374: Blue Body
+    4300376: Blue Body
+    4300378: Component14
+    4300380: Component14
+    4300382: Component14
+    4300384: Component14
+    4300386: Component14
+    4300388: Component14
+    4300390: Component14
+    4300392: Component14
+    4300394: Component14
+    4300396: Component14
+    4300398: Component14
+    4300400: Component14
+    4300402: Component14
+    4300404: Component14
+    4300406: Component14
+    4300408: Component14
+    4300410: Component14
+    4300412: Component14
+    4300414: Component14
+    4300416: Component14
+    4300418: Component14
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
