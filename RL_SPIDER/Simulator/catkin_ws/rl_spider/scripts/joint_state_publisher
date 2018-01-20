@@ -8,42 +8,8 @@ import xml.dom.minidom
 from sensor_msgs.msg import JointState
 from math import pi
 from threading import Thread
-import time
-import socket
-import socket
-import sys
-import os
-import misc
-import math
 
-
-
-def Listen(jsp):
-    host=misc.get_sock_ip()
-    port =5000
-    s=socket.socket()
-    s.bind((host,port))
-    print("##################### server started on ip {} ######################".format(host))
-    flag=True
-    start=True
-    while flag:
-        s.listen(2)
-        c,addr=s.accept()
-        data=c.recv(1024)
-        if not data:
-            pass
-        else:
-            #print(">>{}".format(data))
-            values=map(float,data.split())
-            jsp.Joint_command(values)
-        if "END" in data:
-            flag=False
-
-        
-    c.close()
-   
 RANGE = 10000
-value=0
 
 def get_param(name, value=None):
     private = "~%s" % name
@@ -137,7 +103,12 @@ class JointStatePublisher():
 
         use_gui = get_param("use_gui", False)
 
-        self.gui = None
+        if use_gui:
+            self.app = wx.App()
+            self.gui = JointStatePublisherGui("Joint State Publisher", self)
+            self.gui.Show()
+        else:
+            self.gui = None
 
         source_list = get_param("source_list", [])
         self.sources = []
@@ -173,10 +144,10 @@ class JointStatePublisher():
             if effort is not None:
                 joint['effort'] = effort
 
-    def Joint_command(self,values):
-        for j,joint in enumerate(jsp.free_joints.items()):
-            joint[1]['position']=values[j]
-            #joint[1]['position']=value
+        if self.gui is not None:
+            # post an event here instead of directly calling the update_sliders method, to switch to the wx thread
+            wx.PostEvent(self.gui.GetEventHandler(), self.gui.UpdateSlidersEvent())
+
 
     def loop(self):
         hz = get_param("rate", 10) # 10hz
@@ -260,14 +231,125 @@ class JointStatePublisher():
                     joint['position'] = joint['min']
                     joint['forward'] = not forward
 
+class JointStatePublisherGui(wx.Frame):
+    def __init__(self, title, jsp):
+        wx.Frame.__init__(self, None, -1, title, (-1, -1));
+        self.jsp = jsp
+        self.joint_map = {}
+        panel = wx.ScrolledWindow(self, wx.ID_ANY, style= wx.VSCROLL);
+        box = wx.BoxSizer(wx.VERTICAL)
+        font = wx.Font(9, wx.SWISS, wx.NORMAL, wx.BOLD)
+
+        ### Sliders ###
+        for name in self.jsp.joint_list:
+            if name not in self.jsp.free_joints:
+                continue
+            joint = self.jsp.free_joints[name]
+
+            if joint['min'] == joint['max']:
+                continue
+
+            row = wx.GridSizer(1,2)
+            label = wx.StaticText(panel, -1, name)
+            label.SetFont(font)
+            row.Add(label, 1, wx.ALIGN_CENTER_VERTICAL)
+
+            display = wx.TextCtrl (panel, value=str(0),
+                        style=wx.TE_READONLY | wx.ALIGN_RIGHT)
+
+            row.Add(display, flag= wx.ALIGN_RIGHT| wx.ALIGN_CENTER_VERTICAL)
+            box.Add(row, 1, wx.EXPAND)
+            slider = wx.Slider(panel, -1, RANGE/2, 0, RANGE,
+                        style= wx.SL_AUTOTICKS | wx.SL_HORIZONTAL)
+            slider.SetFont(font)
+            box.Add(slider, 1, wx.EXPAND)
+
+            self.joint_map[name] = {'slidervalue':0, 'display':display,
+                                    'slider':slider, 'joint':joint}
+
+        self.UpdateSlidersEvent, self.EVT_UPDATESLIDERS = wx.lib.newevent.NewEvent()
+        self.Bind(self.EVT_UPDATESLIDERS, self.updateSliders)
+
+        ### Buttons ###
+        self.randbutton = wx.Button(panel, 1, 'Randomize')
+        self.ctrbutton = wx.Button(panel, 2, 'Center')
+        self.Bind(wx.EVT_SLIDER, self.sliderUpdate)
+
+        wx.EVT_BUTTON(self, 1, self.randomize_event)
+        wx.EVT_BUTTON(self, 2, self.center_event)
+
+        box.Add(self.randbutton, 0, wx.EXPAND)
+        box.Add(self.ctrbutton, 1, wx.EXPAND)
+
+        panel.SetSizer(box)
+        self.center()
+        box.Fit(self)
+        panel.SetScrollRate(0,slider.GetSize().GetHeight()+row.GetSize().GetHeight())
+        self.update_values()
+
+
+    def update_values(self):
+        for (name,joint_info) in self.joint_map.items():
+            purevalue = joint_info['slidervalue']
+            joint = joint_info['joint']
+            value = self.sliderToValue(purevalue, joint)
+            joint['position'] = value
+        self.update_sliders()
+
+    def updateSliders(self, event):
+        self.update_sliders()
+
+    def update_sliders(self):
+        for (name,joint_info) in self.joint_map.items():
+            joint = joint_info['joint']
+            joint_info['slidervalue'] = self.valueToSlider(joint['position'],
+                                                           joint)
+            joint_info['slider'].SetValue(joint_info['slidervalue'])
+            joint_info['display'].SetValue("%.2f"%joint['position'])
+
+    def center_event(self, event):
+        self.center()
+
+    def center(self):
+        rospy.loginfo("Centering")
+        for (name,joint_info) in self.joint_map.items():
+            joint = joint_info['joint']
+            joint_info['slidervalue'] = self.valueToSlider(joint['zero'], joint)
+        self.update_values()
+
+    def randomize_event(self, event):
+        self.randomize()
+
+    def randomize(self):
+        rospy.loginfo("Randomizing")
+        for (name,joint_info) in self.joint_map.items():
+            joint = joint_info['joint']
+            joint_info['slidervalue'] = self.valueToSlider(random.uniform(joint['min'], joint['max']), joint)
+        self.update_values()
+
+
+    def sliderUpdate(self, event):
+        for (name,joint_info) in self.joint_map.items():
+            joint_info['slidervalue'] = joint_info['slider'].GetValue()
+        self.update_values()
+
+    def valueToSlider(self, value, joint):
+        return (value - joint['min']) * float(RANGE) / (joint['max'] - joint['min'])
+
+    def sliderToValue(self, slider, joint):
+        pctvalue = slider / float(RANGE)
+        return joint['min'] + (joint['max']-joint['min']) * pctvalue
 
 
 if __name__ == '__main__':
     try:
-
-        rospy.init_node('custom_joint_state_publisher')
+        rospy.init_node('joint_state_publisher')
         jsp = JointStatePublisher()
-        Thread(target=jsp.loop).start()
-        Listen(jsp)
-    except rospy.ROSInterruptException: pass
 
+        if jsp.gui is None:
+            jsp.loop()
+        else:
+            Thread(target=jsp.loop).start()
+            jsp.app.MainLoop()
+
+    except rospy.ROSInterruptException: pass

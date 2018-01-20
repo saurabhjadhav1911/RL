@@ -1,10 +1,11 @@
-#C:\Users\saurabhj\OneDrive\Documents\Python Scripts\RL\RL_SPIDER
-#https://github.com/saurabhjadhav1911/RL.git
-import json
-import subprocess
-import os
 
-host =None
+import json
+try:
+	import subprocess
+except:
+	pass
+import os
+import socket
 
 def read_config():
 	filename=os.path.join(os.path.dirname(__file__),'config.json')
@@ -16,12 +17,13 @@ def read_config():
 
 def get_ip_mac():
 	config=read_config()
-	mac=config['GUI_config']['mac_ros']
+	mac=config['Reward_config']['mac']
 
 	mac=mac.replace(':','-')
 	data=subprocess.check_output(['arp','-a'])
 	#line=data
 	data=data.split('\n')
+	host=None
 	for line in data:
 		if mac in line:
 			line=line.split()
@@ -29,7 +31,7 @@ def get_ip_mac():
 	if host==None:
 		host=get_sock_ip()
 
-	print("ip is {}".format(host))
+	print("my ip is {}".format(host))
 	return host
 	
 def get_sock_ip():
@@ -39,31 +41,28 @@ def get_sock_ip():
 	s.close()
 	return host
 
-def save_config(config):
-	s=json.dumps(config)
-	with open("config.json","w") as f:
-		f.write(s)
-
-def consumer(q):
-    while True:
-        while q.empty() is False:
-            print(q.get())
-        time.sleep(0.017)
-
-def get_ip():
-	host =misc.get_ip_mac()
-	#host =misc.get_sock_ip()
-	print("host:{}".format(host))
-
-def sprint(msg):
-    port =5000
-    s=socket.socket()
-    s.connect((host,port))
-    s.send(msg)
-    s.close()
-
+def sprint(data):
+	#host =get_sock_ip()
+	host='192.168.0.102'
+	#host =get_ip_mac()
+	port =5000
+	s=socket.socket()
+	s.connect((host,port))
+	l=len(data)
+	n=0
+	eof=True
+	while eof:
+	    if l>1000:
+	        q=1000
+	        l-=1000
+	    else:
+	        q=l
+	        eof=False
+	    s.send(data[n:n+q])
+	msg=None
+	s.close()
 
 if __name__=='__main__':
-	print(get_ip())
+	sprint("my ip is {}".format(get_ip_mac()))
 
 
