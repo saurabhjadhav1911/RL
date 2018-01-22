@@ -1,8 +1,8 @@
-prefix=/home/yash/catkin_ws/install
+prefix=/home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/install
 
 Name: rosserial_tivac
 Description: Description of rosserial_tivac
 Version: 0.7.5
 Cflags: 
-Libs: -L/home/yash/catkin_ws/install/lib 
+Libs: -L/home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/install/lib 
 Requires: 

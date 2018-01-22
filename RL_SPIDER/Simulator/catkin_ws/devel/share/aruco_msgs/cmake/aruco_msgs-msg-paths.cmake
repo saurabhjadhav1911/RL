@@ -1,4 +1,4 @@
 # generated from genmsg/cmake/pkg-msg-paths.cmake.develspace.in
 
-set(aruco_msgs_MSG_INCLUDE_DIRS "/home/yash/catkin_ws/src/aruco_ros/aruco_msgs/msg")
+set(aruco_msgs_MSG_INCLUDE_DIRS "/home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/src/aruco_ros/aruco_msgs/msg")
 set(aruco_msgs_MSG_DEPENDENCIES std_msgs;geometry_msgs)

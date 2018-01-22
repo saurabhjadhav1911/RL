@@ -7,4 +7,4 @@
 # new environment variables
 
 # modified environment variables
-export PWD="/home/yash/catkin_ws/build"
+export PWD="/home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/build"

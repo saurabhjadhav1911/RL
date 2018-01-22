@@ -1,0 +1,8 @@
+prefix=/home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/devel
+
+Name: rl_spider
+Description: Description of rl_spider
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/devel/lib 
+Requires: 

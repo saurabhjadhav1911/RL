@@ -1,8 +1,0 @@
-prefix=/home/yash/catkin_ws/install
-
-Name: task_1
-Description: Description of task_1
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/yash/catkin_ws/install/lib 
-Requires: 

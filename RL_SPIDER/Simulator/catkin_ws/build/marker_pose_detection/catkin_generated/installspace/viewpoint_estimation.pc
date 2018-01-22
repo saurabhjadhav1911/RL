@@ -1,8 +1,0 @@
-prefix=/home/yash/catkin_ws/install
-
-Name: viewpoint_estimation
-Description: Description of viewpoint_estimation
-Version: 1.0.0
-Cflags: 
-Libs: -L/home/yash/catkin_ws/install/lib 
-Requires: roscpp

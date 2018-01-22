@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/subscriber_test.dir/test/subscriber_test.cpp.o"
-  "/home/yash/catkin_ws/devel/lib/rosserial_client/subscriber_test.pdb"
-  "/home/yash/catkin_ws/devel/lib/rosserial_client/subscriber_test"
+  "/home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/devel/lib/rosserial_client/subscriber_test.pdb"
+  "/home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/devel/lib/rosserial_client/subscriber_test"
 )
 
 # Per-language clean rules from dependency scanning.

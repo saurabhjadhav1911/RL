@@ -1,8 +1,8 @@
-# Install script for directory: /home/yash/catkin_ws/src/rosserial/rosserial_test
+# Install script for directory: /home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/src/rosserial/rosserial_test
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  SET(CMAKE_INSTALL_PREFIX "/home/yash/catkin_ws/install")
+  SET(CMAKE_INSTALL_PREFIX "/home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/install")
 ENDIF(NOT DEFINED CMAKE_INSTALL_PREFIX)
 STRING(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,17 +33,17 @@ IF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/yash/catkin_ws/build/rosserial/rosserial_test/catkin_generated/installspace/rosserial_test.pc")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/build/rosserial/rosserial_test/catkin_generated/installspace/rosserial_test.pc")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rosserial_test/cmake" TYPE FILE FILES
-    "/home/yash/catkin_ws/build/rosserial/rosserial_test/catkin_generated/installspace/rosserial_testConfig.cmake"
-    "/home/yash/catkin_ws/build/rosserial/rosserial_test/catkin_generated/installspace/rosserial_testConfig-version.cmake"
+    "/home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/build/rosserial/rosserial_test/catkin_generated/installspace/rosserial_testConfig.cmake"
+    "/home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/build/rosserial/rosserial_test/catkin_generated/installspace/rosserial_testConfig-version.cmake"
     )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rosserial_test" TYPE FILE FILES "/home/yash/catkin_ws/src/rosserial/rosserial_test/package.xml")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rosserial_test" TYPE FILE FILES "/home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/src/rosserial/rosserial_test/package.xml")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 

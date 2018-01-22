@@ -1,6 +1,0 @@
-<launch>
-<node name="NODE1" pkg="sample_package" type="node1.py"
-output="screen"/>
-<node name="NODE2" pkg="sample_package" type="node2.py" />
-<node name="NODE3" pkg="sample_package" type="node3.py" />
-</launch>

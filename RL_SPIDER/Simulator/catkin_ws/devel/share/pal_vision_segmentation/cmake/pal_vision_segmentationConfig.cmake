@@ -67,14 +67,14 @@ set(pal_vision_segmentation_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(pal_vision_segmentation_SOURCE_PREFIX /home/yash/catkin_ws/src/pal_vision_segmentation)
-  set(pal_vision_segmentation_DEVEL_PREFIX /home/yash/catkin_ws/devel)
+  set(pal_vision_segmentation_SOURCE_PREFIX /home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/src/pal_vision_segmentation)
+  set(pal_vision_segmentation_DEVEL_PREFIX /home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/devel)
   set(pal_vision_segmentation_INSTALL_PREFIX "")
   set(pal_vision_segmentation_PREFIX ${pal_vision_segmentation_DEVEL_PREFIX})
 else()
   set(pal_vision_segmentation_SOURCE_PREFIX "")
   set(pal_vision_segmentation_DEVEL_PREFIX "")
-  set(pal_vision_segmentation_INSTALL_PREFIX /home/yash/catkin_ws/install)
+  set(pal_vision_segmentation_INSTALL_PREFIX /home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/install)
   set(pal_vision_segmentation_PREFIX ${pal_vision_segmentation_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(pal_vision_segmentation_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/yash/catkin_ws/devel/include;/home/yash/catkin_ws/src/pal_vision_segmentation/include " STREQUAL " ")
+if(NOT "/home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/devel/include;/home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/src/pal_vision_segmentation/include " STREQUAL " ")
   set(pal_vision_segmentation_INCLUDE_DIRS "")
-  set(_include_dirs "/home/yash/catkin_ws/devel/include;/home/yash/catkin_ws/src/pal_vision_segmentation/include")
+  set(_include_dirs "/home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/devel/include;/home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/src/pal_vision_segmentation/include")
   foreach(idir ${_include_dirs})
     if(IS_ABSOLUTE ${idir} AND IS_DIRECTORY ${idir})
       set(include ${idir})
@@ -103,7 +103,7 @@ if(NOT "/home/yash/catkin_ws/devel/include;/home/yash/catkin_ws/src/pal_vision_s
         message(FATAL_ERROR "Project 'pal_vision_segmentation' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  Ask the maintainer 'Bence Magyar <bence.magyar@pal-robotics.com>' to fix it.")
       endif()
     else()
-      message(FATAL_ERROR "Project 'pal_vision_segmentation' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/yash/catkin_ws/src/pal_vision_segmentation/${idir}'.  Ask the maintainer 'Bence Magyar <bence.magyar@pal-robotics.com>' to fix it.")
+      message(FATAL_ERROR "Project 'pal_vision_segmentation' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/src/pal_vision_segmentation/${idir}'.  Ask the maintainer 'Bence Magyar <bence.magyar@pal-robotics.com>' to fix it.")
     endif()
     _list_append_unique(pal_vision_segmentation_INCLUDE_DIRS ${include})
   endforeach()
@@ -122,7 +122,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/yash/catkin_ws/devel/lib;/home/yash/catkin_ws/devel/lib;/opt/ros/indigo/lib)
+    foreach(path /home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/devel/lib;/opt/ros/indigo/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

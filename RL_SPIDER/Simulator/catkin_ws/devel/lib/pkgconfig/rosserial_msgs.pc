@@ -1,8 +1,8 @@
-prefix=/home/yash/catkin_ws/devel
+prefix=/home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/devel
 
 Name: rosserial_msgs
 Description: Description of rosserial_msgs
 Version: 0.7.5
-Cflags: -I/home/yash/catkin_ws/devel/include
-Libs: -L/home/yash/catkin_ws/devel/lib 
+Cflags: -I/home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/devel/include
+Libs: -L/home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/devel/lib 
 Requires: message_runtime

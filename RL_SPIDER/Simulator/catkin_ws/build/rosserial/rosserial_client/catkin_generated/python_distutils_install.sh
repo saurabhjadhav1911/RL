@@ -14,20 +14,20 @@ fi
 
 echo_and_run() { echo "+ $@" ; "$@" ; }
 
-echo_and_run cd "/home/yash/catkin_ws/src/rosserial/rosserial_client"
+echo_and_run cd "/home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/src/rosserial/rosserial_client"
 
 # snsure that Python install destination exists
-echo_and_run mkdir -p "$DESTDIR/home/yash/catkin_ws/install/lib/python2.7/dist-packages"
+echo_and_run mkdir -p "$DESTDIR/home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/install/lib/python2.7/dist-packages"
 
 # Note that PYTHONPATH is pulled from the environment to support installing
 # into one location when some dependencies were installed in another
 # location, #123.
 echo_and_run /usr/bin/env \
-    PYTHONPATH="/home/yash/catkin_ws/install/lib/python2.7/dist-packages:/home/yash/catkin_ws/build/lib/python2.7/dist-packages:$PYTHONPATH" \
-    CATKIN_BINARY_DIR="/home/yash/catkin_ws/build" \
+    PYTHONPATH="/home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/install/lib/python2.7/dist-packages:/home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/build/lib/python2.7/dist-packages:$PYTHONPATH" \
+    CATKIN_BINARY_DIR="/home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/build" \
     "/usr/bin/python" \
-    "/home/yash/catkin_ws/src/rosserial/rosserial_client/setup.py" \
-    build --build-base "/home/yash/catkin_ws/build/rosserial/rosserial_client" \
+    "/home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/src/rosserial/rosserial_client/setup.py" \
+    build --build-base "/home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/build/rosserial/rosserial_client" \
     install \
     $DESTDIR_ARG \
-    --install-layout=deb --prefix="/home/yash/catkin_ws/install" --install-scripts="/home/yash/catkin_ws/install/bin"
+    --install-layout=deb --prefix="/home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/install" --install-scripts="/home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/install/bin"

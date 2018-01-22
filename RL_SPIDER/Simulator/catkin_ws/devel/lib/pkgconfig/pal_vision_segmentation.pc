@@ -1,8 +1,8 @@
-prefix=/home/yash/catkin_ws/devel
+prefix=/home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/devel
 
 Name: pal_vision_segmentation
 Description: Description of pal_vision_segmentation
 Version: 1.0.0
-Cflags: -I/home/yash/catkin_ws/devel/include -I/home/yash/catkin_ws/src/pal_vision_segmentation/include
-Libs: -L/home/yash/catkin_ws/devel/lib -lpal_vision_segmentation
+Cflags: -I/home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/devel/include -I/home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/src/pal_vision_segmentation/include
+Libs: -L/home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/devel/lib -lpal_vision_segmentation
 Requires: geometry_msgs

@@ -1,8 +1,8 @@
-# Install script for directory: /home/yash/catkin_ws/src/rosserial/rosserial
+# Install script for directory: /home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/src/rosserial/rosserial
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  SET(CMAKE_INSTALL_PREFIX "/home/yash/catkin_ws/install")
+  SET(CMAKE_INSTALL_PREFIX "/home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/install")
 ENDIF(NOT DEFINED CMAKE_INSTALL_PREFIX)
 STRING(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,6 +33,6 @@ IF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rosserial" TYPE FILE FILES "/home/yash/catkin_ws/src/rosserial/rosserial/package.xml")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rosserial" TYPE FILE FILES "/home/ubantu/RL/RL2/RL/RL_SPIDER/Simulator/catkin_ws/src/rosserial/rosserial/package.xml")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
