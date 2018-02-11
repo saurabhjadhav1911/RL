@@ -2,7 +2,11 @@
 #https://github.com/saurabhjadhav1911/RL.git
 import json
 import subprocess
+import socket
 import os
+import time
+from colorama import Fore, Back, Style
+import colorama
 
 host =None
 
@@ -62,7 +66,12 @@ def sprint(msg):
     s.send(msg)
     s.close()
 
-
+def generate_step(recieve_que,send_que,config):
+    vl=0
+    while(1):
+        send_que.put(vl)
+        vl=180-vl
+        time.sleep(2)
 if __name__=='__main__':
 	print(get_ip())
 
