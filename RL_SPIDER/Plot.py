@@ -15,7 +15,7 @@ import colorama
 import serial
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
-from matplotlib import style
+#from matplotlib import style
 import numpy as np
 import cv2
 #import gym

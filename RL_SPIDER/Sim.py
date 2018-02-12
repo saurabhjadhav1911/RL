@@ -26,6 +26,7 @@ import traceback
 from keras.models import Sequential
 from keras.layers import Dense
 from keras.layers import LSTM
+import tensorflow as tf
 import matplotlib.pyplot as plt
 import socket
 import sys
@@ -62,7 +63,7 @@ class Sim():
     def __init__(self,config,font_color=None):
         global color
         color= font_color or color
-        
+        self.lock=False
         self.seq_size=config['Sim_config']['sequence_size']
         self.vect_size=config['Sim_config']['obs_vector_size']
         self.batch_size=config['Sim_config']['batch_size']
@@ -71,13 +72,16 @@ class Sim():
         self.input_mem=deque(maxlen=self.seq_size)
         self.x_train=np.zeros((1,self.seq_size,self.vect_size))
         self.y_train=np.zeros((1,self.seq_size,self.vect_size))
-        print(color,self.x_train[0].shape,self.y_train[0].shape)
+        self.default_graph = tf.get_default_graph()
+        #print(color,self.x_train[0].shape,self.y_train[0].shape)
         self.interval=1.0/60.0
         self.val=0
         self.last_batch=-1
-
+        
+        #self.model._make_predict_function()    
         #self.model=self.create_generalised_model(config['Sim_config']['Model_recurrent_sizes'],config['Sim_config']['Model_fully_connected_sizes'])
         self.model=self.create_model()
+        self.model._make_predict_function()
 
         try:
             self.model.load_weights("Models/Math_Sim_Model_"+str(config['Sim_config']['saved_model_index'])+".model")
@@ -121,26 +125,37 @@ class Sim():
                 self.last_batch=(self.last_batch+1)%self.batch_size
                 self.x_train[self.last_batch],self.y_train[self.last_batch]=x_batch,y_batch
         '''
-        print(color,x_batch.shape,y_batch.shape)
-        print(color,self.x_train[0].shape,self.y_train[0].shape)
+        #print(color,x_batch.shape,y_batch.shape)
+        #print(color,self.x_train[0].shape,self.y_train[0].shape)
 
     def train(self):
         global last_error
         while True:
             try:
-                self.model.fit(self.x_train, self.y_train, epochs=1, batch_size=1, verbose=2,validation_data=(self.x_train,self.y_train))
+                
+                print(color,"train start")
+                self.lock=True
+                self.train_model=self.create_model()
+                #self.train_model.set_weights(self.model.get_weights())
+                self.train_model.fit(self.x_train, self.y_train, epochs=1, batch_size=1, verbose=2)#,validation_data=(self.x_train,self.y_train))
+                
+                self.model.set_weights(self.train_model.get_weights())
+                print(color,"train end")
+                self.lock=False
                 #model.fit(data, target, epochs=10, batch_size=1, verbose=2,validation_data=(x_test, y_test))
                 time.sleep(0.1)
             except Exception as e:
                 if last_error is None:
                     exc_traceback = traceback.format_exc()
-                    #print(color,exc_traceback)
-                    print(color,e)
+                    print(color,exc_traceback)
+                    #print(color,e)
+                    print(color,self.x_train.shape,self.y_train.shape)
                 last_error=e
         #self.model.fit(x_train, y_train, epochs=10, batch_size=1, verbose=2,validation_data=(x_test, y_test))
 
     def predict_output_mem(self,x):
-        yt=self.model.predict(x)
+        with self.default_graph.as_default():
+            yt=self.model.predict(x)
         return yt
 
     def render_sim(self,y,yt):
@@ -166,7 +181,7 @@ class Sim():
         train_process.start()
 
         self.store_obs_from_env(recieve_que)
-        sim_process.join()
+        train_process.join()
         cv2.destroyAllWindows()
 
     def store_obs_from_env(self,recieve_que):
@@ -185,7 +200,7 @@ class Sim():
             self.save_env_data()
             ytt=np.array(self.input_mem)/180.0
             yy=np.array(self.output_mem)/180.0
-            if ytt.shape[0]==self.seq_size:
+            if (ytt.shape[0]==self.seq_size):# and self.lock is False:
                 yp=self.predict_output_mem(ytt.reshape((1,self.seq_size,self.vect_size)))
                 yt=yp[0][199]*180.0
                 y=yy[199]*180.0
@@ -202,3 +217,4 @@ def main():
 if __name__ == '__main__':
     main()
         
+
