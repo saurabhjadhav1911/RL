@@ -71,7 +71,7 @@ class Env():
             c = self.ser.read()
             #print(color,c)
             try:
-                c = str(c)#, 'utf-8')
+                c = str(c, 'utf-8')
                 if c is '|':
                     #dta=data
                     #nf+=1

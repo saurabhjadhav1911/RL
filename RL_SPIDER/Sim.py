@@ -72,7 +72,6 @@ class Sim():
         self.input_mem=deque(maxlen=self.seq_size)
         self.x_train=np.zeros((1,self.seq_size,self.vect_size))
         self.y_train=np.zeros((1,self.seq_size,self.vect_size))
-        self.default_graph = tf.get_default_graph()
         #print(color,self.x_train[0].shape,self.y_train[0].shape)
         self.interval=1.0/60.0
         self.val=0
@@ -81,8 +80,8 @@ class Sim():
         #self.model._make_predict_function()    
         #self.model=self.create_generalised_model(config['Sim_config']['Model_recurrent_sizes'],config['Sim_config']['Model_fully_connected_sizes'])
         self.model=self.create_model()
-        self.model._make_predict_function()
-
+        self.default_graph = tf.get_default_graph()
+        #self.default_graph.finalize()
         try:
             self.model.load_weights("Models/Math_Sim_Model_"+str(config['Sim_config']['saved_model_index'])+".model")
             print(color,'Math Simulator weights loaded ')
@@ -110,6 +109,7 @@ class Sim():
         model.add(LSTM(6,return_sequences=True))
         model.add(Dense(1))
         model.compile(loss='mse', optimizer='rmsprop',metrics=['accuracy'])
+        model._make_predict_function()
         return model
 
     def save_env_data(self):
