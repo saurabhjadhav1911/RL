@@ -28,13 +28,13 @@ class TrainManeger(object):
 	def __init__(self, arg):
 		
 		self.arg = arg
-		
 		self.models=[]
 
+	def run(self):
+		while True:
 
 if __name__ == '__main__':
     try:
-
         main()
 
     except Exception as e:
