@@ -54,7 +54,7 @@ class ThreadLSTM():
 
         for i in range(100):
             self.y_test[0, i, 0] = self.x_test[0, i, 0] * ((
-                1 - np.exp(-(i - 50) / 5.0)))
+                1 - np.exp(-(i - val) / 5.0)))
 
         return self.x_test, self.y_test
 
@@ -80,30 +80,35 @@ class ThreadLSTM():
 
     def load_model(self):
         try:
-            self.model.load_weights("lstmmin_size_corrected.model")
+            self.model.load_weights("lstmmin_size_corrected2.model")
             print('weights loaded ')
         except:
             print('weights not loaded ')
 
     def save_model(self):
-        self.model.save_weights("lstmmin_size_corrected.model")
+        self.model.save_weights("lstmmin_size_corrected2.model")
         print('weights saved')
 
     def train(self, default_graph):
-        for i in range(10):
+        n = 0
+        for i in range(101):
             with default_graph.as_default():
                 with self.graph_lock:
 
                     self.model.fit(
                         self.data,
                         self.target,
-                        epochs=10,
+                        epochs=1,
                         batch_size=1,
                         verbose=2,
                         validation_data=(self.x_test, self.y_test))
+                    n += 1
                     #predict = self.model.predict(self.x_test)
-                    predict = self.model.predict(self.data)
+                    #predict = self.model.predict(self.data)
                     #self.plot_data(self.x,[predict,self.target])
+            if n is 50:
+                self.save_model()
+                n = 0
 
     def check_predict(self, inp, exp_out, default_graph):
 
@@ -112,13 +117,13 @@ class ThreadLSTM():
         with default_graph.as_default():
             with self.graph_lock:
                 predict = self.model.predict(inp)
-        #self.plot_data(self.x,[predict,inp,exp_out])
+        self.plot_data(self.x, [inp, predict, exp_out])
 
     def test(self, default_graph):
         while True:
             self.generate_test_data()
             self.check_predict(self.x_test, self.y_test, default_graph)
-            time.sleep(0.1)
+            time.sleep(1)
 
     def run(self):
         train_process = Thread(target=self.train, args=(self.default_graph, ))

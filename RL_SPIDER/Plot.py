@@ -62,6 +62,7 @@ class Plot():
         #cv2.imshow('window',img)
         cv2.waitKey(1)
         #plt.imshow(img)
+    
     def render_gym(self,y):
         n=0
         img=255*np.ones((self.size),dtype=np.uint8)

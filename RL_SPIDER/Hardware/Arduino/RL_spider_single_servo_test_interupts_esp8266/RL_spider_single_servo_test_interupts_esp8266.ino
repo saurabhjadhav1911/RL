@@ -28,6 +28,8 @@ void timerCallback(void *pArg) {
 
   if (sendflag) {
     av += (K * (val - av));
+    Serial.print((int)val);
+    Serial.print(' ');
     Serial.print((int)av);
     Serial.print('|');
   }
