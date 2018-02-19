@@ -63,10 +63,12 @@ class Env():
         flag = False
         while r.empty() is False:
             flag = True
-            arr = str(r.get())
+            arr = " ".join(map(str, r.get()))
             arr += "|"
             #unicode(s, "utf-8")
-            #print(color,arr)
+            if(self.config['Env_config']['show_obs']):
+
+                print(color,self.config['Env_config']['show_obs'],arr)
             self.ser.write(arr.encode())
 
         if (self.ser.inWaiting() > 0):
@@ -84,7 +86,8 @@ class Env():
                     else:
                         value = int(self.data)
                     #if lav is not value:
-                    #print(color,self.data)
+                    if(self.config['Env_config']['show_obs']):
+                        print(color,self.config['Env_config']['show_obs'],self.data)
                     q.put(value)
                     #v=q.get()
                     self.data = ""
@@ -117,8 +120,10 @@ def Test_process_target(recieve_que, send_que, config):
 
 def main():
     multiprocessing.freeze_support()
-    config = read_config()
 
+    config = read_config('config_crawler.json')
+    config = arg_parser(config)
+    save_config(config, 'config_crawler.json')
     #initialise communicatoions between processes
     send_que = multiprocessing.Queue()
     recieve_que = multiprocessing.Queue()

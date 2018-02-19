@@ -28,6 +28,7 @@ from keras.models import Sequential
 from keras.layers import Dense
 from keras.layers import LSTM
 import tensorflow as tf
+from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 import socket
 import sys
@@ -73,9 +74,9 @@ class Sim():
         color = font_color or color
         self.config = config
         self.lock = False
-        self.seq_size = config['Sim_config']['sequence_size']
-        self.vect_size = config['Sim_config']['obs_vector_size']
-        self.batch_size = config['Sim_config']['batch_size']
+        self.seq_size = self.config['Sim_config']['sequence_size']
+        self.vect_size = self.config['Sim_config']['obs_vector_size']
+        self.batch_size = self.config['Sim_config']['batch_size']
         self.img_size = [700, 1300]
         self.output_mem = deque(maxlen=self.seq_size)
         self.input_mem = deque(maxlen=self.seq_size)
@@ -84,7 +85,8 @@ class Sim():
         self.y_train = np.zeros((1, self.seq_size, self.vect_size))
         #print(color,self.x_train[0].shape,self.y_train[0].shape)
         self.interval = 1.0 / 60.0
-        self.val = 0
+        self.val = np.zeros((self.vect_size))
+        print(color, self.val)
         self.last_batch = -1
 
         #self.model._make_predict_function()
@@ -97,13 +99,17 @@ class Sim():
         self.load_model()
 
         self.fig = plt.gcf()
-        self.fig.canvas.draw()
+        self.ax = self.fig.gca(projection='3d')
+        self.ax.set_xlim3d([0.0, 0.6])
+        self.ax.set_ylim3d([0.0, 200.0])
+        self.ax.set_zlim3d([0.0, 1.0])
+        #self.fig.canvas.draw()
 
         print(color, 'Sim created')
 
     def load_model(self):
         try:
-            self.model.load_weights("Models/Math_Sim_Model_" + str(
+            self.model.load_weights("Models/Crawler_Math_Sim_Model_" + str(
                 self.config['Sim_config']['saved_model_index']) + ".model")
             print(color, 'Math Simulator weights loaded ')
         except Exception as e:
@@ -111,7 +117,7 @@ class Sim():
                   'Math Simulator weights not loaded due to {}'.format(e))
 
     def save_model(self):
-        self.model.save_weights("Models/Math_Sim_Model_" + str(
+        self.model.save_weights("Models/Crawler_Math_Sim_Model_" + str(
             self.config['Sim_config']['saved_model_index']) + ".model")
         print(color, 'weights saved')
 
@@ -137,26 +143,30 @@ class Sim():
         model.add(
             LSTM(6, return_sequences=True, input_shape=(None, self.vect_size)))
         model.add(LSTM(6, return_sequences=True))
-        model.add(Dense(1))
+        model.add(Dense(self.vect_size))
         model.compile(loss='mse', optimizer='rmsprop', metrics=['accuracy'])
         model._make_predict_function()
         return model
 
     def plot_data(self, x, data):
 
-        plt.gcf().clear()
+        self.ax.clear()
         #plt.plot(data[0,0,:])
 
-        for target in data:
-            plt.plot(x, target.reshape((self.seq_size)))
+        for i,target in enumerate(data):
+            #plt.plot(x, target.reshape((self.seq_size)))
+            plt.plot(x, target.reshape((self.seq_size)), zs=i/10, zdir='y', label='curve in (z,y)')
 
+        self.ax.set_xlim3d([0.0, 200.0])
+        self.ax.set_ylim3d([0.0, 0.6])
+        self.ax.set_zlim3d([0.0, 1.0])
         self.fig.canvas.draw()
         plt.pause(0.001)
 
     def save_env_data(self):
         x_batch, y_batch = np.array(self.input_mem) / 180.0, np.array(
             self.output_mem) / 180.0
-        #print(color,'shape',y_batch.shape[0])
+        #print(color, 'shape', y_batch.shape)
         if y_batch.shape[0] == self.seq_size:
             self.x_train, self.y_train = x_batch.reshape(
                 (1, self.seq_size, self.vect_size)), y_batch.reshape(
@@ -180,7 +190,7 @@ class Sim():
             try:
                 with default_graph.as_default():
                     with self.graph_lock:
-                        print(color, "train start")
+                        #print(color, "train start")
                         self.model.fit(
                             self.x_train,
                             self.y_train,
@@ -188,7 +198,7 @@ class Sim():
                             batch_size=1,
                             verbose=2,
                             validation_data=(self.x_train, self.y_train))
-                        print(color, "train end")
+                        #print(color, "train end")
                         n += 1
                         #self.model.set_weights(self.train_model.get_weights())
                 #model.fit(data, target, epochs=10, batch_size=1, verbose=2,validation_data=(x_test, y_test))
@@ -214,23 +224,42 @@ class Sim():
 
     def render_sim(self, y, yt):
         img = 255 * np.ones((self.img_size), dtype=np.uint8)
-        y = (y - 125) * np.pi / 180
-        yt = (yt - 125) * np.pi / 180  #*0.008159981
-        cv2.circle(img,
-                   (int(300 + 200 * np.sin(y)), int(300 + 200 * np.cos(y))),
-                   20, (0), -1)
-        cv2.circle(img,
-                   (int(800 + 200 * np.sin(yt)), int(300 + 200 * np.cos(yt))),
-                   20, (0), -1)
+        #print(color, 'img render', y, yt)
+        y = (y) * np.pi / 180
+        yt = (yt) * np.pi / 180  #*0.008159981
+        cv2.circle(img, (300, 300), 20, (0), -1)
+        cv2.circle(img, (800, 300), 20, (0), -1)
+        cv2.circle(
+            img,
+            (int(300 + 150 * np.sin(y[0])), int(300 + 150 * np.cos(y[0]))), 15,
+            (0), -1)
+        cv2.circle(
+            img,
+            (int(800 + 150 * np.sin(yt[0])), int(300 + 150 * np.cos(yt[0]))),
+            15, (0), -1)
+        cv2.circle(img, (int(300 + 150 * np.sin(y[0]) +
+                             150 * np.sin(y[1] + y[0] - (np.pi / 2))),
+                         int(300 + 150 * np.cos(y[0]) +
+                             150 * np.cos(y[1] + y[0] - (np.pi / 2)))), 10,
+                   (0), -1)
+        cv2.circle(img, (int(800 + 150 * np.sin(yt[0]) +
+                             150 * np.sin(yt[0] + yt[1] - (np.pi / 2))),
+                         int(300 + 150 * np.cos(yt[0]) +
+                             150 * np.cos(yt[0] + yt[1] - (np.pi / 2)))), 10,
+                   (0), -1)
         cv2.imshow('window', img)
         cv2.waitKey(1)
 
     def generate_step(self, send_que):
         while True:
-            self.val = 180 - self.val
+            self.val[0] = 180 - self.val[0]
             send_que.put(self.val)
             print(color, self.val)
-            time.sleep(2)
+            time.sleep(1)
+            self.val[1] = 180 - self.val[1]
+            send_que.put(self.val)
+            print(color, self.val)
+            time.sleep(1)
 
     def run(self, recieve_que, send_que):
 
@@ -254,8 +283,12 @@ class Sim():
                     recieve_que.empty() is False
             ):  # or ((time.clock()- previousTime) > self.interval))  is False:
                 y = recieve_que.get()
-                self.output_mem.append(y[1])
-                self.input_mem.append(y[0])
+                #print(color,y)
+                try:
+                    self.output_mem.append([y[1], y[3]])
+                    self.input_mem.append([y[0], y[2]])
+                except Exception as e:
+                    print(e)
                 nt += 1
             self.save_env_data()
             ytt = np.array(self.input_mem) / 180.0
@@ -267,7 +300,10 @@ class Sim():
                 yt = yp[0][199] * 180.0
                 y = yy[199] * 180.0
                 #self.plot_data(self.t, [ytt, yy, yp])
-                self.plot_data(self.t, [self.x_train, self.y_train, yp])
+                self.plot_data(self.t, [
+                    self.x_train[0, :, 0], self.y_train[0, :, 0], yp[0, :, 0],
+                    self.x_train[0, :, 1], self.y_train[0, :, 1], yp[0, :, 1]
+                ])
                 self.render_sim(y, yt)
                 #print(color, y, yt)
 

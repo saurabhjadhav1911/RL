@@ -22,7 +22,7 @@ import os
 import traceback
 
 #sys.path.append(os.path.join(os.path.dirname(__file__),'..'))
-
+color=Fore.WHITE
 
 def plot_process_target(recieve_que, send_que, config):
     print(Fore.MAGENTA, 'Plot process start')
@@ -58,9 +58,9 @@ def Test_process_target(recieve_que, send_que, config):
 def main():
     multiprocessing.freeze_support()
 
-    config = read_config()
+    config = read_config('config_crawler.json')
     config = arg_parser(config)
-    save_config(config)
+    save_config(config,'config_crawler.json')
 
     #initialise communicatoions between processes
     send_que = multiprocessing.Queue()

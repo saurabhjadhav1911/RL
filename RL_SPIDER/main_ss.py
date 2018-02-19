@@ -58,9 +58,9 @@ def Test_process_target(recieve_que, send_que, config):
 def main():
     multiprocessing.freeze_support()
 
-    config = read_config()
+    config = read_config('config_ss.json')
     config = arg_parser(config)
-    save_config(config)
+    save_config(config,'config_ss.json')
 
     #initialise communicatoions between processes
     send_que = multiprocessing.Queue()

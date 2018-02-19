@@ -103,7 +103,7 @@ class Sim():
 
     def load_model(self):
         try:
-            self.model.load_weights("Models/Math_Sim_Model_" + str(
+            self.model.load_weights("Models/SS_Math_Sim_Model_" + str(
                 self.config['Sim_config']['saved_model_index']) + ".model")
             print(color, 'Math Simulator weights loaded ')
         except Exception as e:
@@ -111,7 +111,7 @@ class Sim():
                   'Math Simulator weights not loaded due to {}'.format(e))
 
     def save_model(self):
-        self.model.save_weights("Models/Math_Sim_Model_" + str(
+        self.model.save_weights("Models/SS_Math_Sim_Model_" + str(
             self.config['Sim_config']['saved_model_index']) + ".model")
         print(color, 'weights saved')
 
@@ -180,7 +180,7 @@ class Sim():
             try:
                 with default_graph.as_default():
                     with self.graph_lock:
-                        print(color, "train start")
+                        #print(color, "train start")
                         self.model.fit(
                             self.x_train,
                             self.y_train,
@@ -188,7 +188,7 @@ class Sim():
                             batch_size=1,
                             verbose=2,
                             validation_data=(self.x_train, self.y_train))
-                        print(color, "train end")
+                        #print(color, "train end")
                         n += 1
                         #self.model.set_weights(self.train_model.get_weights())
                 #model.fit(data, target, epochs=10, batch_size=1, verbose=2,validation_data=(x_test, y_test))

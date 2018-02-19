@@ -6,14 +6,15 @@ import socket
 import os
 import time
 import argparse
+import numpy as np
 from colorama import Fore, Back, Style
 import colorama
 from functools import reduce
 host = None
 
 
-def read_config():
-    filename = os.path.join(os.path.dirname(__file__), 'config.json')
+def read_config(fil):
+    filename = os.path.join(os.path.dirname(__file__), fil)
     print(filename)
     with open(filename, "r") as f:
         s = f.read()
@@ -48,9 +49,9 @@ def get_sock_ip():
     return host
 
 
-def save_config(config):
+def save_config(config, fil):
     s = json.dumps(config)
-    with open("config.json", "w") as f:
+    with open(fil, "w") as f:
         f.write(s)
 
 
@@ -117,10 +118,11 @@ def sprint(msg):
 
 
 def generate_step(recieve_que, send_que, config):
-    vl = 0
-    while (1):
-        send_que.put(vl)
-        vl = 180 - vl
+    val = val = np.zeros((config['Sim_config']['obs_vector_size']))
+    while True:
+        val = 180 - val
+        send_que.put(val)
+        print('send',val)
         time.sleep(2)
 
 
