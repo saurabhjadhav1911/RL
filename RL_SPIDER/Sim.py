@@ -89,6 +89,8 @@ class Sim():
         print(color, self.val)
         self.last_batch = -1
 
+        self.min_y = [1023, 1023]
+        self.max_y = [0, 0]
         #self.model._make_predict_function()
         #self.model=self.create_generalised_model(config['Sim_config']['Model_recurrent_sizes'],config['Sim_config']['Model_fully_connected_sizes'])
         self.model = self.create_model()
@@ -153,9 +155,14 @@ class Sim():
         self.ax.clear()
         #plt.plot(data[0,0,:])
 
-        for i,target in enumerate(data):
+        for i, target in enumerate(data):
             #plt.plot(x, target.reshape((self.seq_size)))
-            plt.plot(x, target.reshape((self.seq_size)), zs=i/10, zdir='y', label='curve in (z,y)')
+            plt.plot(
+                x,
+                target.reshape((self.seq_size)),
+                zs=i / 10,
+                zdir='y',
+                label='curve in (z,y)')
 
         self.ax.set_xlim3d([0.0, 200.0])
         self.ax.set_ylim3d([0.0, 0.6])
@@ -238,15 +245,15 @@ class Sim():
             (int(800 + 150 * np.sin(yt[0])), int(300 + 150 * np.cos(yt[0]))),
             15, (0), -1)
         cv2.circle(img, (int(300 + 150 * np.sin(y[0]) +
-                             150 * np.sin(y[1] + y[0] - (np.pi / 2))),
+                             150 * np.sin(y[1] + y[0] - (np.pi * 0.27))),
                          int(300 + 150 * np.cos(y[0]) +
-                             150 * np.cos(y[1] + y[0] - (np.pi / 2)))), 10,
+                             150 * np.cos(y[1] + y[0] - (np.pi * 0.27)))), 10,
                    (0), -1)
         cv2.circle(img, (int(800 + 150 * np.sin(yt[0]) +
-                             150 * np.sin(yt[0] + yt[1] - (np.pi / 2))),
+                             150 * np.sin(yt[0] + yt[1] - (np.pi * 0.27))),
                          int(300 + 150 * np.cos(yt[0]) +
-                             150 * np.cos(yt[0] + yt[1] - (np.pi / 2)))), 10,
-                   (0), -1)
+                             150 * np.cos(yt[0] + yt[1] - (np.pi * 0.27)))),
+                   10, (0), -1)
         cv2.imshow('window', img)
         cv2.waitKey(1)
 
@@ -285,6 +292,14 @@ class Sim():
                 y = recieve_que.get()
                 #print(color,y)
                 try:
+                    self.min_y[0], self.max_y[0] = min(
+                        [y[1], self.min_y[0]]), max([y[1], self.max_y[0]])
+                    y[1] = (180.0 * (y[1] - self.min_y[0]) /
+                            (self.max_y[0] - self.min_y[0]))
+                    self.min_y[1], self.max_y[1] = min(
+                        [y[3], self.min_y[1]]), max([y[3], self.max_y[1]])
+                    y[3] = (180.0 * (y[3] - self.min_y[1]) /
+                            (self.max_y[1] - self.min_y[1]))
                     self.output_mem.append([y[1], y[3]])
                     self.input_mem.append([y[0], y[2]])
                 except Exception as e:

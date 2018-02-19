@@ -18,11 +18,12 @@ ISR(TIMER2_COMPA_vect)
     if (flag)
     {
       myservo.write(val);
-      Serial.println();
       flag = false;
     }
     if (sendflag) {
       av = (analogRead(A0) + lv) / 2;
+      Serial.print(val);
+      Serial.print(' ');
       Serial.print(av);
       Serial.print('|');
     }

@@ -87,6 +87,9 @@ class Sim():
         self.val = 0
         self.last_batch = -1
 
+        self.min_y = 1023
+        self.max_y = 0
+
         #self.model._make_predict_function()
         #self.model=self.create_generalised_model(config['Sim_config']['Model_recurrent_sizes'],config['Sim_config']['Model_fully_connected_sizes'])
         self.model = self.create_model()
@@ -135,8 +138,9 @@ class Sim():
     def create_model(self):
         model = Sequential()
         model.add(
-            LSTM(6, return_sequences=True, input_shape=(None, self.vect_size)))
-        model.add(LSTM(6, return_sequences=True))
+            LSTM(10, return_sequences=True, input_shape=(None, self.vect_size)))
+        model.add(LSTM(10, return_sequences=True))
+        model.add(Dense(10))
         model.add(Dense(1))
         model.compile(loss='mse', optimizer='rmsprop', metrics=['accuracy'])
         model._make_predict_function()
@@ -186,8 +190,7 @@ class Sim():
                             self.y_train,
                             epochs=1,
                             batch_size=1,
-                            verbose=2,
-                            validation_data=(self.x_train, self.y_train))
+                            verbose=2)#,validation_data=(self.x_train, self.y_train))
                         #print(color, "train end")
                         n += 1
                         #self.model.set_weights(self.train_model.get_weights())
@@ -253,9 +256,16 @@ class Sim():
             while (
                     recieve_que.empty() is False
             ):  # or ((time.clock()- previousTime) > self.interval))  is False:
-                y = recieve_que.get()
-                self.output_mem.append(y[1])
-                self.input_mem.append(y[0])
+                try:
+                    y = recieve_que.get()
+                    self.min_y, self.max_y = min([y[1], self.min_y]), max(
+                        [y[1], self.max_y])
+                    y[1] = (180.0 * (y[1] - self.min_y) /
+                            (self.max_y - self.min_y))
+                    self.output_mem.append(y[1])
+                    self.input_mem.append(y[0])
+                except Exception as e:
+                    print(color,e)
                 nt += 1
             self.save_env_data()
             ytt = np.array(self.input_mem) / 180.0
