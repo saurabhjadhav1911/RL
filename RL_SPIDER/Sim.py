@@ -143,8 +143,9 @@ class Sim():
     def create_model(self):
         model = Sequential()
         model.add(
-            LSTM(6, return_sequences=True, input_shape=(None, self.vect_size)))
-        model.add(LSTM(6, return_sequences=True))
+            LSTM(10, return_sequences=True, input_shape=(None, self.vect_size)))
+        model.add(LSTM(10, return_sequences=True))
+        model.add(Dense(10))
         model.add(Dense(self.vect_size))
         model.compile(loss='mse', optimizer='rmsprop', metrics=['accuracy'])
         model._make_predict_function()
