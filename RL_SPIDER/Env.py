@@ -72,11 +72,12 @@ class Env():
             self.ser.write(arr.encode())
 
         if (self.ser.inWaiting() > 0):
-            c = self.ser.read()
+            c,timestamp = self.ser.read(),time.time()
             #print(color,c)
             try:
                 c = str(c, 'utf-8')
                 if c is '|':
+
                     #dta=data
                     #nf+=1
                     lav = value
@@ -86,6 +87,7 @@ class Env():
                     else:
                         value = int(self.data)
                     #if lav is not value:
+                    value.append(timestamp)
                     if(self.config['Env_config']['show_obs']):
                         print(color,self.config['Env_config']['show_obs'],self.data)
                     q.put(value)

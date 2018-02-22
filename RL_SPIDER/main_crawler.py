@@ -22,7 +22,8 @@ import os
 import traceback
 
 #sys.path.append(os.path.join(os.path.dirname(__file__),'..'))
-color=Fore.WHITE
+color = Fore.WHITE
+
 
 def plot_process_target(recieve_que, send_que, config):
     print(Fore.MAGENTA, 'Plot process start')
@@ -32,22 +33,32 @@ def plot_process_target(recieve_que, send_que, config):
 
 
 def reward_process_target(recieve_que, send_que, config):
-    print('Sim process start')
+    print('Reward process start')
     '''plot = Plot.Plot(size=config['GUI_config']['plot_size'])
     print(config['GUI_config']['plot_size'])'''
 
 
-def Sim_process_target(recieve_que, send_que, config):
+def Sim_process_target(recieve_que, send_que, config, agent_obs_que,
+                       agent_reward_que, agent_action_que):
     print(Fore.YELLOW, 'Sim process start')
     sim = Sim.Sim(config)
-    sim.run(recieve_que, send_que)
+    sim.run(recieve_que, send_que, agent_obs_que, agent_reward_que,
+            agent_action_que)
     #sim.generate_step(recieve_que, send_que)
 
 
-def Env_process_target(recieve_que, send_que, config):
+def Env_process_target(recieve_que, send_que, config, agent_obs_que,
+                       agent_reward_que, agent_action_que):
     print(Fore.GREEN, 'Env process start')
     env = Env.Env(config)
-    env.run(recieve_que, send_que)
+    env.run(recieve_que, send_que, agent_obs_que, agent_reward_que,
+            agent_action_que)
+
+
+def Agent_process_target(recieve_que, send_que, config):
+    print(Fore.BLUE, 'Agent process start')
+    agent = Agent.Agent(config)
+    agent.run(agent_obs_que, agent_reward_que, agent_action_que)
 
 
 def Test_process_target(recieve_que, send_que, config):
@@ -60,19 +71,30 @@ def main():
 
     config = read_config('config_crawler.json')
     config = arg_parser(config)
-    save_config(config,'config_crawler.json')
+    save_config(config, 'config_crawler.json')
 
     #initialise communicatoions between processes
     send_que = multiprocessing.Queue()
     recieve_que = multiprocessing.Queue()
 
+    agent_obs_que = multiprocessing.Queue()
+    agent_reward_que = multiprocessing.Queue()
+    agent_action_que = multiprocessing.Queue()
+
     #process initialisation
     #plot_process = multiprocessing.Process(
     #    target=plot_process_target, args=(recieve_que, send_que, config))
     env_process = multiprocessing.Process(
-        target=Env_process_target, args=(recieve_que, send_que, config))
+        target=Env_process_target,
+        args=(recieve_que, send_que, config, agent_obs_que, agent_reward_que,
+              agent_action_que))
     sim_process = multiprocessing.Process(
-        target=Sim_process_target, args=(recieve_que, send_que, config))
+        target=Sim_process_target,
+        args=(recieve_que, send_que, config, agent_obs_que, agent_reward_que,
+              agent_action_que))
+    agent_process = multiprocessing.Process(
+        target=Agent_process_target,
+        args=(agent_obs_que, agent_reward_que, agent_action_que))
     #test_process = multiprocessing.Process(
     #    target=Test_process_target, args=(recieve_que, send_que, config))
 
