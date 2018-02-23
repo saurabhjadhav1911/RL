@@ -16,7 +16,7 @@ class track_COM():
 		#[self.h,self.w] = [int(self.vid.get(cv2.CAP_PROP_FRAME_HEIGHT)),int(self.vid.get(cv2.CAP_PROP_FRAME_WIDTH))]
 		#or
 		self.vid = cv2.VideoCapture(0)
-		self.config = lconfig 
+		self.config = lconfig
 		self.Episode_Num = 0
 		self.lower_red = np.array([0,0,150])
 		self.upper_red = np.array([100,100,250])
@@ -26,8 +26,8 @@ class track_COM():
 		self.run(WRITE_FLAG)
 	def default(self):
 
-		#print type(last_config)
-		#print last_config
+		print (type(self.last_config))
+		print (last_config)
 		config_file  = open('config.json','r')
 		self.last_config = json.load(config_file)
 		self.last_config = json.loads(self.last_config)
@@ -53,7 +53,7 @@ class track_COM():
 			self.VideoName =  'Episode_'+str(0)+str(num)
 		else:
 			self.VideoName =  'Episode_'+str(num)
-		print 'Video Name Done'
+		print ('Video Name Done')
 		
 	
 	def videoWriter_Setup(self):
@@ -63,7 +63,7 @@ class track_COM():
 		name = self.videoDirectory + self.VideoName + '.avi'
 		self.out = cv2.VideoWriter(name,fourcc, 20.0, (640,480))
 
-		print 'VideoWriter Setup Done'
+		print ('VideoWriter Setup Done')
 
 	def cal_COM(self,i):
 		moment = cv2.moments(i)
@@ -86,7 +86,7 @@ class track_COM():
 				sumy = sumy+j
 			x = sumx//l
 			y = sumy//l
-		#print(x,y)
+		print(x,y)
 		return (x,y)
 
 	def get_center(self,cnt):
@@ -105,7 +105,7 @@ class track_COM():
 	
 	def circle_detect_frame(self):
 		self.ret, self.frame = self.vid.read()
-		#print a if b else 0
+		print( a if b else 0)
 		if not self.ret:
 			print('camera not found') 
 		else :
@@ -124,11 +124,11 @@ class track_COM():
 		self.get_center(contours)
 
 	def edit_frame(self):
-			timestamp =  datetime.datetime.now()
-			font = cv2.FONT_HERSHEY_TRIPLEX
-			cv2.putText(self.frame, str(timestamp),(50,460), font, 1,(0,255,0),2,cv2.LINE_AA)
-			cv2.putText(self.frame, self.VideoName,(180,40), font, 1,(255,0,0),2,cv2.LINE_AA)
-			self.out.write(self.frame)
+		timestamp =  datetime.datetime.now()
+		font = cv2.FONT_HERSHEY_TRIPLEX
+		cv2.putText(self.frame, str(timestamp),(50,460), font, 1,(0,255,0),2,cv2.LINE_AA)
+		cv2.putText(self.frame, self.VideoName,(180,40), font, 1,(255,0,0),2,cv2.LINE_AA)
+		self.out.write(self.frame)
 
 
 
@@ -160,7 +160,7 @@ class track_COM():
 
 	def save_config(self):
 		#s = json.dump(self.custom_config)
-  		#print s
+  		print (s)
   		tempo = open('config.json','w')
   		json.dump(self._custom_config,tempo)
   		tempo.close()
@@ -174,13 +174,13 @@ def unit_direction_vector(start, final):
 	
 if __name__ == '__main__':
 
-	config=read_config()
+	#config=read_config()
 
-	obj = track_COM(True,config)
+	obj = track_COM(True, None )
 
-	print 'current:' +str(obj.current_point)
-	print 'start:'+ str(obj.starting_point)
-	print unit_direction_vector(obj.current_point,obj.starting_point)
+	print ('current:' +str(obj.current_point))
+	print ('start:'+ str(obj.starting_point))
+	print (unit_direction_vector(obj.current_point,obj.starting_point))
 
 	#obj.reset()
-	#print type(obj.upper_red)
+	print (type(obj.upper_red))
