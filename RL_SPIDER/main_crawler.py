@@ -14,7 +14,7 @@ import time
 import cv2
 from collections import deque
 #import gym
-import Env
+import DummyEnv as Env
 import Plot
 import Sim
 import sys
@@ -92,9 +92,7 @@ def main():
         target=Sim_process_target,
         args=(recieve_que, send_que, config, agent_obs_que, agent_reward_que,
               agent_action_que))
-    agent_process = multiprocessing.Process(
-        target=Agent_process_target,
-        args=(agent_obs_que, agent_reward_que, agent_action_que))
+    #agent_process = multiprocessing.Process(target=Agent_process_target,args=(agent_obs_que, agent_reward_que, agent_action_que))
     #test_process = multiprocessing.Process(
     #    target=Test_process_target, args=(recieve_que, send_que, config))
 

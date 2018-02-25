@@ -52,7 +52,7 @@ class Env():
         print(color, line)
         #self.serial.write(line)
 
-    def run(self, q, r):
+    def run(self, q, r, agent_obs_que, agent_reward_que, agent_action_que):
         #ser=serial.Serial(config['Serial_config']['port'],baudrate=config['Serial_config']['baud'],timeout=config['Serial_config']['timeout'])
         print(color, "Serial communicatoion started")
         while True:
@@ -66,13 +66,13 @@ class Env():
             arr = " ".join(map(str, r.get()))
             arr += "|"
             #unicode(s, "utf-8")
-            if(self.config['Env_config']['show_obs']):
+            if (self.config['Env_config']['show_obs']):
 
-                print(color,self.config['Env_config']['show_obs'],arr)
+                print(color, self.config['Env_config']['show_obs'], arr)
             self.ser.write(arr.encode())
 
         if (self.ser.inWaiting() > 0):
-            c,timestamp = self.ser.read(),time.time()
+            c, timestamp = self.ser.read(), time.time()
             #print(color,c)
             try:
                 c = str(c, 'utf-8')
@@ -88,8 +88,9 @@ class Env():
                         value = int(self.data)
                     #if lav is not value:
                     value.append(timestamp)
-                    if(self.config['Env_config']['show_obs']):
-                        print(color,self.config['Env_config']['show_obs'],self.data)
+                    if (self.config['Env_config']['show_obs']):
+                        print(color, self.config['Env_config']['show_obs'],
+                              self.data)
                     q.put(value)
                     #v=q.get()
                     self.data = ""

@@ -105,6 +105,7 @@ class Sim():
         self.ax.set_xlim3d([0.0, 0.6])
         self.ax.set_ylim3d([0.0, 200.0])
         self.ax.set_zlim3d([0.0, 1.0])
+        self.reward_k=0.1
         #self.fig.canvas.draw()
 
         print(color, 'Sim created')
@@ -143,7 +144,8 @@ class Sim():
     def create_model(self):
         model = Sequential()
         model.add(
-            LSTM(10, return_sequences=True, input_shape=(None, self.vect_size)))
+            LSTM(
+                10, return_sequences=True, input_shape=(None, self.vect_size)))
         model.add(LSTM(10, return_sequences=True))
         model.add(Dense(10))
         model.add(Dense(self.vect_size))
@@ -235,26 +237,25 @@ class Sim():
         #print(color, 'img render', y, yt)
         y = (y) * np.pi / 180
         yt = (yt) * np.pi / 180  #*0.008159981
-        cv2.circle(img, (300, 300), 20, (0), -1)
-        cv2.circle(img, (800, 300), 20, (0), -1)
+        cv2.circle(img, (int(100 + (self.reward_k * y[3])), 400), 20, (0), -1)
+        cv2.circle(img, (int(800 + (self.reward_k * yt[3])), 400), 20, (0), -1)
+        cv2.circle(img,
+                   (int(100 + (self.reward_k * y[3]) + 150 * np.sin(y[0])),
+                    int(400 + 150 * np.cos(y[0]))), 15, (0), -1)
+        cv2.circle(img,
+                   (int(800 + (self.reward_k * yt[3]) + 150 * np.sin(yt[0])),
+                    int(400 + 150 * np.cos(yt[0]))), 15, (0), -1)
+        cv2.circle(img,
+                   (int (100 +(self.reward_k * y[3]) + 150 * np.sin(y[0]) +
+                           150 * np.sin(y[1] + y[0])),
+                    int(400 + 150 * np.cos(y[0]) + 150 * np.cos(y[1] + y[0]))),
+                   10, (128 * (1 - y[2])), -1)
         cv2.circle(
             img,
-            (int(300 + 150 * np.sin(y[0])), int(300 + 150 * np.cos(y[0]))), 15,
-            (0), -1)
-        cv2.circle(
-            img,
-            (int(800 + 150 * np.sin(yt[0])), int(300 + 150 * np.cos(yt[0]))),
-            15, (0), -1)
-        cv2.circle(img, (int(300 + 150 * np.sin(y[0]) +
-                             150 * np.sin(y[1] + y[0] - (np.pi * 0.27))),
-                         int(300 + 150 * np.cos(y[0]) +
-                             150 * np.cos(y[1] + y[0] - (np.pi * 0.27)))), 10,
-                   (0), -1)
-        cv2.circle(img, (int(800 + 150 * np.sin(yt[0]) +
-                             150 * np.sin(yt[0] + yt[1] - (np.pi * 0.27))),
-                         int(300 + 150 * np.cos(yt[0]) +
-                             150 * np.cos(yt[0] + yt[1] - (np.pi * 0.27)))),
-                   10, (0), -1)
+            (int(800 + (self.reward_k * yt[3]
+                        ) + 150 * np.sin(yt[0]) + 150 * np.sin(yt[0] + yt[1])),
+             int(400 + 150 * np.cos(yt[0]) + 150 * np.cos(yt[0] + yt[1]))), 10,
+            (128 * (1 - yt[2])), -1)
         cv2.imshow('window', img)
         cv2.waitKey(1)
 
@@ -269,7 +270,8 @@ class Sim():
             print(color, self.val)
             time.sleep(1)
 
-    def run(self, recieve_que, send_que):
+    def run(self, recieve_que, send_que, agent_obs_que, agent_reward_que,
+            agent_action_que):
 
         Thread(target=self.generate_step, args=(send_que, )).start()
         train_process = Thread(target=self.train, args=(self.default_graph, ))
@@ -301,8 +303,8 @@ class Sim():
                         [y[3], self.min_y[1]]), max([y[3], self.max_y[1]])
                     y[3] = (180.0 * (y[3] - self.min_y[1]) /
                             (self.max_y[1] - self.min_y[1]))
-                    self.output_mem.append([y[1], y[3]])
-                    self.input_mem.append([y[0], y[2]])
+                    self.output_mem.append([y[1], y[3], y[4], y[5]])
+                    self.input_mem.append([y[0], y[2], 0, 0])
                 except Exception as e:
                     print(e)
                 nt += 1
