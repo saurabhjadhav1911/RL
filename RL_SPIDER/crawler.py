@@ -7,6 +7,7 @@ import colorama
 colorama.init()
 color = Fore.GREEN
 
+
 class Crawler():
     """docstring for Crawler"""
 
@@ -33,15 +34,22 @@ class Crawler():
         self.dy = 0
         self.x = 0
         self.y = 0
-        self.number_of_states=2
+        self.number_of_states = 2
 
+        self.centre_pivot = [100, 400]
+        self.offset = [700, 0]
+        self.angle_offset_1 = 0
+        self.angle_offset_2 = 0
+        self.reward_k = 1
+        self.l1 = 150
+        self.l2 = 150
         self.que = que or Queue()
 
     def render(self):
         pass
 
     def step(self, action):
-        self.val =action
+        self.val = action
 
     def run(self):
         while True:
@@ -53,7 +61,7 @@ class Crawler():
                    (self.l2 * np.sin(theta1 + theta2)))
         self.dy = ((self.l1 * np.cos(theta1)) +
                    (self.l2 * np.cos(theta1 + theta2)))
-        if self.dy > 0:
+        if self.dy < 0:
             self.p = 0
         else:
             self.p = 1
@@ -82,10 +90,76 @@ class Crawler():
             line += ' '
             line += str(int(self.av[s]))
             line += ' '
-        p, x = self.kinematics(self.av[0] * 3.14159 / 180, self.av[1] * 3.14159 / 180)
+        p, x = self.kinematics((np.pi / 2) + self.av[0] * np.pi / 180,
+                               self.av[1] * np.pi / 180)
         line += str(int(self.p))
         line += ' '
         line += str(int(self.x))
         line += '|'
-        print(color,"line_from_crawler",line)
+        print(color, "line_from_crawler", line)
         return line
+
+    def draw_leg(self, img, theta1, theta2, distance, col):
+        ##################################### base center point ################################################
+        cv2.circle(
+            img, (int(self.centre_pivot[0] + distance), self.centre_pivot[1]),
+            20, (0), -1)
+        ##################################### base center point ################################################
+
+        ##################################### first rod end point ################################################
+        cv2.circle(img,
+                   (int(self.centre_pivot[0] + distance +
+                        self.l1 * np.sin(theta1 + self.angle_offset_1)),
+                    int(self.centre_pivot[1] +
+                        (self.l1 * np.cos(theta1 + self.angle_offset_1)))), 15,
+                   (0), -1)
+        ##################################### first rod end point ################################################
+
+        ##################################### second rod end point ################################################
+        cv2.circle(img, (int(
+            self.centre_pivot[0] + distance +
+            self.l1 * np.sin(theta1 + self.angle_offset_1) + self.l2 * np.
+            sin(theta2 + self.angle_offset_2 + theta1 + self.angle_offset_1)),
+                         int(self.centre_pivot[1] + self.l1 * np.cos(theta1) +
+                             self.l2 * np.cos(theta2 + self.angle_offset_2 +
+                                              theta1 + self.angle_offset_1))),
+                   10, (128 * col), -1)
+
+
+        ##################################### second rod end point ################################################
+def main():
+    sim = Crawler()
+
+
+    for j in range(8):
+        for i in range(60, 30):
+            img = 255 * np.ones((900, 1400), dtype=np.uint8)
+            p, x = sim.kinematics((np.pi / 2) + (i * np.pi / 180), 0)
+            sim.draw_leg(img, np.pi / 2 + (i * np.pi / 180), 0, x, p)
+            cv2.imshow('window', img)
+            cv2.waitKey(10)
+        for i in range(0, 80):
+            img = 255 * np.ones((900, 1400), dtype=np.uint8)
+            p, x = sim.kinematics(np.pi / 2 + np.pi / 6, (-i * np.pi / 180))
+            sim.draw_leg(img, np.pi / 2 + np.pi / 6, (-i * np.pi / 180), x, p)
+            cv2.imshow('window', img)
+            cv2.waitKey(10)
+        for i in range(30, 60):
+            img = 255 * np.ones((900, 1400), dtype=np.uint8)
+            p, x = sim.kinematics((np.pi / 2) + (i * np.pi / 180), 0)
+            sim.draw_leg(img, np.pi / 2 + (i * np.pi / 180), (-80 * np.pi / 180),
+                         x, p)
+            cv2.imshow('window', img)
+            cv2.waitKey(10)
+        for i in range(80, 0):
+            img = 255 * np.ones((900, 1400), dtype=np.uint8)
+            p, x = sim.kinematics(np.pi / 2 + np.pi / 6, (-i * np.pi / 180))
+            sim.draw_leg(img, np.pi / 2 + (60 * np.pi / 180), (-i * np.pi / 180),
+                         x, p)
+            cv2.imshow('window', img)
+            cv2.waitKey(10)
+
+    cv2.destroyAllWindows()
+
+if __name__ == '__main__':
+    main()

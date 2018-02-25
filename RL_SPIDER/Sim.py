@@ -35,10 +35,11 @@ import sys
 import traceback
 
 color = Fore.YELLOW
-host = get_sock_ip()
+
+#host = get_sock_ip()
 #host =misc.get_ip_mac()
 
-print(color, "host:{}".format(host))
+#print(color, "host:{}".format(host))
 
 
 def sprint(color, msg):
@@ -57,12 +58,13 @@ def send_angles(data):
     sprint(color, st)
 
 
+'''
 if __name__ == '__main__':
     while True:
         ip = input(">>")
         v = str(ip)
         send_angles([v, v, v, v, v, v, v, v, v, v, v, v])
-
+'''
 last_error = None
 
 
@@ -77,7 +79,7 @@ class Sim():
         self.seq_size = self.config['Sim_config']['sequence_size']
         self.vect_size = self.config['Sim_config']['obs_vector_size']
         self.batch_size = self.config['Sim_config']['batch_size']
-        self.img_size = [700, 1300]
+        self.img_size = [900, 1300]
         self.output_mem = deque(maxlen=self.seq_size)
         self.input_mem = deque(maxlen=self.seq_size)
         self.t = np.array([i for i in range(0, self.seq_size)])
@@ -105,7 +107,14 @@ class Sim():
         self.ax.set_xlim3d([0.0, 0.6])
         self.ax.set_ylim3d([0.0, 200.0])
         self.ax.set_zlim3d([0.0, 1.0])
-        self.reward_k=0.1
+
+        self.centre_pivot = [100, 400]
+        self.offset = [700, 0]
+        self.angle_offset_1 = 0
+        self.angle_offset_2 = 0
+        self.reward_k = 1
+        self.l1 = 150
+        self.l2 = 150
         #self.fig.canvas.draw()
 
         print(color, 'Sim created')
@@ -237,27 +246,39 @@ class Sim():
         #print(color, 'img render', y, yt)
         y = (y) * np.pi / 180
         yt = (yt) * np.pi / 180  #*0.008159981
-        cv2.circle(img, (int(100 + (self.reward_k * y[3])), 400), 20, (0), -1)
-        cv2.circle(img, (int(800 + (self.reward_k * yt[3])), 400), 20, (0), -1)
-        cv2.circle(img,
-                   (int(100 + (self.reward_k * y[3]) + 150 * np.sin(y[0])),
-                    int(400 + 150 * np.cos(y[0]))), 15, (0), -1)
-        cv2.circle(img,
-                   (int(800 + (self.reward_k * yt[3]) + 150 * np.sin(yt[0])),
-                    int(400 + 150 * np.cos(yt[0]))), 15, (0), -1)
-        cv2.circle(img,
-                   (int (100 +(self.reward_k * y[3]) + 150 * np.sin(y[0]) +
-                           150 * np.sin(y[1] + y[0])),
-                    int(400 + 150 * np.cos(y[0]) + 150 * np.cos(y[1] + y[0]))),
-                   10, (128 * (1 - y[2])), -1)
-        cv2.circle(
-            img,
-            (int(800 + (self.reward_k * yt[3]
-                        ) + 150 * np.sin(yt[0]) + 150 * np.sin(yt[0] + yt[1])),
-             int(400 + 150 * np.cos(yt[0]) + 150 * np.cos(yt[0] + yt[1]))), 10,
-            (128 * (1 - yt[2])), -1)
+
+        self.draw_leg(img, np.pi / 2 + y[0], y[1], 100, 1 - y[2])
+        self.draw_leg(img, np.pi / 2 + yt[0], yt[1], -100 + self.offset[0],
+                      1 - yt[2])  #(self.reward_k * yt[3])
         cv2.imshow('window', img)
         cv2.waitKey(1)
+
+    def draw_leg(self, img, theta1, theta2, distance, col):
+        ##################################### base center point ################################################
+        cv2.circle(
+            img, (int(self.centre_pivot[0] + distance), self.centre_pivot[1]),
+            20, (0), -1)
+        ##################################### base center point ################################################
+
+        ##################################### first rod end point ################################################
+        cv2.circle(img,
+                   (int(self.centre_pivot[0] + distance +
+                        self.l1 * np.sin(theta1 + self.angle_offset_1)),
+                    int(self.centre_pivot[1] +
+                        (self.l1 * np.cos(theta1 + self.angle_offset_1)))), 15,
+                   (0), -1)
+        ##################################### first rod end point ################################################
+
+        ##################################### second rod end point ################################################
+        cv2.circle(img, (int(
+            self.centre_pivot[0] + distance +
+            self.l1 * np.sin(theta1 + self.angle_offset_1) + self.l2 * np.
+            sin(theta2 + self.angle_offset_2 + theta1 + self.angle_offset_1)),
+                         int(self.centre_pivot[1] + self.l1 * np.cos(theta1) +
+                             self.l2 * np.cos(theta2 + self.angle_offset_2 +
+                                              theta1 + self.angle_offset_1))),
+                   10, (128 * col), -1)
+        ##################################### second rod end point ################################################
 
     def generate_step(self, send_que):
         while True:
@@ -332,8 +353,24 @@ class Sim():
 
 
 def main():
-    config = read_config()
+    config = read_config('config_crawler.json')
     sim = Sim(config)
+    img = 255 * np.ones((900, 1400), dtype=np.uint8)
+    sim.draw_leg(img, np.pi / 2 + 0, 0, 20, 0)
+    cv2.imshow('window', img)
+    cv2.waitKey(0)
+    img = 255 * np.ones((900, 1400), dtype=np.uint8)
+    sim.draw_leg(img, np.pi / 2 + np.pi / 4, 0, 40, 0)
+    cv2.imshow('window', img)
+    cv2.waitKey(0)
+    img = 255 * np.ones((900, 1400), dtype=np.uint8)
+    sim.draw_leg(img, np.pi / 2 + np.pi / 2, np.pi / 2, 60, 1)
+    cv2.imshow('window', img)
+    cv2.waitKey(0)
+    img = 255 * np.ones((900, 1400), dtype=np.uint8)
+    sim.draw_leg(img, np.pi / 2 + 0, np.pi / 2, 80, 1)
+    cv2.imshow('window', img)
+    cv2.waitKey(0)
 
 
 if __name__ == '__main__':
