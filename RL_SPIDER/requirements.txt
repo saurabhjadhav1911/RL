@@ -1,0 +1,8 @@
+pyserial
+opencv-python
+tensorflow
+matplotlib
+keras
+colorama
+h5py
+

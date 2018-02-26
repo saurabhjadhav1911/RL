@@ -247,37 +247,38 @@ class Sim():
         y = (y) * np.pi / 180
         yt = (yt) * np.pi / 180  #*0.008159981
 
-        self.draw_leg(img, np.pi / 2 + y[0], y[1], 100, 1 - y[2])
-        self.draw_leg(img, np.pi / 2 + yt[0], yt[1], -100 + self.offset[0],
+        self.draw_leg(img,y[0], y[1], 100, 1 - y[2])
+        self.draw_leg(img,yt[0], yt[1], -100 + self.offset[0],
                       1 - yt[2])  #(self.reward_k * yt[3])
         cv2.imshow('window', img)
         cv2.waitKey(1)
 
+    def circle(self, img, jt, r, c, f):
+        cv2.circle(
+            img, (self.centre_pivot[0] + jt[0], self.centre_pivot[1] - jt[1]),
+            r, c, f)
+
     def draw_leg(self, img, theta1, theta2, distance, col):
         ##################################### base center point ################################################
-        cv2.circle(
-            img, (int(self.centre_pivot[0] + distance), self.centre_pivot[1]),
-            20, (0), -1)
+        self.circle(img, (int(distance), 0), 20, (0), -1)
         ##################################### base center point ################################################
 
         ##################################### first rod end point ################################################
-        cv2.circle(img,
-                   (int(self.centre_pivot[0] + distance +
-                        self.l1 * np.sin(theta1 + self.angle_offset_1)),
-                    int(self.centre_pivot[1] +
-                        (self.l1 * np.cos(theta1 + self.angle_offset_1)))), 15,
-                   (0), -1)
+        self.circle(
+            img,
+            (int(distance + self.l1 * np.cos(theta1 + self.angle_offset_1)),
+             int((self.l1 * np.sin(theta1 + self.angle_offset_1)))), 15, (0),
+            -1)
         ##################################### first rod end point ################################################
 
         ##################################### second rod end point ################################################
-        cv2.circle(img, (int(
-            self.centre_pivot[0] + distance +
-            self.l1 * np.sin(theta1 + self.angle_offset_1) + self.l2 * np.
-            sin(theta2 + self.angle_offset_2 + theta1 + self.angle_offset_1)),
-                         int(self.centre_pivot[1] + self.l1 * np.cos(theta1) +
-                             self.l2 * np.cos(theta2 + self.angle_offset_2 +
-                                              theta1 + self.angle_offset_1))),
-                   10, (128 * col), -1)
+        self.circle(img, (
+            int(distance + self.l1 * np.cos(theta1 + self.angle_offset_1) +
+                self.l2 * np.cos(theta2 + self.angle_offset_2 + theta1 + self.
+                                 angle_offset_1)),
+            int(self.l1 * np.sin(theta1) + self.l2 * np.sin(
+                theta2 + self.angle_offset_2 + theta1 + self.angle_offset_1))),
+                    10, (128 * col), -1)
         ##################################### second rod end point ################################################
 
     def generate_step(self, send_que):

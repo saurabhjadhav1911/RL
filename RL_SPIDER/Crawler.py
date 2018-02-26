@@ -56,16 +56,21 @@ class Crawler():
             self.que.put(self.get_line())
             time.sleep(0.01)
 
-    def kinematics(self, theta1, theta2):
-        self.dx = ((self.l1 * np.sin(theta1)) +
-                   (self.l2 * np.sin(theta1 + theta2)))
-        self.dy = ((self.l1 * np.cos(theta1)) +
+    def kinematics(self, val):
+        for s in range(self.number_of_states):
+            self.av[s] += (self.K * (val[s] - self.av[s]))
+
+        theta1 = self.av[0]
+        theta2 = self.av[1]
+
+        self.dx = ((self.l1 * np.cos(theta1)) +
                    (self.l2 * np.cos(theta1 + theta2)))
-        if self.dy < 0:
+        self.dy = ((self.l1 * np.sin(theta1)) +
+                   (self.l2 * np.sin(theta1 + theta2)))
+        if self.dy > 0:
             self.p = 0
         else:
             self.p = 1
-
         if self.p == 1 and self.last_p == 0:
             # rising edge p
             self.saved_x = self.x
@@ -80,18 +85,18 @@ class Crawler():
         #last_y = y
         self.last_p = self.p
 
-        return self.p, self.x
+        return theta1, theta2, self.p, self.x
 
     def get_line(self):
         line = ""
+        t1,t2,p, x = self.kinematics([self.av[0] * np.pi / 180,self.av[1] * np.pi / 180])
         for s in range(self.number_of_states):
-            self.av[s] += (self.K * (self.val[s] - self.av[s]))
+
             line += str(int(self.val[s]))
             line += ' '
             line += str(int(self.av[s]))
             line += ' '
-        p, x = self.kinematics((np.pi / 2) + self.av[0] * np.pi / 180,
-                               self.av[1] * np.pi / 180)
+
         line += str(int(self.p))
         line += ' '
         line += str(int(self.x))
@@ -99,43 +104,57 @@ class Crawler():
         print(color, "line_from_crawler", line)
         return line
 
+    def circle(self, img, jt, r, c, f):
+        cv2.circle(
+            img, (self.centre_pivot[0] + jt[0], self.centre_pivot[1] - jt[1]),
+            r, c, f)
+
     def draw_leg(self, img, theta1, theta2, distance, col):
         ##################################### base center point ################################################
-        cv2.circle(
-            img, (int(self.centre_pivot[0] + distance), self.centre_pivot[1]),
-            20, (0), -1)
+        self.circle(img, (int(distance), 0), 20, (0), -1)
         ##################################### base center point ################################################
 
         ##################################### first rod end point ################################################
-        cv2.circle(img,
-                   (int(self.centre_pivot[0] + distance +
-                        self.l1 * np.sin(theta1 + self.angle_offset_1)),
-                    int(self.centre_pivot[1] +
-                        (self.l1 * np.cos(theta1 + self.angle_offset_1)))), 15,
-                   (0), -1)
+        self.circle(
+            img,
+            (int(distance + self.l1 * np.cos(theta1 + self.angle_offset_1)),
+             int((self.l1 * np.sin(theta1 + self.angle_offset_1)))), 15, (0),
+            -1)
         ##################################### first rod end point ################################################
 
         ##################################### second rod end point ################################################
-        cv2.circle(img, (int(
-            self.centre_pivot[0] + distance +
-            self.l1 * np.sin(theta1 + self.angle_offset_1) + self.l2 * np.
-            sin(theta2 + self.angle_offset_2 + theta1 + self.angle_offset_1)),
-                         int(self.centre_pivot[1] + self.l1 * np.cos(theta1) +
-                             self.l2 * np.cos(theta2 + self.angle_offset_2 +
-                                              theta1 + self.angle_offset_1))),
-                   10, (128 * col), -1)
-
-
+        self.circle(img, (
+            int(distance + self.l1 * np.cos(theta1 + self.angle_offset_1) +
+                self.l2 * np.cos(theta2 + self.angle_offset_2 + theta1 + self.
+                                 angle_offset_1)),
+            int(self.l1 * np.sin(theta1) + self.l2 * np.sin(
+                theta2 + self.angle_offset_2 + theta1 + self.angle_offset_1))),
+                    10, (128 * col), -1)
         ##################################### second rod end point ################################################
+
 def main():
     sim = Crawler()
+    p, x = 0, 0
 
-
-    for j in range(8):
-        for i in range(60, 30):
+    for j in range(90):
+        img = 255 * np.ones((900, 1400), dtype=np.uint8)
+        t1,t2,p, x = sim.kinematics([1,0])
+        sim.draw_leg(img, t1, t2, x, p)
+        #sim.circle(img,(0,j),20,0,-1)
+        cv2.imshow('window', img)
+        cv2.waitKey(100)
+    for j in range(90):
+        img = 255 * np.ones((900, 1400), dtype=np.uint8)
+        t1,t2,p, x = sim.kinematics([-1,0])
+        sim.draw_leg(img, t1, t2, x, p)
+        #sim.circle(img,(0,j),20,0,-1)
+        cv2.imshow('window', img)
+        cv2.waitKey(100)
+    '''for j in range(8):
+        for i in range(0, 30):
             img = 255 * np.ones((900, 1400), dtype=np.uint8)
-            p, x = sim.kinematics((np.pi / 2) + (i * np.pi / 180), 0)
-            sim.draw_leg(img, np.pi / 2 + (i * np.pi / 180), 0, x, p)
+            p, x = sim.kinematics((np.pi / 2) + ((60-i) * np.pi / 180), 0)
+            sim.draw_leg(img, np.pi / 2 + ((60-i) * np.pi / 180), 0, x, p)
             cv2.imshow('window', img)
             cv2.waitKey(10)
         for i in range(0, 80):
@@ -151,15 +170,16 @@ def main():
                          x, p)
             cv2.imshow('window', img)
             cv2.waitKey(10)
-        for i in range(80, 0):
+        for i in range(0, 80):
             img = 255 * np.ones((900, 1400), dtype=np.uint8)
-            p, x = sim.kinematics(np.pi / 2 + np.pi / 6, (-i * np.pi / 180))
-            sim.draw_leg(img, np.pi / 2 + (60 * np.pi / 180), (-i * np.pi / 180),
+            p, x = sim.kinematics(np.pi / 2 + np.pi / 6, ((80-i) * np.pi / 180))
+            sim.draw_leg(img, np.pi / 2 + (60 * np.pi / 180), ((80-i) * np.pi / 180),
                          x, p)
             cv2.imshow('window', img)
             cv2.waitKey(10)
-
+    '''
     cv2.destroyAllWindows()
+
 
 if __name__ == '__main__':
     main()
