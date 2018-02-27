@@ -79,7 +79,7 @@ class Sim():
         self.seq_size = self.config['Sim_config']['sequence_size']
         self.vect_size = self.config['Sim_config']['obs_vector_size']
         self.batch_size = self.config['Sim_config']['batch_size']
-        self.img_size = [900, 1300]
+        self.img_size = [900, 1600]
         self.output_mem = deque(maxlen=self.seq_size)
         self.input_mem = deque(maxlen=self.seq_size)
         self.t = np.array([i for i in range(0, self.seq_size)])
@@ -108,7 +108,7 @@ class Sim():
         self.ax.set_ylim3d([0.0, 200.0])
         self.ax.set_zlim3d([0.0, 1.0])
 
-        self.centre_pivot = [100, 400]
+        self.centre_pivot = [300, 400]
         self.offset = [700, 0]
         self.angle_offset_1 = 0
         self.angle_offset_2 = 0
@@ -247,9 +247,8 @@ class Sim():
         y = (y) * np.pi / 180
         yt = (yt) * np.pi / 180  #*0.008159981
 
-        self.draw_leg(img,y[0], y[1], 100, 1 - y[2])
-        self.draw_leg(img,yt[0], yt[1], -100 + self.offset[0],
-                      1 - yt[2])  #(self.reward_k * yt[3])
+        self.draw_leg(img,y[0], y[1], 100, y[2])
+        self.draw_leg(img,yt[0], yt[1], -100 + self.offset[0],yt[2])  #(self.reward_k * yt[3])
         cv2.imshow('window', img)
         cv2.waitKey(1)
 
@@ -278,7 +277,7 @@ class Sim():
                                  angle_offset_1)),
             int(self.l1 * np.sin(theta1) + self.l2 * np.sin(
                 theta2 + self.angle_offset_2 + theta1 + self.angle_offset_1))),
-                    10, (128 * col), -1)
+                    10, int(128 * col), -1)
         ##################################### second rod end point ################################################
 
     def generate_step(self, send_que):
@@ -325,7 +324,7 @@ class Sim():
                         [y[3], self.min_y[1]]), max([y[3], self.max_y[1]])
                     y[3] = (180.0 * (y[3] - self.min_y[1]) /
                             (self.max_y[1] - self.min_y[1]))
-                    self.output_mem.append([y[1], y[3], y[4], y[5]])
+                    self.output_mem.append([y[1], y[3], 0, 0])
                     self.input_mem.append([y[0], y[2], 0, 0])
                 except Exception as e:
                     print(e)
@@ -345,7 +344,7 @@ class Sim():
                     self.x_train[0, :, 1], self.y_train[0, :, 1], yp[0, :, 1]
                 ])
                 self.render_sim(y, yt)
-                #print(color, y, yt)
+                print(color,"y yt", y, yt)
 
             fps = 1.0 / (time.clock() - previousTime)
             #print(color,"loop running on {} fps with {} recieve speed".format(fps,(nt-pn)*fps))

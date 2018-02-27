@@ -89,19 +89,19 @@ class Crawler():
 
     def get_line(self):
         line = ""
-        t1,t2,p, x = self.kinematics([self.av[0] * np.pi / 180,self.av[1] * np.pi / 180])
+        t1,t2,p, x = self.kinematics([self.val[0] * np.pi / 180,self.val[1] * np.pi / 180])
         for s in range(self.number_of_states):
 
             line += str(int(self.val[s]))
             line += ' '
-            line += str(int(self.av[s]))
+            line += str(int(self.av[s]*180/np.pi))
             line += ' '
 
         line += str(int(self.p))
         line += ' '
         line += str(int(self.x))
         line += '|'
-        print(color, "line_from_crawler", line)
+        #print(color, "line_from_crawler", line)
         return line
 
     def circle(self, img, jt, r, c, f):
