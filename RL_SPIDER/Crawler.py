@@ -101,7 +101,7 @@ class Crawler():
         line += ' '
         line += str(int(self.x))
         line += '|'
-        #print(color, "line_from_crawler", line)
+        print(color, "line_from_crawler", line)
         return line
 
     def circle(self, img, jt, r, c, f):

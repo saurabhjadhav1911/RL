@@ -1,16 +1,5 @@
 #C:\Users\saurabhj\OneDrive\Documents\Python Scripts\RL
 #https://github.com/saurabhjadhav1911/RL.git
-from __future__ import print_function
-
-try:
-    import __builtin__
-except ImportError:
-    # Python 3
-    import builtins as __builtin__
-'''
-def print(color,*args, **kwargs):
-    __builtin__.print(color,color)
-    return __builtin__.print(color,*args, **kwargs)'''
 from threading import Thread
 import threading
 from colorama import Fore, Back, Style
@@ -112,6 +101,7 @@ class Sim():
         self.offset = [700, 0]
         self.angle_offset_1 = 0
         self.angle_offset_2 = 0
+        self.angle_values = 2
         self.reward_k = 1
         self.l1 = 150
         self.l2 = 150
@@ -183,8 +173,7 @@ class Sim():
         plt.pause(0.001)
 
     def save_env_data(self):
-        x_batch, y_batch = np.array(self.input_mem) / 180.0, np.array(
-            self.output_mem) / 180.0
+        x_batch, y_batch = np.array(self.input_mem), np.array(self.output_mem)
         #print(color, 'shape', y_batch.shape)
         if y_batch.shape[0] == self.seq_size:
             self.x_train, self.y_train = x_batch.reshape(
@@ -242,13 +231,16 @@ class Sim():
         return yt
 
     def render_sim(self, y, yt):
+        #  require angles in radians
         img = 255 * np.ones((self.img_size), dtype=np.uint8)
         #print(color, 'img render', y, yt)
-        y = (y) * np.pi / 180
-        yt = (yt) * np.pi / 180  #*0.008159981
+        y[:self.angle_values] = (y[:self.angle_values]) * np.pi / 180
+        yt[:self.angle_values] = (
+            yt[:self.angle_values]) * np.pi / 180  #*0.008159981
 
-        self.draw_leg(img,y[0], y[1], 100, y[2])
-        self.draw_leg(img,yt[0], yt[1], -100 + self.offset[0],yt[2])  #(self.reward_k * yt[3])
+        self.draw_leg(img, y[0], y[1], 100, y[2])
+        self.draw_leg(img, yt[0], yt[1], -100 + self.offset[0],
+                      yt[2])  #(self.reward_k * yt[3])
         cv2.imshow('window', img)
         cv2.waitKey(1)
 
@@ -258,6 +250,7 @@ class Sim():
             r, c, f)
 
     def draw_leg(self, img, theta1, theta2, distance, col):
+        #  require angles in radians
         ##################################### base center point ################################################
         self.circle(img, (int(distance), 0), 20, (0), -1)
         ##################################### base center point ################################################
@@ -296,10 +289,10 @@ class Sim():
 
         Thread(target=self.generate_step, args=(send_que, )).start()
         train_process = Thread(target=self.train, args=(self.default_graph, ))
-        train_process.start()
+        #train_process.start()
 
         self.store_obs_from_env(recieve_que, self.default_graph)
-        train_process.join()
+        #train_process.join()
         cv2.destroyAllWindows()
 
     def store_obs_from_env(self, recieve_que, default_graph):
@@ -314,37 +307,44 @@ class Sim():
                     recieve_que.empty() is False
             ):  # or ((time.clock()- previousTime) > self.interval))  is False:
                 y = recieve_que.get()
+                # recieve angles in degrees
                 #print(color,y)
                 try:
                     self.min_y[0], self.max_y[0] = min(
                         [y[1], self.min_y[0]]), max([y[1], self.max_y[0]])
-                    y[1] = (180.0 * (y[1] - self.min_y[0]) /
+                    y[1] = ((y[1] - self.min_y[0]) /
                             (self.max_y[0] - self.min_y[0]))
                     self.min_y[1], self.max_y[1] = min(
                         [y[3], self.min_y[1]]), max([y[3], self.max_y[1]])
-                    y[3] = (180.0 * (y[3] - self.min_y[1]) /
+                    y[3] = ((y[3] - self.min_y[1]) /
                             (self.max_y[1] - self.min_y[1]))
-                    self.output_mem.append([y[1], y[3], 0, 0])
+                    #store noramlised values for lstm
+                    self.output_mem.append([y[1], y[3], y[4], 0])
                     self.input_mem.append([y[0], y[2], 0, 0])
                 except Exception as e:
                     print(e)
                 nt += 1
             self.save_env_data()
-            ytt = np.array(self.input_mem) / 180.0
-            yy = np.array(self.output_mem) / 180.0
+            ytt = np.array(self.input_mem)
+            ytt[:][:self.angle_values] = ytt[:][:self.angle_values] / 180.0
+            yy = np.array(self.output_mem)
+            yy[:][:self.angle_values] = yy[:][:self.angle_values] / 180.0
+            # normaliz angles to feed lstm
             if (ytt.shape[0] == self.seq_size):  # and self.lock is False:
                 yp = self.predict_output_mem(
                     ytt.reshape((1, self.seq_size, self.vect_size)),
                     default_graph)
-                yt = yp[0][199] * 180.0
-                y = yy[199] * 180.0
+                yt = yp[0][199]
+                yt[:self.angle_values] = yt[:self.angle_values] * 180
+                y = yy[199]
+                y[:self.angle_values] = y[:self.angle_values] * 180
                 #self.plot_data(self.t, [ytt, yy, yp])
                 self.plot_data(self.t, [
                     self.x_train[0, :, 0], self.y_train[0, :, 0], yp[0, :, 0],
                     self.x_train[0, :, 1], self.y_train[0, :, 1], yp[0, :, 1]
                 ])
                 self.render_sim(y, yt)
-                print(color,"y yt", y, yt)
+                print(color, "y yt", y, yt)
 
             fps = 1.0 / (time.clock() - previousTime)
             #print(color,"loop running on {} fps with {} recieve speed".format(fps,(nt-pn)*fps))

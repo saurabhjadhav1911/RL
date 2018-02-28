@@ -1,17 +1,5 @@
 #C:\Users\saurabhj\OneDrive\Documents\Python Scripts\RL
 #https://github.com/saurabhjadhav1911/RL.git
-from __future__ import print_function
-
-try:
-    import __builtin__
-except ImportError:
-    # Python 3
-    import builtins as __builtin__
-'''
-def print(color,*args, **kwargs):
-    __builtin__.print(color,color)
-    return __builtin__.print(color,*args, **kwargs)
-'''
 from colorama import Fore, Back, Style
 import colorama
 colorama.init()
