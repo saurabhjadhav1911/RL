@@ -16,6 +16,9 @@ nf = 0
 color = Fore.GREEN
 
 
+
+
+
 class Env():
     """docstring for DummyEnv"""
 
@@ -24,7 +27,7 @@ class Env():
         self.config = config
         self.default_action = config['Env_config']['default_action']
         self.data = ""
-        self.crawler = Crawler.Crawler()
+        self.crawler = Crawler.Crawler(config=self.config)
 
     def run(self, q, r, agent_obs_que, agent_reward_que, agent_action_que):
         #ser=serial.Serial(config['Serial_config']['port'],baudrate=config['Serial_config']['baud'],timeout=config['Serial_config']['timeout'])

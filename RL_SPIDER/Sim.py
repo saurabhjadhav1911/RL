@@ -13,9 +13,9 @@ from collections import deque
 import sys
 import os
 import traceback
-from keras.models import Sequential
-from keras.layers import Dense
-from keras.layers import LSTM
+from keras.models import Sequential, Model
+from keras.layers import Dense, LSTM, Input
+from keras.optimizers import SGD
 import tensorflow as tf
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
@@ -66,14 +66,27 @@ class Sim():
         self.config = config
         self.lock = False
         self.seq_size = self.config['Sim_config']['sequence_size']
-        self.vect_size = self.config['Sim_config']['obs_vector_size']
+        [self.angle_vect_size, self.pressure_vect_size,
+         self.reward_vect_size] = self.config['Sim_config']['obs_vector_space']
+        print(color, 'obs vect space', self.angle_vect_size,
+              self.pressure_vect_size, self.reward_vect_size)
+        self.vect_size = self.angle_vect_size + self.pressure_vect_size + self.reward_vect_size
         self.batch_size = self.config['Sim_config']['batch_size']
+        self.action_space_size = self.angle_vect_size
         self.img_size = [900, 1600]
-        self.output_mem = deque(maxlen=self.seq_size)
+
+        self.output_mem_angles = deque(maxlen=self.seq_size)
+        self.output_mem_pressure = deque(maxlen=self.seq_size)
+        self.output_mem_reward = deque(maxlen=self.seq_size)
         self.input_mem = deque(maxlen=self.seq_size)
+
         self.t = np.array([i for i in range(0, self.seq_size)])
-        self.x_train = np.zeros((1, self.seq_size, self.vect_size))
-        self.y_train = np.zeros((1, self.seq_size, self.vect_size))
+        self.x_train = np.zeros((1, self.seq_size, self.action_space_size))
+        self.y_train = [
+            np.zeros((1, self.seq_size, self.angle_vect_size)),
+            np.zeros((1, self.seq_size, self.pressure_vect_size)),
+            np.zeros((1, self.seq_size, self.reward_vect_size))
+        ]
         #print(color,self.x_train[0].shape,self.y_train[0].shape)
         self.interval = 1.0 / 60.0
         self.val = np.zeros((self.vect_size))
@@ -103,6 +116,8 @@ class Sim():
         self.angle_offset_2 = 0
         self.angle_values = 2
         self.reward_k = 1
+        self.k_reward = 1000
+
         self.l1 = 150
         self.l2 = 150
         #self.fig.canvas.draw()
@@ -141,14 +156,30 @@ class Sim():
         return model
 
     def create_model(self):
-        model = Sequential()
-        model.add(
-            LSTM(
-                10, return_sequences=True, input_shape=(None, self.vect_size)))
-        model.add(LSTM(10, return_sequences=True))
-        model.add(Dense(10))
-        model.add(Dense(self.vect_size))
-        model.compile(loss='mse', optimizer='rmsprop', metrics=['accuracy'])
+        input_layer = Input(shape=(None, self.action_space_size))
+        lstm_layer_1 = LSTM(10, return_sequences=True)(input_layer)
+        lstm_layer_2 = LSTM(10, return_sequences=True)(lstm_layer_1)
+
+        sub_last_layer = Dense(10)(lstm_layer_2)
+
+        ### splitting last layer
+        output_angles = Dense(self.angle_vect_size)(
+            sub_last_layer)  #analog output
+        output_pressure = Dense(
+            self.pressure_vect_size,
+            activation='sigmoid')(sub_last_layer)  #binary output
+        output_reward = Dense(self.reward_vect_size)(
+            sub_last_layer)  #analog output
+
+        model = Model(
+            inputs=input_layer,
+            outputs=[output_angles, output_pressure, output_reward])
+        model.compile(
+            optimizer='adam',
+            loss=['mse', 'binary_crossentropy', 'mse'],
+            metrics=['accuracy'],
+            loss_weights=[1.0, 0.6, 0.4])
+
         model._make_predict_function()
         return model
 
@@ -167,18 +198,28 @@ class Sim():
                 label='curve in (z,y)')
 
         self.ax.set_xlim3d([0.0, 200.0])
-        self.ax.set_ylim3d([0.0, 0.6])
-        self.ax.set_zlim3d([0.0, 1.0])
+        self.ax.set_ylim3d([0.0, 1])
+        self.ax.set_zlim3d([-1.0, 1.2])
         self.fig.canvas.draw()
         plt.pause(0.001)
 
     def save_env_data(self):
-        x_batch, y_batch = np.array(self.input_mem), np.array(self.output_mem)
-        #print(color, 'shape', y_batch.shape)
-        if y_batch.shape[0] == self.seq_size:
+        x_batch, y_batch = np.array(self.input_mem), [
+            np.array(self.output_mem_angles),
+            np.array(self.output_mem_pressure),
+            np.array(self.output_mem_reward)
+        ]
+        #print(color, 'shape', x_batch.shape)
+        if x_batch.shape[0] == self.seq_size:
             self.x_train, self.y_train = x_batch.reshape(
-                (1, self.seq_size, self.vect_size)), y_batch.reshape(
-                    (1, self.seq_size, self.vect_size))
+                (1, self.seq_size, self.action_space_size)), [
+                    y_batch[0].reshape(
+                        (1, self.seq_size,
+                         self.angle_vect_size)), y_batch[1].reshape(
+                             (1, self.seq_size, self.pressure_vect_size)),
+                    y_batch[2].reshape((1, self.seq_size,
+                                        self.reward_vect_size))
+                ]
             #print(color,'train min max',np.max(self.x_train),np.max(self.y_train))
         '''    if self.last_batch is -1:
                 for b in range(self.batch_size):
@@ -216,7 +257,8 @@ class Sim():
                     exc_traceback = traceback.format_exc()
                     print(color, exc_traceback)
                     #print(color,e)
-                    print(color, self.x_train.shape, self.y_train.shape)
+                    print(color, self.x_train.shape, self.y_train[0].shape,
+                          self.y_train[1].shape, self.y_train[2].shape)
                 last_error = e
             if n is 20:
                 self.save_model()
@@ -231,16 +273,23 @@ class Sim():
         return yt
 
     def render_sim(self, y, yt):
+
+        obs_angles, obs_pressure, obs_reward = y
+        predicted_obs_angles, predicted_obs_pressure, predicted_obs_reward = yt
+
         #  require angles in radians
         img = 255 * np.ones((self.img_size), dtype=np.uint8)
         #print(color, 'img render', y, yt)
-        y[:self.angle_values] = (y[:self.angle_values]) * np.pi / 180
-        yt[:self.angle_values] = (
-            yt[:self.angle_values]) * np.pi / 180  #*0.008159981
 
-        self.draw_leg(img, y[0], y[1], 100, y[2])
-        self.draw_leg(img, yt[0], yt[1], -100 + self.offset[0],
-                      yt[2])  #(self.reward_k * yt[3])
+        obs_angles = (obs_angles) * np.pi / 180  ## radians
+        predicted_obs_angles = (predicted_obs_angles) * np.pi / 180  ## radians
+        #obs_reward = obs_reward / self.k_reward
+        #predicted_obs_reward = predicted_obs_reward / self.k_reward ##pixels
+
+        self.draw_leg(img, obs_angles[0], obs_angles[1], 100, obs_pressure)
+        self.draw_leg(img, predicted_obs_angles[0], predicted_obs_angles[1],
+                      100 + self.offset[0],
+                      predicted_obs_reward)  #(self.reward_k * yt[3])
         cv2.imshow('window', img)
         cv2.waitKey(1)
 
@@ -254,7 +303,7 @@ class Sim():
         ##################################### base center point ################################################
         self.circle(img, (int(distance), 0), 20, (0), -1)
         ##################################### base center point ################################################
-
+        #print(color,distance,self.l1,np.cos(theta1 + self.angle_offset_1),self.angle_offset_1)
         ##################################### first rod end point ################################################
         self.circle(
             img,
@@ -289,11 +338,17 @@ class Sim():
 
         Thread(target=self.generate_step, args=(send_que, )).start()
         train_process = Thread(target=self.train, args=(self.default_graph, ))
-        #train_process.start()
+        train_process.start()
 
         self.store_obs_from_env(recieve_que, self.default_graph)
-        #train_process.join()
+        train_process.join()
         cv2.destroyAllWindows()
+
+    def denormalise(self, x, mn, mx):
+        return 180.0 * (x - mn) / (mx - mn)
+
+    def normalise(self, x, mn, mx):
+        return (x - mn) / (mx - mn)
 
     def store_obs_from_env(self, recieve_que, default_graph):
         previousTime = time.clock()
@@ -301,50 +356,120 @@ class Sim():
         last_time = time.clock()
         nt = 0
         pn = 0
-        yt = 0
+        last_action_input = 0
         while (True):
             while (
                     recieve_que.empty() is False
             ):  # or ((time.clock()- previousTime) > self.interval))  is False:
-                y = recieve_que.get()
-                # recieve angles in degrees
-                #print(color,y)
+                obs = recieve_que.get()  # recieve angles in degrees
+
+                #print(color, "y", obs)
                 try:
-                    self.min_y[0], self.max_y[0] = min(
-                        [y[1], self.min_y[0]]), max([y[1], self.max_y[0]])
-                    y[1] = ((y[1] - self.min_y[0]) /
-                            (self.max_y[0] - self.min_y[0]))
-                    self.min_y[1], self.max_y[1] = min(
-                        [y[3], self.min_y[1]]), max([y[3], self.max_y[1]])
-                    y[3] = ((y[3] - self.min_y[1]) /
-                            (self.max_y[1] - self.min_y[1]))
-                    #store noramlised values for lstm
-                    self.output_mem.append([y[1], y[3], y[4], 0])
-                    self.input_mem.append([y[0], y[2], 0, 0])
+                    ## normalise betwwen limits 180 and 0 degrees
+                    '''
+                    self.min_y = [
+                        min(a, b) for a, b in
+                        zip(obs[self.angle_vect_size:2 * self.angle_vect_size],
+                            self.min_y[self.angle_vect_size:
+                                       2 * self.angle_vect_size])
+                    ]
+                    self.max_y = [
+                        max(a, b) for a, b in
+                        zip(obs[self.angle_vect_size:2 * self.angle_vect_size],
+                            self.max_y[self.angle_vect_size:
+                                       2 * self.angle_vect_size])
+                    ]
+                    obs[:2 * self.angle_vect_size] = [
+                        self.denormalise(x, mn, mx) for x, mn, mx in zip(
+                            obs[self.angle_vect_size:2 * self.angle_vect_size],
+                            self.min_y[self.angle_vect_size:
+                                       2 * self.angle_vect_size], self.max_y[
+                                           self.angle_vect_size:
+                                           2 * self.angle_vect_size])
+                    ]
+                    '''
+                    #store degrees values for lstm
+
+                    self.input_mem.append(obs[0:self.angle_vect_size])
+                    self.output_mem_angles.append(
+                        obs[self.angle_vect_size:(2 * self.angle_vect_size)])
+                    self.output_mem_pressure.append(obs[(
+                        2 * self.angle_vect_size
+                    ):(2 * self.angle_vect_size + self.pressure_vect_size)])
+                    self.output_mem_reward.append(obs[-self.reward_vect_size:])
+                    '''
+                    self.input_mem.append(obs[0:self.angle_vect_size])
+
+                    self.output_mem_angles.append(
+                        obs[2:4])
+                    self.output_mem_pressure.append(obs[4:5])
+
+                    self.output_mem_reward.append(obs[-self.reward_vect_size:])
+                    '''
+
+                    #print(color, "action_input_y", obs[0:2])
+                    #print(color, "obs_y", obs[2:4], obs[4:5],obs[-self.reward_vect_size:])
                 except Exception as e:
-                    print(e)
+                    exc_traceback = traceback.format_exc()
+                    print(color, exc_traceback)
                 nt += 1
+
             self.save_env_data()
-            ytt = np.array(self.input_mem)
-            ytt[:][:self.angle_values] = ytt[:][:self.angle_values] / 180.0
-            yy = np.array(self.output_mem)
-            yy[:][:self.angle_values] = yy[:][:self.angle_values] / 180.0
-            # normaliz angles to feed lstm
-            if (ytt.shape[0] == self.seq_size):  # and self.lock is False:
-                yp = self.predict_output_mem(
-                    ytt.reshape((1, self.seq_size, self.vect_size)),
-                    default_graph)
-                yt = yp[0][199]
-                yt[:self.angle_values] = yt[:self.angle_values] * 180
-                y = yy[199]
-                y[:self.angle_values] = y[:self.angle_values] * 180
-                #self.plot_data(self.t, [ytt, yy, yp])
-                self.plot_data(self.t, [
-                    self.x_train[0, :, 0], self.y_train[0, :, 0], yp[0, :, 0],
-                    self.x_train[0, :, 1], self.y_train[0, :, 1], yp[0, :, 1]
-                ])
-                self.render_sim(y, yt)
-                print(color, "y yt", y, yt)
+
+            action_input = np.array(self.input_mem)  ## degrees
+            obs_angles = np.array(self.output_mem_angles)  ## degrees
+            obs_pressure = np.array(self.output_mem_pressure)  ##binary
+            obs_reward = np.array(self.output_mem_reward)  ## pixels
+
+            #print(color, "action_input", action_input.shape)
+            #print(color, "obs", obs_angles.shape, obs_pressure.shape,obs_reward.shape)
+
+            try:
+                obs_angles = obs_angles / 180.0  ## normalised angles
+                action_input = action_input / 180.0  ## normalised angles
+                obs_reward = obs_reward / self.k_reward  ## normalised reward
+
+                # normalize angles to feed lstm
+                if (action_input.shape[0] == self.seq_size
+                    ):  # and self.lock is False:
+                    predicted_obs_angles, predicted_obs_pressure, predicted_obs_reward = self.predict_output_mem(
+                        action_input.reshape((1, self.seq_size,
+                                              self.action_space_size)),
+                        default_graph)
+
+                    predicted_obs_pressure[:,:,:]=0
+                    ## normalised predicted output by the math simulator
+                    #print(color,'p pred',predicted_obs_reward)
+                    last_predicted_obs_angles, last_predicted_obs_pressure, last_predicted_obs_reward = predicted_obs_angles[
+                        0][199], predicted_obs_pressure[0][
+                            199], predicted_obs_reward[0][199]
+                    last_obs_angles, last_obs_pressure, last_obs_reward = obs_angles[
+                        199], obs_pressure[199], obs_reward[199]
+                    last_action_input = action_input[199]
+
+                    self.plot_data(self.t, [
+                        action_input[:, 0], obs_angles[:, 0],
+                        predicted_obs_angles[0, :, 0], action_input[:, 1],
+                        obs_angles[:, 1], predicted_obs_angles[0, :, 1],
+                        obs_pressure[:, 0], predicted_obs_pressure[0, :, 0],
+                        obs_reward[:, 0], predicted_obs_reward[0, :, 0]
+                    ])
+
+                    ## render with actuaal degrres and pixel values
+                    '''
+                    self.render_sim([
+                        last_obs_angles * 180.0, last_obs_pressure,
+                        last_obs_reward * self.k_reward
+                    ], [
+                        last_predicted_obs_angles * 180.0,
+                        last_predicted_obs_pressure,
+                        last_predicted_obs_reward * self.k_reward
+                    ])'''
+                    #print(color, "y yt", last_predicted_obs_angles,last_action_input)
+
+            except Exception as e:
+                exc_traceback = traceback.format_exc()
+                print(color, exc_traceback)
 
             fps = 1.0 / (time.clock() - previousTime)
             #print(color,"loop running on {} fps with {} recieve speed".format(fps,(nt-pn)*fps))

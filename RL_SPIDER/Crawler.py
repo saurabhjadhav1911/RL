@@ -11,7 +11,8 @@ color = Fore.GREEN
 class Crawler():
     """docstring for Crawler"""
 
-    def __init__(self, l1=None, l2=None, b=None, h=None, que=None):
+    def __init__(self, config, l1=None, l2=None, b=None, h=None, que=None):
+        self.config = config
         self.l1 = l1 or 150.0
         self.l2 = l2 or 150.0
         self.K = 0.1
@@ -89,19 +90,23 @@ class Crawler():
 
     def get_line(self):
         line = ""
-        t1,t2,p, x = self.kinematics([self.val[0] * np.pi / 180,self.val[1] * np.pi / 180])
+        t1, t2, p, x = self.kinematics(
+            [self.val[0] * np.pi / 180, self.val[1] * np.pi / 180])
         for s in range(self.number_of_states):
 
             line += str(int(self.val[s]))
             line += ' '
-            line += str(int(self.av[s]*180/np.pi))
+
+        for s in range(self.number_of_states):        
+            line += str(int(self.av[s] * 180 / np.pi))
             line += ' '
 
         line += str(int(self.p))
         line += ' '
         line += str(int(self.x))
         line += '|'
-        print(color, "line_from_crawler", line)
+        if (self.config['Env_config']['show_obs']):
+            print(color, "line_from_crawler", line)
         return line
 
     def circle(self, img, jt, r, c, f):
@@ -132,20 +137,21 @@ class Crawler():
                     10, (128 * col), -1)
         ##################################### second rod end point ################################################
 
+
 def main():
     sim = Crawler()
     p, x = 0, 0
 
     for j in range(90):
         img = 255 * np.ones((900, 1400), dtype=np.uint8)
-        t1,t2,p, x = sim.kinematics([1,0])
+        t1, t2, p, x = sim.kinematics([1, 0])
         sim.draw_leg(img, t1, t2, x, p)
         #sim.circle(img,(0,j),20,0,-1)
         cv2.imshow('window', img)
         cv2.waitKey(100)
     for j in range(90):
         img = 255 * np.ones((900, 1400), dtype=np.uint8)
-        t1,t2,p, x = sim.kinematics([-1,0])
+        t1, t2, p, x = sim.kinematics([-1, 0])
         sim.draw_leg(img, t1, t2, x, p)
         #sim.circle(img,(0,j),20,0,-1)
         cv2.imshow('window', img)
