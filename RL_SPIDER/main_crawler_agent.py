@@ -14,9 +14,10 @@ import time
 import cv2
 from collections import deque
 #import gym
-import DummyEnv as Env
+import DummyEnvAgent as Env
 import Plot
 import Sim
+import Agent
 import sys
 import os
 import traceback
@@ -55,10 +56,10 @@ def Env_process_target(recieve_que, send_que, config, agent_obs_que,
             agent_action_que)
 
 
-def Agent_process_target(recieve_que, send_que, config):
+def Agent_process_target(agent_obs_que, agent_reward_que, agent_action_que,config):
     print(Fore.BLUE, 'Agent process start')
-    agent = Agent.Agent(config)
-    agent.run(agent_obs_que, agent_reward_que, agent_action_que)
+    agent = Agent.Agent(agent_obs_que, agent_reward_que, agent_action_que,config)
+    agent.run()
 
 
 def Test_process_target(recieve_que, send_que, config):
@@ -70,7 +71,7 @@ def main():
     multiprocessing.freeze_support()
 
     config = read_config('config_crawler.json')
-    self.config['Env_config']['env_cycle_delay']=0.01
+    config['Env_config']['env_cycle_delay']=0.001
     config = arg_parser(config)
     save_config(config, 'config_crawler.json')
 
@@ -93,17 +94,17 @@ def main():
         target=Sim_process_target,
         args=(recieve_que, send_que, config, agent_obs_que, agent_reward_que,
               agent_action_que))
-    #agent_process = multiprocessing.Process(target=Agent_process_target,args=(agent_obs_que, agent_reward_que, agent_action_que))
+    agent_process = multiprocessing.Process(target=Agent_process_target,args=(agent_obs_que, agent_reward_que, agent_action_que,config))
     #test_process = multiprocessing.Process(
     #    target=Test_process_target, args=(recieve_que, send_que, config))
 
     env_process.start()
-    #test_process.start()
+    agent_process.start()
     #plot_process.start()
     sim_process.start()
 
     sim_process.join()
-    #plot_process.join()
+    agent_process.join()
     env_process.join()
     #test_process.join()
 

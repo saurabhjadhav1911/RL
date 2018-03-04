@@ -71,8 +71,8 @@ class Sim():
         print(color, 'obs vect space', self.angle_vect_size,
               self.pressure_vect_size, self.reward_vect_size)
         self.vect_size = self.angle_vect_size + self.pressure_vect_size + self.reward_vect_size
-        self.batch_size = self.config['Sim_config']['batch_size']
         self.action_space_size = self.angle_vect_size
+        self.batch_size = self.config['Sim_config']['batch_size']
         self.img_size = [900, 1600]
 
         self.output_mem_angles = deque(maxlen=self.seq_size)
@@ -175,10 +175,42 @@ class Sim():
             inputs=input_layer,
             outputs=[output_angles, output_pressure, output_reward])
         model.compile(
-            optimizer='adam',
+            optimizer=SGD(lr=0.00001),
             loss=['mse', 'binary_crossentropy', 'mse'],
             metrics=['accuracy'],
-            loss_weights=[1.0, 0.6, 0.4])
+            loss_weights=[0.10, 0.06, 0.04])
+
+        model._make_predict_function()
+        return model
+    def create_model_2(self):
+        rec_model = Sequential()
+        rec_model.add(LSTM(10, return_sequences=True, input_shape=(None, self.action_space_size)))
+        rec_model.add(LSTM(10, return_sequences=True))
+        rec_model.add(Dense(10))
+        
+        model.compile(loss='mse', optimizer='rmsprop', metrics=['accuracy'])
+        model._make_predict_function()
+        input_layer = Input(shape=(None, self.action_space_size))
+        
+        sub_last_layer = Dense(10)(lstm_layer_2)
+
+        ### splitting last layer
+        output_angles = Dense(self.angle_vect_size)(
+            sub_last_layer)  #analog output
+        output_pressure = Dense(
+            self.pressure_vect_size,
+            activation='sigmoid')(sub_last_layer)  #binary output
+        output_reward = Dense(self.reward_vect_size)(
+            sub_last_layer)  #analog output
+
+        model = Model(
+            inputs=input_layer,
+            outputs=[output_angles, output_pressure, output_reward])
+        model.compile(
+            optimizer=SGD(lr=0.00001),
+            loss=['mse', 'binary_crossentropy', 'mse'],
+            metrics=['accuracy'],
+            loss_weights=[0.10, 0.06, 0.04])
 
         model._make_predict_function()
         return model
@@ -336,7 +368,7 @@ class Sim():
     def run(self, recieve_que, send_que, agent_obs_que, agent_reward_que,
             agent_action_que):
 
-        Thread(target=self.generate_step, args=(send_que, )).start()
+        #Thread(target=self.generate_step, args=(send_que, )).start()
         train_process = Thread(target=self.train, args=(self.default_graph, ))
         train_process.start()
 

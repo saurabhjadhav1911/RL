@@ -13,6 +13,7 @@ class Crawler():
 
     def __init__(self, config, l1=None, l2=None, b=None, h=None, que=None):
         self.config = config
+        self.env_cycle_delay=self.config['Env_config']['env_cycle_delay']
         self.l1 = l1 or 150.0
         self.l2 = l2 or 150.0
         self.K = 0.1
@@ -46,8 +47,9 @@ class Crawler():
         self.l2 = 150
         self.que = que or Queue()
 
-    def render(self):
-        pass
+    def render(self,img):
+        cv2.imshow('window', img)
+        cv2.waitKey(1)
 
     def step(self, action):
         self.val = action
@@ -56,7 +58,7 @@ class Crawler():
         while True:
             self.que.put(self.get_line())
             time.sleep(0.01)
-
+        cv2.destroyAllWindows()
     def kinematics(self, val):
         for s in range(self.number_of_states):
             self.av[s] += (self.K * (val[s] - self.av[s]))
@@ -92,6 +94,11 @@ class Crawler():
         line = ""
         t1, t2, p, x = self.kinematics(
             [self.val[0] * np.pi / 180, self.val[1] * np.pi / 180])
+
+        img = 255 * np.ones((900, 1400), dtype=np.uint8)
+        self.draw_leg(img, t1, t2, x, p)
+        self.render(img)
+
         for s in range(self.number_of_states):
 
             line += str(int(self.val[s]))
