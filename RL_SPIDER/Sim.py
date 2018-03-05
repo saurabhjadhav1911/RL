@@ -277,7 +277,7 @@ class Sim():
                             self.y_train,
                             epochs=1,
                             batch_size=1,
-                            verbose=2,
+                            verbose=0,
                             validation_data=(self.x_train, self.y_train))
                         #print(color, "train end")
                         n += 1

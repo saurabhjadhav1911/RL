@@ -65,13 +65,37 @@ class Agent():
         self.sim_step = 0
         self.val = [0, 0]
         self.memory_length = self.config['Agent_config']['memory_length']
-        print(color,"mem len",self.memory_length)
-        self.agent_env_memory = np.zeros((self.memory_length,(3*self.angle_vect_size+self.pressure_vect_size+self.reward_vect_size)))  ## actions,angles,der-angles,pressure,reward
-        print(color,self.agent_env_memory)
+        print(color, "mem len", self.memory_length)
+        self.agent_env_memory = np.zeros(
+            (self.memory_length,
+             (3 * self.angle_vect_size + self.pressure_vect_size +
+              self.reward_vect_size))
+        )  ## actions,angles,der-angles,pressure,prev-angles,prev-der-angles,prev-pressure,reward
+        self.agent_env_memory = np.zeros(
+            (self.memory_length,
+             (5 * self.angle_vect_size + 2 * self.pressure_vect_size +
+              self.reward_vect_size))
+        )  ## actions,angles,der-angles,pressure,prev-angles,prev-der-angles,prev-pressure,reward
+        print(color, self.agent_env_memory.shape)
+
+
+        self.actor_state_input,self.actor_model = self.create_actor_model()
+        _,self.target_actor_model = self.create_actor_model()
+
+        self.critic_state_input,self.critic_action_input,self.critic_model = self.create_critic_model()
+        _,_,self.target_critic_model = self.create_critic_model()
+        
+        self.default_graph = tf.get_default_graph()
+
     def run(self):
         #self.consumer_test()
+        train_process = Thread(target=self.train, args=(self.default_graph, ))
+        train_process.start()
+
         self.env_reset()
         self.get_obs_action()
+
+        train_process.join()
 
     def consumer_test(self):
         Thread(target=self.generate_step).start()
@@ -113,29 +137,35 @@ class Agent():
                         (angle, angle - self.agent_env_memory[(
                             (obs_id - 1) % self.memory_length
                         ), self.angle_vect_size:2 * self.angle_vect_size],
-                         pressure)) ## actions,angles,der-angles,pressure,reward
+                         pressure))
 
                     ################ take_immediate_action although reward is pending #################
                     self.take_immediate_action(state)
 
+                    prev_state = self.agent_env_memory[(
+                        (obs_id - 1) % self.memory_length
+                    ), 3 * self.angle_vect_size + self.pressure_vect_size:
+                                                       -self.reward_vect_size]
+                    ## actions,angles,der-angles,pressure,prev-angles,prev-der-angles,prev-pressure,reward
+
                     self.agent_env_memory[obs_id] = np.concatenate(
-                        (actions, state, [self.movement_cost]))
+                        (actions, state, prev_state, [self.movement_cost]))
 
                     #new_state=np.concatenate((angle,angle-self.last_angles))
 
                 while self.agent_reward_que.empty() is False:
                     responce_reward, reward_id = self.agent_reward_que.get()
-                    self.agent_env_memory[obs_id,
+                    self.agent_env_memory[reward_id,
                                           -self.reward_vect_size:] += np.array(
                                               responce_reward)
-                    #print(color, "saved in agent memory",self.agent_env_memory[obs_id])
+                    #print(color, "saved in agent memory",self.agent_env_memory[reward_id])
                 #if obs_id is not reward_id:
                 #    print(color,"obs reward out of sync")
 
             except Exception as e:
                 exc_traceback = traceback.format_exc()
                 print(color, exc_traceback)
-                print(color,self.agent_env_memory.shape)
+                print(color, self.agent_env_memory.shape)
 
         return state, reward, done
 
