@@ -78,14 +78,17 @@ class Agent():
         )  ## actions,angles,der-angles,pressure,prev-angles,prev-der-angles,prev-pressure,reward
         print(color, self.agent_env_memory.shape)
 
+        self.num_states_per_angle=10
 
+        self.Q=np.zeros((self.num_states_per_angle,self.num_states_per_angle,self.pressure_vect_size,self.num_states_per_angle,self.num_states_per_angle))
+        '''
         self.actor_state_input,self.actor_model = self.create_actor_model()
         _,self.target_actor_model = self.create_actor_model()
 
         self.critic_state_input,self.critic_action_input,self.critic_model = self.create_critic_model()
         _,_,self.target_critic_model = self.create_critic_model()
         
-        self.default_graph = tf.get_default_graph()
+        self.default_graph = tf.get_default_graph()'''
 
     def run(self):
         #self.consumer_test()
@@ -175,12 +178,36 @@ class Agent():
     def act(self, action):
         self.agent_action_que.put([action, self.cycle_id])
 
+    def getQ(self,state,action):
+        if state==self.goal or state==self.nogoal:
+            return self.Q[state[0],state[1],0]
+        else:
+            return self.Q[state[0],state[1],action]
+
+    def putQ(self,state,action,q):
+        if state==self.goal or state==self.nogoal:
+            self.Q[state[0],state[1],0]=q
+        else:
+            self.Q[state[0],state[1],action]=q
+
     def take_immediate_action(self, state):
         self.cycle_id = (self.cycle_id + 1) % self.memory_length
-        action = (np.random.rand(self.angle_vect_size) *
-                  (self.action_max_limit - self.action_min_limit
-                   )) + self.action_min_limit
+        #action = (np.random.rand(self.angle_vect_size) *(self.action_max_limit - self.action_min_limit)) + self.action_min_limit
+        if random.random() < self.epsilon:
+            action = (np.random.rand(self.angle_vect_size) *(self.action_max_limit - self.action_min_limit)) + self.action_min_limit
+            #print("randomaction",action)
+        else:
+            q = [self.getQ(state, a) for a in self.actions]
+            maxQ = max(q)
+            count = q.count(maxQ)
+            if count > 1:
+                best = [i for i in range(len(self.actions)) if q[i] == maxQ]
+                i = random.choice(best)
+            else:
+                i = q.index(maxQ)
 
+            action = self.actions[i]
+            #print("best action",action)
         ######## actor network predict #########
         self.act(action)
 
