@@ -28,6 +28,7 @@ import random
 color = Fore.MAGENTA
 colorama.init()
 
+
 class Agent():
     """docstring for Env"""
 
@@ -53,22 +54,29 @@ class Agent():
             self.config['Agent_config']['action_min_limit'])
         self.action_max_limit = np.array(
             self.config['Agent_config']['action_max_limit'])
-
+        self.angle_min_limit = np.array(
+            self.config['Agent_config']['action_min_limit'])
+        self.angle_max_limit = np.array(
+            self.config['Agent_config']['action_max_limit'])
         self.responce_dict = {}
 
         self.learning_rate = 0.001
-        self.epsilon = 0.5
         self.epsilon_decay = .995
-        self.gamma = .95
-        self.tau   = .125
+        self.tau = .125
         self.default_action = np.array(
             self.config['Env_config']['default_action'])
-        self.movement_cost = 0
+        self.movement_cost = 0.01
+        self.total_movement_cost=0
+        self.alpha = 0.8
+        self.gamma = 0.9
+        self.epsilon = 0.1
         self.sim_cycle_id = 0
         self.cycle_id = 0
+        self.reset_id=0
         self.steps_per_episode = self.config['Agent_config'][
             'steps_per_episode']
         self.sim_step = 0
+        self.episode_num=0
         self.val = [0, 0]
         self.memory_length = self.config['Agent_config']['memory_length']
         print(color, "mem len", self.memory_length)
@@ -82,14 +90,16 @@ class Agent():
              (5 * self.angle_vect_size + 2 * self.pressure_vect_size +
               self.reward_vect_size))
         )  ## actions,angles,der-angles,pressure,prev-angles,prev-der-angles,prev-pressure,reward
-        print(color, self.agent_env_memory.shape)
+        #print(color, self.agent_env_memory.shape)
 
         self.num_states_per_angle = 10
-
+        self.num_states_per_pressure = 2
         self.Q = np.zeros(
             (self.num_states_per_angle, self.num_states_per_angle,
-             self.pressure_vect_size, self.num_states_per_angle,
+             self.num_states_per_pressure, self.num_states_per_angle,
              self.num_states_per_angle))
+
+        self.load_Q()
         '''
         self.actor_state_input,self.actor_model = self.create_actor_model()
         _,self.target_actor_model = self.create_actor_model()
@@ -132,9 +142,102 @@ class Agent():
             print(color, self.val)
             time.sleep(1)
 
+    def load_Q(self):
+        try:
+            Q = np.load("Models/Crawler_Q_Agent" + str(
+                self.config['Agent_config']['saved_model_index']) + ".npy")
+            self.Q = Q
+            print(color, 'Q values loaded ')
+        except Exception as e:
+            print(color, 'Q values not loaded due to {}'.format(e))
+
+    def save_Q(self):
+        np.save("Models/Crawler_Q_Agent" +
+                str(self.config['Agent_config']['saved_model_index']) + ".npy",
+                self, self.Q)
+        print(color, 'Q values saved')
+
+    def update_Q(self, mem_id):
+        action = self.agent_env_memory[mem_id, :self.angle_vect_size]
+        state = self.agent_env_memory[
+            mem_id, self.angle_vect_size:
+            3 * self.angle_vect_size + self.pressure_vect_size]
+        prev_state = self.agent_env_memory[
+            mem_id, 3 * self.angle_vect_size + self.pressure_vect_size:
+            -self.reward_vect_size]
+        reward = self.agent_env_memory[-self.reward_vect_size:]
+
+        action[0:self.angle_vect_size] = (
+            action[0:self.angle_vect_size] - self.angle_min_limit) / (
+                self.angle_max_limit - self.angle_min_limit)
+        state[0:self.angle_vect_size] = (
+            state[0:self.angle_vect_size] - self.angle_min_limit) / (
+                self.angle_max_limit - self.angle_min_limit)
+        prev_state[0:self.angle_vect_size] = (
+            prev_state[0:self.angle_vect_size] - self.angle_min_limit) / (
+                self.angle_max_limit - self.angle_min_limit)
+
+        action = action.astype(int)
+        state = state.astype(int)
+        prev_state = prev_state.astype(int)
+        ## actions,angles,der-angles,pressure,prev-angles,prev-der-angles,prev-pressure,reward
+
+        Q = self.Q[prev_state[0], prev_state[1], prev_state[4], action[0],
+                   action[1]]
+
+        q = self.Q[state[0], state[1], state[4]]
+        maxQ = np.amax(q)
+
+        #print(maxQ)
+        Q = Q + self.alpha * ((self.gamma * maxQ) - Q)
+        self.Q[prev_state[0], prev_state[1], prev_state[4], action[0], action[
+            1]] = Q
+
+    def take_immediate_action(self, state):
+        if (self.cycle_id-self.reset_id) >=self.steps_per_episode:
+            cycle_id=self.cycle_id
+            self.env_reset()
+            print(color,"episode {} finished with total reward {}".format(self.episode_num,self.agent_env_memory[cycle_id,-self.reward_vect_size:]))
+            self.episode_num+=1
+            #self.save_Q()
+        else:
+            self.cycle_id = (self.cycle_id + 1) % self.memory_length
+
+            #print(color, "state_in_obs", state)
+            if random.random() < self.epsilon:
+                action = (self.num_states_per_angle * np.random.rand(
+                    self.angle_vect_size))
+                action = action.astype(int)
+                #print(color,"random_action_1",action)
+            else:
+                state[0:self.angle_vect_size] = (
+                    state[0:self.angle_vect_size] - self.angle_min_limit) / (
+                        self.angle_max_limit - self.angle_min_limit)
+                state = state.astype(int)
+                q = self.Q[state[0], state[1], state[4]]
+                maxQ = np.amax(q)
+                count = (q == maxQ).sum()
+                if count > 1:
+                    best = np.argwhere(q == maxQ)
+                    i = random.choice(best)
+                else:
+                    i = np.argwhere(q == maxQ)
+
+                action = i
+                #print("best action",action)
+                action = action.astype(int)
+                #print(color,"random_action_2",action)
+            ######## actor network predict #########
+
+            action_angles = ((action / self.num_states_per_angle) *
+                             (self.action_max_limit - self.action_min_limit
+                              )) + self.action_min_limit
+            #print(color,"action_angles",action_angles)
+            self.act(action_angles)
+
     def get_obs_action(self):
         while True:
-            
+
             try:
                 while self.agent_obs_que.empty() is False:
                     responce_obs, obs_id = self.agent_obs_que.get()
@@ -155,14 +258,18 @@ class Agent():
                     ################ take_immediate_action although reward is pending #################
                     self.take_immediate_action(state)
 
-                    prev_state = self.agent_env_memory[(
-                        (obs_id - 1) % self.memory_length
-                    ), 3 * self.angle_vect_size + self.pressure_vect_size:
-                                                       -self.reward_vect_size]
+                    prev_state = self.agent_env_memory[
+                        ((obs_id - 1) % self.memory_length
+                         ), self.angle_vect_size:
+                        3 * self.angle_vect_size + self.pressure_vect_size]
                     ## actions,angles,der-angles,pressure,prev-angles,prev-der-angles,prev-pressure,reward
 
+                    descrete_action= (actions[0:self.angle_vect_size] - self.angle_min_limit) / (self.angle_max_limit - self.angle_min_limit)
+                    prev_descrete_action= (self.agent_env_memory[(obs_id-1+self.memory_length)%self.memory_length,0:self.angle_vect_size] - self.angle_min_limit) / (self.angle_max_limit - self.angle_min_limit)
+                    if descrete_action is not prev_descrete_action:
+                        self.total_movement_cost+=self.movement_cost
                     self.agent_env_memory[obs_id] = np.concatenate(
-                        (actions, state, prev_state, [self.movement_cost]))
+                        (actions, state, prev_state, [self.total_movement_cost])) #
 
                     #new_state=np.concatenate((angle,angle-self.last_angles))
 
@@ -171,7 +278,8 @@ class Agent():
                     self.agent_env_memory[reward_id,
                                           -self.reward_vect_size:] += np.array(
                                               responce_reward)
-                    #print(color, "saved in agent memory",self.agent_env_memory[reward_id])
+                    self.update_Q(reward_id)
+                #print(color, "saved in agent memory",self.agent_env_memory[reward_id])
                 #if obs_id is not reward_id:
                 #    print(color,"obs reward out of sync")
 
@@ -183,61 +291,13 @@ class Agent():
         return state, reward, done
 
     def env_reset(self):
-        self.agent_action_que.put([self.default_action, self.cycle_id])
+        self.cycle_id = (self.cycle_id + 1) % self.memory_length
+        self.reset_id=self.cycle_id
+        self.total_movement_cost=0
+        self.act(self.default_action)
 
     def act(self, action):
         self.agent_action_que.put([action, self.cycle_id])
-
-    def getQ(self, state, action):
-        if state == self.goal or state == self.nogoal:
-            return self.Q[state[0], state[1], 0]
-        else:
-            return self.Q[state[0], state[1], action]
-
-    def putQ(self, state, action, q):
-        if state == self.goal or state == self.nogoal:
-            self.Q[state[0], state[1], 0] = q
-        else:
-            self.Q[state[0], state[1], action] = q
-
-    def take_immediate_action(self, state):
-        self.cycle_id = (self.cycle_id + 1) % self.memory_length
-        
-        print(color,"state_in_obs",state)
-        if random.random() < self.epsilon:
-            action=(self.num_states_per_angle*np.random.rand(self.angle_vect_size))
-            action=action.astype(int)
-            print(color,"random_action_1",action)
-        else:
-            q = self.Q[state[0], state[1], state[4]]
-            maxQ = np.amax(q)
-            count = (q == maxQ).sum()
-            if count > 1:
-                best = np.argwhere(q == maxQ)
-                i = random.choice(best)
-            else:
-                i = np.argwhere(q == maxQ)
-
-            action = i
-            #print("best action",action)
-            action=action.astype(int)
-            print(color,"random_action_2",action)
-        ######## actor network predict #########
-        
-        action_angles = ( (action/self.num_states_per_angle)*(self.action_max_limit - self.action_min_limit)) + self.action_min_limit
-        print(color,"action_angles",action_angles)
-        #self.act(action_angles)
-
-    def env_step(self, action):
-        #self.sim_action_que.put([action, self.sim_cycle_id])
-        while True:
-            try:
-                state, reward, done, id = self.sim_state_que.get()
-                if self.cycle_id is id:
-                    break
-            except Exception as e:
-                print(color, e)
-        return state, reward, done
 
     def env_train(self):
         pass
@@ -296,27 +356,31 @@ class Agent():
             if done:
                 break
 
-def Agent_process_target(agent_obs_que, agent_reward_que, agent_action_que,config):
+
+def Agent_process_target(agent_obs_que, agent_reward_que, agent_action_que,
+                         config):
     print(Fore.BLUE, 'Agent process start')
-    agent =Agent(agent_obs_que, agent_reward_que, agent_action_que,config)
-    agent.take_immediate_action([0,0,0])
+    agent = Agent(agent_obs_que, agent_reward_que, agent_action_que, config)
+    agent.take_immediate_action([0, 0, 0])
     #agent.run()
+
 
 def main():
 
     multiprocessing.freeze_support()
 
     config = read_config('config_crawler.json')
-    config['Env_config']['env_cycle_delay']=0.001
+    config['Env_config']['env_cycle_delay'] = 0.001
     config = arg_parser(config)
     save_config(config, 'config_crawler.json')
-
 
     agent_obs_que = multiprocessing.Queue()
     agent_reward_que = multiprocessing.Queue()
     agent_action_que = multiprocessing.Queue()
 
-    Agent_process_target(agent_obs_que, agent_reward_que, agent_action_que,config)
+    Agent_process_target(agent_obs_que, agent_reward_que, agent_action_que,
+                         config)
+
 
 if __name__ == '__main__':
     main()

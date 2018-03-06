@@ -370,10 +370,10 @@ class Sim():
 
         #Thread(target=self.generate_step, args=(send_que, )).start()
         train_process = Thread(target=self.train, args=(self.default_graph, ))
-        train_process.start()
+        #train_process.start()
 
         self.store_obs_from_env(recieve_que, self.default_graph)
-        train_process.join()
+        #train_process.join()
         cv2.destroyAllWindows()
 
     def denormalise(self, x, mn, mx):
