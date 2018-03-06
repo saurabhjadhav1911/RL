@@ -21,10 +21,17 @@ class track_COM():
 		self.Episode_Num = 0
 		self.lower_red = np.array([0,0,150])
 		self.upper_red = np.array([100,100,250])
+
+		self.frame_time = 0.0
 		#self.VideoName = 'default'
 		self.default()
 		self.videoWriter_Setup()
-		self.run(WRITE_FLAG)
+
+		#take unit_direction_vector from config for final project
+		self.unit_direction_vector=np.array([1,0])
+
+
+		#self.run(WRITE_FLAG)
 	def default(self):
 
 		print (type(self.last_config))
@@ -106,7 +113,10 @@ class track_COM():
 	
 	def circle_detect_frame(self):
 		self.ret, self.frame = self.vid.read()
+		self.frame_time = time.time()
 		print( a if b else 0)
+
+
 		if not self.ret:
 			print('camera not found') 
 		else :
@@ -124,6 +134,8 @@ class track_COM():
 		cv2.imshow('contour', result)
 		self.get_center(contours)
 
+		return direction_difference( self.starting_point,self.current_point)
+
 	def edit_frame(self):
 		timestamp =  datetime.datetime.now()
 		font = cv2.FONT_HERSHEY_TRIPLEX
@@ -133,12 +145,12 @@ class track_COM():
 
 
 
-	def run(self,flag):
+	def run(self,flag,q):
 		#change this for web cam
 		#for i in xrange(0,self.length):
 		while True:
-			self.circle_detect_frame()
-			
+			reward = self.circle_detect_frame()
+			q.put(reward)
 			if flag == True:
 				self.edit_frame()
 
@@ -166,13 +178,12 @@ class track_COM():
   		json.dump(self._custom_config,tempo)
   		tempo.close()
 
-def unit_direction_vector(start, final):
 
-	direction = np.subtract(final, start)
-	unit_vector  = np.true_divide(direction,np.sqrt(np.sum(np.square(direction))))
-	return unit_vector
 	
-	
+	def direction_difference(start, final)
+		direction = np.subtract(final, start)
+		return [ np.sum(self.unit_direction_vector*direction) , self.frame_time ]
+
 if __name__ == '__main__':
 
 	#config=read_config()
@@ -181,7 +192,7 @@ if __name__ == '__main__':
 
 	print ('current:' +str(obj.current_point))
 	print ('start:'+ str(obj.starting_point))
-	print (unit_direction_vector(obj.current_point,obj.starting_point))
+	
 
 	#obj.reset()
 	print (type(obj.upper_red))
