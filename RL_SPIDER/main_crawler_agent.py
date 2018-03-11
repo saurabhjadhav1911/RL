@@ -41,10 +41,10 @@ def reward_process_target(recieve_que, send_que, config):
 
 def Sim_process_target(recieve_que, send_que, config, agent_obs_que,
                        agent_reward_que, agent_action_que):
-    print(Fore.YELLOW, 'Sim process start')
-    sim = Sim.Sim(config)
-    sim.run(recieve_que, send_que, agent_obs_que, agent_reward_que,
-            agent_action_que)
+    pass
+    #print(Fore.YELLOW, 'Sim process start')
+    #sim = Sim.Sim(config)
+    #sim.run(recieve_que, send_que, agent_obs_que, agent_reward_que, agent_action_que)
     #sim.generate_step(recieve_que, send_que)
 
 

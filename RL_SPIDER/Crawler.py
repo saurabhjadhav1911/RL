@@ -96,8 +96,8 @@ class Crawler():
             [self.val[0] * np.pi / 180, self.val[1] * np.pi / 180])
 
         img = 255 * np.ones((900, 1400), dtype=np.uint8)
-        self.draw_leg(img, t1, t2, x, p)
-        self.render(img)
+        #self.draw_leg(img, t1, t2, x, p)
+        #self.render(img)
 
         for s in range(self.number_of_states):
 

@@ -56,8 +56,8 @@ class Env():
 
             ############## get action from que ##############
             arr,self.cycle_id = agent_action_que.get()
-
             self.crawler.step(arr)
+            #print(color,"arr ",arr)
             if (self.config['Env_config']['show_obs']):
                 print(color,"dummy env write", self.config['Env_config']['show_obs'], arr)
             #self.ser.write(arr.encode())
@@ -73,11 +73,13 @@ class Env():
             ################ send obs to agent in the que #################
             agent_obs_que.put([value[:-self.reward_vect_size],self.cycle_id])
             agent_reward_que.put([value[-self.reward_vect_size:],self.cycle_id])
-
+            #agent_obs_que.put([[90,-90,90,-90,0],self.cycle_id])
+            #agent_reward_que.put([[100],self.cycle_id])
+            
             #self.cycle_id=(self.cycle_id+1)%self.cycle_reset_period
 
             ################ send obs to agent in the que #################
-            q.put(value)
+            #q.put(value)
 
             if (self.config['Env_config']['show_obs']):
                 print(color,"dummy env read", self.config['Env_config']['show_obs'], self.data)

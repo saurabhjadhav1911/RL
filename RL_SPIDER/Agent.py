@@ -24,6 +24,7 @@ import socket
 import sys
 import traceback
 import random
+from copy import deepcopy
 
 color = Fore.MAGENTA
 colorama.init()
@@ -61,22 +62,23 @@ class Agent():
         self.responce_dict = {}
 
         self.learning_rate = 0.001
-        self.epsilon_decay = .995
+        self.epsilon_decay = 0.995
         self.tau = .125
         self.default_action = np.array(
             self.config['Env_config']['default_action'])
-        self.movement_cost = 0.01
-        self.total_movement_cost=0
+        self.movement_cost = -0.001
+        self.total_movement_cost = 0
         self.alpha = 0.8
         self.gamma = 0.9
-        self.epsilon = 0.1
+        self.epsilon = 1.0
+        self.epsilon_min = 0.1
         self.sim_cycle_id = 0
         self.cycle_id = 0
-        self.reset_id=0
+        self.reset_id = 0
         self.steps_per_episode = self.config['Agent_config'][
             'steps_per_episode']
         self.sim_step = 0
-        self.episode_num=0
+        self.episode_num = 0
         self.val = [0, 0]
         self.memory_length = self.config['Agent_config']['memory_length']
         print(color, "mem len", self.memory_length)
@@ -97,7 +99,8 @@ class Agent():
         self.Q = np.zeros(
             (self.num_states_per_angle, self.num_states_per_angle,
              self.num_states_per_pressure, self.num_states_per_angle,
-             self.num_states_per_angle))
+             self.num_states_per_angle),
+            dtype=np.float)
 
         self.load_Q()
         '''
@@ -158,59 +161,74 @@ class Agent():
         print(color, 'Q values saved')
 
     def update_Q(self, mem_id):
-        action = self.agent_env_memory[mem_id, :self.angle_vect_size]
-        state = self.agent_env_memory[
-            mem_id, self.angle_vect_size:
-            3 * self.angle_vect_size + self.pressure_vect_size]
-        prev_state = self.agent_env_memory[
-            mem_id, 3 * self.angle_vect_size + self.pressure_vect_size:
-            -self.reward_vect_size]
-        reward = self.agent_env_memory[-self.reward_vect_size:]
+        action = deepcopy(self.agent_env_memory[mem_id, :self.angle_vect_size])
+        state = deepcopy(
+            self.agent_env_memory[mem_id, self.angle_vect_size:3 * self.
+                                  angle_vect_size + self.pressure_vect_size])
+        prev_state = deepcopy(
+            self.agent_env_memory[mem_id, 3 * self.angle_vect_size + self.
+                                  pressure_vect_size:-self.reward_vect_size])
+        reward = deepcopy(self.agent_env_memory[mem_id,-self.reward_vect_size:])
 
-        action[0:self.angle_vect_size] = (
+        action[0:self.angle_vect_size] = self.num_states_per_angle * (
             action[0:self.angle_vect_size] - self.angle_min_limit) / (
                 self.angle_max_limit - self.angle_min_limit)
-        state[0:self.angle_vect_size] = (
+        state[0:self.angle_vect_size] = self.num_states_per_angle * (
             state[0:self.angle_vect_size] - self.angle_min_limit) / (
                 self.angle_max_limit - self.angle_min_limit)
-        prev_state[0:self.angle_vect_size] = (
+        prev_state[0:self.angle_vect_size] = self.num_states_per_angle * (
             prev_state[0:self.angle_vect_size] - self.angle_min_limit) / (
                 self.angle_max_limit - self.angle_min_limit)
 
         action = action.astype(int)
         state = state.astype(int)
         prev_state = prev_state.astype(int)
+        action = np.clip(action, 0, self.num_states_per_angle - 1)
+        state = np.clip(state, 0, self.num_states_per_angle - 1)
+        prev_state = np.clip(prev_state, 0, self.num_states_per_angle - 1)
         ## actions,angles,der-angles,pressure,prev-angles,prev-der-angles,prev-pressure,reward
 
-        Q = self.Q[prev_state[0], prev_state[1], prev_state[4], action[0],
-                   action[1]]
+        Q = deepcopy(self.Q[prev_state[0], prev_state[1], prev_state[4],
+                            action[0], action[1]])
 
-        q = self.Q[state[0], state[1], state[4]]
+        q = deepcopy(self.Q[state[0], state[1], state[4]])
         maxQ = np.amax(q)
 
         #print(maxQ)
-        Q = Q + self.alpha * ((self.gamma * maxQ) - Q)
+        qp = Q
+        Q = Q + self.alpha * (reward[0] + (self.gamma * maxQ) - Q)
+        if qp is not Q:
+            pass
+            #print(color,
+            #      "Q value at state {} and action {} updated from {} to {}".
+            #      format([prev_state[0], prev_state[1], prev_state[4]],
+            #             [action[0], action[1]], qp, Q))
         self.Q[prev_state[0], prev_state[1], prev_state[4], action[0], action[
             1]] = Q
 
-    def take_immediate_action(self, state):
-        if (self.cycle_id-self.reset_id) >=self.steps_per_episode:
-            cycle_id=self.cycle_id
+    def take_immediate_action(self, rec_state):
+        state = deepcopy(rec_state)
+        if (self.cycle_id - self.reset_id) >= self.steps_per_episode:
+            cycle_id = self.cycle_id
             self.env_reset()
-            print(color,"episode {} finished with total reward {}".format(self.episode_num,self.agent_env_memory[cycle_id,-self.reward_vect_size:]))
-            self.episode_num+=1
+            print(color, "episode {} finished with total reward {}".format(
+                self.episode_num,
+                self.agent_env_memory[cycle_id, -self.reward_vect_size:]))
+            self.episode_num += 1
             #self.save_Q()
         else:
             self.cycle_id = (self.cycle_id + 1) % self.memory_length
 
             #print(color, "state_in_obs", state)
+            self.epsilon = max(self.epsilon_min,
+                               self.epsilon * self.epsilon_decay)
             if random.random() < self.epsilon:
                 action = (self.num_states_per_angle * np.random.rand(
                     self.angle_vect_size))
                 action = action.astype(int)
                 #print(color,"random_action_1",action)
             else:
-                state[0:self.angle_vect_size] = (
+                state[0:self.angle_vect_size] = self.num_states_per_angle * (
                     state[0:self.angle_vect_size] - self.angle_min_limit) / (
                         self.angle_max_limit - self.angle_min_limit)
                 state = state.astype(int)
@@ -226,6 +244,7 @@ class Agent():
                 action = i
                 #print("best action",action)
                 action = action.astype(int)
+                action=action.reshape((self.action_space_size))
                 #print(color,"random_action_2",action)
             ######## actor network predict #########
 
@@ -237,7 +256,6 @@ class Agent():
 
     def get_obs_action(self):
         while True:
-
             try:
                 while self.agent_obs_que.empty() is False:
                     responce_obs, obs_id = self.agent_obs_que.get()
@@ -254,23 +272,29 @@ class Agent():
                             (obs_id - 1) % self.memory_length
                         ), self.angle_vect_size:2 * self.angle_vect_size],
                          pressure))
-
+                    #print(color, "recieved obs", actions, angle, pressure)
                     ################ take_immediate_action although reward is pending #################
                     self.take_immediate_action(state)
-
                     prev_state = self.agent_env_memory[
                         ((obs_id - 1) % self.memory_length
                          ), self.angle_vect_size:
                         3 * self.angle_vect_size + self.pressure_vect_size]
                     ## actions,angles,der-angles,pressure,prev-angles,prev-der-angles,prev-pressure,reward
-
-                    descrete_action= (actions[0:self.angle_vect_size] - self.angle_min_limit) / (self.angle_max_limit - self.angle_min_limit)
-                    prev_descrete_action= (self.agent_env_memory[(obs_id-1+self.memory_length)%self.memory_length,0:self.angle_vect_size] - self.angle_min_limit) / (self.angle_max_limit - self.angle_min_limit)
+                    #print(color, "state pre", prev_state)
+                    descrete_action = (actions - self.angle_min_limit) / (
+                        self.angle_max_limit - self.angle_min_limit)
+                    prev_descrete_action = (
+                        self.agent_env_memory[(
+                            obs_id - 1 + self.memory_length
+                        ) % self.memory_length, 0:self.angle_vect_size] -
+                        self.angle_min_limit) / (
+                            self.angle_max_limit - self.angle_min_limit)
                     if descrete_action is not prev_descrete_action:
-                        self.total_movement_cost+=self.movement_cost
+                        self.total_movement_cost += self.movement_cost
                     self.agent_env_memory[obs_id] = np.concatenate(
-                        (actions, state, prev_state, [self.total_movement_cost])) #
-
+                        (actions, state, prev_state,
+                         [self.total_movement_cost]))  #
+                    #print(color, "saved in mem", (actions, state, prev_state,[self.total_movement_cost]))
                     #new_state=np.concatenate((angle,angle-self.last_angles))
 
                 while self.agent_reward_que.empty() is False:
@@ -292,8 +316,8 @@ class Agent():
 
     def env_reset(self):
         self.cycle_id = (self.cycle_id + 1) % self.memory_length
-        self.reset_id=self.cycle_id
-        self.total_movement_cost=0
+        self.reset_id = self.cycle_id
+        self.total_movement_cost = 0
         self.act(self.default_action)
 
     def act(self, action):
