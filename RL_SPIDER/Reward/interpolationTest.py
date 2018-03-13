@@ -18,8 +18,4 @@ for i in range(0,1000):
 	ynew = interpolateReward(xnew, x, y)
 stop = time.time()
 
-print(start)
-print(stop)
-print(stop - start)
-plt.plot(x, y, 'o', xnew, ynew, '*')
-plt.show()
+t  =np.array(0.3)

@@ -70,7 +70,7 @@ def main():
     multiprocessing.freeze_support()
 
     config = read_config('config_crawler.json')
-    self.config['Env_config']['env_cycle_delay']=0.01
+    config['Env_config']['env_cycle_delay']=0.01
     config = arg_parser(config)
     save_config(config, 'config_crawler.json')
 

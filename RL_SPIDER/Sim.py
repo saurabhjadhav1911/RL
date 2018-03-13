@@ -73,7 +73,7 @@ class Sim():
         self.vect_size = self.angle_vect_size + self.pressure_vect_size + self.reward_vect_size
         self.action_space_size = self.angle_vect_size
         self.batch_size = self.config['Sim_config']['batch_size']
-        self.img_size = [900, 1600]
+        self.img_size = [500, 1600]
 
         self.output_mem_angles = deque(maxlen=self.seq_size)
         self.output_mem_pressure = deque(maxlen=self.seq_size)
@@ -110,7 +110,7 @@ class Sim():
         self.ax.set_ylim3d([0.0, 200.0])
         self.ax.set_zlim3d([0.0, 1.0])
 
-        self.centre_pivot = [300, 400]
+        self.centre_pivot = [300, 250]
         self.offset = [700, 0]
         self.angle_offset_1 = 0
         self.angle_offset_2 = 0
@@ -118,8 +118,8 @@ class Sim():
         self.reward_k = 1
         self.k_reward = 1000
 
-        self.l1 = 150
-        self.l2 = 150
+        self.l1 = 75
+        self.l2 = 75
         #self.fig.canvas.draw()
 
         print(color, 'Sim created')
@@ -134,8 +134,7 @@ class Sim():
                   'Math Simulator weights not loaded due to {}'.format(e))
 
     def save_model(self):
-        self.model.save_weights("Models/Crawler_Math_Sim_Model_" + str(
-            self.config['Sim_config']['saved_model_index']) + ".model")
+        self.model.save_weights("Models/Crawler_Math_Sim_Model_" + str(self.config['Sim_config']['saved_model_index']) + ".model")
         print(color, 'weights saved')
 
     def create_generalised_model(self, rec_size, fc_size):
@@ -163,8 +162,7 @@ class Sim():
         sub_last_layer = Dense(10)(lstm_layer_2)
 
         ### splitting last layer
-        output_angles = Dense(self.angle_vect_size)(
-            sub_last_layer)  #analog output
+        output_angles = Dense(self.angle_vect_size)(sub_last_layer)  #analog output
         output_pressure = Dense(
             self.pressure_vect_size,
             activation='sigmoid')(sub_last_layer)  #binary output
@@ -182,16 +180,22 @@ class Sim():
 
         model._make_predict_function()
         return model
+
     def create_model_2(self):
-        rec_model = Sequential()
-        rec_model.add(LSTM(10, return_sequences=True, input_shape=(None, self.action_space_size)))
-        rec_model.add(LSTM(10, return_sequences=True))
-        rec_model.add(Dense(10))
-        
+        angle_model = Sequential()
+        angle_model.add(
+            LSTM(
+                10,
+                return_sequences=True,
+                input_shape=(None, self.action_space_size)))
+        angle_model.add(LSTM(10, return_sequences=True))
+        angle_model.add(Dense(10))
+        angle_model.add(Dense(self.angle_vect_size))
+
         model.compile(loss='mse', optimizer='rmsprop', metrics=['accuracy'])
         model._make_predict_function()
         input_layer = Input(shape=(None, self.action_space_size))
-        
+
         sub_last_layer = Dense(10)(lstm_layer_2)
 
         ### splitting last layer
@@ -277,7 +281,7 @@ class Sim():
                             self.y_train,
                             epochs=1,
                             batch_size=1,
-                            verbose=0,
+                            verbose=2,
                             validation_data=(self.x_train, self.y_train))
                         #print(color, "train end")
                         n += 1
@@ -318,7 +322,8 @@ class Sim():
         #obs_reward = obs_reward / self.k_reward
         #predicted_obs_reward = predicted_obs_reward / self.k_reward ##pixels
 
-        self.draw_leg(img, obs_angles[0], obs_angles[1], 100, obs_pressure)
+        self.draw_leg(img, obs_angles[0], obs_angles[1], obs_reward,
+                      obs_pressure)
         self.draw_leg(img, predicted_obs_angles[0], predicted_obs_angles[1],
                       100 + self.offset[0],
                       predicted_obs_reward)  #(self.reward_k * yt[3])
@@ -356,11 +361,11 @@ class Sim():
 
     def generate_step(self, send_que):
         while True:
-            self.val[0] = 180 - self.val[0]
+            self.val[1] = -180 - self.val[1]
             send_que.put(self.val)
             print(color, self.val)
             time.sleep(1)
-            self.val[1] = 180 - self.val[1]
+            self.val[0] = 180 - self.val[0]
             send_que.put(self.val)
             print(color, self.val)
             time.sleep(1)
@@ -368,12 +373,12 @@ class Sim():
     def run(self, recieve_que, send_que, agent_obs_que, agent_reward_que,
             agent_action_que):
 
-        #Thread(target=self.generate_step, args=(send_que, )).start()
+        Thread(target=self.generate_step, args=(send_que, )).start()
         train_process = Thread(target=self.train, args=(self.default_graph, ))
-        #train_process.start()
+        train_process.start()
 
         self.store_obs_from_env(recieve_que, self.default_graph)
-        #train_process.join()
+        train_process.join()
         cv2.destroyAllWindows()
 
     def denormalise(self, x, mn, mx):
@@ -469,7 +474,7 @@ class Sim():
                                               self.action_space_size)),
                         default_graph)
 
-                    predicted_obs_pressure[:,:,:]=0
+                    #predicted_obs_pressure[:, :, :] = 0
                     ## normalised predicted output by the math simulator
                     #print(color,'p pred',predicted_obs_reward)
                     last_predicted_obs_angles, last_predicted_obs_pressure, last_predicted_obs_reward = predicted_obs_angles[
@@ -486,6 +491,7 @@ class Sim():
                         obs_pressure[:, 0], predicted_obs_pressure[0, :, 0],
                         obs_reward[:, 0], predicted_obs_reward[0, :, 0]
                     ])
+                    print(color,'p pred',last_predicted_obs_angles,last_predicted_obs_pressure,last_predicted_obs_reward * self.k_reward)
 
                     ## render with actuaal degrres and pixel values
                     '''
@@ -496,7 +502,16 @@ class Sim():
                         last_predicted_obs_angles * 180.0,
                         last_predicted_obs_pressure,
                         last_predicted_obs_reward * self.k_reward
-                    ])'''
+                    ])
+                    '''
+                    self.render_sim([
+                        last_obs_angles * 180.0, last_obs_pressure,
+                        0
+                    ], [
+                        last_predicted_obs_angles * 180.0,
+                        last_predicted_obs_pressure,
+                        0
+                    ])
                     #print(color, "y yt", last_predicted_obs_angles,last_action_input)
 
             except Exception as e:
@@ -512,23 +527,6 @@ class Sim():
 def main():
     config = read_config('config_crawler.json')
     sim = Sim(config)
-    img = 255 * np.ones((900, 1400), dtype=np.uint8)
-    sim.draw_leg(img, np.pi / 2 + 0, 0, 20, 0)
-    cv2.imshow('window', img)
-    cv2.waitKey(0)
-    img = 255 * np.ones((900, 1400), dtype=np.uint8)
-    sim.draw_leg(img, np.pi / 2 + np.pi / 4, 0, 40, 0)
-    cv2.imshow('window', img)
-    cv2.waitKey(0)
-    img = 255 * np.ones((900, 1400), dtype=np.uint8)
-    sim.draw_leg(img, np.pi / 2 + np.pi / 2, np.pi / 2, 60, 1)
-    cv2.imshow('window', img)
-    cv2.waitKey(0)
-    img = 255 * np.ones((900, 1400), dtype=np.uint8)
-    sim.draw_leg(img, np.pi / 2 + 0, np.pi / 2, 80, 1)
-    cv2.imshow('window', img)
-    cv2.waitKey(0)
-
 
 if __name__ == '__main__':
     main()
