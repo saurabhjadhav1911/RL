@@ -147,17 +147,15 @@ class Agent():
 
     def load_Q(self):
         try:
-            Q = np.load("Models/Crawler_Q_Agent" + str(
-                self.config['Agent_config']['saved_model_index']) + ".npy")
+            Q = np.load("Models/Crawler_Q_Agent_" + str(
+                self.config['Agent_config']['saved_Q_index']) + ".npy")
             self.Q = Q
             print(color, 'Q values loaded ')
         except Exception as e:
             print(color, 'Q values not loaded due to {}'.format(e))
 
     def save_Q(self):
-        np.save("Models/Crawler_Q_Agent" +
-                str(self.config['Agent_config']['saved_model_index']) + ".npy",
-                self, self.Q)
+        np.save("Models/Crawler_Q_Agent_" +str(self.config['Agent_config']['saved_Q_index']) + ".npy",self.Q)
         print(color, 'Q values saved')
 
     def update_Q(self, mem_id):
@@ -215,7 +213,7 @@ class Agent():
                 self.episode_num,
                 self.agent_env_memory[cycle_id, -self.reward_vect_size:]))
             self.episode_num += 1
-            #self.save_Q()
+            self.save_Q()
         else:
             self.cycle_id = (self.cycle_id + 1) % self.memory_length
 
@@ -232,6 +230,7 @@ class Agent():
                     state[0:self.angle_vect_size] - self.angle_min_limit) / (
                         self.angle_max_limit - self.angle_min_limit)
                 state = state.astype(int)
+                state = np.clip(state, 0, self.num_states_per_angle - 1)
                 q = self.Q[state[0], state[1], state[4]]
                 maxQ = np.amax(q)
                 count = (q == maxQ).sum()
@@ -389,7 +388,7 @@ def Agent_process_target(agent_obs_que, agent_reward_que, agent_action_que,
     #agent.run()
 
 
-def main():
+def main2():
 
     multiprocessing.freeze_support()
 
@@ -404,6 +403,20 @@ def main():
 
     Agent_process_target(agent_obs_que, agent_reward_que, agent_action_que,
                          config)
+def main():
+
+    multiprocessing.freeze_support()
+
+    config = read_config('config_crawler.json')
+    config['Env_config']['env_cycle_delay'] = 0.01
+    config = arg_parser(config)
+    save_config(config, 'config_crawler.json')
+
+    agent_obs_que = multiprocessing.Queue()
+    agent_reward_que = multiprocessing.Queue()
+    agent_action_que = multiprocessing.Queue()
+    agent = Agent(agent_obs_que, agent_reward_que, agent_action_que,config)
+    agent.save_Q()
 
 
 if __name__ == '__main__':

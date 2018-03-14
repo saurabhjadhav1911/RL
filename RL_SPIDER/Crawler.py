@@ -16,7 +16,7 @@ class Crawler():
         self.env_cycle_delay=self.config['Env_config']['env_cycle_delay']
         self.l1 = l1 or 75.0
         self.l2 = l2 or 75.0
-        self.K = 0.1
+        self.K = 0.5
         self.av = [0, 0]
         self.pav = 0
         self.val = [0, 0]
@@ -96,8 +96,8 @@ class Crawler():
 
         
         img = 255 * np.ones((self.img_size), dtype=np.uint8)
-        #self.draw_leg(img, t1, t2, x, p)
-        #self.render(img)
+        self.draw_leg(img, t1, t2, x, p)
+        self.render(img)
 
         for s in range(self.number_of_states):
 
