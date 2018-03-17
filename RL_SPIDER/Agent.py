@@ -66,12 +66,12 @@ class Agent():
         self.tau = .125
         self.default_action = np.array(
             self.config['Env_config']['default_action'])
-        self.movement_cost = -0.001
+        self.movement_cost = -0.005
         self.total_movement_cost = 0
         self.alpha = 0.8
         self.gamma = 0.9
-        self.epsilon = 1.0
         self.epsilon_min = 0.1
+        self.epsilon = 0.1
         self.sim_cycle_id = 0
         self.cycle_id = 0
         self.reset_id = 0
@@ -155,7 +155,9 @@ class Agent():
             print(color, 'Q values not loaded due to {}'.format(e))
 
     def save_Q(self):
-        np.save("Models/Crawler_Q_Agent_" +str(self.config['Agent_config']['saved_Q_index']) + ".npy",self.Q)
+        np.save("Models/Crawler_Q_Agent_" +
+                str(self.config['Agent_config']['saved_Q_index']) + ".npy",
+                self.Q)
         print(color, 'Q values saved')
 
     def update_Q(self, mem_id):
@@ -166,7 +168,8 @@ class Agent():
         prev_state = deepcopy(
             self.agent_env_memory[mem_id, 3 * self.angle_vect_size + self.
                                   pressure_vect_size:-self.reward_vect_size])
-        reward = deepcopy(self.agent_env_memory[mem_id,-self.reward_vect_size:])
+        reward = deepcopy(
+            self.agent_env_memory[mem_id, -self.reward_vect_size:])
 
         action[0:self.angle_vect_size] = self.num_states_per_angle * (
             action[0:self.angle_vect_size] - self.angle_min_limit) / (
@@ -206,9 +209,11 @@ class Agent():
 
     def take_immediate_action(self, rec_state):
         state = deepcopy(rec_state)
-        if (self.cycle_id - self.reset_id) >= self.steps_per_episode:
+        if ((self.cycle_id + self.memory_length - self.reset_id) %
+                self.memory_length) >= self.steps_per_episode:
             cycle_id = self.cycle_id
             self.env_reset()
+            #print(color, "cycle_id", self.cycle_id)
             print(color, "episode {} finished with total reward {}".format(
                 self.episode_num,
                 self.agent_env_memory[cycle_id, -self.reward_vect_size:]))
@@ -218,8 +223,8 @@ class Agent():
             self.cycle_id = (self.cycle_id + 1) % self.memory_length
 
             #print(color, "state_in_obs", state)
-            self.epsilon = max(self.epsilon_min,
-                               self.epsilon * self.epsilon_decay)
+            #self.epsilon = max(self.epsilon_min,self.epsilon * self.epsilon_decay)
+
             if random.random() < self.epsilon:
                 action = (self.num_states_per_angle * np.random.rand(
                     self.angle_vect_size))
@@ -243,8 +248,8 @@ class Agent():
                 action = i
                 #print("best action",action)
                 action = action.astype(int)
-                action=action.reshape((self.action_space_size))
-                #print(color,"random_action_2",action)
+                action = action.reshape((self.action_space_size))
+                #print(color,"Q_action_2",action)
             ######## actor network predict #########
 
             action_angles = ((action / self.num_states_per_angle) *
@@ -317,7 +322,9 @@ class Agent():
         self.cycle_id = (self.cycle_id + 1) % self.memory_length
         self.reset_id = self.cycle_id
         self.total_movement_cost = 0
+        self.cycle_id = -self.cycle_id
         self.act(self.default_action)
+        self.cycle_id = -self.cycle_id
 
     def act(self, action):
         self.agent_action_que.put([action, self.cycle_id])
@@ -403,6 +410,8 @@ def main2():
 
     Agent_process_target(agent_obs_que, agent_reward_que, agent_action_que,
                          config)
+
+
 def main():
 
     multiprocessing.freeze_support()
@@ -415,7 +424,7 @@ def main():
     agent_obs_que = multiprocessing.Queue()
     agent_reward_que = multiprocessing.Queue()
     agent_action_que = multiprocessing.Queue()
-    agent = Agent(agent_obs_que, agent_reward_que, agent_action_que,config)
+    agent = Agent(agent_obs_que, agent_reward_que, agent_action_que, config)
     agent.save_Q()
 
 

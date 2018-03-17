@@ -56,6 +56,9 @@ class Env():
 
             ############## get action from que ##############
             arr,self.cycle_id = agent_action_que.get()
+            if self.cycle_id<0:
+                self.crawler.reset()
+                print(color,"reset")
             self.crawler.step(arr)
             #print(color,"arr ",arr)
             if (self.config['Env_config']['show_obs']):
