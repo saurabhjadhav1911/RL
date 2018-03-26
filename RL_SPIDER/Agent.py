@@ -66,7 +66,7 @@ class Agent():
         self.tau = .125
         self.default_action = np.array(
             self.config['Env_config']['default_action'])
-        self.movement_cost = -1.0
+        self.movement_cost = -5.0
         self.total_movement_cost = 0
         self.alpha = 0.8
         self.gamma = 0.9
@@ -103,7 +103,16 @@ class Agent():
                 int(np.cos(2 * i * np.pi / self.num_actions) / 0.6),
                 int(np.sin(2 * i * np.pi / self.num_actions) / 0.6)
             ]
+
+        self.diag_actions = np.zeros((self.num_actions,
+                                      self.action_space_size))
+        for i in range(self.num_actions):
+            self.diag_actions[i] = [
+                int(np.cos(2 * (i + 0.5) * np.pi / self.num_actions) / 0.6),
+                int(np.sin(2 * (i + 0.5) * np.pi / self.num_actions) / 0.6)
+            ]
         print(color, "actions", self.actions)
+        print(color, "diag actions", self.diag_actions)
         self.num_states_per_angle = 10
         self.num_states_per_pressure = 2
         self.Q = np.zeros(
@@ -120,6 +129,15 @@ class Agent():
         _,_,self.target_critic_model = self.create_critic_model()
 
         self.default_graph = tf.get_default_graph()'''
+        self.pixelpercell = 80
+        self.pause = 25
+        self.img = np.zeros([
+            self.pixelpercell * self.num_states_per_angle,
+            2 * self.pixelpercell * self.num_states_per_angle, 3
+        ], np.uint8)
+        self.img = self.generate_background()
+        self.fig = plt.gcf()
+        self.ax = self.fig.gca(projection='3d')
 
     def run(self):
         #self.consumer_test()
@@ -141,6 +159,22 @@ class Agent():
                       responce_reward)
             #self.episode()
 
+    def generate_background(self):
+        self.img[:, :, :] = 255
+        c = self.img.shape[0]
+
+        for i in range(1, self.num_states_per_angle):
+            a = int(c * i / self.num_states_per_angle)
+            cv2.line(self.img, (0, a), (self.img.shape[1], a), [0, 0, 0], 2)
+        c = self.img.shape[1]
+        for i in range(1, self.num_states_per_angle):
+            a = int(c * i / self.num_states_per_angle)
+            cv2.line(self.img, (a, 0), (a, self.img.shape[0]), [0, 0, 0], 2)
+
+        cv2.imshow('Environment', self.img)
+        #cv2.waitKey(0)
+        return self.img
+
     def generate_step(self):
         while True:
             self.val[0] = 90 - self.val[0]
@@ -153,6 +187,126 @@ class Agent():
             self.cycle_id += 1
             print(color, self.val)
             time.sleep(1)
+
+    def render(self, pos):
+        self.env = self.generate_background()
+        a = int(self.pixelpercell * pos[0])
+        c = int(self.pixelpercell * (pos[0] + 1))
+        b = int(self.pixelpercell * (2 * pos[1] + pos[2]))
+        d = int(self.pixelpercell * (2 * pos[1] + 1 + pos[2]))
+        cv2.rectangle(
+            self.env, (b + 20, a + 20), (d - 20, c - 20), [255, 255, 0],
+            thickness=-1)
+        maxq=np.max(self.Q)
+        minq=np.min(self.Q)
+        #print(maxq,minq)
+        #print(self.Q.shape)
+        for i in range(self.num_states_per_angle):
+            for j in range(self.num_states_per_angle):
+                c = self.pixelpercell * (i + 0.54)
+                d = self.pixelpercell * (2 * j + 0.28 + 1)
+
+                for ac in range(self.num_actions):
+                    a = c + self.pixelpercell * 0.225 * self.actions[ac][0]
+                    b = d + self.pixelpercell * 0.225 * self.actions[ac][1]
+                    try:
+                        h=int(255*((self.Q[i,j,1,ac]-minq)/(maxq-minq)))
+                    except:
+                        h=0
+                    #print(self.Q[i,j,1,ac])
+                    rgb=cv2.cvtColor(np.array([[[h,255,255]]],np.uint8),cv2.COLOR_HSV2BGR)[0,0]
+                    rgb=[int(rgb[0]),int(rgb[1]),int(rgb[2])]
+                    cv2.putText(
+                        self.env,
+                        str(int(self.Q[i][j][0][ac]) / 100.0)[0:5],
+                        #str(ac),
+                        (int(b), int(a)), cv2.FONT_HERSHEY_PLAIN, 0.8,
+                        (0, 0, 0), 1)
+                    center = (int(self.pixelpercell * (2 * j + 1.5)),
+                              int(self.pixelpercell * (i + 0.5)))
+                    
+                    '''
+                    cv2.circle(
+                        self.env,
+                        (center[0] +
+                         int(self.diag_actions[ac % self.num_actions, 0] * self.pixelpercell / 2),
+                         center[1] +
+                         int(-self.diag_actions[ac % self.num_actions, 1] * self.pixelpercell / 2)),
+                        10, [255, 0, 0], -1)
+                    cv2.circle(
+                        self.env,
+                        (center[0] +
+                         int(self.diag_actions[(ac - 1) % self.num_actions, 0] *
+                             self.pixelpercell / 2), center[1] +
+                         int(-self.diag_actions[(ac - 1) % self.num_actions, 1] *
+                             self.pixelpercell / 2)), 15, [0, 0, 255], -1)
+                    cv2.fillPoly(self.env, [np.array([[
+                        int(center[0]),
+                        int(center[1])
+                    ], [
+                        center[0] +
+                        int(self.diag_actions[ac % self.num_actions, 0] * self.pixelpercell / 2),
+                        center[1] +
+                        int(-self.diag_actions[ac % self.num_actions, 1] * self.pixelpercell / 2)
+                    ], [
+                        center[0] +
+                        int(self.diag_actions[(ac - 1) % self.num_actions, 0] *
+                            self.pixelpercell / 2),
+                        center[1] + int(-self.diag_actions[(
+                            ac - 1) % self.num_actions, 1] * self.pixelpercell / 2)
+                    ]],np.int32)],rgb) 
+                    cv2.circle(self.env, center, 10, [0, 255, 255], -1)'''
+                c = self.pixelpercell * (i + 0.54)
+                d = self.pixelpercell * (2 * j + 0.28)
+                for ac in range(self.num_actions):
+                    a = c + self.pixelpercell * 0.225 * self.actions[ac][0]
+                    b = d + self.pixelpercell * 0.225 * self.actions[ac][1]
+                    cv2.putText(
+                        self.env,
+                        str(int(100.00 * self.Q[i][j][1][ac]) / 100.0)[0:-1],
+                        #str(ac),
+                        (int(b), int(a)), cv2.FONT_HERSHEY_PLAIN, 0.8,
+                        (0, 0, 0), 1)
+                    center = (int(self.pixelpercell * (2 * j + 0.5)),
+                              int(self.pixelpercell * (i + 0.5)))
+                    '''
+                    cv2.circle(
+                        self.env,
+                        (center[0] +
+                         int(self.diag_actions[ac % self.num_actions, 0] * self.pixelpercell / 2),
+                         center[1] +
+                         int(-self.diag_actions[ac % self.num_actions, 1] * self.pixelpercell / 2)),
+                        10, [255, 0, 0], -1)
+                    cv2.circle(
+                        self.env,
+                        (center[0] +
+                         int(self.diag_actions[(ac - 1) % self.num_actions, 0] *
+                             self.pixelpercell / 2), center[1] +
+                         int(-self.diag_actions[(ac - 1) % self.num_actions, 1] *
+                             self.pixelpercell / 2)), 15, [0, 0, 255], -1)
+                    cv2.fillPoly(self.env, [np.array([[
+                        int(center[0]),
+                        int(center[1])
+                    ], [
+                        center[0] +
+                        int(self.diag_actions[ac % self.num_actions, 0] * self.pixelpercell / 2),
+                        center[1] +
+                        int(-self.diag_actions[ac % self.num_actions, 1] * self.pixelpercell / 2)
+                    ], [
+                        center[0] +
+                        int(self.diag_actions[(ac - 1) % self.num_actions, 0] *
+                            self.pixelpercell / 2),
+                        center[1] + int(-self.diag_actions[(
+                            ac - 1) % self.num_actions, 1] * self.pixelpercell / 2)
+                    ]],np.int32)],(255,255,0)) 
+                    cv2.circle(self.env, center, 10, [0, 255, 255], -1)
+                    '''
+        #center = (int(self.pixelpercell * (2 * pos[1] + 0.5)),int(self.pixelpercell * (pos[0] + 0.5)))
+        #cv2.circle(self.env, center, 10, [0, 0, 255], -1)
+
+        cv2.imshow('Environment', self.env)
+        #cv2.imwrite("{}E{},jpg".format(self.epoch_num,self.cycle_num),self.env)
+        cv2.waitKey(self.pause)
 
     def load_Q(self):
         try:
@@ -322,7 +476,9 @@ class Agent():
             cycle_id = self.cycle_id
             self.env_reset()
             #print(color, "cycle_id", self.cycle_id)
-            print(color, "episode {} finished with total reward {}".format(self.episode_num,self.agent_env_memory[cycle_id, -self.reward_vect_size:]))
+            print(color, "episode {} finished with total reward {}".format(
+                self.episode_num,
+                self.agent_env_memory[cycle_id, -self.reward_vect_size:]))
             self.episode_num += 1
             self.save_Q()
         else:
@@ -366,6 +522,7 @@ class Agent():
                               )) + self.action_min_limit
             #print(color,"action_angles",action_angles)
             self.act(action_angles)
+            self.render([state[0], state[1], state[4]])
 
     def get_obs_action(self):
         while True:
@@ -534,6 +691,8 @@ def main():
     agent_reward_que = multiprocessing.Queue()
     agent_action_que = multiprocessing.Queue()
     agent = Agent(agent_obs_que, agent_reward_que, agent_action_que, config)
+    agent.render([5, 5, 0])
+    cv2.waitKey(0)
     agent.save_Q()
 
 
