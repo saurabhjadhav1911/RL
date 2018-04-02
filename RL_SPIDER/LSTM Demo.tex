@@ -1,0 +1,814 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass[11pt]{article}
+
+    
+    
+    \usepackage[T1]{fontenc}
+    % Nicer default font (+ math font) than Computer Modern for most use cases
+    \usepackage{mathpazo}
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % We will generate all images so they have a width \maxwidth. This means
+    % that they will get their normal width if they fit onto the page, but
+    % are scaled down if they would overflow the margins.
+    \makeatletter
+    \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+    \else\Gin@nat@width\fi}
+    \makeatother
+    \let\Oldincludegraphics\includegraphics
+    % Set max figure width to be 80% of text width, for now hardcoded.
+    \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=.8\maxwidth]{#1}}
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionLabelFormat{nolabel}{}
+    \captionsetup{labelformat=nolabel}
+
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    
+
+    
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{LSTM Demo}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    \hypertarget{generating-text-using-an-lstm-network-no-libraries}{%
+\section{Generating Text using an LSTM Network (No
+libraries)}\label{generating-text-using-an-lstm-network-no-libraries}}
+
+\hypertarget{demo}{%
+\subsection{Demo}\label{demo}}
+
+We'll train an LSTM network built in pure numpy to generate Eminem
+lyrics. LSTMs are a fairly simple extension to neural networks, and
+they're behind a lot of the amazing achievements deep learning has made
+in the past few years.
+
+\hypertarget{what-is-a-recurrent-network}{%
+\subsection{What is a Recurrent
+Network?}\label{what-is-a-recurrent-network}}
+
+Recurrent nets are cool, they're useful for learning sequences of data.
+Input. Hidden state. Output.
+\includegraphics{http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-rolled.png}
+
+It has a weight matrix that connects input to hidden state. But also a
+weight matrix that connects hidden state to hidden state at previous
+time step.
+\includegraphics{https://iamtrask.github.io/img/basic_recurrence_singleton.png}
+
+So we could even think of it as the same feedforward network connecting
+to itself overtime (unrolled) since passing in not just input in next
+training iteration but input + previous hidden state
+\includegraphics{http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-unrolled.png}
+
+\hypertarget{the-problem-with-recurrent-networks}{%
+\subsection{The Problem with Recurrent
+Networks}\label{the-problem-with-recurrent-networks}}
+
+If we want to predict the last word in the sentence ``The grass is
+green'', that's totally doable.
+\includegraphics{http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-shorttermdepdencies.png}
+
+But if we want to predict the last word in the sentence ``I am French
+(2000 words later) i speak fluent French''. We need to be able to
+remember long range dependencies. RNN's are bad at this. They forget the
+long term past easily.
+\includegraphics{http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-longtermdependencies.png}
+
+This is called the ``Vanishing Gradient Problem''. The Gradient
+exponentially decays as its backpropagated
+\includegraphics{http://slideplayer.com/slide/5251503/16/images/6/Recurrent+Neural+Networks.jpg}
+\includegraphics{https://cdn-images-1.medium.com/max/1600/1*8JJ6sYleUtvUZR7TOyyFVg.png}
+
+There are two factors that affect the magnitude of gradients - the
+weights and the activation functions (or more precisely, their
+derivatives) that the gradient passes through.If either of these factors
+is smaller than 1, then the gradients may vanish in time; if larger than
+1, then exploding might happen.
+
+But there exists a solution! Enter the LSTM Cell.
+
+\hypertarget{the-lstm-cell-long-short-term-memory-cell}{%
+\subsection{The LSTM Cell (Long-Short Term Memory
+Cell)}\label{the-lstm-cell-long-short-term-memory-cell}}
+
+We've placed no constraints on how our model updates, so its knowledge
+can change pretty chaotically: at one frame it thinks the characters are
+in the US, at the next frame it sees the characters eating sushi and
+thinks they're in Japan, and at the next frame it sees polar bears and
+thinks they're on Hydra Island.
+
+This chaos means information quickly transforms and vanishes, and it's
+difficult for the model to keep a long-term memory. So what you'd like
+is for the network to learn how to update its beliefs (scenes without
+Bob shouldn't change Bob-related information, scenes with Alice should
+focus on gathering details about her), in a way that its knowledge of
+the world evolves more gently.
+
+It replaces the normal RNN cell and uses an input, forget, and output
+gate. As well as a cell state
+\includegraphics{https://www.researchgate.net/profile/Mohsen_Fayyaz/publication/306377072/figure/fig2/AS:398082849165314@1471921755580/Fig-2-An-example-of-a-basic-LSTM-cell-left-and-a-basic-RNN-cell-right-Figure.ppm}
+
+\includegraphics{https://kijungyoon.github.io/assets/images/lstm.png}
+These gates each have their own set of weight values. The whole thing is
+differentiable (meaning we compute gradients and update the weights
+using them) so we can backprop through it
+
+We want our model to be able to know what to forget, what to remember.
+So when new a input comes in, the model first forgets any long-term
+information it decides it no longer needs. Then it learns which parts of
+the new input are worth using, and saves them into its long-term memory.
+
+And instead of using the full long-term memory all the time, it learns
+which parts to focus on instead.
+
+Basically, we need mechanisms for forgetting, remembering, and
+attention. That's what the LSTM cell provides us.
+
+Whereas a vanilla RNN uses one equation to update its hidden
+state/memory: \includegraphics{http://i.imgur.com/nT4VBPf.png}
+
+Which piece of long term memory to remember and forget? We'll use new
+input and working memory to learn remember gate. Which part of new data
+should we use and save? Update working memory using attention vector.
+
+\begin{itemize}
+\tightlist
+\item
+  The long-term memory, is usually called the cell state,
+\item
+  The working memory, is usually called the hidden state. This is
+  analogous to the hidden state in vanilla RNNs.
+\item
+  The remember vector, is usually called the forget gate (despite the
+  fact that a 1 in the forget gate still means to keep the memory and a
+  0 still means to forget it),
+\item
+  The save vector, is usually called the input gate (as it determines
+  how much of the input to let into the cell state),
+\item
+  The focus vector, is usually called the output gate )
+\end{itemize}
+
+\hypertarget{use-cases}{%
+\subsection{Use cases}\label{use-cases}}
+
+Video
+\href{https://www.youtube.com/watch?time_continue=14\&v=mLxsbWAYIpw}{\includegraphics{http://img.youtube.com/vi/mLxsbWAYIpw/0.jpg}}
+
+The most popular application right now is actually in natural language
+processing which involves sequential data such as words, sentences,
+sound spectrogram, etc. So applications with translation, sentiment
+analysis, text generation, etc.
+
+In other less obvious areas there's also applications of lstm. Such as
+for image classification (feeding each picture's pixel in row by row).
+And even for deepmind's deep Q Learning agents.
+
+\hypertarget{other-great-examples}{%
+\subsection{Other great examples}\label{other-great-examples}}
+
+Speech recognition Tensorflow -
+https://github.com/zzw922cn/Automatic\_Speech\_Recognition LSTM
+visualization - https://github.com/HendrikStrobelt/LSTMVis
+
+    \hypertarget{steps}{%
+\subsubsection{Steps}\label{steps}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Build RNN class
+\item
+  Build LSTM Cell Class
+\item
+  Data Loading Functions
+\item
+  Training time!
+\end{enumerate}
+
+\begin{figure}
+\centering
+\includegraphics{http://eric-yuan.me/wp-content/uploads/2015/06/5.jpg}
+\caption{alt text}
+\end{figure}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}6}]:} \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
+        
+        \PY{k}{class} \PY{n+nc}{RecurrentNeuralNetwork}\PY{p}{:}
+            \PY{c+c1}{\PYZsh{}input (word), expected output (next word), num of words (num of recurrences), array expected outputs, learning rate}
+            \PY{k}{def} \PY{n+nf}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}} \PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{xs}\PY{p}{,} \PY{n}{ys}\PY{p}{,} \PY{n}{rl}\PY{p}{,} \PY{n}{eo}\PY{p}{,} \PY{n}{lr}\PY{p}{)}\PY{p}{:}
+                \PY{c+c1}{\PYZsh{}initial input (first word)}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{x} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{n}{xs}\PY{p}{)}
+                \PY{c+c1}{\PYZsh{}input size }
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{xs} \PY{o}{=} \PY{n}{xs}
+                \PY{c+c1}{\PYZsh{}expected output (next word)}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{y} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{n}{ys}\PY{p}{)}
+                \PY{c+c1}{\PYZsh{}output size}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ys} \PY{o}{=} \PY{n}{ys}
+                \PY{c+c1}{\PYZsh{}weight matrix for interpreting results from LSTM cell (num words x num words matrix)}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{w} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{random}\PY{p}{(}\PY{p}{(}\PY{n}{ys}\PY{p}{,} \PY{n}{ys}\PY{p}{)}\PY{p}{)}
+                \PY{c+c1}{\PYZsh{}matrix used in RMSprop}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{G} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros\PYZus{}like}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{w}\PY{p}{)}
+                \PY{c+c1}{\PYZsh{}length of the recurrent network \PYZhy{} number of recurrences i.e num of words}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{rl} \PY{o}{=} \PY{n}{rl}
+                \PY{c+c1}{\PYZsh{}learning rate }
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{lr} \PY{o}{=} \PY{n}{lr}
+                \PY{c+c1}{\PYZsh{}array for storing inputs}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ia} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n}{rl}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{xs}\PY{p}{)}\PY{p}{)}
+                \PY{c+c1}{\PYZsh{}array for storing cell states}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ca} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n}{rl}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{ys}\PY{p}{)}\PY{p}{)}
+                \PY{c+c1}{\PYZsh{}array for storing outputs}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{oa} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n}{rl}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{ys}\PY{p}{)}\PY{p}{)}
+                \PY{c+c1}{\PYZsh{}array for storing hidden states}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ha} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n}{rl}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{ys}\PY{p}{)}\PY{p}{)}
+                \PY{c+c1}{\PYZsh{}forget gate }
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{af} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n}{rl}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{ys}\PY{p}{)}\PY{p}{)}
+                \PY{c+c1}{\PYZsh{}input gate}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ai} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n}{rl}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{ys}\PY{p}{)}\PY{p}{)}
+                \PY{c+c1}{\PYZsh{}cell state}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ac} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n}{rl}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{ys}\PY{p}{)}\PY{p}{)}
+                \PY{c+c1}{\PYZsh{}output gate}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ao} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n}{rl}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{ys}\PY{p}{)}\PY{p}{)}
+                \PY{c+c1}{\PYZsh{}array of expected output values}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{eo} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{vstack}\PY{p}{(}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{n}{eo}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{,} \PY{n}{eo}\PY{o}{.}\PY{n}{T}\PY{p}{)}\PY{p}{)}
+                \PY{c+c1}{\PYZsh{}declare LSTM cell (input, output, amount of recurrence, learning rate)}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{LSTM} \PY{o}{=} \PY{n}{LSTM}\PY{p}{(}\PY{n}{xs}\PY{p}{,} \PY{n}{ys}\PY{p}{,} \PY{n}{rl}\PY{p}{,} \PY{n}{lr}\PY{p}{)}
+            
+            \PY{c+c1}{\PYZsh{}activation function. simple nonlinearity, convert nums into probabilities between 0 and 1}
+            \PY{k}{def} \PY{n+nf}{sigmoid}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{x}\PY{p}{)}\PY{p}{:}
+                \PY{k}{return} \PY{l+m+mi}{1} \PY{o}{/} \PY{p}{(}\PY{l+m+mi}{1} \PY{o}{+} \PY{n}{np}\PY{o}{.}\PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{x}\PY{p}{)}\PY{p}{)}
+            
+            \PY{c+c1}{\PYZsh{}the derivative of the sigmoid function. used to compute gradients for backpropagation}
+            \PY{k}{def} \PY{n+nf}{dsigmoid}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{x}\PY{p}{)}\PY{p}{:}
+                \PY{k}{return} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{sigmoid}\PY{p}{(}\PY{n}{x}\PY{p}{)} \PY{o}{*} \PY{p}{(}\PY{l+m+mi}{1} \PY{o}{\PYZhy{}} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{sigmoid}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{)}    
+            
+            \PY{c+c1}{\PYZsh{}lets apply a series of matrix operations to our input (curr word) to compute a predicted output (next word)}
+            \PY{k}{def} \PY{n+nf}{forwardProp}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+                \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{rl}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{:}
+                    \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{LSTM}\PY{o}{.}\PY{n}{x} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ha}\PY{p}{[}\PY{n}{i}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{x}\PY{p}{)}\PY{p}{)}
+                    \PY{n}{cs}\PY{p}{,} \PY{n}{hs}\PY{p}{,} \PY{n}{f}\PY{p}{,} \PY{n}{c}\PY{p}{,} \PY{n}{o} \PY{o}{=} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{LSTM}\PY{o}{.}\PY{n}{forwardProp}\PY{p}{(}\PY{p}{)}
+                    \PY{c+c1}{\PYZsh{}store computed cell state}
+                    \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ca}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n}{cs}
+                    \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ha}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n}{hs}
+                    \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{af}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n}{f}
+                    \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ai}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n}{inp}
+                    \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ac}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n}{c}
+                    \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ao}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n}{o}
+                    \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{oa}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{sigmoid}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{dot}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{w}\PY{p}{,} \PY{n}{hs}\PY{p}{)}\PY{p}{)}
+                    \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{x} \PY{o}{=} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{eo}\PY{p}{[}\PY{n}{i}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}
+                \PY{k}{return} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{oa}
+           
+            
+            \PY{k}{def} \PY{n+nf}{backProp}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+                \PY{c+c1}{\PYZsh{}update our weight matrices (Both in our Recurrent network, as well as the weight matrices inside LSTM cell)}
+                \PY{c+c1}{\PYZsh{}init an empty error value }
+                \PY{n}{totalError} \PY{o}{=} \PY{l+m+mi}{0}
+                \PY{c+c1}{\PYZsh{}initialize matrices for gradient updates}
+                \PY{c+c1}{\PYZsh{}First, these are RNN level gradients}
+                \PY{c+c1}{\PYZsh{}cell state}
+                \PY{n}{dfcs} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ys}\PY{p}{)}
+                \PY{c+c1}{\PYZsh{}hidden state,}
+                \PY{n}{dfhs} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ys}\PY{p}{)}
+                \PY{c+c1}{\PYZsh{}weight matrix}
+                \PY{n}{tu} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ys}\PY{p}{,}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ys}\PY{p}{)}\PY{p}{)}
+                \PY{c+c1}{\PYZsh{}Next, these are LSTM level gradients}
+                \PY{c+c1}{\PYZsh{}forget gate}
+                \PY{n}{tfu} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ys}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{xs}\PY{o}{+}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ys}\PY{p}{)}\PY{p}{)}
+                \PY{c+c1}{\PYZsh{}input gate}
+                \PY{n}{tiu} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ys}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{xs}\PY{o}{+}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ys}\PY{p}{)}\PY{p}{)}
+                \PY{c+c1}{\PYZsh{}cell unit}
+                \PY{n}{tcu} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ys}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{xs}\PY{o}{+}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ys}\PY{p}{)}\PY{p}{)}
+                \PY{c+c1}{\PYZsh{}output gate}
+                \PY{n}{tou} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ys}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{xs}\PY{o}{+}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ys}\PY{p}{)}\PY{p}{)}
+                \PY{c+c1}{\PYZsh{}loop backwards through recurrences}
+                \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{rl}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{:}
+                    \PY{c+c1}{\PYZsh{}error = calculatedOutput \PYZhy{} expectedOutput}
+                    \PY{n}{error} \PY{o}{=} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{oa}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{\PYZhy{}} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{eo}\PY{p}{[}\PY{n}{i}\PY{p}{]}
+                    \PY{c+c1}{\PYZsh{}calculate update for weight matrix}
+                    \PY{c+c1}{\PYZsh{}(error * derivative of the output) * hidden state}
+                    \PY{n}{tu} \PY{o}{+}\PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{dot}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{atleast\PYZus{}2d}\PY{p}{(}\PY{n}{error} \PY{o}{*} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{dsigmoid}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{oa}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{atleast\PYZus{}2d}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ha}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}\PY{o}{.}\PY{n}{T}\PY{p}{)}
+                    \PY{c+c1}{\PYZsh{}Time to propagate error back to exit of LSTM cell}
+                    \PY{c+c1}{\PYZsh{}1. error * RNN weight matrix}
+                    \PY{n}{error} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{dot}\PY{p}{(}\PY{n}{error}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{w}\PY{p}{)}
+                    \PY{c+c1}{\PYZsh{}2. set input values of LSTM cell for recurrence i (horizontal stack of arrays, hidden + input)}
+                    \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{LSTM}\PY{o}{.}\PY{n}{x} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ha}\PY{p}{[}\PY{n}{i}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ia}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+                    \PY{c+c1}{\PYZsh{}3. set cell state of LSTM cell for recurrence i (pre\PYZhy{}updates)}
+                    \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{LSTM}\PY{o}{.}\PY{n}{cs} \PY{o}{=} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ca}\PY{p}{[}\PY{n}{i}\PY{p}{]}
+                    \PY{c+c1}{\PYZsh{}Finally, call the LSTM cell\PYZsq{}s backprop, retreive gradient updates}
+                    \PY{c+c1}{\PYZsh{}gradient updates for forget, input, cell unit, and output gates + cell states \PYZam{} hiddens states}
+                    \PY{n}{fu}\PY{p}{,} \PY{n}{iu}\PY{p}{,} \PY{n}{cu}\PY{p}{,} \PY{n}{ou}\PY{p}{,} \PY{n}{dfcs}\PY{p}{,} \PY{n}{dfhs} \PY{o}{=} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{LSTM}\PY{o}{.}\PY{n}{backProp}\PY{p}{(}\PY{n}{error}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ca}\PY{p}{[}\PY{n}{i}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{af}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ai}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ac}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ao}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{,} \PY{n}{dfcs}\PY{p}{,} \PY{n}{dfhs}\PY{p}{)}
+                    \PY{c+c1}{\PYZsh{}calculate total error (not necesarry, used to measure training progress)}
+                    \PY{n}{totalError} \PY{o}{+}\PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{n}{error}\PY{p}{)}
+                    \PY{c+c1}{\PYZsh{}accumulate all gradient updates}
+                    \PY{c+c1}{\PYZsh{}forget gate}
+                    \PY{n}{tfu} \PY{o}{+}\PY{o}{=} \PY{n}{fu}
+                    \PY{c+c1}{\PYZsh{}input gate}
+                    \PY{n}{tiu} \PY{o}{+}\PY{o}{=} \PY{n}{iu}
+                    \PY{c+c1}{\PYZsh{}cell state}
+                    \PY{n}{tcu} \PY{o}{+}\PY{o}{=} \PY{n}{cu}
+                    \PY{c+c1}{\PYZsh{}output gate}
+                    \PY{n}{tou} \PY{o}{+}\PY{o}{=} \PY{n}{ou}
+                \PY{c+c1}{\PYZsh{}update LSTM matrices with average of accumulated gradient updates    }
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{LSTM}\PY{o}{.}\PY{n}{update}\PY{p}{(}\PY{n}{tfu}\PY{o}{/}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{rl}\PY{p}{,} \PY{n}{tiu}\PY{o}{/}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{rl}\PY{p}{,} \PY{n}{tcu}\PY{o}{/}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{rl}\PY{p}{,} \PY{n}{tou}\PY{o}{/}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{rl}\PY{p}{)} 
+                \PY{c+c1}{\PYZsh{}update weight matrix with average of accumulated gradient updates  }
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{update}\PY{p}{(}\PY{n}{tu}\PY{o}{/}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{rl}\PY{p}{)}
+                \PY{c+c1}{\PYZsh{}return total error of this iteration}
+                \PY{k}{return} \PY{n}{totalError}
+            
+            \PY{k}{def} \PY{n+nf}{update}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{u}\PY{p}{)}\PY{p}{:}
+                \PY{c+c1}{\PYZsh{}vanilla implementation of RMSprop}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{G} \PY{o}{=} \PY{l+m+mf}{0.9} \PY{o}{*} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{G} \PY{o}{+} \PY{l+m+mf}{0.1} \PY{o}{*} \PY{n}{u}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}  
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{w} \PY{o}{\PYZhy{}}\PY{o}{=} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{lr}\PY{o}{/}\PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{G} \PY{o}{+} \PY{l+m+mf}{1e\PYZhy{}8}\PY{p}{)} \PY{o}{*} \PY{n}{u}
+                \PY{k}{return}
+            
+            \PY{c+c1}{\PYZsh{}this is where we generate some sample text after having fully trained our model}
+            \PY{c+c1}{\PYZsh{}i.e error is below some threshold}
+            \PY{k}{def} \PY{n+nf}{sample}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+                 \PY{c+c1}{\PYZsh{}loop through recurrences \PYZhy{} start at 1 so the 0th entry of all arrays will be an array of 0\PYZsq{}s}
+                \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{rl}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{:}
+                    \PY{c+c1}{\PYZsh{}set input for LSTM cell, combination of input (previous output) and previous hidden state}
+                    \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{LSTM}\PY{o}{.}\PY{n}{x} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{hstack}\PY{p}{(}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ha}\PY{p}{[}\PY{n}{i}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{x}\PY{p}{)}\PY{p}{)}
+                    \PY{c+c1}{\PYZsh{}run forward prop on the LSTM cell, retrieve cell state and hidden state}
+                    \PY{n}{cs}\PY{p}{,} \PY{n}{hs}\PY{p}{,} \PY{n}{f}\PY{p}{,} \PY{n}{inp}\PY{p}{,} \PY{n}{c}\PY{p}{,} \PY{n}{o} \PY{o}{=} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{LSTM}\PY{o}{.}\PY{n}{forwardProp}\PY{p}{(}\PY{p}{)}
+                    \PY{c+c1}{\PYZsh{}store input as vector}
+                    \PY{n}{maxI} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{argmax}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{x}\PY{p}{)}
+                    \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{x} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros\PYZus{}like}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{x}\PY{p}{)}
+                    \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{x}\PY{p}{[}\PY{n}{maxI}\PY{p}{]} \PY{o}{=} \PY{l+m+mi}{1}
+                    \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ia}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{x} \PY{c+c1}{\PYZsh{}Use np.argmax?}
+                    \PY{c+c1}{\PYZsh{}store cell states}
+                    \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ca}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n}{cs}
+                    \PY{c+c1}{\PYZsh{}store hidden state}
+                    \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ha}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n}{hs}
+                    \PY{c+c1}{\PYZsh{}forget gate}
+                    \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{af}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n}{f}
+                    \PY{c+c1}{\PYZsh{}input gate}
+                    \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ai}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n}{inp}
+                    \PY{c+c1}{\PYZsh{}cell state}
+                    \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ac}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n}{c}
+                    \PY{c+c1}{\PYZsh{}output gate}
+                    \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ao}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n}{o}
+                    \PY{c+c1}{\PYZsh{}calculate output by multiplying hidden state with weight matrix}
+                    \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{oa}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{sigmoid}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{dot}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{w}\PY{p}{,} \PY{n}{hs}\PY{p}{)}\PY{p}{)}
+                    \PY{c+c1}{\PYZsh{}compute new input}
+                    \PY{n}{maxI} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{argmax}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{oa}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}
+                    \PY{n}{newX} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros\PYZus{}like}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{x}\PY{p}{)}
+                    \PY{n}{newX}\PY{p}{[}\PY{n}{maxI}\PY{p}{]} \PY{o}{=} \PY{l+m+mi}{1}
+                    \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{x} \PY{o}{=} \PY{n}{newX}
+                \PY{c+c1}{\PYZsh{}return all outputs    }
+                \PY{k}{return} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{oa}
+\end{Verbatim}
+
+
+    \begin{figure}
+\centering
+\includegraphics{http://i.imgur.com/BUAVEZg.png}
+\caption{alt text}
+\end{figure}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}7}]:} \PY{k}{class} \PY{n+nc}{LSTM}\PY{p}{:}
+            \PY{c+c1}{\PYZsh{} LSTM cell (input, output, amount of recurrence, learning rate)}
+            \PY{k}{def} \PY{n+nf}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}} \PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{xs}\PY{p}{,} \PY{n}{ys}\PY{p}{,} \PY{n}{rl}\PY{p}{,} \PY{n}{lr}\PY{p}{)}\PY{p}{:}
+                \PY{c+c1}{\PYZsh{}input is word length x word length}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{x} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{n}{xs}\PY{o}{+}\PY{n}{ys}\PY{p}{)}
+                \PY{c+c1}{\PYZsh{}input size is word length + word length}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{xs} \PY{o}{=} \PY{n}{xs} \PY{o}{+} \PY{n}{ys}
+                \PY{c+c1}{\PYZsh{}output }
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{y} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{n}{ys}\PY{p}{)}
+                \PY{c+c1}{\PYZsh{}output size}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ys} \PY{o}{=} \PY{n}{ys}
+                \PY{c+c1}{\PYZsh{}cell state intialized as size of prediction}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{cs} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{n}{ys}\PY{p}{)}
+                \PY{c+c1}{\PYZsh{}how often to perform recurrence}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{rl} \PY{o}{=} \PY{n}{rl}
+                \PY{c+c1}{\PYZsh{}balance the rate of training (learning rate)}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{lr} \PY{o}{=} \PY{n}{lr}
+                \PY{c+c1}{\PYZsh{}init weight matrices for our gates}
+                \PY{c+c1}{\PYZsh{}forget gate}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{f} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{random}\PY{p}{(}\PY{p}{(}\PY{n}{ys}\PY{p}{,} \PY{n}{xs}\PY{o}{+}\PY{n}{ys}\PY{p}{)}\PY{p}{)}
+                \PY{c+c1}{\PYZsh{}input gate}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{i} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{random}\PY{p}{(}\PY{p}{(}\PY{n}{ys}\PY{p}{,} \PY{n}{xs}\PY{o}{+}\PY{n}{ys}\PY{p}{)}\PY{p}{)}
+                \PY{c+c1}{\PYZsh{}cell state}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{c} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{random}\PY{p}{(}\PY{p}{(}\PY{n}{ys}\PY{p}{,} \PY{n}{xs}\PY{o}{+}\PY{n}{ys}\PY{p}{)}\PY{p}{)}
+                \PY{c+c1}{\PYZsh{}output gate}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{o} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{random}\PY{p}{(}\PY{p}{(}\PY{n}{ys}\PY{p}{,} \PY{n}{xs}\PY{o}{+}\PY{n}{ys}\PY{p}{)}\PY{p}{)}
+                \PY{c+c1}{\PYZsh{}forget gate gradient}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{Gf} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros\PYZus{}like}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{f}\PY{p}{)}
+                \PY{c+c1}{\PYZsh{}input gate gradient}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{Gi} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros\PYZus{}like}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{i}\PY{p}{)}
+                \PY{c+c1}{\PYZsh{}cell state gradient}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{Gc} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros\PYZus{}like}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{c}\PY{p}{)}
+                \PY{c+c1}{\PYZsh{}output gate gradient}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{Go} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros\PYZus{}like}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{o}\PY{p}{)}
+            
+            \PY{c+c1}{\PYZsh{}activation function to activate our forward prop, just like in any type of neural network}
+            \PY{k}{def} \PY{n+nf}{sigmoid}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{x}\PY{p}{)}\PY{p}{:}
+                \PY{k}{return} \PY{l+m+mi}{1} \PY{o}{/} \PY{p}{(}\PY{l+m+mi}{1} \PY{o}{+} \PY{n}{np}\PY{o}{.}\PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{x}\PY{p}{)}\PY{p}{)}
+            
+            \PY{c+c1}{\PYZsh{}derivative of sigmoid to help computes gradients}
+            \PY{k}{def} \PY{n+nf}{dsigmoid}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{x}\PY{p}{)}\PY{p}{:}
+                \PY{k}{return} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{sigmoid}\PY{p}{(}\PY{n}{x}\PY{p}{)} \PY{o}{*} \PY{p}{(}\PY{l+m+mi}{1} \PY{o}{\PYZhy{}} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{sigmoid}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{)}
+            
+            \PY{c+c1}{\PYZsh{}tanh! another activation function, often used in LSTM cells}
+            \PY{c+c1}{\PYZsh{}Having stronger gradients: since data is centered around 0, }
+            \PY{c+c1}{\PYZsh{}the derivatives are higher. To see this, calculate the derivative }
+            \PY{c+c1}{\PYZsh{}of the tanh function and notice that input values are in the range [0,1].}
+            \PY{k}{def} \PY{n+nf}{tangent}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{x}\PY{p}{)}\PY{p}{:}
+                \PY{k}{return} \PY{n}{np}\PY{o}{.}\PY{n}{tanh}\PY{p}{(}\PY{n}{x}\PY{p}{)}
+            
+            \PY{c+c1}{\PYZsh{}derivative for computing gradients}
+            \PY{k}{def} \PY{n+nf}{dtangent}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{x}\PY{p}{)}\PY{p}{:}
+                \PY{k}{return} \PY{l+m+mi}{1} \PY{o}{\PYZhy{}} \PY{n}{np}\PY{o}{.}\PY{n}{tanh}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}
+            
+            \PY{c+c1}{\PYZsh{}lets compute a series of matrix multiplications to convert our input into our output}
+            \PY{k}{def} \PY{n+nf}{forwardProp}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+                \PY{n}{f} \PY{o}{=} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{sigmoid}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{dot}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{f}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{x}\PY{p}{)}\PY{p}{)}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{cs} \PY{o}{*}\PY{o}{=} \PY{n}{f}
+                \PY{n}{i} \PY{o}{=} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{sigmoid}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{dot}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{i}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{x}\PY{p}{)}\PY{p}{)}
+                \PY{n}{c} \PY{o}{=} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{tangent}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{dot}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{c}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{x}\PY{p}{)}\PY{p}{)}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{cs} \PY{o}{+}\PY{o}{=} \PY{n}{i} \PY{o}{*} \PY{n}{c}
+                \PY{n}{o} \PY{o}{=} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{sigmoid}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{dot}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{o}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{x}\PY{p}{)}\PY{p}{)}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{y} \PY{o}{=} \PY{n}{o} \PY{o}{*} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{tangent}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{cs}\PY{p}{)}
+                \PY{k}{return} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{cs}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{y}\PY{p}{,} \PY{n}{f}\PY{p}{,} \PY{n}{i}\PY{p}{,} \PY{n}{c}\PY{p}{,} \PY{n}{o}
+            
+           
+            \PY{k}{def} \PY{n+nf}{backProp}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{e}\PY{p}{,} \PY{n}{pcs}\PY{p}{,} \PY{n}{f}\PY{p}{,} \PY{n}{i}\PY{p}{,} \PY{n}{c}\PY{p}{,} \PY{n}{o}\PY{p}{,} \PY{n}{dfcs}\PY{p}{,} \PY{n}{dfhs}\PY{p}{)}\PY{p}{:}
+                \PY{c+c1}{\PYZsh{}error = error + hidden state derivative. clip the value between \PYZhy{}6 and 6.}
+                \PY{n}{e} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{clip}\PY{p}{(}\PY{n}{e} \PY{o}{+} \PY{n}{dfhs}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mi}{6}\PY{p}{,} \PY{l+m+mi}{6}\PY{p}{)}
+                \PY{c+c1}{\PYZsh{}multiply error by activated cell state to compute output derivative}
+                \PY{n}{do} \PY{o}{=} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{tangent}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{cs}\PY{p}{)} \PY{o}{*} \PY{n}{e}
+                \PY{c+c1}{\PYZsh{}output update = (output deriv * activated output) * input}
+                \PY{n}{ou} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{dot}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{atleast\PYZus{}2d}\PY{p}{(}\PY{n}{do} \PY{o}{*} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{dtangent}\PY{p}{(}\PY{n}{o}\PY{p}{)}\PY{p}{)}\PY{o}{.}\PY{n}{T}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{atleast\PYZus{}2d}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{x}\PY{p}{)}\PY{p}{)}
+                \PY{c+c1}{\PYZsh{}derivative of cell state = error * output * deriv of cell state + deriv cell}
+                \PY{n}{dcs} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{clip}\PY{p}{(}\PY{n}{e} \PY{o}{*} \PY{n}{o} \PY{o}{*} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{dtangent}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{cs}\PY{p}{)} \PY{o}{+} \PY{n}{dfcs}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mi}{6}\PY{p}{,} \PY{l+m+mi}{6}\PY{p}{)}
+                \PY{c+c1}{\PYZsh{}deriv of cell = deriv cell state * input}
+                \PY{n}{dc} \PY{o}{=} \PY{n}{dcs} \PY{o}{*} \PY{n}{i}
+                \PY{c+c1}{\PYZsh{}cell update = deriv cell * activated cell * input}
+                \PY{n}{cu} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{dot}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{atleast\PYZus{}2d}\PY{p}{(}\PY{n}{dc} \PY{o}{*} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{dtangent}\PY{p}{(}\PY{n}{c}\PY{p}{)}\PY{p}{)}\PY{o}{.}\PY{n}{T}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{atleast\PYZus{}2d}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{x}\PY{p}{)}\PY{p}{)}
+                \PY{c+c1}{\PYZsh{}deriv of input = deriv cell state * cell}
+                \PY{n}{di} \PY{o}{=} \PY{n}{dcs} \PY{o}{*} \PY{n}{c}
+                \PY{c+c1}{\PYZsh{}input update = (deriv input * activated input) * input}
+                \PY{n}{iu} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{dot}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{atleast\PYZus{}2d}\PY{p}{(}\PY{n}{di} \PY{o}{*} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{dsigmoid}\PY{p}{(}\PY{n}{i}\PY{p}{)}\PY{p}{)}\PY{o}{.}\PY{n}{T}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{atleast\PYZus{}2d}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{x}\PY{p}{)}\PY{p}{)}
+                \PY{c+c1}{\PYZsh{}deriv forget = deriv cell state * all cell states}
+                \PY{n}{df} \PY{o}{=} \PY{n}{dcs} \PY{o}{*} \PY{n}{pcs}
+                \PY{c+c1}{\PYZsh{}forget update = (deriv forget * deriv forget) * input}
+                \PY{n}{fu} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{dot}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{atleast\PYZus{}2d}\PY{p}{(}\PY{n}{df} \PY{o}{*} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{dsigmoid}\PY{p}{(}\PY{n}{f}\PY{p}{)}\PY{p}{)}\PY{o}{.}\PY{n}{T}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{atleast\PYZus{}2d}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{x}\PY{p}{)}\PY{p}{)}
+                \PY{c+c1}{\PYZsh{}deriv cell state = deriv cell state * forget}
+                \PY{n}{dpcs} \PY{o}{=} \PY{n}{dcs} \PY{o}{*} \PY{n}{f}
+                \PY{c+c1}{\PYZsh{}deriv hidden state = (deriv cell * cell) * output + deriv output * output * output deriv input * input * output + deriv forget}
+                \PY{c+c1}{\PYZsh{}* forget * output}
+                \PY{n}{dphs} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{dot}\PY{p}{(}\PY{n}{dc}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{c}\PY{p}{)}\PY{p}{[}\PY{p}{:}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ys}\PY{p}{]} \PY{o}{+} \PY{n}{np}\PY{o}{.}\PY{n}{dot}\PY{p}{(}\PY{n}{do}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{o}\PY{p}{)}\PY{p}{[}\PY{p}{:}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ys}\PY{p}{]} \PY{o}{+} \PY{n}{np}\PY{o}{.}\PY{n}{dot}\PY{p}{(}\PY{n}{di}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{i}\PY{p}{)}\PY{p}{[}\PY{p}{:}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ys}\PY{p}{]} \PY{o}{+} \PY{n}{np}\PY{o}{.}\PY{n}{dot}\PY{p}{(}\PY{n}{df}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{f}\PY{p}{)}\PY{p}{[}\PY{p}{:}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{ys}\PY{p}{]} 
+                \PY{c+c1}{\PYZsh{}return update gradinets for forget, input, cell, output, cell state, hidden state}
+                \PY{k}{return} \PY{n}{fu}\PY{p}{,} \PY{n}{iu}\PY{p}{,} \PY{n}{cu}\PY{p}{,} \PY{n}{ou}\PY{p}{,} \PY{n}{dpcs}\PY{p}{,} \PY{n}{dphs}
+                    
+            \PY{k}{def} \PY{n+nf}{update}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{fu}\PY{p}{,} \PY{n}{iu}\PY{p}{,} \PY{n}{cu}\PY{p}{,} \PY{n}{ou}\PY{p}{)}\PY{p}{:}
+                \PY{c+c1}{\PYZsh{}update forget, input, cell, and output gradients}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{Gf} \PY{o}{=} \PY{l+m+mf}{0.9} \PY{o}{*} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{Gf} \PY{o}{+} \PY{l+m+mf}{0.1} \PY{o}{*} \PY{n}{fu}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} 
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{Gi} \PY{o}{=} \PY{l+m+mf}{0.9} \PY{o}{*} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{Gi} \PY{o}{+} \PY{l+m+mf}{0.1} \PY{o}{*} \PY{n}{iu}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}   
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{Gc} \PY{o}{=} \PY{l+m+mf}{0.9} \PY{o}{*} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{Gc} \PY{o}{+} \PY{l+m+mf}{0.1} \PY{o}{*} \PY{n}{cu}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}   
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{Go} \PY{o}{=} \PY{l+m+mf}{0.9} \PY{o}{*} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{Go} \PY{o}{+} \PY{l+m+mf}{0.1} \PY{o}{*} \PY{n}{ou}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}   
+                
+                \PY{c+c1}{\PYZsh{}update our gates using our gradients}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{f} \PY{o}{\PYZhy{}}\PY{o}{=} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{lr}\PY{o}{/}\PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{Gf} \PY{o}{+} \PY{l+m+mf}{1e\PYZhy{}8}\PY{p}{)} \PY{o}{*} \PY{n}{fu}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{i} \PY{o}{\PYZhy{}}\PY{o}{=} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{lr}\PY{o}{/}\PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{Gi} \PY{o}{+} \PY{l+m+mf}{1e\PYZhy{}8}\PY{p}{)} \PY{o}{*} \PY{n}{iu}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{c} \PY{o}{\PYZhy{}}\PY{o}{=} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{lr}\PY{o}{/}\PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{Gc} \PY{o}{+} \PY{l+m+mf}{1e\PYZhy{}8}\PY{p}{)} \PY{o}{*} \PY{n}{cu}
+                \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{o} \PY{o}{\PYZhy{}}\PY{o}{=} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{lr}\PY{o}{/}\PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{Go} \PY{o}{+} \PY{l+m+mf}{1e\PYZhy{}8}\PY{p}{)} \PY{o}{*} \PY{n}{ou}
+                \PY{k}{return}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{k}{def} \PY{n+nf}{LoadText}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+            \PY{c+c1}{\PYZsh{}open text and return input and output data (series of words)}
+            \PY{k}{with} \PY{n+nb}{open}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{eminem.txt}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{r}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)} \PY{k}{as} \PY{n}{text\PYZus{}file}\PY{p}{:}
+                \PY{n}{data} \PY{o}{=} \PY{n}{text\PYZus{}file}\PY{o}{.}\PY{n}{read}\PY{p}{(}\PY{p}{)}
+            \PY{n}{text} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n}{data}\PY{p}{)}
+            \PY{n}{outputSize} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{text}\PY{p}{)}
+            \PY{n}{data} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n+nb}{set}\PY{p}{(}\PY{n}{text}\PY{p}{)}\PY{p}{)}
+            \PY{n}{uniqueWords}\PY{p}{,} \PY{n}{dataSize} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{data}\PY{p}{)}\PY{p}{,} \PY{n+nb}{len}\PY{p}{(}\PY{n}{data}\PY{p}{)} 
+            \PY{n}{returnData} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n}{uniqueWords}\PY{p}{,} \PY{n}{dataSize}\PY{p}{)}\PY{p}{)}
+            \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{dataSize}\PY{p}{)}\PY{p}{:}
+                \PY{n}{returnData}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{l+m+mi}{1}
+            \PY{n}{returnData} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{returnData}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{atleast\PYZus{}2d}\PY{p}{(}\PY{n}{data}\PY{p}{)}\PY{p}{,} \PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
+            \PY{n}{output} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n}{uniqueWords}\PY{p}{,} \PY{n}{outputSize}\PY{p}{)}\PY{p}{)}
+            \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{outputSize}\PY{p}{)}\PY{p}{:}
+                \PY{n}{index} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{where}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{asarray}\PY{p}{(}\PY{n}{data}\PY{p}{)} \PY{o}{==} \PY{n}{text}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}
+                \PY{n}{output}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n}{returnData}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{index}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{]}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{float}\PY{p}{)}\PY{o}{.}\PY{n}{ravel}\PY{p}{(}\PY{p}{)}  
+            \PY{k}{return} \PY{n}{returnData}\PY{p}{,} \PY{n}{uniqueWords}\PY{p}{,} \PY{n}{output}\PY{p}{,} \PY{n}{outputSize}\PY{p}{,} \PY{n}{data}
+        
+        \PY{c+c1}{\PYZsh{}write the predicted output (series of words) to disk}
+        \PY{k}{def} \PY{n+nf}{ExportText}\PY{p}{(}\PY{n}{output}\PY{p}{,} \PY{n}{data}\PY{p}{)}\PY{p}{:}
+            \PY{n}{finalOutput} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros\PYZus{}like}\PY{p}{(}\PY{n}{output}\PY{p}{)}
+            \PY{n}{prob} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros\PYZus{}like}\PY{p}{(}\PY{n}{output}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+            \PY{n}{outputText} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZdq{}}
+            \PY{n+nb}{print}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{data}\PY{p}{)}\PY{p}{)}
+            \PY{n+nb}{print}\PY{p}{(}\PY{n}{output}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+            \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{output}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{:}
+                \PY{k}{for} \PY{n}{j} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{output}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{:}
+                    \PY{n}{prob}\PY{p}{[}\PY{n}{j}\PY{p}{]} \PY{o}{=} \PY{n}{output}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{n}{j}\PY{p}{]} \PY{o}{/} \PY{n}{np}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{n}{output}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}
+                \PY{n}{outputText} \PY{o}{+}\PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{choice}\PY{p}{(}\PY{n}{data}\PY{p}{,} \PY{n}{p}\PY{o}{=}\PY{n}{prob}\PY{p}{)}    
+            \PY{k}{with} \PY{n+nb}{open}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{output.txt}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{w}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)} \PY{k}{as} \PY{n}{text\PYZus{}file}\PY{p}{:}
+                \PY{n}{text\PYZus{}file}\PY{o}{.}\PY{n}{write}\PY{p}{(}\PY{n}{outputText}\PY{p}{)}
+            \PY{k}{return}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{}Begin program    }
+        \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Beginning}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{n}{iterations} \PY{o}{=} \PY{l+m+mi}{5000}
+        \PY{n}{learningRate} \PY{o}{=} \PY{l+m+mf}{0.001}
+        \PY{c+c1}{\PYZsh{}load input output data (words)}
+        \PY{n}{returnData}\PY{p}{,} \PY{n}{numCategories}\PY{p}{,} \PY{n}{expectedOutput}\PY{p}{,} \PY{n}{outputSize}\PY{p}{,} \PY{n}{data} \PY{o}{=} \PY{n}{LoadText}\PY{p}{(}\PY{p}{)}
+        \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Done Reading}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{c+c1}{\PYZsh{}init our RNN using our hyperparams and dataset}
+        \PY{n}{RNN} \PY{o}{=} \PY{n}{RecurrentNeuralNetwork}\PY{p}{(}\PY{n}{numCategories}\PY{p}{,} \PY{n}{numCategories}\PY{p}{,} \PY{n}{outputSize}\PY{p}{,} \PY{n}{expectedOutput}\PY{p}{,} \PY{n}{learningRate}\PY{p}{)}
+        
+        \PY{c+c1}{\PYZsh{}training time!}
+        \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{iterations}\PY{p}{)}\PY{p}{:}
+            \PY{c+c1}{\PYZsh{}compute predicted next word}
+            \PY{n}{RNN}\PY{o}{.}\PY{n}{forwardProp}\PY{p}{(}\PY{p}{)}
+            \PY{c+c1}{\PYZsh{}update all our weights using our error}
+            \PY{n}{error} \PY{o}{=} \PY{n}{RNN}\PY{o}{.}\PY{n}{backProp}\PY{p}{(}\PY{p}{)}
+            \PY{c+c1}{\PYZsh{}once our error/loss is small enough}
+            \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Error on iteration }\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{i}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{: }\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{error}\PY{p}{)}
+            \PY{k}{if} \PY{n}{error} \PY{o}{\PYZgt{}} \PY{o}{\PYZhy{}}\PY{l+m+mi}{100} \PY{o+ow}{and} \PY{n}{error} \PY{o}{\PYZlt{}} \PY{l+m+mi}{100} \PY{o+ow}{or} \PY{n}{i} \PY{o}{\PYZpc{}} \PY{l+m+mi}{100} \PY{o}{==} \PY{l+m+mi}{0}\PY{p}{:}
+                \PY{c+c1}{\PYZsh{}we can finally define a seed word}
+                \PY{n}{seed} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros\PYZus{}like}\PY{p}{(}\PY{n}{RNN}\PY{o}{.}\PY{n}{x}\PY{p}{)}
+                \PY{n}{maxI} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{argmax}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{random}\PY{p}{(}\PY{n}{RNN}\PY{o}{.}\PY{n}{x}\PY{o}{.}\PY{n}{shape}\PY{p}{)}\PY{p}{)}
+                \PY{n}{seed}\PY{p}{[}\PY{n}{maxI}\PY{p}{]} \PY{o}{=} \PY{l+m+mi}{1}
+                \PY{n}{RNN}\PY{o}{.}\PY{n}{x} \PY{o}{=} \PY{n}{seed}  
+                \PY{c+c1}{\PYZsh{}and predict some new text!}
+                \PY{n}{output} \PY{o}{=} \PY{n}{RNN}\PY{o}{.}\PY{n}{sample}\PY{p}{(}\PY{p}{)}
+                \PY{n+nb}{print}\PY{p}{(}\PY{n}{output}\PY{p}{)}    
+                \PY{c+c1}{\PYZsh{}write it all to disk}
+                \PY{n}{ExportText}\PY{p}{(}\PY{n}{output}\PY{p}{,} \PY{n}{data}\PY{p}{)}
+                \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Done Writing}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Complete}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Beginning
+Done Reading
+
+    \end{Verbatim}
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}
