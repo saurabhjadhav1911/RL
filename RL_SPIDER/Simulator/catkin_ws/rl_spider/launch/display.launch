@@ -1,0 +1,9 @@
+<launch>
+	<arg name="spider" />
+	<param name="robot_description" textfile="$(find rl_spider)/urdf/spider4.urdf" />
+	<param name="use_gui" value="true"/>
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+    <node name="rviz_sim" pkg="rviz" type="rviz" args="-d $(find rl_spider)/urdf/urdf.rviz" required="true" >
+    <env name="ROS_MASTER_URI" value="http://localhost:11311" />
+  </node>
+</launch>

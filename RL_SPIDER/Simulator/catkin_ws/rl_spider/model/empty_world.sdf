@@ -1,0 +1,6 @@
+<?xml version='1.0'?>
+<sdf version='1.4'>
+  <model name='empty_world'>
+    <static>1</static>
+  </model>
+</sdf>

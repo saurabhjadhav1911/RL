@@ -1,0 +1,455 @@
+Panels:
+  - Class: rviz/Displays
+    Help Height: 78
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /Global Options1
+        - /Status1
+        - /RobotModel1
+        - /RobotModel1/Links1
+      Splitter Ratio: 0.630814
+    Tree Height: 359
+  - Class: rviz/Selection
+    Name: Selection
+  - Class: rviz/Tool Properties
+    Expanded:
+      - /2D Pose Estimate1
+      - /2D Nav Goal1
+      - /Publish Point1
+    Name: Tool Properties
+    Splitter Ratio: 0.588679
+  - Class: rviz/Views
+    Expanded:
+      - /Current View1
+    Name: Views
+    Splitter Ratio: 0.5
+  - Class: rviz/Time
+    Experimental: false
+    Name: Time
+    SyncMode: 0
+    SyncSource: ""
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.5
+      Cell Size: 1
+      Class: rviz/Grid
+      Color: 160; 160; 164
+      Enabled: true
+      Line Style:
+        Line Width: 0.03
+        Value: Lines
+      Name: Grid
+      Normal Cell Count: 0
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Plane: XY
+      Plane Cell Count: 10
+      Reference Frame: <Fixed Frame>
+      Value: true
+    - Alpha: 1
+      Class: rviz/RobotModel
+      Collision Enabled: false
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        env+a+'_1':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        env+a+'_2':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        env+a+'_3':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        env+a+'_4':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        env+b+'_1':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        env+b+'_2':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        env+b+'_3':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        env+b+'_4':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        env+base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        env+base_link2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        env+c+'_1':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        env+c+'_2':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        env+c+'_3':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        env+c+'_4':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        env+d+'_1':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        env+d+'_2':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        env+d+'_3':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        env+d+'_4':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        sim+a+'_1':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        sim+a+'_2':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        sim+a+'_3':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        sim+a+'_4':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        sim+b+'_1':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        sim+b+'_2':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        sim+b+'_3':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        sim+b+'_4':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        sim+base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        sim+base_link2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        sim+c+'_1':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        sim+c+'_2':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        sim+c+'_3':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        sim+c+'_4':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        sim+d+'_1':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        sim+d+'_2':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        sim+d+'_3':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        sim+d+'_4':
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+      Name: RobotModel
+      Robot Description: robot_description
+      TF Prefix: ""
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Class: rviz/TF
+      Enabled: true
+      Frame Timeout: 15
+      Frames:
+        All Enabled: true
+        env+a+'_1':
+          Value: true
+        env+a+'_2':
+          Value: true
+        env+a+'_3':
+          Value: true
+        env+a+'_4':
+          Value: true
+        env+b+'_1':
+          Value: true
+        env+b+'_2':
+          Value: true
+        env+b+'_3':
+          Value: true
+        env+b+'_4':
+          Value: true
+        env+base_link:
+          Value: true
+        env+base_link2:
+          Value: true
+        env+c+'_1':
+          Value: true
+        env+c+'_2':
+          Value: true
+        env+c+'_3':
+          Value: true
+        env+c+'_4':
+          Value: true
+        env+d+'_1':
+          Value: true
+        env+d+'_2':
+          Value: true
+        env+d+'_3':
+          Value: true
+        env+d+'_4':
+          Value: true
+        sim+a+'_1':
+          Value: true
+        sim+a+'_2':
+          Value: true
+        sim+a+'_3':
+          Value: true
+        sim+a+'_4':
+          Value: true
+        sim+b+'_1':
+          Value: true
+        sim+b+'_2':
+          Value: true
+        sim+b+'_3':
+          Value: true
+        sim+b+'_4':
+          Value: true
+        sim+base_link:
+          Value: true
+        sim+base_link2:
+          Value: true
+        sim+c+'_1':
+          Value: true
+        sim+c+'_2':
+          Value: true
+        sim+c+'_3':
+          Value: true
+        sim+c+'_4':
+          Value: true
+        sim+d+'_1':
+          Value: true
+        sim+d+'_2':
+          Value: true
+        sim+d+'_3':
+          Value: true
+        sim+d+'_4':
+          Value: true
+      Marker Scale: 1
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: true
+      Tree:
+        env+base_link:
+          env+a+'_1':
+            env+a+'_2':
+              env+a+'_3':
+                env+a+'_4':
+                  {}
+          env+b+'_1':
+            env+b+'_2':
+              env+b+'_3':
+                env+b+'_4':
+                  {}
+          env+base_link2:
+            {}
+          env+c+'_1':
+            env+c+'_2':
+              env+c+'_3':
+                env+c+'_4':
+                  {}
+          env+d+'_1':
+            env+d+'_2':
+              env+d+'_3':
+                env+d+'_4':
+                  {}
+          sim+base_link:
+            sim+a+'_1':
+              sim+a+'_2':
+                sim+a+'_3':
+                  sim+a+'_4':
+                    {}
+            sim+b+'_1':
+              sim+b+'_2':
+                sim+b+'_3':
+                  sim+b+'_4':
+                    {}
+            sim+base_link2:
+              {}
+            sim+c+'_1':
+              sim+c+'_2':
+                sim+c+'_3':
+                  sim+c+'_4':
+                    {}
+            sim+d+'_1':
+              sim+d+'_2':
+                sim+d+'_3':
+                  sim+d+'_4':
+                    {}
+      Update Interval: 0
+      Value: true
+  Enabled: true
+  Global Options:
+    Background Color: 48; 48; 48
+    Fixed Frame: env+base_link
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz/Interact
+      Hide Inactive Objects: true
+    - Class: rviz/MoveCamera
+    - Class: rviz/Select
+    - Class: rviz/FocusCamera
+    - Class: rviz/Measure
+    - Class: rviz/SetInitialPose
+      Topic: /initialpose
+    - Class: rviz/SetGoal
+      Topic: /move_base_simple/goal
+    - Class: rviz/PublishPoint
+      Single click: true
+      Topic: /clicked_point
+  Value: true
+  Views:
+    Current:
+      Class: rviz/Orbit
+      Distance: 7.31817
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.06
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Focal Point:
+        X: 0
+        Y: 4.76837e-07
+        Z: 0
+      Name: Current View
+      Near Clip Distance: 0.01
+      Pitch: 0.370398
+      Target Frame: <Fixed Frame>
+      Value: Orbit (rviz)
+      Yaw: 1.3854
+    Saved:
+      - Class: rviz/Orbit
+        Distance: 10
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.06
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Focal Point:
+          X: 0
+          Y: 0
+          Z: 0
+        Name: Orbit
+        Near Clip Distance: 0.01
+        Pitch: 0.785398
+        Target Frame: <Fixed Frame>
+        Value: Orbit (rviz)
+        Yaw: 0.785398
+Window Geometry:
+  Displays:
+    collapsed: false
+  Height: 716
+  Hide Left Dock: false
+  Hide Right Dock: false
+  QMainWindow State: 000000ff00000000fd0000000400000000000001b300000244fc0200000008fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006400fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073000000002800000244000000dd00fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261000000010000010f00000244fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073000000002800000244000000b000fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000006ce0000003efc0100000002fb0000000800540069006d00650100000000000006ce000002ab00fffffffb0000000800540069006d00650100000000000004500000000000000000000006ce0000024400000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  Selection:
+    collapsed: false
+  Time:
+    collapsed: false
+  Tool Properties:
+    collapsed: false
+  Views:
+    collapsed: false
+  Width: 1742
+  X: 48
+  Y: 12

@@ -1,0 +1,159 @@
+<><?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="spider">
+	<xacro:property name="len_1" value="0.4" />
+	<xacro:property name="len_2" value="0.5" />
+	<xacro:property name="len_3" value="0.6" />
+	<xacro:property name="rad" value="0.1" />
+	<xacro:property name="pi" value="3.1457" />
+	<xacro:property name="len_sq" value="1" />
+
+	<xacro:macro name="leg" params="leg_name">
+
+		<link name="${leg_name}+'_1'">
+			<visual>
+				<geometry>
+					<cylinder length="${len_1}" radius="${rad}"/>
+				</geometry>
+				<origin rpy="0 ${pi/2} 0" xyz="${len_1/2} 0 0"/>
+				<material name="cyan">
+					<color rgba="0 1 1 1"/>
+				</material>
+			</visual>
+		</link>
+		<link name="${leg_name}+'_2'">
+			<visual>
+				<geometry>
+					<cylinder length="${len_2}" radius="${rad}"/>
+				</geometry>
+				<origin rpy="0 ${pi/2} 0" xyz="${len_2/2} 0 0"/>
+				<material name="yellow">
+					<color rgba="1 1 0 1"/>
+				</material>
+			</visual>
+			<collision>
+				<geometry>
+					<cylinder length="${len_2}" radius="${rad}"/>
+				</geometry>
+				<origin rpy="0 ${pi/2} 0" xyz="${len_2/2} 0 0"/>
+				<material name="yellow">
+					<color rgba="1 1 0 1"/>
+				</material>
+			</collision>
+		</link>
+		<link name="${leg_name}+'_3'">
+			<visual>
+				<geometry>
+					<cylinder length="${len_3}" radius="${rad}"/>
+				</geometry>
+				<origin rpy="0 ${pi/2} 0" xyz="${len_3/2} 0 0"/>
+				<material name="red">
+					<color rgba="1 0 0 1"/>
+				</material>
+			</visual>
+			<collision>
+				<geometry>
+					<cylinder length="${len_3}" radius="${rad}"/>
+				</geometry>
+				<origin rpy="0 ${pi/2} 0" xyz="${len_3/2} 0 0"/>
+				<material name="red">
+					<color rgba="1 0 0 1"/>
+				</material>
+			</collision>
+		</link>
+		<link name="${leg_name}+'_4'">
+			<visual>
+				<geometry>
+					<sphere radius="${rad}"/>
+				</geometry>
+				<origin rpy="0 ${pi/2} 0" xyz="${len_3/2} 0 0"/>
+				<material name="red">
+					<color rgba="1 0 0 1"/>
+				</material>
+			</visual>
+			<collision>
+				<geometry>
+					<sphere radius="${rad}"/>
+				</geometry>
+				<origin rpy="0 ${pi/2} 0" xyz="${len_3/2} 0 0"/>
+				<material name="red">
+					<color rgba="1 0 0 1"/>
+				</material>
+			</collision>
+		</link>
+
+		<joint name="${leg_name}+'_1_2'" type="revolute">
+			<parent link="${leg_name}+'_1'"/>
+			<child link="${leg_name}+'_2'"/>
+			<origin rpy="0 0 0" xyz="${len_1} 0 0"/>
+			<axis xyz="0 1 0"/>
+			<limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+		</joint>
+		<joint name="${leg_name}+'_2_3'" type="revolute">
+			<parent link="${leg_name}+'_2'"/>
+			<child link="${leg_name}+'_3'"/>
+			<origin rpy="0 0 0" xyz="${len_2} 0 0"/>
+			<axis xyz="0 1 0"/>
+			<limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+		</joint>
+		<joint name="${leg_name}+'_3_4'" type="fixed">
+			<parent link="${leg_name}+'_3'"/>
+			<child link="${leg_name}+'_4'"/>
+			<origin xyz="${(len_3)/2} 0 0"/>
+		</joint>
+
+	</xacro:macro>
+
+	<xacro:leg leg_name="a"/>
+	<xacro:leg leg_name="b"/>
+	<xacro:leg leg_name="c"/>
+	<xacro:leg leg_name="d"/>
+	
+
+	<link name="base_link">
+		<visual>
+			<geometry>
+				<box size="${len_sq} ${len_sq} ${len_sq/4}"/>
+			</geometry>
+			<origin rpy="0 0 0" xyz="0 0 0"/>
+			<material name="cyan">
+				<color rgba="0 1 1 1"/>
+			</material>
+		</visual>
+	</link>
+	<link name="base_link2">
+		<visual>
+			<geometry>
+				<box size="${len_sq} ${len_sq} ${len_sq/10}"/>
+			</geometry>
+			<origin rpy="0 0 0" xyz="0 0 0"/>
+			<material name="cyan">
+				<color rgba="1 0 0 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<box size="${len_sq} ${len_sq} ${len_sq/10}"/>
+			</geometry>
+			<origin rpy="0 0 0" xyz="0 0 0"/>
+			<material name="cyan">
+				<color rgba="1 0 0 1"/>
+			</material>
+		</collision>
+	</link>
+
+
+	<joint name="base" type="fixed">
+		<parent link="base_link"/>
+		<child link="base_link2"/>
+		<origin xyz="0 0 ${-3*len_sq/40}"/>
+	</joint>
+
+	<joint name="joint_0_a" type="revolute">
+		<parent link="base_link"/>
+		<child link="a+'_1'"/>
+		<origin rpy="0 0 ${pi/4}" xyz="${len_sq/2} ${len_sq/2} 0"/>
+		<axis xyz="0 0 1"/>
+		<limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+	</joint>
+
+</robot>
