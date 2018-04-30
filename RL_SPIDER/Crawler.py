@@ -5,6 +5,7 @@ from multiprocessing import Queue
 from colorama import Fore, Back, Style
 import colorama
 colorama.init()
+from misc import *
 color = Fore.GREEN
 
 
@@ -38,11 +39,12 @@ class Crawler():
         self.y = 0
         self.number_of_states = 2
         self.img_size = [500, 1600]
-        self.centre_pivot = [100, 400]
+        self.centre_pivot = [200, 400]
         self.offset = [700, 0]
         self.angle_offset_1 = 0
         self.angle_offset_2 = 0
         self.reward_k = 1
+        self.render_flag=self.config['GUI_config']['render_flag']
         self.que = que or Queue()
 
     def render(self, img):
@@ -58,6 +60,17 @@ class Crawler():
             time.sleep(0.01)
         cv2.destroyAllWindows()
 
+    def isolated_step(self, action):
+        self.val = action
+        t1, t2, p, x = self.kinematics(
+            [self.val[0] * np.pi / 180, self.val[1] * np.pi / 180])
+
+        if (self.render_flag):
+            img = 255 * np.ones((self.img_size), dtype=np.uint8)
+            self.draw_leg(img, t1, t2, x, p)
+            self.render(img)
+        return self.av * 180 / np.pi, self.x
+
     def reset(self):
         self.p = 0
         self.last_p = 0
@@ -69,6 +82,20 @@ class Crawler():
         self.dy = 0
         self.x = 0
         self.y = 0
+
+    def isolated_reset(self, val):
+        self.p = 0
+        self.last_p = 0
+        self.saved_x = 0
+        self.saved_dx = 0
+        self.saved_y = 0
+        self.saved_dy = 0
+        self.dx = 0
+        self.dy = 0
+        self.x = 0
+        self.y = 0
+        self.av = val * np.pi / 180
+        return self.av * 180 / np.pi, self.x
 
     def kinematics(self, val):
         for s in range(self.number_of_states):
@@ -119,7 +146,8 @@ class Crawler():
             line += str(int(self.av[s] * 180 / np.pi))
             line += ' '
 
-        line += str(int(self.p))
+        #line += str(int(self.p))
+        line += str(int(0))
         line += ' '
         line += str(int(self.x))
         line += '|'
@@ -157,8 +185,11 @@ class Crawler():
 
 
 def main():
-    sim = Crawler()
+    sim = Crawler(read_config('config_crawler.json'))
     p, x = 0, 0
+    sim.reset()
+    print(sim.isolated_step([50, 50]))
+    print(sim.isolated_step([50, 50]))
 
     for j in range(90):
         img = 255 * np.ones((900, 1400), dtype=np.uint8)
@@ -174,7 +205,8 @@ def main():
         #sim.circle(img,(0,j),20,0,-1)
         cv2.imshow('window', img)
         cv2.waitKey(100)
-    '''for j in range(8):
+    '''
+    for j in range(8):
         for i in range(0, 30):
             img = 255 * np.ones((900, 1400), dtype=np.uint8)
             p, x = sim.kinematics((np.pi / 2) + ((60-i) * np.pi / 180), 0)

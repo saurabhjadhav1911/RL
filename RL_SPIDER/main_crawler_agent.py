@@ -21,7 +21,6 @@ import Agent
 import sys
 import os
 import traceback
-
 #sys.path.append(os.path.join(os.path.dirname(__file__),'..'))
 color = Fore.WHITE
 
@@ -71,7 +70,7 @@ def main():
     multiprocessing.freeze_support()
 
     config = read_config('config_crawler.json')
-    config['Env_config']['env_cycle_delay']=0.001
+    config['Env_config']['env_cycle_delay']=0.01
     config = arg_parser(config)
     save_config(config, 'config_crawler.json')
 

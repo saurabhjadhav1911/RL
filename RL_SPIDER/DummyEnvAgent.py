@@ -35,18 +35,36 @@ class Env():
         self.cycle_id=0
         self.cycle_reset_period=self.config['Env_config']['cycle_reset_period']
 
+        self.temp_agent_reward_que=send_que = multiprocessing.Queue()
+        self.reward_delay_length=10
+
+
     def run(self, q, r, agent_obs_que, agent_reward_que, agent_action_que):
         #ser=serial.Serial(config['Serial_config']['port'],bau drate=config['Serial_config']['baud'],timeout=config['Serial_config']['timeout'])
 
         crawler_thread = Thread(target=self.crawler.run)
         crawler_thread.start()
 
+        reward_process = Thread(target=self.delay_reward,args=(agent_reward_que,))
+        reward_process.start()
+
         print(color, "Dummy Env started")
 
         while True:
             self.read_write_state(q, r, agent_obs_que, agent_reward_que, agent_action_que)
 
+        reward_process.join()
         crawler_thread.join()
+
+    def delay_reward(self,agent_reward_que):
+        while True:
+            try:
+                while self.temp_agent_reward_que.qsize()>self.reward_delay_length:
+                    temp=self.temp_agent_reward_que.get()
+                    agent_reward_que.put(temp)
+            except Exception as e:
+                exc_traceback = traceback.format_exc()
+                print(color, exc_traceback)
 
     def read_write_state(self, q, r, agent_obs_que, agent_reward_que, agent_action_que):
         global value, lav
@@ -75,7 +93,8 @@ class Env():
 
             ################ send obs to agent in the que #################
             agent_obs_que.put([value[:-self.reward_vect_size],self.cycle_id])
-            agent_reward_que.put([value[-self.reward_vect_size:],self.cycle_id])
+            self.temp_agent_reward_que.put([value[-self.reward_vect_size:],self.cycle_id])
+
             #agent_obs_que.put([[90,-90,90,-90,0],self.cycle_id])
             #agent_reward_que.put([[100],self.cycle_id])
             
@@ -89,8 +108,10 @@ class Env():
 
     def test_run(self, q, r):
         #ser=serial.Serial(config['Serial_config']['port'],baudrate=config['Serial_config']['baud'],timeout=config['Serial_config']['timeout'])
+        
         while True:
             self.read_write_state(q, r)
+
 
 
 ############################  testing  Env  ############################

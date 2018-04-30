@@ -66,7 +66,7 @@ class Agent():
         self.tau = .125
         self.default_action = np.array(
             self.config['Env_config']['default_action'])
-        self.movement_cost = -5.0
+        self.movement_cost = -0.4
         self.total_movement_cost = 0
         self.alpha = 0.8
         self.gamma = 0.9
@@ -116,11 +116,11 @@ class Agent():
         self.num_states_per_angle = 10
         self.num_states_per_pressure = 2
         self.Q = np.zeros(
-            (self.num_states_per_angle, self.num_states_per_angle,
-             self.num_states_per_pressure, self.num_actions),
+            (self.num_states_per_angle, self.num_states_per_angle,self.num_states_per_pressure, self.num_actions),
             dtype=np.float)
 
-        self.load_Q()
+        #self.load_Q()
+        self.Q[5,5,1,3]=4
         '''
         self.actor_state_input,self.actor_model = self.create_actor_model()
         _,self.target_actor_model = self.create_actor_model()
@@ -139,15 +139,6 @@ class Agent():
         self.fig = plt.gcf()
         self.ax = self.fig.gca(projection='3d')
 
-    def run(self):
-        #self.consumer_test()
-        #train_process = Thread(target=self.train, args=(self.default_graph, ))
-        #train_process.start()
-
-        #self.env_reset()
-        self.get_obs_action()
-
-        #train_process.join()
 
     def consumer_test(self):
         Thread(target=self.generate_step).start()
@@ -195,7 +186,7 @@ class Agent():
         b = int(self.pixelpercell * (2 * pos[1] + pos[2]))
         d = int(self.pixelpercell * (2 * pos[1] + 1 + pos[2]))
         cv2.rectangle(
-            self.env, (b + 20, a + 20), (d - 20, c - 20), [255, 255, 0],
+            self.env, (b+2 , a+2 ), (d+self.pixelpercell-2 , c-2 ), [255, 255, 0],
             thickness=-1)
         maxq=np.max(self.Q)
         minq=np.min(self.Q)
@@ -203,67 +194,15 @@ class Agent():
         #print(self.Q.shape)
         for i in range(self.num_states_per_angle):
             for j in range(self.num_states_per_angle):
+                
                 c = self.pixelpercell * (i + 0.54)
-                d = self.pixelpercell * (2 * j + 0.28 + 1)
-
+                d = self.pixelpercell * (2 * j + 0.68)
                 for ac in range(self.num_actions):
                     a = c + self.pixelpercell * 0.225 * self.actions[ac][0]
-                    b = d + self.pixelpercell * 0.225 * self.actions[ac][1]
-                    try:
-                        h=int(255*((self.Q[i,j,1,ac]-minq)/(maxq-minq)))
-                    except:
-                        h=0
-                    #print(self.Q[i,j,1,ac])
-                    rgb=cv2.cvtColor(np.array([[[h,255,255]]],np.uint8),cv2.COLOR_HSV2BGR)[0,0]
-                    rgb=[int(rgb[0]),int(rgb[1]),int(rgb[2])]
+                    b = d + self.pixelpercell * 0.525 * self.actions[ac][1]
                     cv2.putText(
                         self.env,
-                        str(int(self.Q[i][j][0][ac]) / 100.0)[0:5],
-                        #str(ac),
-                        (int(b), int(a)), cv2.FONT_HERSHEY_PLAIN, 0.8,
-                        (0, 0, 0), 1)
-                    center = (int(self.pixelpercell * (2 * j + 1.5)),
-                              int(self.pixelpercell * (i + 0.5)))
-                    
-                    '''
-                    cv2.circle(
-                        self.env,
-                        (center[0] +
-                         int(self.diag_actions[ac % self.num_actions, 0] * self.pixelpercell / 2),
-                         center[1] +
-                         int(-self.diag_actions[ac % self.num_actions, 1] * self.pixelpercell / 2)),
-                        10, [255, 0, 0], -1)
-                    cv2.circle(
-                        self.env,
-                        (center[0] +
-                         int(self.diag_actions[(ac - 1) % self.num_actions, 0] *
-                             self.pixelpercell / 2), center[1] +
-                         int(-self.diag_actions[(ac - 1) % self.num_actions, 1] *
-                             self.pixelpercell / 2)), 15, [0, 0, 255], -1)
-                    cv2.fillPoly(self.env, [np.array([[
-                        int(center[0]),
-                        int(center[1])
-                    ], [
-                        center[0] +
-                        int(self.diag_actions[ac % self.num_actions, 0] * self.pixelpercell / 2),
-                        center[1] +
-                        int(-self.diag_actions[ac % self.num_actions, 1] * self.pixelpercell / 2)
-                    ], [
-                        center[0] +
-                        int(self.diag_actions[(ac - 1) % self.num_actions, 0] *
-                            self.pixelpercell / 2),
-                        center[1] + int(-self.diag_actions[(
-                            ac - 1) % self.num_actions, 1] * self.pixelpercell / 2)
-                    ]],np.int32)],rgb) 
-                    cv2.circle(self.env, center, 10, [0, 255, 255], -1)'''
-                c = self.pixelpercell * (i + 0.54)
-                d = self.pixelpercell * (2 * j + 0.28)
-                for ac in range(self.num_actions):
-                    a = c + self.pixelpercell * 0.225 * self.actions[ac][0]
-                    b = d + self.pixelpercell * 0.225 * self.actions[ac][1]
-                    cv2.putText(
-                        self.env,
-                        str(int(100.00 * self.Q[i][j][1][ac]) / 100.0)[0:-1],
+                        str(int(100.00 * self.Q[i][j][0][ac]) / 100.0)[0:-1],
                         #str(ac),
                         (int(b), int(a)), cv2.FONT_HERSHEY_PLAIN, 0.8,
                         (0, 0, 0), 1)
@@ -301,6 +240,58 @@ class Agent():
                     ]],np.int32)],(255,255,0)) 
                     cv2.circle(self.env, center, 10, [0, 255, 255], -1)
                     '''
+                '''
+                c = self.pixelpercell * (i + 0.54)
+                d = self.pixelpercell * (2 * j + 0.28 + 1)
+
+                for ac in range(self.num_actions):
+                    a = c + self.pixelpercell * 0.225 * self.actions[ac][0]
+                    b = d + self.pixelpercell * 0.225 * self.actions[ac][1]
+                    try:
+                        h=int(255*((self.Q[i,j,1,ac]-minq)/(maxq-minq)))
+                    except:
+                        h=0
+                    #print(self.Q[i,j,1,ac])
+                    rgb=cv2.cvtColor(np.array([[[h,255,255]]],np.uint8),cv2.COLOR_HSV2BGR)[0,0]
+                    rgb=[int(rgb[0]),int(rgb[1]),int(rgb[2])]
+                    cv2.putText(
+                        self.env,
+                        str(int(self.Q[i][j][0][ac]) / 100.0)[0:5],
+                        #str(ac),
+                        (int(b), int(a)), cv2.FONT_HERSHEY_PLAIN, 0.8,
+                        (0, 0, 0), 1)
+                    center = (int(self.pixelpercell * (2 * j + 1.5)),
+                              int(self.pixelpercell * (i + 0.5)))
+                    cv2.circle(
+                        self.env,
+                        (center[0] +
+                         int(self.diag_actions[ac % self.num_actions, 0] * self.pixelpercell / 2),
+                         center[1] +
+                         int(-self.diag_actions[ac % self.num_actions, 1] * self.pixelpercell / 2)),
+                        10, [255, 0, 0], -1)
+                    cv2.circle(
+                        self.env,
+                        (center[0] +
+                         int(self.diag_actions[(ac - 1) % self.num_actions, 0] *
+                             self.pixelpercell / 2), center[1] +
+                         int(-self.diag_actions[(ac - 1) % self.num_actions, 1] *
+                             self.pixelpercell / 2)), 15, [0, 0, 255], -1)
+                    cv2.fillPoly(self.env, [np.array([[
+                        int(center[0]),
+                        int(center[1])
+                    ], [
+                        center[0] +
+                        int(self.diag_actions[ac % self.num_actions, 0] * self.pixelpercell / 2),
+                        center[1] +
+                        int(-self.diag_actions[ac % self.num_actions, 1] * self.pixelpercell / 2)
+                    ], [
+                        center[0] +
+                        int(self.diag_actions[(ac - 1) % self.num_actions, 0] *
+                            self.pixelpercell / 2),
+                        center[1] + int(-self.diag_actions[(
+                            ac - 1) % self.num_actions, 1] * self.pixelpercell / 2)
+                    ]],np.int32)],rgb) 
+                    cv2.circle(self.env, center, 10, [0, 255, 255], -1)'''
         #center = (int(self.pixelpercell * (2 * pos[1] + 0.5)),int(self.pixelpercell * (pos[0] + 0.5)))
         #cv2.circle(self.env, center, 10, [0, 0, 255], -1)
 
@@ -380,6 +371,9 @@ class Agent():
                                   pressure_vect_size:-self.reward_vect_size])
         reward = deepcopy(
             self.agent_env_memory[mem_id, -self.reward_vect_size:])
+        last_mem_id=(self.memory_length+mem_id-1)%self.memory_length
+        prev_reward = deepcopy(
+            self.agent_env_memory[last_mem_id, -self.reward_vect_size:])
 
         state[0:self.angle_vect_size] = self.num_states_per_angle * (
             state[0:self.angle_vect_size] - self.angle_min_limit) / (
@@ -393,6 +387,7 @@ class Agent():
         prev_state = prev_state.astype(int)
         state = np.clip(state, 0, self.num_states_per_angle - 1)
         prev_state = np.clip(prev_state, 0, self.num_states_per_angle - 1)
+
         ## actions,angles,der-angles,pressure,prev-angles,prev-der-angles,prev-pressure,reward
 
         Q = deepcopy(
@@ -403,14 +398,13 @@ class Agent():
 
         #print(maxQ)
         qp = Q
-        Q = Q + self.alpha * (reward[0] + (self.gamma * maxQ) - Q)
-        '''
+        Q = Q + self.alpha * ((reward[0]-prev_reward[0]) + (self.gamma * maxQ) - Q)
         if qp is not Q:
             print(color,
                   "Q value at state {} and action {} updated from {} to {}".
                   format([prev_state[0], prev_state[1], prev_state[4]], action,
                          qp, Q))
-        '''
+        
         self.Q[prev_state[0], prev_state[1], prev_state[4], action] = Q
 
     def take_immediate_action(self, rec_state):
@@ -564,16 +558,9 @@ class Agent():
                     self.agent_env_memory[obs_id] = np.concatenate(
                         (actions, state, prev_state,
                          [self.total_movement_cost]))  #
-                    #print(color, "saved in mem", (actions, state, prev_state,[self.total_movement_cost]))
+                    #print(color, "saved in mem", (actions, state, prev_state,[self.total_movement_cost]),self.agent_env_memory[obs_id],obs_id)
                     #new_state=np.concatenate((angle,angle-self.last_angles))
 
-                while self.agent_reward_que.empty() is False:
-                    responce_reward, reward_id = self.agent_reward_que.get()
-                    self.agent_env_memory[reward_id,
-                                          -self.reward_vect_size:] += np.array(
-                                              responce_reward)
-                    self.update_Q_negh(reward_id)
-                #print(color, "saved in agent memory",self.agent_env_memory[reward_id])
                 #if obs_id is not reward_id:
                 #    print(color,"obs reward out of sync")
 
@@ -584,6 +571,32 @@ class Agent():
 
         return state, reward, done
 
+    def train(self):
+       while True:
+            try:
+                while self.agent_reward_que.empty() is False:
+                    responce_reward, reward_id = self.agent_reward_que.get()
+                    self.agent_env_memory[reward_id,
+                                          -self.reward_vect_size:] += np.array(
+                                              responce_reward)
+                    self.update_Q_negh(reward_id)
+                    #print(color, "saved in agent memory",self.agent_env_memory[reward_id],reward_id)
+            except Exception as e:
+                exc_traceback = traceback.format_exc()
+                print(color, exc_traceback)
+                print(color, self.agent_env_memory.shape)
+
+
+    def run(self):
+        #self.consumer_test()
+        train_process = Thread(target=self.train)
+        train_process.start()
+
+        #self.env_reset()
+        
+        self.get_obs_action()
+
+        train_process.join()
     def env_reset(self):
         self.cycle_id = (self.cycle_id + 1) % self.memory_length
         self.reset_id = self.cycle_id
