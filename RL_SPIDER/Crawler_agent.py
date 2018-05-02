@@ -218,6 +218,12 @@ class RL_Crawler():
                 self.config['Agent_config']['Q_max_reward']=self.maxr
                 save_config(self.config, 'config_crawler_isolated.json')
                 print("Epoch {} with max rewdrd={} and policy = {}".format(self.epoch_num,maxr,self.policy))
+    def update_Q(self,prev_pos,pos,act,move_reward):
+            Q=self.getQ([prev_pos[0],prev_pos[1]],act)
+            q = [self.getQ(pos, a) for a in self.actions]
+            maxQ = max(q)
+            Q=Q+self.alpha*(move_reward+(self.gamma*maxQ)-Q)
+            self.putQ([self.prev_pos[0],self.prev_pos[1]],act,Q)
 
     def Epoch(self):
         self.reset()
@@ -229,16 +235,10 @@ class RL_Crawler():
             self.prev_pos=deepcopy(self.pos)
             n+=1
             act=self.action(self.pos)
-            Q=self.getQ([self.prev_pos[0],self.prev_pos[1]],act)
-            self.exit,pos,self.move_reward=self.Movec(self.pos,act)
+            self.exit,self.pos,self.move_reward=self.Movec(self.pos,act)
             self.total_reward+=self.move_reward
             self.render()
-            q = [self.getQ(pos, a) for a in self.actions]
-            maxQ = max(q)
-            #print(maxQ)
-            Q=Q+self.alpha*(self.move_reward+(self.gamma*maxQ)-Q)
-            self.putQ([self.prev_pos[0],self.prev_pos[1]],act,Q)
-            self.pos=pos
+            self.update_Q(self.prev_pos,self.pos,act,self.move_reward)
             self.cycle_num+=1
             if n>200:
                 self.exit=0
